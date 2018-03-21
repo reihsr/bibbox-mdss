@@ -1,0 +1,9 @@
+Bundle-Name: saat-api
+Bundle-SymbolicName: at.graz.meduni.bibbox.informationprocessing.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	at.graz.meduni.bibbox.informationprocessing.exception,\
+	at.graz.meduni.bibbox.informationprocessing.model,\
+	at.graz.meduni.bibbox.informationprocessing.service,\
+	at.graz.meduni.bibbox.informationprocessing.service.persistence
+-includeresource: META-INF/service.xml=../saat-service/service.xml

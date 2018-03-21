@@ -1,0 +1,9 @@
+Bundle-Name: medicaldataset-api
+Bundle-SymbolicName: at.graz.meduni.bibbox.medicaldataset.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	at.graz.meduni.bibbox.medicaldataset.exception,\
+	at.graz.meduni.bibbox.medicaldataset.model,\
+	at.graz.meduni.bibbox.medicaldataset.service,\
+	at.graz.meduni.bibbox.medicaldataset.service.persistence
+-includeresource: META-INF/service.xml=../medicaldataset-service/service.xml

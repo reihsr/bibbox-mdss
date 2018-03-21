@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="at.graz.meduni.bibbox.digitalpathology.model.wsi">
+		<field name="uuid" type="String" />
+		<field name="wsiId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="filename" type="String" />
+		<field name="hashmrxs" type="String" />
+		<field name="scanstart" type="Date" />
+		<field name="scanduration" type="long" />
+	</model>
+	<model name="at.graz.meduni.bibbox.digitalpathology.model.wsihash">
+		<field name="uuid" type="String" />
+		<field name="wsihashId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="wsiId" type="long" />
+		<field name="filename" type="String" />
+		<field name="hash" type="String" />
+	</model>
+</model-hints>

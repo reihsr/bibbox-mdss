@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch" />
+	<import class="at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord" />
+	<import class="at.graz.meduni.bibbox.medicaldataset.model.PathologieData" />
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.KloetzelBuchImpl" table="FOO_KloetzelBuch">
+		<id name="kloetzelBuchId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="statusByUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="statusByUserName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="statusDate" type="org.hibernate.type.TimestampType" />
+		<property name="medicalRecordId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="histonumberStart" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="histonumberEnd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="histonumberRunning" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="histonumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="kloetzelBuchRunning" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="oid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="bid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="area" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="type_" name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="acronym" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="text_" name="text" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="info" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="count" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="numberOfPieces" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="kbStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="sort" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="color" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="kbDate" type="org.hibernate.type.TimestampType" />
+		<property name="day" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pocessinguser" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="organizationUnit" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.MedicalRecordImpl" table="FOO_MedicalRecord">
+		<id name="medicalRecordId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="statusByUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="statusByUserName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="statusDate" type="org.hibernate.type.TimestampType" />
+		<property name="histonumberStart" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="histonumberEnd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="histonumberRunning" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="iNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vPatentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vHistonNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="area" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="imiJobId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="importFile" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.PathologieDataImpl" table="FOO_PathologieData">
+		<id name="pathologieDataId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="statusByUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="statusByUserName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="statusDate" type="org.hibernate.type.TimestampType" />
+		<property name="medicalRecordId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="receivedDate" type="org.hibernate.type.TimestampType" />
+		<property name="validationDate" type="org.hibernate.type.TimestampType" />
+		<property name="patientAge" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="sender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="extractionMethode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="reportingPhysician1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="reportingPhysician2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="gynPhysician" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validationPhysician1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="validationPhysician2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="reportStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="numberOfBlockes" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="numberOfSlides" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="basicDisease" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="causeOfDeath" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="material" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="materialExtended" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="macroscopicDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="microscopicDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="histologicDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="molecularPathologicDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="zytologieDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pathologicDiagnosis" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="frozenSectionDiagnosis" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="molecularPathologicDiagnosis" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="zytologieDiagnosis" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="neuroPathologicDiagnosis" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="comment_" name="comment" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="zytologiecomment" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="grad" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tnmp" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tnmt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tnmn" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tnmm" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tnmr" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tnml" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tnmv" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="tnmpn" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dgcode1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dgcode2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pap" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="smearQuality" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

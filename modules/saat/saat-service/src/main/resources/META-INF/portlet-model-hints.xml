@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="at.graz.meduni.bibbox.informationprocessing.model.Dictionary">
+		<field name="uuid" type="String" />
+		<field name="dictionaryId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="synonym" type="String" />
+		<field name="pattern" type="String" />
+		<field name="code" type="boolean" />
+		<field name="code_type" type="String" />
+		<field name="code_value" type="String" />
+		<field name="root" type="boolean" />
+		<field name="negation" type="boolean" />
+		<field name="priority" type="int" />
+		<field name="priority_mode" type="boolean" />
+		<field name="before_synonym" type="int" />
+		<field name="after_synonym" type="int" />
+		<field name="foreword" type="boolean" />
+		<field name="ending" type="boolean" />
+		<field name="sentence" type="boolean" />
+		<field name="occure" type="boolean" />
+	</model>
+	<model name="at.graz.meduni.bibbox.informationprocessing.model.DictionaryDictionaryLink">
+		<field name="uuid" type="String" />
+		<field name="dictionarydictionarylinkId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="dictionaryId" type="long" />
+		<field name="linkdictionaryId" type="long" />
+	</model>
+</model-hints>

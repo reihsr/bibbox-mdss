@@ -1,0 +1,9 @@
+Bundle-Name: digitalpathology-api
+Bundle-SymbolicName: at.graz.meduni.bibbox.digitalpathology.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	at.graz.meduni.bibbox.digitalpathology.exception,\
+	at.graz.meduni.bibbox.digitalpathology.model,\
+	at.graz.meduni.bibbox.digitalpathology.service,\
+	at.graz.meduni.bibbox.digitalpathology.service.persistence
+-includeresource: META-INF/service.xml=../digitalpathology-service/service.xml

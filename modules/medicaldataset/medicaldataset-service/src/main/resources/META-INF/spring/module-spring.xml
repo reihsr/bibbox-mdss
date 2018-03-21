@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.KloetzelBuchLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchLocalService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.KloetzelBuchServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.KloetzelBuchPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.KloetzelBuchPersistence" parent="basePersistence" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.MedicalRecordLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordLocalService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.MedicalRecordServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.MedicalRecordPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.MedicalRecordPersistence" parent="basePersistence" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.PathologieDataLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.PathologieDataLocalService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.PathologieDataServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.PathologieDataService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.PathologieDataPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.PathologieDataPersistence" parent="basePersistence" />
+</beans>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="at.graz.meduni.bibbox.digitalpathology.service.impl.wsiLocalServiceImpl" id="at.graz.meduni.bibbox.digitalpathology.service.wsiLocalService" />
+	<bean class="at.graz.meduni.bibbox.digitalpathology.service.impl.wsiServiceImpl" id="at.graz.meduni.bibbox.digitalpathology.service.wsiService" />
+	<bean class="at.graz.meduni.bibbox.digitalpathology.service.persistence.impl.wsiPersistenceImpl" id="at.graz.meduni.bibbox.digitalpathology.service.persistence.wsiPersistence" parent="basePersistence" />
+	<bean class="at.graz.meduni.bibbox.digitalpathology.service.impl.wsihashLocalServiceImpl" id="at.graz.meduni.bibbox.digitalpathology.service.wsihashLocalService" />
+	<bean class="at.graz.meduni.bibbox.digitalpathology.service.impl.wsihashServiceImpl" id="at.graz.meduni.bibbox.digitalpathology.service.wsihashService" />
+	<bean class="at.graz.meduni.bibbox.digitalpathology.service.persistence.impl.wsihashPersistenceImpl" id="at.graz.meduni.bibbox.digitalpathology.service.persistence.wsihashPersistence" parent="basePersistence" />
+</beans>

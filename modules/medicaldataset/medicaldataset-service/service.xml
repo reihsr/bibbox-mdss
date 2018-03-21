@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="at.graz.meduni.bibbox.medicaldataset">
+	<namespace>FOO</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="MedicalRecord" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="medicalRecordId" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" /> 
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Status fields -->
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+
+		<!-- ID fields -->
+		<column name="histonumberStart" type="long" />
+		<column name="histonumberEnd" type="long" />
+		<column name="histonumberRunning" type="int" />
+		<column name="iNumber" type="long" />
+		<column name="vPatentId" type="long" />
+		<column name="vHistonNumber" type="long" />
+		
+		<!-- Area Data fields -->
+		<column name="area" type="String" />
+		
+		<!-- Job fields -->
+		<column name="imiJobId" type="long" />
+		<column name="importFile" type="String" />
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="medicalRecordId" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="INumber" return-type="Collection">
+			<finder-column name="iNumber" />
+		</finder>
+
+		<!-- References -->
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+	<entity local-service="true" name="PathologieData" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="pathologieDataId" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" /> 
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Status fields -->
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+		
+		<!-- Linking fields -->
+		<column name="medicalRecordId" type="long" />
+
+		<!-- Date fields -->
+		<column name="receivedDate" type="Date" />
+		<column name="validationDate" type="Date" />
+		
+		<!-- Sample fields -->
+		<column name="patientAge" type="int" />
+		<column name="sender" type="String" />
+		<column name="extractionMethode" type="String" />
+		<column name="reportingPhysician1" type="String" />
+		<column name="reportingPhysician2" type="String" />
+		<column name="gynPhysician" type="String" />
+		<column name="validationPhysician1" type="String" />
+		<column name="validationPhysician2" type="String" />
+		<column name="reportStatus" type="String" />
+		<column name="numberOfBlockes" type="int" />
+		<column name="numberOfSlides" type="int" />
+		
+		<!-- Report fields -->
+		<column name="basicDisease" type="String" />
+		<column name="causeOfDeath" type="String" />
+		<column name="material" type="String" />
+		<column name="materialExtended" type="String" />
+		<column name="macroscopicDescription" type="String" />
+		<column name="microscopicDescription" type="String" />
+		<column name="histologicDescription" type="String" />
+		<column name="molecularPathologicDescription" type="String" />
+		<column name="zytologieDescription" type="String" />
+		<column name="pathologicDiagnosis" type="String" />
+		<column name="frozenSectionDiagnosis" type="String" />
+		<column name="molecularPathologicDiagnosis" type="String" />
+		<column name="zytologieDiagnosis" type="String" />
+		<column name="neuroPathologicDiagnosis" type="String" />
+		<column name="comment" type="String" />
+		<column name="zytologiecomment" type="String" />
+		
+		<!-- Structured fields -->
+		<column name="grad" type="String" />
+		<column name="tnmp" type="String" />
+		<column name="tnmt" type="String" />
+		<column name="tnmn" type="String" />
+		<column name="tnmm" type="String" />
+		<column name="tnmr" type="String" />
+		<column name="tnml" type="String" />
+		<column name="tnmv" type="String" />
+		<column name="tnmpn" type="String" />
+		<column name="dgcode1" type="String" />
+		<column name="dgcode2" type="String" />
+		<column name="pap" type="String" />
+		<column name="smearQuality" type="String" />
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="pathologieDataId" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="Material" return-type="Collection">
+			<finder-column name="material" />
+		</finder>
+		<finder name="MedicalRecord" return-type="Collection">
+			<finder-column name="medicalRecordId" />
+		</finder>
+
+		<!-- References -->
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+	<entity local-service="true" name="KloetzelBuch" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="kloetzelBuchId" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" /> 
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Status fields -->
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+
+		<!-- Linking fields -->
+		<column name="medicalRecordId" type="long" />
+		
+		<!-- ID fields -->
+		<column name="histonumberStart" type="long" />
+		<column name="histonumberEnd" type="long" />
+		<column name="histonumberRunning" type="int" />
+		<column name="histonumber" type="long" />
+		<column name="kloetzelBuchRunning" type="int" />
+		<column name="oid" type="String" />
+		<column name="bid" type="String" />
+		
+		<!-- Data fields -->
+		<column name="area" type="String" />
+		<column name="type" type="String" />
+		<column name="acronym" type="String" />
+		<column name="text" type="String" />
+		<column name="info" type="String" />
+		<column name="count" type="int" />
+		<column name="numberOfPieces" type="int" />
+		<column name="kbStatus" type="int" />
+		<column name="sort" type="int" />
+		<column name="color" type="String" />
+		<column name="kbDate" type="Date" />
+		<column name="day" type="String" />
+		<column name="pocessinguser" type="String" />
+		<column name="organizationUnit" type="String" />
+		
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="kloetzelBuchId" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="MedicalRecord" return-type="Collection">
+			<finder-column name="medicalRecordId" />
+		</finder>
+
+		<!-- References -->
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+	<exceptions>
+		<exception>KloetzelBuch</exception>
+		<exception>PathologieData</exception>
+		<exception>MedicalRecord</exception>
+	</exceptions>
+</service-builder>

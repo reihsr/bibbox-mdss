@@ -1,0 +1,4 @@
+Bundle-Name: saat-web
+Bundle-SymbolicName: at.graz.meduni.bibbox.informationprocessing.portlet
+Bundle-Version: 1.0.0
+Export-Package: at.graz.meduni.bibbox.informationprocessing.portlet.constants

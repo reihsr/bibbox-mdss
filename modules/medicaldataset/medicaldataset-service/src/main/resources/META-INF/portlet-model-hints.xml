@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch">
+		<field name="uuid" type="String" />
+		<field name="kloetzelBuchId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="medicalRecordId" type="long" />
+		<field name="histonumberStart" type="long" />
+		<field name="histonumberEnd" type="long" />
+		<field name="histonumberRunning" type="int" />
+		<field name="histonumber" type="long" />
+		<field name="kloetzelBuchRunning" type="int" />
+		<field name="oid" type="String" />
+		<field name="bid" type="String" />
+		<field name="area" type="String" />
+		<field name="type" type="String" />
+		<field name="acronym" type="String" />
+		<field name="text" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="info" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="count" type="int" />
+		<field name="numberOfPieces" type="int" />
+		<field name="kbStatus" type="int" />
+		<field name="sort" type="int" />
+		<field name="color" type="String" />
+		<field name="kbDate" type="Date" />
+		<field name="day" type="String" />
+		<field name="pocessinguser" type="String" />
+		<field name="organizationUnit" type="String" />
+	</model>
+	<model name="at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord">
+		<field name="uuid" type="String" />
+		<field name="medicalRecordId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="histonumberStart" type="long" />
+		<field name="histonumberEnd" type="long" />
+		<field name="histonumberRunning" type="int" />
+		<field name="iNumber" type="long" />
+		<field name="vPatentId" type="long" />
+		<field name="vHistonNumber" type="long" />
+		<field name="area" type="String" />
+		<field name="imiJobId" type="long" />
+		<field name="importFile" type="String" />
+	</model>
+	<model name="at.graz.meduni.bibbox.medicaldataset.model.PathologieData">
+		<field name="uuid" type="String" />
+		<field name="pathologieDataId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="medicalRecordId" type="long" />
+		<field name="receivedDate" type="Date" />
+		<field name="validationDate" type="Date" />
+		<field name="patientAge" type="int" />
+		<field name="sender" type="String" />
+		<field name="extractionMethode" type="String" />
+		<field name="reportingPhysician1" type="String" />
+		<field name="reportingPhysician2" type="String" />
+		<field name="gynPhysician" type="String" />
+		<field name="validationPhysician1" type="String" />
+		<field name="validationPhysician2" type="String" />
+		<field name="reportStatus" type="String" />
+		<field name="numberOfBlockes" type="int" />
+		<field name="numberOfSlides" type="int" />
+		<field name="basicDisease" type="String" />
+		<field name="causeOfDeath" type="String" />
+		<field name="material" type="String" />
+		<field name="materialExtended" type="String" />
+		<field name="macroscopicDescription" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="microscopicDescription" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="histologicDescription" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="molecularPathologicDescription" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="zytologieDescription" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="pathologicDiagnosis" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="frozenSectionDiagnosis" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="molecularPathologicDiagnosis" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="zytologieDiagnosis" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="neuroPathologicDiagnosis" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="comment" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="zytologiecomment" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="grad" type="String" />
+		<field name="tnmp" type="String" />
+		<field name="tnmt" type="String" />
+		<field name="tnmn" type="String" />
+		<field name="tnmm" type="String" />
+		<field name="tnmr" type="String" />
+		<field name="tnml" type="String" />
+		<field name="tnmv" type="String" />
+		<field name="tnmpn" type="String" />
+		<field name="dgcode1" type="String" />
+		<field name="dgcode2" type="String" />
+		<field name="pap" type="String" />
+		<field name="smearQuality" type="String" />
+	</model>
+</model-hints>

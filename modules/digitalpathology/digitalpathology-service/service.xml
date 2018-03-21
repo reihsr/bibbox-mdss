@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="at.graz.meduni.bibbox.digitalpathology">
+	<author>robert</author>
+    <namespace>DP</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity name="wsi" local-service="true" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="wsiId" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Status fields -->
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+		
+		<!-- Data fields -->
+		<column name="filename" type="String" />
+		<column name="hashmrxs" type="String" />
+		<column name="scanstart" type="Date" />
+		<column name="scanduration" type="long" />
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="scanstart" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="Filename" return-type="Collection">
+			<finder-column name="filename" />
+		</finder>
+
+		<!-- References -->
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+	<entity name="wsihash" local-service="true" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="wsihashId" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Status fields -->
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+		
+		<!-- Data fields -->
+		<column name="wsiId" type="long" />
+		<column name="filename" type="String" />
+		<column name="hash" type="String" />
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="wsiId" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="Wsi" return-type="Collection">
+			<finder-column name="wsiId" />
+		</finder>
+
+		<!-- References -->
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+</service-builder>
