@@ -53,6 +53,25 @@ public class KloetzelBuchLocalServiceUtil {
 		return getService().addKloetzelBuch(kloetzelBuch);
 	}
 
+	public static at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch addKloetzelBuch(
+		long medicalRecordId, long histonumberStart, long histonumberEnd,
+		int histonumberRunning, long histonumber, int kloetzelBuchRunning,
+		java.lang.String oid, java.lang.String bid, java.lang.String area,
+		java.lang.String type, java.lang.String acronym, java.lang.String text,
+		java.lang.String info, int count, int numberOfPieces, int kbStatus,
+		int sort, java.lang.String color, java.util.Date kbDate,
+		java.lang.String day, java.lang.String pocessinguser,
+		java.lang.String organizationUnit,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService()
+				   .addKloetzelBuch(medicalRecordId, histonumberStart,
+			histonumberEnd, histonumberRunning, histonumber,
+			kloetzelBuchRunning, oid, bid, area, type, acronym, text, info,
+			count, numberOfPieces, kbStatus, sort, color, kbDate, day,
+			pocessinguser, organizationUnit, serviceContext);
+	}
+
 	/**
 	* Creates a new kloetzel buch with the primary key. Does not add the kloetzel buch to the database.
 	*
@@ -132,6 +151,12 @@ public class KloetzelBuchLocalServiceUtil {
 		return getService().getKloetzelBuchByUuidAndGroupId(uuid, groupId);
 	}
 
+	public static at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch getKloetzelBuchForMedicalRecord(
+		long medicalRecordId)
+		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchKloetzelBuchException {
+		return getService().getKloetzelBuchForMedicalRecord(medicalRecordId);
+	}
+
 	/**
 	* Updates the kloetzel buch in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -141,6 +166,32 @@ public class KloetzelBuchLocalServiceUtil {
 	public static at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch updateKloetzelBuch(
 		at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch kloetzelBuch) {
 		return getService().updateKloetzelBuch(kloetzelBuch);
+	}
+
+	public static at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch updateloetzelBuch(
+		at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch kloetzelBuch,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService().updateloetzelBuch(kloetzelBuch, serviceContext);
+	}
+
+	public static at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch updateloetzelBuch(
+		long kloetzelBuchId, long medicalRecordId, long histonumberStart,
+		long histonumberEnd, int histonumberRunning, long histonumber,
+		int kloetzelBuchRunning, java.lang.String oid, java.lang.String bid,
+		java.lang.String area, java.lang.String type, java.lang.String acronym,
+		java.lang.String text, java.lang.String info, int count,
+		int numberOfPieces, int kbStatus, int sort, java.lang.String color,
+		java.util.Date kbDate, java.lang.String day,
+		java.lang.String pocessinguser, java.lang.String organizationUnit,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService()
+				   .updateloetzelBuch(kloetzelBuchId, medicalRecordId,
+			histonumberStart, histonumberEnd, histonumberRunning, histonumber,
+			kloetzelBuchRunning, oid, bid, area, type, acronym, text, info,
+			count, numberOfPieces, kbStatus, sort, color, kbDate, day,
+			pocessinguser, organizationUnit, serviceContext);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
@@ -173,6 +224,10 @@ public class KloetzelBuchLocalServiceUtil {
 		java.io.Serializable primaryKeyObj)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getPersistedModel(primaryKeyObj);
+	}
+
+	public static int getKloetzelBuchCount(long groupId) {
+		return getService().getKloetzelBuchCount(groupId);
 	}
 
 	/**
@@ -257,6 +312,22 @@ public class KloetzelBuchLocalServiceUtil {
 	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> getKloetzelBuchs(
 		int start, int end) {
 		return getService().getKloetzelBuchs(start, end);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> getKloetzelBuchs(
+		long groupId) {
+		return getService().getKloetzelBuchs(groupId);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> getKloetzelBuchs(
+		long groupId, int start, int end) {
+		return getService().getKloetzelBuchs(groupId, start, end);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> getKloetzelBuchs(
+		long groupId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> ob) {
+		return getService().getKloetzelBuchs(groupId, start, end, ob);
 	}
 
 	/**

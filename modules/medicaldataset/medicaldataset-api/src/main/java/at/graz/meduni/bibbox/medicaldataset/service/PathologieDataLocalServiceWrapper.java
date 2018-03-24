@@ -46,6 +46,51 @@ public class PathologieDataLocalServiceWrapper
 		return _pathologieDataLocalService.addPathologieData(pathologieData);
 	}
 
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.PathologieData addPathologieData(
+		long medicalRecordId, java.util.Date receivedDate,
+		java.util.Date validationDate, int patientAge, java.lang.String sender,
+		java.lang.String extractionMethode,
+		java.lang.String reportingPhysician1,
+		java.lang.String reportingPhysician2, java.lang.String gynPhysician,
+		java.lang.String validationPhysician1,
+		java.lang.String validationPhysician2, java.lang.String reportStatus,
+		int numberOfBlockes, int numberOfSlides, java.lang.String basicDisease,
+		java.lang.String causeOfDeath, java.lang.String material,
+		java.lang.String materialExtended,
+		java.lang.String macroscopicDescription,
+		java.lang.String microscopicDescription,
+		java.lang.String histologicDescription,
+		java.lang.String molecularPathologicDescription,
+		java.lang.String zytologieDescription,
+		java.lang.String pathologicDiagnosis,
+		java.lang.String frozenSectionDiagnosis,
+		java.lang.String molecularPathologicDiagnosis,
+		java.lang.String zytologieDiagnosis,
+		java.lang.String neuroPathologicDiagnosis, java.lang.String comment,
+		java.lang.String zytologiecomment, java.lang.String grad,
+		java.lang.String tnmp, java.lang.String tnmt, java.lang.String tnmn,
+		java.lang.String tnmm, java.lang.String tnmr, java.lang.String tnml,
+		java.lang.String tnmv, java.lang.String tnmpn,
+		java.lang.String dgcode1, java.lang.String dgcode2,
+		java.lang.String pap, java.lang.String smearQuality,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _pathologieDataLocalService.addPathologieData(medicalRecordId,
+			receivedDate, validationDate, patientAge, sender,
+			extractionMethode, reportingPhysician1, reportingPhysician2,
+			gynPhysician, validationPhysician1, validationPhysician2,
+			reportStatus, numberOfBlockes, numberOfSlides, basicDisease,
+			causeOfDeath, material, materialExtended, macroscopicDescription,
+			microscopicDescription, histologicDescription,
+			molecularPathologicDescription, zytologieDescription,
+			pathologicDiagnosis, frozenSectionDiagnosis,
+			molecularPathologicDiagnosis, zytologieDiagnosis,
+			neuroPathologicDiagnosis, comment, zytologiecomment, grad, tnmp,
+			tnmt, tnmn, tnmm, tnmr, tnml, tnmv, tnmpn, dgcode1, dgcode2, pap,
+			smearQuality, serviceContext);
+	}
+
 	/**
 	* Creates a new pathologie data with the primary key. Does not add the pathologie data to the database.
 	*
@@ -134,6 +179,13 @@ public class PathologieDataLocalServiceWrapper
 			groupId);
 	}
 
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.PathologieData getPathologieDataForMedicalRecord(
+		long medicalRecordId)
+		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchPathologieDataException {
+		return _pathologieDataLocalService.getPathologieDataForMedicalRecord(medicalRecordId);
+	}
+
 	/**
 	* Updates the pathologie data in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -144,6 +196,61 @@ public class PathologieDataLocalServiceWrapper
 	public at.graz.meduni.bibbox.medicaldataset.model.PathologieData updatePathologieData(
 		at.graz.meduni.bibbox.medicaldataset.model.PathologieData pathologieData) {
 		return _pathologieDataLocalService.updatePathologieData(pathologieData);
+	}
+
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.PathologieData updatePathologieData(
+		at.graz.meduni.bibbox.medicaldataset.model.PathologieData pathologieData,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _pathologieDataLocalService.updatePathologieData(pathologieData,
+			serviceContext);
+	}
+
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.PathologieData updatePathologieData(
+		long pathologieDataId, long medicalRecordId,
+		java.util.Date receivedDate, java.util.Date validationDate,
+		int patientAge, java.lang.String sender,
+		java.lang.String extractionMethode,
+		java.lang.String reportingPhysician1,
+		java.lang.String reportingPhysician2, java.lang.String gynPhysician,
+		java.lang.String validationPhysician1,
+		java.lang.String validationPhysician2, java.lang.String reportStatus,
+		int numberOfBlockes, int numberOfSlides, java.lang.String basicDisease,
+		java.lang.String causeOfDeath, java.lang.String material,
+		java.lang.String materialExtended,
+		java.lang.String macroscopicDescription,
+		java.lang.String microscopicDescription,
+		java.lang.String histologicDescription,
+		java.lang.String molecularPathologicDescription,
+		java.lang.String zytologieDescription,
+		java.lang.String pathologicDiagnosis,
+		java.lang.String frozenSectionDiagnosis,
+		java.lang.String molecularPathologicDiagnosis,
+		java.lang.String zytologieDiagnosis,
+		java.lang.String neuroPathologicDiagnosis, java.lang.String comment,
+		java.lang.String zytologiecomment, java.lang.String grad,
+		java.lang.String tnmp, java.lang.String tnmt, java.lang.String tnmn,
+		java.lang.String tnmm, java.lang.String tnmr, java.lang.String tnml,
+		java.lang.String tnmv, java.lang.String tnmpn,
+		java.lang.String dgcode1, java.lang.String dgcode2,
+		java.lang.String pap, java.lang.String smearQuality,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _pathologieDataLocalService.updatePathologieData(pathologieDataId,
+			medicalRecordId, receivedDate, validationDate, patientAge, sender,
+			extractionMethode, reportingPhysician1, reportingPhysician2,
+			gynPhysician, validationPhysician1, validationPhysician2,
+			reportStatus, numberOfBlockes, numberOfSlides, basicDisease,
+			causeOfDeath, material, materialExtended, macroscopicDescription,
+			microscopicDescription, histologicDescription,
+			molecularPathologicDescription, zytologieDescription,
+			pathologicDiagnosis, frozenSectionDiagnosis,
+			molecularPathologicDiagnosis, zytologieDiagnosis,
+			neuroPathologicDiagnosis, comment, zytologiecomment, grad, tnmp,
+			tnmt, tnmn, tnmm, tnmr, tnml, tnmv, tnmpn, dgcode1, dgcode2, pap,
+			smearQuality, serviceContext);
 	}
 
 	@Override
@@ -182,6 +289,11 @@ public class PathologieDataLocalServiceWrapper
 		java.io.Serializable primaryKeyObj)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _pathologieDataLocalService.getPersistedModel(primaryKeyObj);
+	}
+
+	@Override
+	public int getPathologieDataCount(long groupId) {
+		return _pathologieDataLocalService.getPathologieDataCount(groupId);
 	}
 
 	/**
@@ -272,6 +384,27 @@ public class PathologieDataLocalServiceWrapper
 	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.PathologieData> getPathologieDatas(
 		int start, int end) {
 		return _pathologieDataLocalService.getPathologieDatas(start, end);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.PathologieData> getPathologieDatas(
+		long groupId) {
+		return _pathologieDataLocalService.getPathologieDatas(groupId);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.PathologieData> getPathologieDatas(
+		long groupId, int start, int end) {
+		return _pathologieDataLocalService.getPathologieDatas(groupId, start,
+			end);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.PathologieData> getPathologieDatas(
+		long groupId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<at.graz.meduni.bibbox.medicaldataset.model.PathologieData> ob) {
+		return _pathologieDataLocalService.getPathologieDatas(groupId, start,
+			end, ob);
 	}
 
 	/**

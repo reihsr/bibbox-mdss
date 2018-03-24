@@ -45,6 +45,25 @@ public class KloetzelBuchLocalServiceWrapper implements KloetzelBuchLocalService
 		return _kloetzelBuchLocalService.addKloetzelBuch(kloetzelBuch);
 	}
 
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch addKloetzelBuch(
+		long medicalRecordId, long histonumberStart, long histonumberEnd,
+		int histonumberRunning, long histonumber, int kloetzelBuchRunning,
+		java.lang.String oid, java.lang.String bid, java.lang.String area,
+		java.lang.String type, java.lang.String acronym, java.lang.String text,
+		java.lang.String info, int count, int numberOfPieces, int kbStatus,
+		int sort, java.lang.String color, java.util.Date kbDate,
+		java.lang.String day, java.lang.String pocessinguser,
+		java.lang.String organizationUnit,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _kloetzelBuchLocalService.addKloetzelBuch(medicalRecordId,
+			histonumberStart, histonumberEnd, histonumberRunning, histonumber,
+			kloetzelBuchRunning, oid, bid, area, type, acronym, text, info,
+			count, numberOfPieces, kbStatus, sort, color, kbDate, day,
+			pocessinguser, organizationUnit, serviceContext);
+	}
+
 	/**
 	* Creates a new kloetzel buch with the primary key. Does not add the kloetzel buch to the database.
 	*
@@ -133,6 +152,13 @@ public class KloetzelBuchLocalServiceWrapper implements KloetzelBuchLocalService
 			groupId);
 	}
 
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch getKloetzelBuchForMedicalRecord(
+		long medicalRecordId)
+		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchKloetzelBuchException {
+		return _kloetzelBuchLocalService.getKloetzelBuchForMedicalRecord(medicalRecordId);
+	}
+
 	/**
 	* Updates the kloetzel buch in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -143,6 +169,35 @@ public class KloetzelBuchLocalServiceWrapper implements KloetzelBuchLocalService
 	public at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch updateKloetzelBuch(
 		at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch kloetzelBuch) {
 		return _kloetzelBuchLocalService.updateKloetzelBuch(kloetzelBuch);
+	}
+
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch updateloetzelBuch(
+		at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch kloetzelBuch,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _kloetzelBuchLocalService.updateloetzelBuch(kloetzelBuch,
+			serviceContext);
+	}
+
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch updateloetzelBuch(
+		long kloetzelBuchId, long medicalRecordId, long histonumberStart,
+		long histonumberEnd, int histonumberRunning, long histonumber,
+		int kloetzelBuchRunning, java.lang.String oid, java.lang.String bid,
+		java.lang.String area, java.lang.String type, java.lang.String acronym,
+		java.lang.String text, java.lang.String info, int count,
+		int numberOfPieces, int kbStatus, int sort, java.lang.String color,
+		java.util.Date kbDate, java.lang.String day,
+		java.lang.String pocessinguser, java.lang.String organizationUnit,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _kloetzelBuchLocalService.updateloetzelBuch(kloetzelBuchId,
+			medicalRecordId, histonumberStart, histonumberEnd,
+			histonumberRunning, histonumber, kloetzelBuchRunning, oid, bid,
+			area, type, acronym, text, info, count, numberOfPieces, kbStatus,
+			sort, color, kbDate, day, pocessinguser, organizationUnit,
+			serviceContext);
 	}
 
 	@Override
@@ -181,6 +236,11 @@ public class KloetzelBuchLocalServiceWrapper implements KloetzelBuchLocalService
 		java.io.Serializable primaryKeyObj)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _kloetzelBuchLocalService.getPersistedModel(primaryKeyObj);
+	}
+
+	@Override
+	public int getKloetzelBuchCount(long groupId) {
+		return _kloetzelBuchLocalService.getKloetzelBuchCount(groupId);
 	}
 
 	/**
@@ -271,6 +331,26 @@ public class KloetzelBuchLocalServiceWrapper implements KloetzelBuchLocalService
 	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> getKloetzelBuchs(
 		int start, int end) {
 		return _kloetzelBuchLocalService.getKloetzelBuchs(start, end);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> getKloetzelBuchs(
+		long groupId) {
+		return _kloetzelBuchLocalService.getKloetzelBuchs(groupId);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> getKloetzelBuchs(
+		long groupId, int start, int end) {
+		return _kloetzelBuchLocalService.getKloetzelBuchs(groupId, start, end);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> getKloetzelBuchs(
+		long groupId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch> ob) {
+		return _kloetzelBuchLocalService.getKloetzelBuchs(groupId, start, end,
+			ob);
 	}
 
 	/**

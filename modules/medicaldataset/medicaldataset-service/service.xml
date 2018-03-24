@@ -138,10 +138,13 @@
 		</order>
 
 		<!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
 		<finder name="Material" return-type="Collection">
 			<finder-column name="material" />
 		</finder>
-		<finder name="MedicalRecord" return-type="Collection">
+		<finder name="MedicalRecord" return-type="PathologieData">
 			<finder-column name="medicalRecordId" />
 		</finder>
 
@@ -206,7 +209,10 @@
 		</order>
 
 		<!-- Finder methods -->
-		<finder name="MedicalRecord" return-type="Collection">
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="MedicalRecord" return-type="KloetzelBuch">
 			<finder-column name="medicalRecordId" />
 		</finder>
 

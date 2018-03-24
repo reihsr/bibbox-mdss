@@ -3,3 +3,4 @@ Bundle-SymbolicName: at.graz.meduni.bibbox.medicaldataset.service
 Bundle-Version: 1.0.0
 Liferay-Require-SchemaVersion: 1.0.0
 Liferay-Service: true
+Export-Package: at.graz.meduni.bibbox.medicaldataset.service.permission

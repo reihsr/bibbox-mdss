@@ -503,156 +503,206 @@ public class KloetzelBuchUtil {
 	}
 
 	/**
-	* Returns all the kloetzel buchs where medicalRecordId = &#63;.
+	* Returns all the kloetzel buchs where groupId = &#63;.
 	*
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @return the matching kloetzel buchs
 	*/
-	public static List<KloetzelBuch> findByMedicalRecord(long medicalRecordId) {
-		return getPersistence().findByMedicalRecord(medicalRecordId);
+	public static List<KloetzelBuch> findByGroupId(long groupId) {
+		return getPersistence().findByGroupId(groupId);
 	}
 
 	/**
-	* Returns a range of all the kloetzel buchs where medicalRecordId = &#63;.
+	* Returns a range of all the kloetzel buchs where groupId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KloetzelBuchModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @param start the lower bound of the range of kloetzel buchs
 	* @param end the upper bound of the range of kloetzel buchs (not inclusive)
 	* @return the range of matching kloetzel buchs
 	*/
-	public static List<KloetzelBuch> findByMedicalRecord(long medicalRecordId,
-		int start, int end) {
-		return getPersistence().findByMedicalRecord(medicalRecordId, start, end);
+	public static List<KloetzelBuch> findByGroupId(long groupId, int start,
+		int end) {
+		return getPersistence().findByGroupId(groupId, start, end);
 	}
 
 	/**
-	* Returns an ordered range of all the kloetzel buchs where medicalRecordId = &#63;.
+	* Returns an ordered range of all the kloetzel buchs where groupId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KloetzelBuchModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @param start the lower bound of the range of kloetzel buchs
 	* @param end the upper bound of the range of kloetzel buchs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching kloetzel buchs
 	*/
-	public static List<KloetzelBuch> findByMedicalRecord(long medicalRecordId,
-		int start, int end, OrderByComparator<KloetzelBuch> orderByComparator) {
+	public static List<KloetzelBuch> findByGroupId(long groupId, int start,
+		int end, OrderByComparator<KloetzelBuch> orderByComparator) {
 		return getPersistence()
-				   .findByMedicalRecord(medicalRecordId, start, end,
-			orderByComparator);
+				   .findByGroupId(groupId, start, end, orderByComparator);
 	}
 
 	/**
-	* Returns an ordered range of all the kloetzel buchs where medicalRecordId = &#63;.
+	* Returns an ordered range of all the kloetzel buchs where groupId = &#63;.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KloetzelBuchModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @param start the lower bound of the range of kloetzel buchs
 	* @param end the upper bound of the range of kloetzel buchs (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the ordered range of matching kloetzel buchs
 	*/
-	public static List<KloetzelBuch> findByMedicalRecord(long medicalRecordId,
-		int start, int end, OrderByComparator<KloetzelBuch> orderByComparator,
+	public static List<KloetzelBuch> findByGroupId(long groupId, int start,
+		int end, OrderByComparator<KloetzelBuch> orderByComparator,
 		boolean retrieveFromCache) {
 		return getPersistence()
-				   .findByMedicalRecord(medicalRecordId, start, end,
-			orderByComparator, retrieveFromCache);
+				   .findByGroupId(groupId, start, end, orderByComparator,
+			retrieveFromCache);
 	}
 
 	/**
-	* Returns the first kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	* Returns the first kloetzel buch in the ordered set where groupId = &#63;.
 	*
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching kloetzel buch
 	* @throws NoSuchKloetzelBuchException if a matching kloetzel buch could not be found
 	*/
-	public static KloetzelBuch findByMedicalRecord_First(long medicalRecordId,
+	public static KloetzelBuch findByGroupId_First(long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator)
 		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchKloetzelBuchException {
-		return getPersistence()
-				   .findByMedicalRecord_First(medicalRecordId, orderByComparator);
+		return getPersistence().findByGroupId_First(groupId, orderByComparator);
 	}
 
 	/**
-	* Returns the first kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	* Returns the first kloetzel buch in the ordered set where groupId = &#63;.
 	*
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching kloetzel buch, or <code>null</code> if a matching kloetzel buch could not be found
 	*/
-	public static KloetzelBuch fetchByMedicalRecord_First(
-		long medicalRecordId, OrderByComparator<KloetzelBuch> orderByComparator) {
-		return getPersistence()
-				   .fetchByMedicalRecord_First(medicalRecordId,
-			orderByComparator);
+	public static KloetzelBuch fetchByGroupId_First(long groupId,
+		OrderByComparator<KloetzelBuch> orderByComparator) {
+		return getPersistence().fetchByGroupId_First(groupId, orderByComparator);
 	}
 
 	/**
-	* Returns the last kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	* Returns the last kloetzel buch in the ordered set where groupId = &#63;.
 	*
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching kloetzel buch
 	* @throws NoSuchKloetzelBuchException if a matching kloetzel buch could not be found
 	*/
-	public static KloetzelBuch findByMedicalRecord_Last(long medicalRecordId,
+	public static KloetzelBuch findByGroupId_Last(long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator)
 		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchKloetzelBuchException {
-		return getPersistence()
-				   .findByMedicalRecord_Last(medicalRecordId, orderByComparator);
+		return getPersistence().findByGroupId_Last(groupId, orderByComparator);
 	}
 
 	/**
-	* Returns the last kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	* Returns the last kloetzel buch in the ordered set where groupId = &#63;.
 	*
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching kloetzel buch, or <code>null</code> if a matching kloetzel buch could not be found
 	*/
-	public static KloetzelBuch fetchByMedicalRecord_Last(long medicalRecordId,
+	public static KloetzelBuch fetchByGroupId_Last(long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator) {
-		return getPersistence()
-				   .fetchByMedicalRecord_Last(medicalRecordId, orderByComparator);
+		return getPersistence().fetchByGroupId_Last(groupId, orderByComparator);
 	}
 
 	/**
-	* Returns the kloetzel buchs before and after the current kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	* Returns the kloetzel buchs before and after the current kloetzel buch in the ordered set where groupId = &#63;.
 	*
 	* @param kloetzelBuchId the primary key of the current kloetzel buch
-	* @param medicalRecordId the medical record ID
+	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next kloetzel buch
 	* @throws NoSuchKloetzelBuchException if a kloetzel buch with the primary key could not be found
 	*/
-	public static KloetzelBuch[] findByMedicalRecord_PrevAndNext(
-		long kloetzelBuchId, long medicalRecordId,
+	public static KloetzelBuch[] findByGroupId_PrevAndNext(
+		long kloetzelBuchId, long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator)
 		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchKloetzelBuchException {
 		return getPersistence()
-				   .findByMedicalRecord_PrevAndNext(kloetzelBuchId,
-			medicalRecordId, orderByComparator);
+				   .findByGroupId_PrevAndNext(kloetzelBuchId, groupId,
+			orderByComparator);
 	}
 
 	/**
-	* Removes all the kloetzel buchs where medicalRecordId = &#63; from the database.
+	* Removes all the kloetzel buchs where groupId = &#63; from the database.
+	*
+	* @param groupId the group ID
+	*/
+	public static void removeByGroupId(long groupId) {
+		getPersistence().removeByGroupId(groupId);
+	}
+
+	/**
+	* Returns the number of kloetzel buchs where groupId = &#63;.
+	*
+	* @param groupId the group ID
+	* @return the number of matching kloetzel buchs
+	*/
+	public static int countByGroupId(long groupId) {
+		return getPersistence().countByGroupId(groupId);
+	}
+
+	/**
+	* Returns the kloetzel buch where medicalRecordId = &#63; or throws a {@link NoSuchKloetzelBuchException} if it could not be found.
 	*
 	* @param medicalRecordId the medical record ID
+	* @return the matching kloetzel buch
+	* @throws NoSuchKloetzelBuchException if a matching kloetzel buch could not be found
 	*/
-	public static void removeByMedicalRecord(long medicalRecordId) {
-		getPersistence().removeByMedicalRecord(medicalRecordId);
+	public static KloetzelBuch findByMedicalRecord(long medicalRecordId)
+		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchKloetzelBuchException {
+		return getPersistence().findByMedicalRecord(medicalRecordId);
+	}
+
+	/**
+	* Returns the kloetzel buch where medicalRecordId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	*
+	* @param medicalRecordId the medical record ID
+	* @return the matching kloetzel buch, or <code>null</code> if a matching kloetzel buch could not be found
+	*/
+	public static KloetzelBuch fetchByMedicalRecord(long medicalRecordId) {
+		return getPersistence().fetchByMedicalRecord(medicalRecordId);
+	}
+
+	/**
+	* Returns the kloetzel buch where medicalRecordId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	*
+	* @param medicalRecordId the medical record ID
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the matching kloetzel buch, or <code>null</code> if a matching kloetzel buch could not be found
+	*/
+	public static KloetzelBuch fetchByMedicalRecord(long medicalRecordId,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .fetchByMedicalRecord(medicalRecordId, retrieveFromCache);
+	}
+
+	/**
+	* Removes the kloetzel buch where medicalRecordId = &#63; from the database.
+	*
+	* @param medicalRecordId the medical record ID
+	* @return the kloetzel buch that was removed
+	*/
+	public static KloetzelBuch removeByMedicalRecord(long medicalRecordId)
+		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchKloetzelBuchException {
+		return getPersistence().removeByMedicalRecord(medicalRecordId);
 	}
 
 	/**

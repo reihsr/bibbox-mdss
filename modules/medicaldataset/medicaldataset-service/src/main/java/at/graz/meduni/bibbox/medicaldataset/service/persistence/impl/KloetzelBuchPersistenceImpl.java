@@ -41,6 +41,7 @@ import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
@@ -1476,85 +1477,81 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	private static final String _FINDER_COLUMN_UUID_C_UUID_2 = "kloetzelBuch.uuid = ? AND ";
 	private static final String _FINDER_COLUMN_UUID_C_UUID_3 = "(kloetzelBuch.uuid IS NULL OR kloetzelBuch.uuid = '') AND ";
 	private static final String _FINDER_COLUMN_UUID_C_COMPANYID_2 = "kloetzelBuch.companyId = ?";
-	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_MEDICALRECORD =
-		new FinderPath(KloetzelBuchModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_GROUPID = new FinderPath(KloetzelBuchModelImpl.ENTITY_CACHE_ENABLED,
 			KloetzelBuchModelImpl.FINDER_CACHE_ENABLED, KloetzelBuchImpl.class,
-			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByMedicalRecord",
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByGroupId",
 			new String[] {
 				Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			});
-	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD =
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID =
 		new FinderPath(KloetzelBuchModelImpl.ENTITY_CACHE_ENABLED,
 			KloetzelBuchModelImpl.FINDER_CACHE_ENABLED, KloetzelBuchImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByMedicalRecord",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByGroupId",
 			new String[] { Long.class.getName() },
-			KloetzelBuchModelImpl.MEDICALRECORDID_COLUMN_BITMASK);
-	public static final FinderPath FINDER_PATH_COUNT_BY_MEDICALRECORD = new FinderPath(KloetzelBuchModelImpl.ENTITY_CACHE_ENABLED,
+			KloetzelBuchModelImpl.GROUPID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_GROUPID = new FinderPath(KloetzelBuchModelImpl.ENTITY_CACHE_ENABLED,
 			KloetzelBuchModelImpl.FINDER_CACHE_ENABLED, Long.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByMedicalRecord",
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByGroupId",
 			new String[] { Long.class.getName() });
 
 	/**
-	 * Returns all the kloetzel buchs where medicalRecordId = &#63;.
+	 * Returns all the kloetzel buchs where groupId = &#63;.
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @return the matching kloetzel buchs
 	 */
 	@Override
-	public List<KloetzelBuch> findByMedicalRecord(long medicalRecordId) {
-		return findByMedicalRecord(medicalRecordId, QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, null);
+	public List<KloetzelBuch> findByGroupId(long groupId) {
+		return findByGroupId(groupId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
 
 	/**
-	 * Returns a range of all the kloetzel buchs where medicalRecordId = &#63;.
+	 * Returns a range of all the kloetzel buchs where groupId = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KloetzelBuchModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @param start the lower bound of the range of kloetzel buchs
 	 * @param end the upper bound of the range of kloetzel buchs (not inclusive)
 	 * @return the range of matching kloetzel buchs
 	 */
 	@Override
-	public List<KloetzelBuch> findByMedicalRecord(long medicalRecordId,
-		int start, int end) {
-		return findByMedicalRecord(medicalRecordId, start, end, null);
+	public List<KloetzelBuch> findByGroupId(long groupId, int start, int end) {
+		return findByGroupId(groupId, start, end, null);
 	}
 
 	/**
-	 * Returns an ordered range of all the kloetzel buchs where medicalRecordId = &#63;.
+	 * Returns an ordered range of all the kloetzel buchs where groupId = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KloetzelBuchModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @param start the lower bound of the range of kloetzel buchs
 	 * @param end the upper bound of the range of kloetzel buchs (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @return the ordered range of matching kloetzel buchs
 	 */
 	@Override
-	public List<KloetzelBuch> findByMedicalRecord(long medicalRecordId,
-		int start, int end, OrderByComparator<KloetzelBuch> orderByComparator) {
-		return findByMedicalRecord(medicalRecordId, start, end,
-			orderByComparator, true);
+	public List<KloetzelBuch> findByGroupId(long groupId, int start, int end,
+		OrderByComparator<KloetzelBuch> orderByComparator) {
+		return findByGroupId(groupId, start, end, orderByComparator, true);
 	}
 
 	/**
-	 * Returns an ordered range of all the kloetzel buchs where medicalRecordId = &#63;.
+	 * Returns an ordered range of all the kloetzel buchs where groupId = &#63;.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KloetzelBuchModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @param start the lower bound of the range of kloetzel buchs
 	 * @param end the upper bound of the range of kloetzel buchs (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -1562,8 +1559,8 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	 * @return the ordered range of matching kloetzel buchs
 	 */
 	@Override
-	public List<KloetzelBuch> findByMedicalRecord(long medicalRecordId,
-		int start, int end, OrderByComparator<KloetzelBuch> orderByComparator,
+	public List<KloetzelBuch> findByGroupId(long groupId, int start, int end,
+		OrderByComparator<KloetzelBuch> orderByComparator,
 		boolean retrieveFromCache) {
 		boolean pagination = true;
 		FinderPath finderPath = null;
@@ -1572,16 +1569,12 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
 				(orderByComparator == null)) {
 			pagination = false;
-			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD;
-			finderArgs = new Object[] { medicalRecordId };
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID;
+			finderArgs = new Object[] { groupId };
 		}
 		else {
-			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_MEDICALRECORD;
-			finderArgs = new Object[] {
-					medicalRecordId,
-					
-					start, end, orderByComparator
-				};
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_GROUPID;
+			finderArgs = new Object[] { groupId, start, end, orderByComparator };
 		}
 
 		List<KloetzelBuch> list = null;
@@ -1592,7 +1585,7 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 			if ((list != null) && !list.isEmpty()) {
 				for (KloetzelBuch kloetzelBuch : list) {
-					if ((medicalRecordId != kloetzelBuch.getMedicalRecordId())) {
+					if ((groupId != kloetzelBuch.getGroupId())) {
 						list = null;
 
 						break;
@@ -1614,7 +1607,7 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 			query.append(_SQL_SELECT_KLOETZELBUCH_WHERE);
 
-			query.append(_FINDER_COLUMN_MEDICALRECORD_MEDICALRECORDID_2);
+			query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
 
 			if (orderByComparator != null) {
 				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
@@ -1636,7 +1629,7 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
-				qPos.add(medicalRecordId);
+				qPos.add(groupId);
 
 				if (!pagination) {
 					list = (List<KloetzelBuch>)QueryUtil.list(q, getDialect(),
@@ -1669,18 +1662,18 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	}
 
 	/**
-	 * Returns the first kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	 * Returns the first kloetzel buch in the ordered set where groupId = &#63;.
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching kloetzel buch
 	 * @throws NoSuchKloetzelBuchException if a matching kloetzel buch could not be found
 	 */
 	@Override
-	public KloetzelBuch findByMedicalRecord_First(long medicalRecordId,
+	public KloetzelBuch findByGroupId_First(long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator)
 		throws NoSuchKloetzelBuchException {
-		KloetzelBuch kloetzelBuch = fetchByMedicalRecord_First(medicalRecordId,
+		KloetzelBuch kloetzelBuch = fetchByGroupId_First(groupId,
 				orderByComparator);
 
 		if (kloetzelBuch != null) {
@@ -1691,8 +1684,8 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
-		msg.append("medicalRecordId=");
-		msg.append(medicalRecordId);
+		msg.append("groupId=");
+		msg.append(groupId);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -1700,17 +1693,16 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	}
 
 	/**
-	 * Returns the first kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	 * Returns the first kloetzel buch in the ordered set where groupId = &#63;.
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching kloetzel buch, or <code>null</code> if a matching kloetzel buch could not be found
 	 */
 	@Override
-	public KloetzelBuch fetchByMedicalRecord_First(long medicalRecordId,
+	public KloetzelBuch fetchByGroupId_First(long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator) {
-		List<KloetzelBuch> list = findByMedicalRecord(medicalRecordId, 0, 1,
-				orderByComparator);
+		List<KloetzelBuch> list = findByGroupId(groupId, 0, 1, orderByComparator);
 
 		if (!list.isEmpty()) {
 			return list.get(0);
@@ -1720,18 +1712,18 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	}
 
 	/**
-	 * Returns the last kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	 * Returns the last kloetzel buch in the ordered set where groupId = &#63;.
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching kloetzel buch
 	 * @throws NoSuchKloetzelBuchException if a matching kloetzel buch could not be found
 	 */
 	@Override
-	public KloetzelBuch findByMedicalRecord_Last(long medicalRecordId,
+	public KloetzelBuch findByGroupId_Last(long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator)
 		throws NoSuchKloetzelBuchException {
-		KloetzelBuch kloetzelBuch = fetchByMedicalRecord_Last(medicalRecordId,
+		KloetzelBuch kloetzelBuch = fetchByGroupId_Last(groupId,
 				orderByComparator);
 
 		if (kloetzelBuch != null) {
@@ -1742,8 +1734,8 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
-		msg.append("medicalRecordId=");
-		msg.append(medicalRecordId);
+		msg.append("groupId=");
+		msg.append(groupId);
 
 		msg.append(StringPool.CLOSE_CURLY_BRACE);
 
@@ -1751,23 +1743,23 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	}
 
 	/**
-	 * Returns the last kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	 * Returns the last kloetzel buch in the ordered set where groupId = &#63;.
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching kloetzel buch, or <code>null</code> if a matching kloetzel buch could not be found
 	 */
 	@Override
-	public KloetzelBuch fetchByMedicalRecord_Last(long medicalRecordId,
+	public KloetzelBuch fetchByGroupId_Last(long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator) {
-		int count = countByMedicalRecord(medicalRecordId);
+		int count = countByGroupId(groupId);
 
 		if (count == 0) {
 			return null;
 		}
 
-		List<KloetzelBuch> list = findByMedicalRecord(medicalRecordId,
-				count - 1, count, orderByComparator);
+		List<KloetzelBuch> list = findByGroupId(groupId, count - 1, count,
+				orderByComparator);
 
 		if (!list.isEmpty()) {
 			return list.get(0);
@@ -1777,17 +1769,17 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	}
 
 	/**
-	 * Returns the kloetzel buchs before and after the current kloetzel buch in the ordered set where medicalRecordId = &#63;.
+	 * Returns the kloetzel buchs before and after the current kloetzel buch in the ordered set where groupId = &#63;.
 	 *
 	 * @param kloetzelBuchId the primary key of the current kloetzel buch
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next kloetzel buch
 	 * @throws NoSuchKloetzelBuchException if a kloetzel buch with the primary key could not be found
 	 */
 	@Override
-	public KloetzelBuch[] findByMedicalRecord_PrevAndNext(long kloetzelBuchId,
-		long medicalRecordId, OrderByComparator<KloetzelBuch> orderByComparator)
+	public KloetzelBuch[] findByGroupId_PrevAndNext(long kloetzelBuchId,
+		long groupId, OrderByComparator<KloetzelBuch> orderByComparator)
 		throws NoSuchKloetzelBuchException {
 		KloetzelBuch kloetzelBuch = findByPrimaryKey(kloetzelBuchId);
 
@@ -1798,13 +1790,13 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 			KloetzelBuch[] array = new KloetzelBuchImpl[3];
 
-			array[0] = getByMedicalRecord_PrevAndNext(session, kloetzelBuch,
-					medicalRecordId, orderByComparator, true);
+			array[0] = getByGroupId_PrevAndNext(session, kloetzelBuch, groupId,
+					orderByComparator, true);
 
 			array[1] = kloetzelBuch;
 
-			array[2] = getByMedicalRecord_PrevAndNext(session, kloetzelBuch,
-					medicalRecordId, orderByComparator, false);
+			array[2] = getByGroupId_PrevAndNext(session, kloetzelBuch, groupId,
+					orderByComparator, false);
 
 			return array;
 		}
@@ -1816,8 +1808,8 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 		}
 	}
 
-	protected KloetzelBuch getByMedicalRecord_PrevAndNext(Session session,
-		KloetzelBuch kloetzelBuch, long medicalRecordId,
+	protected KloetzelBuch getByGroupId_PrevAndNext(Session session,
+		KloetzelBuch kloetzelBuch, long groupId,
 		OrderByComparator<KloetzelBuch> orderByComparator, boolean previous) {
 		StringBundler query = null;
 
@@ -1832,7 +1824,7 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 		query.append(_SQL_SELECT_KLOETZELBUCH_WHERE);
 
-		query.append(_FINDER_COLUMN_MEDICALRECORD_MEDICALRECORDID_2);
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
 
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
@@ -1902,7 +1894,7 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 		QueryPos qPos = QueryPos.getInstance(q);
 
-		qPos.add(medicalRecordId);
+		qPos.add(groupId);
 
 		if (orderByComparator != null) {
 			Object[] values = orderByComparator.getOrderByConditionValues(kloetzelBuch);
@@ -1923,16 +1915,231 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	}
 
 	/**
-	 * Removes all the kloetzel buchs where medicalRecordId = &#63; from the database.
+	 * Removes all the kloetzel buchs where groupId = &#63; from the database.
 	 *
-	 * @param medicalRecordId the medical record ID
+	 * @param groupId the group ID
 	 */
 	@Override
-	public void removeByMedicalRecord(long medicalRecordId) {
-		for (KloetzelBuch kloetzelBuch : findByMedicalRecord(medicalRecordId,
+	public void removeByGroupId(long groupId) {
+		for (KloetzelBuch kloetzelBuch : findByGroupId(groupId,
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
 			remove(kloetzelBuch);
 		}
+	}
+
+	/**
+	 * Returns the number of kloetzel buchs where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the number of matching kloetzel buchs
+	 */
+	@Override
+	public int countByGroupId(long groupId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_GROUPID;
+
+		Object[] finderArgs = new Object[] { groupId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_KLOETZELBUCH_WHERE);
+
+			query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(groupId);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_GROUPID_GROUPID_2 = "kloetzelBuch.groupId = ?";
+	public static final FinderPath FINDER_PATH_FETCH_BY_MEDICALRECORD = new FinderPath(KloetzelBuchModelImpl.ENTITY_CACHE_ENABLED,
+			KloetzelBuchModelImpl.FINDER_CACHE_ENABLED, KloetzelBuchImpl.class,
+			FINDER_CLASS_NAME_ENTITY, "fetchByMedicalRecord",
+			new String[] { Long.class.getName() },
+			KloetzelBuchModelImpl.MEDICALRECORDID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_MEDICALRECORD = new FinderPath(KloetzelBuchModelImpl.ENTITY_CACHE_ENABLED,
+			KloetzelBuchModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByMedicalRecord",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns the kloetzel buch where medicalRecordId = &#63; or throws a {@link NoSuchKloetzelBuchException} if it could not be found.
+	 *
+	 * @param medicalRecordId the medical record ID
+	 * @return the matching kloetzel buch
+	 * @throws NoSuchKloetzelBuchException if a matching kloetzel buch could not be found
+	 */
+	@Override
+	public KloetzelBuch findByMedicalRecord(long medicalRecordId)
+		throws NoSuchKloetzelBuchException {
+		KloetzelBuch kloetzelBuch = fetchByMedicalRecord(medicalRecordId);
+
+		if (kloetzelBuch == null) {
+			StringBundler msg = new StringBundler(4);
+
+			msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+			msg.append("medicalRecordId=");
+			msg.append(medicalRecordId);
+
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+			if (_log.isDebugEnabled()) {
+				_log.debug(msg.toString());
+			}
+
+			throw new NoSuchKloetzelBuchException(msg.toString());
+		}
+
+		return kloetzelBuch;
+	}
+
+	/**
+	 * Returns the kloetzel buch where medicalRecordId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	 *
+	 * @param medicalRecordId the medical record ID
+	 * @return the matching kloetzel buch, or <code>null</code> if a matching kloetzel buch could not be found
+	 */
+	@Override
+	public KloetzelBuch fetchByMedicalRecord(long medicalRecordId) {
+		return fetchByMedicalRecord(medicalRecordId, true);
+	}
+
+	/**
+	 * Returns the kloetzel buch where medicalRecordId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	 *
+	 * @param medicalRecordId the medical record ID
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the matching kloetzel buch, or <code>null</code> if a matching kloetzel buch could not be found
+	 */
+	@Override
+	public KloetzelBuch fetchByMedicalRecord(long medicalRecordId,
+		boolean retrieveFromCache) {
+		Object[] finderArgs = new Object[] { medicalRecordId };
+
+		Object result = null;
+
+		if (retrieveFromCache) {
+			result = finderCache.getResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+					finderArgs, this);
+		}
+
+		if (result instanceof KloetzelBuch) {
+			KloetzelBuch kloetzelBuch = (KloetzelBuch)result;
+
+			if ((medicalRecordId != kloetzelBuch.getMedicalRecordId())) {
+				result = null;
+			}
+		}
+
+		if (result == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_SELECT_KLOETZELBUCH_WHERE);
+
+			query.append(_FINDER_COLUMN_MEDICALRECORD_MEDICALRECORDID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(medicalRecordId);
+
+				List<KloetzelBuch> list = q.list();
+
+				if (list.isEmpty()) {
+					finderCache.putResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+						finderArgs, list);
+				}
+				else {
+					if (list.size() > 1) {
+						Collections.sort(list, Collections.reverseOrder());
+
+						if (_log.isWarnEnabled()) {
+							_log.warn(
+								"KloetzelBuchPersistenceImpl.fetchByMedicalRecord(long, boolean) with parameters (" +
+								StringUtil.merge(finderArgs) +
+								") yields a result set with more than 1 result. This violates the logical unique restriction. There is no order guarantee on which result is returned by this finder.");
+						}
+					}
+
+					KloetzelBuch kloetzelBuch = list.get(0);
+
+					result = kloetzelBuch;
+
+					cacheResult(kloetzelBuch);
+
+					if ((kloetzelBuch.getMedicalRecordId() != medicalRecordId)) {
+						finderCache.putResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+							finderArgs, kloetzelBuch);
+					}
+				}
+			}
+			catch (Exception e) {
+				finderCache.removeResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+					finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		if (result instanceof List<?>) {
+			return null;
+		}
+		else {
+			return (KloetzelBuch)result;
+		}
+	}
+
+	/**
+	 * Removes the kloetzel buch where medicalRecordId = &#63; from the database.
+	 *
+	 * @param medicalRecordId the medical record ID
+	 * @return the kloetzel buch that was removed
+	 */
+	@Override
+	public KloetzelBuch removeByMedicalRecord(long medicalRecordId)
+		throws NoSuchKloetzelBuchException {
+		KloetzelBuch kloetzelBuch = findByMedicalRecord(medicalRecordId);
+
+		return remove(kloetzelBuch);
 	}
 
 	/**
@@ -2024,6 +2231,9 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 			new Object[] { kloetzelBuch.getUuid(), kloetzelBuch.getGroupId() },
 			kloetzelBuch);
 
+		finderCache.putResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+			new Object[] { kloetzelBuch.getMedicalRecordId() }, kloetzelBuch);
+
 		kloetzelBuch.resetOriginalValues();
 	}
 
@@ -2104,6 +2314,13 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 			Long.valueOf(1), false);
 		finderCache.putResult(FINDER_PATH_FETCH_BY_UUID_G, args,
 			kloetzelBuchModelImpl, false);
+
+		args = new Object[] { kloetzelBuchModelImpl.getMedicalRecordId() };
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_MEDICALRECORD, args,
+			Long.valueOf(1), false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_MEDICALRECORD, args,
+			kloetzelBuchModelImpl, false);
 	}
 
 	protected void clearUniqueFindersCache(
@@ -2127,6 +2344,25 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_UUID_G, args);
 			finderCache.removeResult(FINDER_PATH_FETCH_BY_UUID_G, args);
+		}
+
+		if (clearCurrent) {
+			Object[] args = new Object[] {
+					kloetzelBuchModelImpl.getMedicalRecordId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_MEDICALRECORD, args);
+		}
+
+		if ((kloetzelBuchModelImpl.getColumnBitmask() &
+				FINDER_PATH_FETCH_BY_MEDICALRECORD.getColumnBitmask()) != 0) {
+			Object[] args = new Object[] {
+					kloetzelBuchModelImpl.getOriginalMedicalRecordId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_MEDICALRECORD, args);
 		}
 	}
 
@@ -2316,10 +2552,10 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID_C,
 				args);
 
-			args = new Object[] { kloetzelBuchModelImpl.getMedicalRecordId() };
+			args = new Object[] { kloetzelBuchModelImpl.getGroupId() };
 
-			finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD, args);
-			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD,
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
 				args);
 
 			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
@@ -2367,21 +2603,19 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 			}
 
 			if ((kloetzelBuchModelImpl.getColumnBitmask() &
-					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD.getColumnBitmask()) != 0) {
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
-						kloetzelBuchModelImpl.getOriginalMedicalRecordId()
+						kloetzelBuchModelImpl.getOriginalGroupId()
 					};
 
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD,
-					args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD,
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
 					args);
 
-				args = new Object[] { kloetzelBuchModelImpl.getMedicalRecordId() };
+				args = new Object[] { kloetzelBuchModelImpl.getGroupId() };
 
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD,
-					args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD,
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
 					args);
 			}
 		}

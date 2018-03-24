@@ -16,6 +16,7 @@ package at.graz.meduni.bibbox.medicaldataset.service;
 
 import aQute.bnd.annotation.ProviderType;
 
+import at.graz.meduni.bibbox.medicaldataset.exception.NoSuchPathologieDataException;
 import at.graz.meduni.bibbox.medicaldataset.model.PathologieData;
 
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -32,6 +33,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -39,6 +41,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -72,6 +75,34 @@ public interface PathologieDataLocalService extends BaseLocalService,
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public PathologieData addPathologieData(PathologieData pathologieData);
+
+	public PathologieData addPathologieData(long medicalRecordId,
+		Date receivedDate, Date validationDate, int patientAge,
+		java.lang.String sender, java.lang.String extractionMethode,
+		java.lang.String reportingPhysician1,
+		java.lang.String reportingPhysician2, java.lang.String gynPhysician,
+		java.lang.String validationPhysician1,
+		java.lang.String validationPhysician2, java.lang.String reportStatus,
+		int numberOfBlockes, int numberOfSlides, java.lang.String basicDisease,
+		java.lang.String causeOfDeath, java.lang.String material,
+		java.lang.String materialExtended,
+		java.lang.String macroscopicDescription,
+		java.lang.String microscopicDescription,
+		java.lang.String histologicDescription,
+		java.lang.String molecularPathologicDescription,
+		java.lang.String zytologieDescription,
+		java.lang.String pathologicDiagnosis,
+		java.lang.String frozenSectionDiagnosis,
+		java.lang.String molecularPathologicDiagnosis,
+		java.lang.String zytologieDiagnosis,
+		java.lang.String neuroPathologicDiagnosis, java.lang.String comment,
+		java.lang.String zytologiecomment, java.lang.String grad,
+		java.lang.String tnmp, java.lang.String tnmt, java.lang.String tnmn,
+		java.lang.String tnmm, java.lang.String tnmr, java.lang.String tnml,
+		java.lang.String tnmv, java.lang.String tnmpn,
+		java.lang.String dgcode1, java.lang.String dgcode2,
+		java.lang.String pap, java.lang.String smearQuality,
+		ServiceContext serviceContext) throws PortalException;
 
 	/**
 	* Creates a new pathologie data with the primary key. Does not add the pathologie data to the database.
@@ -138,6 +169,10 @@ public interface PathologieDataLocalService extends BaseLocalService,
 	public PathologieData getPathologieDataByUuidAndGroupId(
 		java.lang.String uuid, long groupId) throws PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public PathologieData getPathologieDataForMedicalRecord(
+		long medicalRecordId) throws NoSuchPathologieDataException;
+
 	/**
 	* Updates the pathologie data in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -146,6 +181,38 @@ public interface PathologieDataLocalService extends BaseLocalService,
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public PathologieData updatePathologieData(PathologieData pathologieData);
+
+	public PathologieData updatePathologieData(PathologieData pathologieData,
+		ServiceContext serviceContext) throws PortalException;
+
+	public PathologieData updatePathologieData(long pathologieDataId,
+		long medicalRecordId, Date receivedDate, Date validationDate,
+		int patientAge, java.lang.String sender,
+		java.lang.String extractionMethode,
+		java.lang.String reportingPhysician1,
+		java.lang.String reportingPhysician2, java.lang.String gynPhysician,
+		java.lang.String validationPhysician1,
+		java.lang.String validationPhysician2, java.lang.String reportStatus,
+		int numberOfBlockes, int numberOfSlides, java.lang.String basicDisease,
+		java.lang.String causeOfDeath, java.lang.String material,
+		java.lang.String materialExtended,
+		java.lang.String macroscopicDescription,
+		java.lang.String microscopicDescription,
+		java.lang.String histologicDescription,
+		java.lang.String molecularPathologicDescription,
+		java.lang.String zytologieDescription,
+		java.lang.String pathologicDiagnosis,
+		java.lang.String frozenSectionDiagnosis,
+		java.lang.String molecularPathologicDiagnosis,
+		java.lang.String zytologieDiagnosis,
+		java.lang.String neuroPathologicDiagnosis, java.lang.String comment,
+		java.lang.String zytologiecomment, java.lang.String grad,
+		java.lang.String tnmp, java.lang.String tnmt, java.lang.String tnmn,
+		java.lang.String tnmm, java.lang.String tnmr, java.lang.String tnml,
+		java.lang.String tnmv, java.lang.String tnmpn,
+		java.lang.String dgcode1, java.lang.String dgcode2,
+		java.lang.String pap, java.lang.String smearQuality,
+		ServiceContext serviceContext) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
@@ -170,6 +237,9 @@ public interface PathologieDataLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getPathologieDataCount(long groupId);
 
 	/**
 	* Returns the number of pathologie datas.
@@ -238,6 +308,17 @@ public interface PathologieDataLocalService extends BaseLocalService,
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<PathologieData> getPathologieDatas(int start, int end);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<PathologieData> getPathologieDatas(long groupId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<PathologieData> getPathologieDatas(long groupId, int start,
+		int end);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<PathologieData> getPathologieDatas(long groupId, int start,
+		int end, OrderByComparator<PathologieData> ob);
 
 	/**
 	* Returns all the pathologie datas matching the UUID and company.

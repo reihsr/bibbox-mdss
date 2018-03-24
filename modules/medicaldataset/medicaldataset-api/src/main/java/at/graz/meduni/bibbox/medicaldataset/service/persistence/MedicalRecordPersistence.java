@@ -489,6 +489,60 @@ public interface MedicalRecordPersistence extends BasePersistence<MedicalRecord>
 		throws NoSuchMedicalRecordException;
 
 	/**
+	* Returns all the medical records that the user has permission to view where groupId = &#63;.
+	*
+	* @param groupId the group ID
+	* @return the matching medical records that the user has permission to view
+	*/
+	public java.util.List<MedicalRecord> filterFindByGroupId(long groupId);
+
+	/**
+	* Returns a range of all the medical records that the user has permission to view where groupId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link MedicalRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param groupId the group ID
+	* @param start the lower bound of the range of medical records
+	* @param end the upper bound of the range of medical records (not inclusive)
+	* @return the range of matching medical records that the user has permission to view
+	*/
+	public java.util.List<MedicalRecord> filterFindByGroupId(long groupId,
+		int start, int end);
+
+	/**
+	* Returns an ordered range of all the medical records that the user has permissions to view where groupId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link MedicalRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param groupId the group ID
+	* @param start the lower bound of the range of medical records
+	* @param end the upper bound of the range of medical records (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching medical records that the user has permission to view
+	*/
+	public java.util.List<MedicalRecord> filterFindByGroupId(long groupId,
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator);
+
+	/**
+	* Returns the medical records before and after the current medical record in the ordered set of medical records that the user has permission to view where groupId = &#63;.
+	*
+	* @param medicalRecordId the primary key of the current medical record
+	* @param groupId the group ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next medical record
+	* @throws NoSuchMedicalRecordException if a medical record with the primary key could not be found
+	*/
+	public MedicalRecord[] filterFindByGroupId_PrevAndNext(
+		long medicalRecordId, long groupId,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator)
+		throws NoSuchMedicalRecordException;
+
+	/**
 	* Removes all the medical records where groupId = &#63; from the database.
 	*
 	* @param groupId the group ID
@@ -502,6 +556,14 @@ public interface MedicalRecordPersistence extends BasePersistence<MedicalRecord>
 	* @return the number of matching medical records
 	*/
 	public int countByGroupId(long groupId);
+
+	/**
+	* Returns the number of medical records that the user has permission to view where groupId = &#63;.
+	*
+	* @param groupId the group ID
+	* @return the number of matching medical records that the user has permission to view
+	*/
+	public int filterCountByGroupId(long groupId);
 
 	/**
 	* Returns all the medical records where iNumber = &#63;.

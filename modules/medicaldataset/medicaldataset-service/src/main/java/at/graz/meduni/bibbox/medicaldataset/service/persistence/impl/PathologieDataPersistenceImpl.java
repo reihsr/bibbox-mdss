@@ -28,9 +28,11 @@ import com.liferay.portal.kernel.dao.orm.FinderPath;
 import com.liferay.portal.kernel.dao.orm.Query;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.dao.orm.SQLQuery;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.permission.InlineSQLHelperUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.portal.kernel.service.persistence.CompanyProvider;
@@ -41,6 +43,7 @@ import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
@@ -1485,6 +1488,871 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 	private static final String _FINDER_COLUMN_UUID_C_UUID_2 = "pathologieData.uuid = ? AND ";
 	private static final String _FINDER_COLUMN_UUID_C_UUID_3 = "(pathologieData.uuid IS NULL OR pathologieData.uuid = '') AND ";
 	private static final String _FINDER_COLUMN_UUID_C_COMPANYID_2 = "pathologieData.companyId = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_GROUPID = new FinderPath(PathologieDataModelImpl.ENTITY_CACHE_ENABLED,
+			PathologieDataModelImpl.FINDER_CACHE_ENABLED,
+			PathologieDataImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findByGroupId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID =
+		new FinderPath(PathologieDataModelImpl.ENTITY_CACHE_ENABLED,
+			PathologieDataModelImpl.FINDER_CACHE_ENABLED,
+			PathologieDataImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByGroupId",
+			new String[] { Long.class.getName() },
+			PathologieDataModelImpl.GROUPID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_GROUPID = new FinderPath(PathologieDataModelImpl.ENTITY_CACHE_ENABLED,
+			PathologieDataModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByGroupId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the pathologie datas where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the matching pathologie datas
+	 */
+	@Override
+	public List<PathologieData> findByGroupId(long groupId) {
+		return findByGroupId(groupId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the pathologie datas where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologieDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of pathologie datas
+	 * @param end the upper bound of the range of pathologie datas (not inclusive)
+	 * @return the range of matching pathologie datas
+	 */
+	@Override
+	public List<PathologieData> findByGroupId(long groupId, int start, int end) {
+		return findByGroupId(groupId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the pathologie datas where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologieDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of pathologie datas
+	 * @param end the upper bound of the range of pathologie datas (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching pathologie datas
+	 */
+	@Override
+	public List<PathologieData> findByGroupId(long groupId, int start, int end,
+		OrderByComparator<PathologieData> orderByComparator) {
+		return findByGroupId(groupId, start, end, orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the pathologie datas where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologieDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of pathologie datas
+	 * @param end the upper bound of the range of pathologie datas (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching pathologie datas
+	 */
+	@Override
+	public List<PathologieData> findByGroupId(long groupId, int start, int end,
+		OrderByComparator<PathologieData> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID;
+			finderArgs = new Object[] { groupId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_GROUPID;
+			finderArgs = new Object[] { groupId, start, end, orderByComparator };
+		}
+
+		List<PathologieData> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<PathologieData>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (PathologieData pathologieData : list) {
+					if ((groupId != pathologieData.getGroupId())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_PATHOLOGIEDATA_WHERE);
+
+			query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(PathologieDataModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(groupId);
+
+				if (!pagination) {
+					list = (List<PathologieData>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<PathologieData>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first pathologie data in the ordered set where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching pathologie data
+	 * @throws NoSuchPathologieDataException if a matching pathologie data could not be found
+	 */
+	@Override
+	public PathologieData findByGroupId_First(long groupId,
+		OrderByComparator<PathologieData> orderByComparator)
+		throws NoSuchPathologieDataException {
+		PathologieData pathologieData = fetchByGroupId_First(groupId,
+				orderByComparator);
+
+		if (pathologieData != null) {
+			return pathologieData;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("groupId=");
+		msg.append(groupId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchPathologieDataException(msg.toString());
+	}
+
+	/**
+	 * Returns the first pathologie data in the ordered set where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching pathologie data, or <code>null</code> if a matching pathologie data could not be found
+	 */
+	@Override
+	public PathologieData fetchByGroupId_First(long groupId,
+		OrderByComparator<PathologieData> orderByComparator) {
+		List<PathologieData> list = findByGroupId(groupId, 0, 1,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last pathologie data in the ordered set where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching pathologie data
+	 * @throws NoSuchPathologieDataException if a matching pathologie data could not be found
+	 */
+	@Override
+	public PathologieData findByGroupId_Last(long groupId,
+		OrderByComparator<PathologieData> orderByComparator)
+		throws NoSuchPathologieDataException {
+		PathologieData pathologieData = fetchByGroupId_Last(groupId,
+				orderByComparator);
+
+		if (pathologieData != null) {
+			return pathologieData;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("groupId=");
+		msg.append(groupId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchPathologieDataException(msg.toString());
+	}
+
+	/**
+	 * Returns the last pathologie data in the ordered set where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching pathologie data, or <code>null</code> if a matching pathologie data could not be found
+	 */
+	@Override
+	public PathologieData fetchByGroupId_Last(long groupId,
+		OrderByComparator<PathologieData> orderByComparator) {
+		int count = countByGroupId(groupId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<PathologieData> list = findByGroupId(groupId, count - 1, count,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the pathologie datas before and after the current pathologie data in the ordered set where groupId = &#63;.
+	 *
+	 * @param pathologieDataId the primary key of the current pathologie data
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next pathologie data
+	 * @throws NoSuchPathologieDataException if a pathologie data with the primary key could not be found
+	 */
+	@Override
+	public PathologieData[] findByGroupId_PrevAndNext(long pathologieDataId,
+		long groupId, OrderByComparator<PathologieData> orderByComparator)
+		throws NoSuchPathologieDataException {
+		PathologieData pathologieData = findByPrimaryKey(pathologieDataId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			PathologieData[] array = new PathologieDataImpl[3];
+
+			array[0] = getByGroupId_PrevAndNext(session, pathologieData,
+					groupId, orderByComparator, true);
+
+			array[1] = pathologieData;
+
+			array[2] = getByGroupId_PrevAndNext(session, pathologieData,
+					groupId, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected PathologieData getByGroupId_PrevAndNext(Session session,
+		PathologieData pathologieData, long groupId,
+		OrderByComparator<PathologieData> orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(4 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_PATHOLOGIEDATA_WHERE);
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(PathologieDataModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(groupId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(pathologieData);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<PathologieData> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Returns all the pathologie datas that the user has permission to view where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the matching pathologie datas that the user has permission to view
+	 */
+	@Override
+	public List<PathologieData> filterFindByGroupId(long groupId) {
+		return filterFindByGroupId(groupId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the pathologie datas that the user has permission to view where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologieDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of pathologie datas
+	 * @param end the upper bound of the range of pathologie datas (not inclusive)
+	 * @return the range of matching pathologie datas that the user has permission to view
+	 */
+	@Override
+	public List<PathologieData> filterFindByGroupId(long groupId, int start,
+		int end) {
+		return filterFindByGroupId(groupId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the pathologie datas that the user has permissions to view where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologieDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of pathologie datas
+	 * @param end the upper bound of the range of pathologie datas (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching pathologie datas that the user has permission to view
+	 */
+	@Override
+	public List<PathologieData> filterFindByGroupId(long groupId, int start,
+		int end, OrderByComparator<PathologieData> orderByComparator) {
+		if (!InlineSQLHelperUtil.isEnabled(groupId)) {
+			return findByGroupId(groupId, start, end, orderByComparator);
+		}
+
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(3 +
+					(orderByComparator.getOrderByFields().length * 2));
+		}
+		else {
+			query = new StringBundler(4);
+		}
+
+		if (getDB().isSupportsInlineDistinct()) {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGIEDATA_WHERE);
+		}
+		else {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGIEDATA_NO_INLINE_DISTINCT_WHERE_1);
+		}
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+		if (!getDB().isSupportsInlineDistinct()) {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGIEDATA_NO_INLINE_DISTINCT_WHERE_2);
+		}
+
+		if (orderByComparator != null) {
+			if (getDB().isSupportsInlineDistinct()) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator, true);
+			}
+			else {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_TABLE,
+					orderByComparator, true);
+			}
+		}
+		else {
+			if (getDB().isSupportsInlineDistinct()) {
+				query.append(PathologieDataModelImpl.ORDER_BY_JPQL);
+			}
+			else {
+				query.append(PathologieDataModelImpl.ORDER_BY_SQL);
+			}
+		}
+
+		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
+				PathologieData.class.getName(),
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+			if (getDB().isSupportsInlineDistinct()) {
+				q.addEntity(_FILTER_ENTITY_ALIAS, PathologieDataImpl.class);
+			}
+			else {
+				q.addEntity(_FILTER_ENTITY_TABLE, PathologieDataImpl.class);
+			}
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			qPos.add(groupId);
+
+			return (List<PathologieData>)QueryUtil.list(q, getDialect(), start,
+				end);
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	/**
+	 * Returns the pathologie datas before and after the current pathologie data in the ordered set of pathologie datas that the user has permission to view where groupId = &#63;.
+	 *
+	 * @param pathologieDataId the primary key of the current pathologie data
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next pathologie data
+	 * @throws NoSuchPathologieDataException if a pathologie data with the primary key could not be found
+	 */
+	@Override
+	public PathologieData[] filterFindByGroupId_PrevAndNext(
+		long pathologieDataId, long groupId,
+		OrderByComparator<PathologieData> orderByComparator)
+		throws NoSuchPathologieDataException {
+		if (!InlineSQLHelperUtil.isEnabled(groupId)) {
+			return findByGroupId_PrevAndNext(pathologieDataId, groupId,
+				orderByComparator);
+		}
+
+		PathologieData pathologieData = findByPrimaryKey(pathologieDataId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			PathologieData[] array = new PathologieDataImpl[3];
+
+			array[0] = filterGetByGroupId_PrevAndNext(session, pathologieData,
+					groupId, orderByComparator, true);
+
+			array[1] = pathologieData;
+
+			array[2] = filterGetByGroupId_PrevAndNext(session, pathologieData,
+					groupId, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected PathologieData filterGetByGroupId_PrevAndNext(Session session,
+		PathologieData pathologieData, long groupId,
+		OrderByComparator<PathologieData> orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(5 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(4);
+		}
+
+		if (getDB().isSupportsInlineDistinct()) {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGIEDATA_WHERE);
+		}
+		else {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGIEDATA_NO_INLINE_DISTINCT_WHERE_1);
+		}
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+		if (!getDB().isSupportsInlineDistinct()) {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGIEDATA_NO_INLINE_DISTINCT_WHERE_2);
+		}
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				if (getDB().isSupportsInlineDistinct()) {
+					query.append(_ORDER_BY_ENTITY_ALIAS);
+				}
+				else {
+					query.append(_ORDER_BY_ENTITY_TABLE);
+				}
+
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				if (getDB().isSupportsInlineDistinct()) {
+					query.append(_ORDER_BY_ENTITY_ALIAS);
+				}
+				else {
+					query.append(_ORDER_BY_ENTITY_TABLE);
+				}
+
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			if (getDB().isSupportsInlineDistinct()) {
+				query.append(PathologieDataModelImpl.ORDER_BY_JPQL);
+			}
+			else {
+				query.append(PathologieDataModelImpl.ORDER_BY_SQL);
+			}
+		}
+
+		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
+				PathologieData.class.getName(),
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+
+		SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		if (getDB().isSupportsInlineDistinct()) {
+			q.addEntity(_FILTER_ENTITY_ALIAS, PathologieDataImpl.class);
+		}
+		else {
+			q.addEntity(_FILTER_ENTITY_TABLE, PathologieDataImpl.class);
+		}
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(groupId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(pathologieData);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<PathologieData> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the pathologie datas where groupId = &#63; from the database.
+	 *
+	 * @param groupId the group ID
+	 */
+	@Override
+	public void removeByGroupId(long groupId) {
+		for (PathologieData pathologieData : findByGroupId(groupId,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(pathologieData);
+		}
+	}
+
+	/**
+	 * Returns the number of pathologie datas where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the number of matching pathologie datas
+	 */
+	@Override
+	public int countByGroupId(long groupId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_GROUPID;
+
+		Object[] finderArgs = new Object[] { groupId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_PATHOLOGIEDATA_WHERE);
+
+			query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(groupId);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	/**
+	 * Returns the number of pathologie datas that the user has permission to view where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the number of matching pathologie datas that the user has permission to view
+	 */
+	@Override
+	public int filterCountByGroupId(long groupId) {
+		if (!InlineSQLHelperUtil.isEnabled(groupId)) {
+			return countByGroupId(groupId);
+		}
+
+		StringBundler query = new StringBundler(2);
+
+		query.append(_FILTER_SQL_COUNT_PATHOLOGIEDATA_WHERE);
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
+				PathologieData.class.getName(),
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+			q.addScalar(COUNT_COLUMN_NAME,
+				com.liferay.portal.kernel.dao.orm.Type.LONG);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			qPos.add(groupId);
+
+			Long count = (Long)q.uniqueResult();
+
+			return count.intValue();
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	private static final String _FINDER_COLUMN_GROUPID_GROUPID_2 = "pathologieData.groupId = ?";
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_MATERIAL = new FinderPath(PathologieDataModelImpl.ENTITY_CACHE_ENABLED,
 			PathologieDataModelImpl.FINDER_CACHE_ENABLED,
 			PathologieDataImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
@@ -2036,23 +2904,10 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 	private static final String _FINDER_COLUMN_MATERIAL_MATERIAL_1 = "pathologieData.material IS NULL";
 	private static final String _FINDER_COLUMN_MATERIAL_MATERIAL_2 = "pathologieData.material = ?";
 	private static final String _FINDER_COLUMN_MATERIAL_MATERIAL_3 = "(pathologieData.material IS NULL OR pathologieData.material = '')";
-	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_MEDICALRECORD =
-		new FinderPath(PathologieDataModelImpl.ENTITY_CACHE_ENABLED,
+	public static final FinderPath FINDER_PATH_FETCH_BY_MEDICALRECORD = new FinderPath(PathologieDataModelImpl.ENTITY_CACHE_ENABLED,
 			PathologieDataModelImpl.FINDER_CACHE_ENABLED,
-			PathologieDataImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
-			"findByMedicalRecord",
-			new String[] {
-				Long.class.getName(),
-				
-			Integer.class.getName(), Integer.class.getName(),
-				OrderByComparator.class.getName()
-			});
-	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD =
-		new FinderPath(PathologieDataModelImpl.ENTITY_CACHE_ENABLED,
-			PathologieDataModelImpl.FINDER_CACHE_ENABLED,
-			PathologieDataImpl.class,
-			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByMedicalRecord",
-			new String[] { Long.class.getName() },
+			PathologieDataImpl.class, FINDER_CLASS_NAME_ENTITY,
+			"fetchByMedicalRecord", new String[] { Long.class.getName() },
 			PathologieDataModelImpl.MEDICALRECORDID_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_MEDICALRECORD = new FinderPath(PathologieDataModelImpl.ENTITY_CACHE_ENABLED,
 			PathologieDataModelImpl.FINDER_CACHE_ENABLED, Long.class,
@@ -2060,133 +2915,81 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 			new String[] { Long.class.getName() });
 
 	/**
-	 * Returns all the pathologie datas where medicalRecordId = &#63;.
+	 * Returns the pathologie data where medicalRecordId = &#63; or throws a {@link NoSuchPathologieDataException} if it could not be found.
 	 *
 	 * @param medicalRecordId the medical record ID
-	 * @return the matching pathologie datas
+	 * @return the matching pathologie data
+	 * @throws NoSuchPathologieDataException if a matching pathologie data could not be found
 	 */
 	@Override
-	public List<PathologieData> findByMedicalRecord(long medicalRecordId) {
-		return findByMedicalRecord(medicalRecordId, QueryUtil.ALL_POS,
-			QueryUtil.ALL_POS, null);
+	public PathologieData findByMedicalRecord(long medicalRecordId)
+		throws NoSuchPathologieDataException {
+		PathologieData pathologieData = fetchByMedicalRecord(medicalRecordId);
+
+		if (pathologieData == null) {
+			StringBundler msg = new StringBundler(4);
+
+			msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+			msg.append("medicalRecordId=");
+			msg.append(medicalRecordId);
+
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+			if (_log.isDebugEnabled()) {
+				_log.debug(msg.toString());
+			}
+
+			throw new NoSuchPathologieDataException(msg.toString());
+		}
+
+		return pathologieData;
 	}
 
 	/**
-	 * Returns a range of all the pathologie datas where medicalRecordId = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologieDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
+	 * Returns the pathologie data where medicalRecordId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
 	 *
 	 * @param medicalRecordId the medical record ID
-	 * @param start the lower bound of the range of pathologie datas
-	 * @param end the upper bound of the range of pathologie datas (not inclusive)
-	 * @return the range of matching pathologie datas
+	 * @return the matching pathologie data, or <code>null</code> if a matching pathologie data could not be found
 	 */
 	@Override
-	public List<PathologieData> findByMedicalRecord(long medicalRecordId,
-		int start, int end) {
-		return findByMedicalRecord(medicalRecordId, start, end, null);
+	public PathologieData fetchByMedicalRecord(long medicalRecordId) {
+		return fetchByMedicalRecord(medicalRecordId, true);
 	}
 
 	/**
-	 * Returns an ordered range of all the pathologie datas where medicalRecordId = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologieDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
+	 * Returns the pathologie data where medicalRecordId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
 	 *
 	 * @param medicalRecordId the medical record ID
-	 * @param start the lower bound of the range of pathologie datas
-	 * @param end the upper bound of the range of pathologie datas (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the ordered range of matching pathologie datas
-	 */
-	@Override
-	public List<PathologieData> findByMedicalRecord(long medicalRecordId,
-		int start, int end, OrderByComparator<PathologieData> orderByComparator) {
-		return findByMedicalRecord(medicalRecordId, start, end,
-			orderByComparator, true);
-	}
-
-	/**
-	 * Returns an ordered range of all the pathologie datas where medicalRecordId = &#63;.
-	 *
-	 * <p>
-	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologieDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	 * </p>
-	 *
-	 * @param medicalRecordId the medical record ID
-	 * @param start the lower bound of the range of pathologie datas
-	 * @param end the upper bound of the range of pathologie datas (not inclusive)
-	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @param retrieveFromCache whether to retrieve from the finder cache
-	 * @return the ordered range of matching pathologie datas
+	 * @return the matching pathologie data, or <code>null</code> if a matching pathologie data could not be found
 	 */
 	@Override
-	public List<PathologieData> findByMedicalRecord(long medicalRecordId,
-		int start, int end,
-		OrderByComparator<PathologieData> orderByComparator,
+	public PathologieData fetchByMedicalRecord(long medicalRecordId,
 		boolean retrieveFromCache) {
-		boolean pagination = true;
-		FinderPath finderPath = null;
-		Object[] finderArgs = null;
+		Object[] finderArgs = new Object[] { medicalRecordId };
 
-		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
-				(orderByComparator == null)) {
-			pagination = false;
-			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD;
-			finderArgs = new Object[] { medicalRecordId };
-		}
-		else {
-			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_MEDICALRECORD;
-			finderArgs = new Object[] {
-					medicalRecordId,
-					
-					start, end, orderByComparator
-				};
-		}
-
-		List<PathologieData> list = null;
+		Object result = null;
 
 		if (retrieveFromCache) {
-			list = (List<PathologieData>)finderCache.getResult(finderPath,
+			result = finderCache.getResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
 					finderArgs, this);
+		}
 
-			if ((list != null) && !list.isEmpty()) {
-				for (PathologieData pathologieData : list) {
-					if ((medicalRecordId != pathologieData.getMedicalRecordId())) {
-						list = null;
+		if (result instanceof PathologieData) {
+			PathologieData pathologieData = (PathologieData)result;
 
-						break;
-					}
-				}
+			if ((medicalRecordId != pathologieData.getMedicalRecordId())) {
+				result = null;
 			}
 		}
 
-		if (list == null) {
-			StringBundler query = null;
-
-			if (orderByComparator != null) {
-				query = new StringBundler(3 +
-						(orderByComparator.getOrderByFields().length * 2));
-			}
-			else {
-				query = new StringBundler(3);
-			}
+		if (result == null) {
+			StringBundler query = new StringBundler(3);
 
 			query.append(_SQL_SELECT_PATHOLOGIEDATA_WHERE);
 
 			query.append(_FINDER_COLUMN_MEDICALRECORD_MEDICALRECORDID_2);
-
-			if (orderByComparator != null) {
-				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
-					orderByComparator);
-			}
-			else
-			 if (pagination) {
-				query.append(PathologieDataModelImpl.ORDER_BY_JPQL);
-			}
 
 			String sql = query.toString();
 
@@ -2201,25 +3004,39 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 
 				qPos.add(medicalRecordId);
 
-				if (!pagination) {
-					list = (List<PathologieData>)QueryUtil.list(q,
-							getDialect(), start, end, false);
+				List<PathologieData> list = q.list();
 
-					Collections.sort(list);
-
-					list = Collections.unmodifiableList(list);
+				if (list.isEmpty()) {
+					finderCache.putResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+						finderArgs, list);
 				}
 				else {
-					list = (List<PathologieData>)QueryUtil.list(q,
-							getDialect(), start, end);
+					if (list.size() > 1) {
+						Collections.sort(list, Collections.reverseOrder());
+
+						if (_log.isWarnEnabled()) {
+							_log.warn(
+								"PathologieDataPersistenceImpl.fetchByMedicalRecord(long, boolean) with parameters (" +
+								StringUtil.merge(finderArgs) +
+								") yields a result set with more than 1 result. This violates the logical unique restriction. There is no order guarantee on which result is returned by this finder.");
+						}
+					}
+
+					PathologieData pathologieData = list.get(0);
+
+					result = pathologieData;
+
+					cacheResult(pathologieData);
+
+					if ((pathologieData.getMedicalRecordId() != medicalRecordId)) {
+						finderCache.putResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+							finderArgs, pathologieData);
+					}
 				}
-
-				cacheResult(list);
-
-				finderCache.putResult(finderPath, finderArgs, list);
 			}
 			catch (Exception e) {
-				finderCache.removeResult(finderPath, finderArgs);
+				finderCache.removeResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+					finderArgs);
 
 				throw processException(e);
 			}
@@ -2228,275 +3045,26 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 			}
 		}
 
-		return list;
-	}
-
-	/**
-	 * Returns the first pathologie data in the ordered set where medicalRecordId = &#63;.
-	 *
-	 * @param medicalRecordId the medical record ID
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the first matching pathologie data
-	 * @throws NoSuchPathologieDataException if a matching pathologie data could not be found
-	 */
-	@Override
-	public PathologieData findByMedicalRecord_First(long medicalRecordId,
-		OrderByComparator<PathologieData> orderByComparator)
-		throws NoSuchPathologieDataException {
-		PathologieData pathologieData = fetchByMedicalRecord_First(medicalRecordId,
-				orderByComparator);
-
-		if (pathologieData != null) {
-			return pathologieData;
-		}
-
-		StringBundler msg = new StringBundler(4);
-
-		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
-
-		msg.append("medicalRecordId=");
-		msg.append(medicalRecordId);
-
-		msg.append(StringPool.CLOSE_CURLY_BRACE);
-
-		throw new NoSuchPathologieDataException(msg.toString());
-	}
-
-	/**
-	 * Returns the first pathologie data in the ordered set where medicalRecordId = &#63;.
-	 *
-	 * @param medicalRecordId the medical record ID
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the first matching pathologie data, or <code>null</code> if a matching pathologie data could not be found
-	 */
-	@Override
-	public PathologieData fetchByMedicalRecord_First(long medicalRecordId,
-		OrderByComparator<PathologieData> orderByComparator) {
-		List<PathologieData> list = findByMedicalRecord(medicalRecordId, 0, 1,
-				orderByComparator);
-
-		if (!list.isEmpty()) {
-			return list.get(0);
-		}
-
-		return null;
-	}
-
-	/**
-	 * Returns the last pathologie data in the ordered set where medicalRecordId = &#63;.
-	 *
-	 * @param medicalRecordId the medical record ID
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching pathologie data
-	 * @throws NoSuchPathologieDataException if a matching pathologie data could not be found
-	 */
-	@Override
-	public PathologieData findByMedicalRecord_Last(long medicalRecordId,
-		OrderByComparator<PathologieData> orderByComparator)
-		throws NoSuchPathologieDataException {
-		PathologieData pathologieData = fetchByMedicalRecord_Last(medicalRecordId,
-				orderByComparator);
-
-		if (pathologieData != null) {
-			return pathologieData;
-		}
-
-		StringBundler msg = new StringBundler(4);
-
-		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
-
-		msg.append("medicalRecordId=");
-		msg.append(medicalRecordId);
-
-		msg.append(StringPool.CLOSE_CURLY_BRACE);
-
-		throw new NoSuchPathologieDataException(msg.toString());
-	}
-
-	/**
-	 * Returns the last pathologie data in the ordered set where medicalRecordId = &#63;.
-	 *
-	 * @param medicalRecordId the medical record ID
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the last matching pathologie data, or <code>null</code> if a matching pathologie data could not be found
-	 */
-	@Override
-	public PathologieData fetchByMedicalRecord_Last(long medicalRecordId,
-		OrderByComparator<PathologieData> orderByComparator) {
-		int count = countByMedicalRecord(medicalRecordId);
-
-		if (count == 0) {
+		if (result instanceof List<?>) {
 			return null;
 		}
-
-		List<PathologieData> list = findByMedicalRecord(medicalRecordId,
-				count - 1, count, orderByComparator);
-
-		if (!list.isEmpty()) {
-			return list.get(0);
+		else {
+			return (PathologieData)result;
 		}
-
-		return null;
 	}
 
 	/**
-	 * Returns the pathologie datas before and after the current pathologie data in the ordered set where medicalRecordId = &#63;.
+	 * Removes the pathologie data where medicalRecordId = &#63; from the database.
 	 *
-	 * @param pathologieDataId the primary key of the current pathologie data
 	 * @param medicalRecordId the medical record ID
-	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	 * @return the previous, current, and next pathologie data
-	 * @throws NoSuchPathologieDataException if a pathologie data with the primary key could not be found
+	 * @return the pathologie data that was removed
 	 */
 	@Override
-	public PathologieData[] findByMedicalRecord_PrevAndNext(
-		long pathologieDataId, long medicalRecordId,
-		OrderByComparator<PathologieData> orderByComparator)
+	public PathologieData removeByMedicalRecord(long medicalRecordId)
 		throws NoSuchPathologieDataException {
-		PathologieData pathologieData = findByPrimaryKey(pathologieDataId);
+		PathologieData pathologieData = findByMedicalRecord(medicalRecordId);
 
-		Session session = null;
-
-		try {
-			session = openSession();
-
-			PathologieData[] array = new PathologieDataImpl[3];
-
-			array[0] = getByMedicalRecord_PrevAndNext(session, pathologieData,
-					medicalRecordId, orderByComparator, true);
-
-			array[1] = pathologieData;
-
-			array[2] = getByMedicalRecord_PrevAndNext(session, pathologieData,
-					medicalRecordId, orderByComparator, false);
-
-			return array;
-		}
-		catch (Exception e) {
-			throw processException(e);
-		}
-		finally {
-			closeSession(session);
-		}
-	}
-
-	protected PathologieData getByMedicalRecord_PrevAndNext(Session session,
-		PathologieData pathologieData, long medicalRecordId,
-		OrderByComparator<PathologieData> orderByComparator, boolean previous) {
-		StringBundler query = null;
-
-		if (orderByComparator != null) {
-			query = new StringBundler(4 +
-					(orderByComparator.getOrderByConditionFields().length * 3) +
-					(orderByComparator.getOrderByFields().length * 3));
-		}
-		else {
-			query = new StringBundler(3);
-		}
-
-		query.append(_SQL_SELECT_PATHOLOGIEDATA_WHERE);
-
-		query.append(_FINDER_COLUMN_MEDICALRECORD_MEDICALRECORDID_2);
-
-		if (orderByComparator != null) {
-			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
-
-			if (orderByConditionFields.length > 0) {
-				query.append(WHERE_AND);
-			}
-
-			for (int i = 0; i < orderByConditionFields.length; i++) {
-				query.append(_ORDER_BY_ENTITY_ALIAS);
-				query.append(orderByConditionFields[i]);
-
-				if ((i + 1) < orderByConditionFields.length) {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(WHERE_GREATER_THAN_HAS_NEXT);
-					}
-					else {
-						query.append(WHERE_LESSER_THAN_HAS_NEXT);
-					}
-				}
-				else {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(WHERE_GREATER_THAN);
-					}
-					else {
-						query.append(WHERE_LESSER_THAN);
-					}
-				}
-			}
-
-			query.append(ORDER_BY_CLAUSE);
-
-			String[] orderByFields = orderByComparator.getOrderByFields();
-
-			for (int i = 0; i < orderByFields.length; i++) {
-				query.append(_ORDER_BY_ENTITY_ALIAS);
-				query.append(orderByFields[i]);
-
-				if ((i + 1) < orderByFields.length) {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(ORDER_BY_ASC_HAS_NEXT);
-					}
-					else {
-						query.append(ORDER_BY_DESC_HAS_NEXT);
-					}
-				}
-				else {
-					if (orderByComparator.isAscending() ^ previous) {
-						query.append(ORDER_BY_ASC);
-					}
-					else {
-						query.append(ORDER_BY_DESC);
-					}
-				}
-			}
-		}
-		else {
-			query.append(PathologieDataModelImpl.ORDER_BY_JPQL);
-		}
-
-		String sql = query.toString();
-
-		Query q = session.createQuery(sql);
-
-		q.setFirstResult(0);
-		q.setMaxResults(2);
-
-		QueryPos qPos = QueryPos.getInstance(q);
-
-		qPos.add(medicalRecordId);
-
-		if (orderByComparator != null) {
-			Object[] values = orderByComparator.getOrderByConditionValues(pathologieData);
-
-			for (Object value : values) {
-				qPos.add(value);
-			}
-		}
-
-		List<PathologieData> list = q.list();
-
-		if (list.size() == 2) {
-			return list.get(1);
-		}
-		else {
-			return null;
-		}
-	}
-
-	/**
-	 * Removes all the pathologie datas where medicalRecordId = &#63; from the database.
-	 *
-	 * @param medicalRecordId the medical record ID
-	 */
-	@Override
-	public void removeByMedicalRecord(long medicalRecordId) {
-		for (PathologieData pathologieData : findByMedicalRecord(
-				medicalRecordId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
-			remove(pathologieData);
-		}
+		return remove(pathologieData);
 	}
 
 	/**
@@ -2588,6 +3156,9 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 			new Object[] { pathologieData.getUuid(), pathologieData.getGroupId() },
 			pathologieData);
 
+		finderCache.putResult(FINDER_PATH_FETCH_BY_MEDICALRECORD,
+			new Object[] { pathologieData.getMedicalRecordId() }, pathologieData);
+
 		pathologieData.resetOriginalValues();
 	}
 
@@ -2669,6 +3240,13 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 			Long.valueOf(1), false);
 		finderCache.putResult(FINDER_PATH_FETCH_BY_UUID_G, args,
 			pathologieDataModelImpl, false);
+
+		args = new Object[] { pathologieDataModelImpl.getMedicalRecordId() };
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_MEDICALRECORD, args,
+			Long.valueOf(1), false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_MEDICALRECORD, args,
+			pathologieDataModelImpl, false);
 	}
 
 	protected void clearUniqueFindersCache(
@@ -2692,6 +3270,25 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_UUID_G, args);
 			finderCache.removeResult(FINDER_PATH_FETCH_BY_UUID_G, args);
+		}
+
+		if (clearCurrent) {
+			Object[] args = new Object[] {
+					pathologieDataModelImpl.getMedicalRecordId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_MEDICALRECORD, args);
+		}
+
+		if ((pathologieDataModelImpl.getColumnBitmask() &
+				FINDER_PATH_FETCH_BY_MEDICALRECORD.getColumnBitmask()) != 0) {
+			Object[] args = new Object[] {
+					pathologieDataModelImpl.getOriginalMedicalRecordId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD, args);
+			finderCache.removeResult(FINDER_PATH_FETCH_BY_MEDICALRECORD, args);
 		}
 	}
 
@@ -2882,16 +3479,16 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID_C,
 				args);
 
+			args = new Object[] { pathologieDataModelImpl.getGroupId() };
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
+				args);
+
 			args = new Object[] { pathologieDataModelImpl.getMaterial() };
 
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_MATERIAL, args);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MATERIAL,
-				args);
-
-			args = new Object[] { pathologieDataModelImpl.getMedicalRecordId() };
-
-			finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD, args);
-			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD,
 				args);
 
 			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
@@ -2939,6 +3536,23 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 			}
 
 			if ((pathologieDataModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						pathologieDataModelImpl.getOriginalGroupId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
+					args);
+
+				args = new Object[] { pathologieDataModelImpl.getGroupId() };
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
+					args);
+			}
+
+			if ((pathologieDataModelImpl.getColumnBitmask() &
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MATERIAL.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
 						pathologieDataModelImpl.getOriginalMaterial()
@@ -2952,25 +3566,6 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_MATERIAL, args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MATERIAL,
-					args);
-			}
-
-			if ((pathologieDataModelImpl.getColumnBitmask() &
-					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD.getColumnBitmask()) != 0) {
-				Object[] args = new Object[] {
-						pathologieDataModelImpl.getOriginalMedicalRecordId()
-					};
-
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD,
-					args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD,
-					args);
-
-				args = new Object[] { pathologieDataModelImpl.getMedicalRecordId() };
-
-				finderCache.removeResult(FINDER_PATH_COUNT_BY_MEDICALRECORD,
-					args);
-				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_MEDICALRECORD,
 					args);
 			}
 		}
@@ -3471,7 +4066,17 @@ public class PathologieDataPersistenceImpl extends BasePersistenceImpl<Pathologi
 	private static final String _SQL_SELECT_PATHOLOGIEDATA_WHERE = "SELECT pathologieData FROM PathologieData pathologieData WHERE ";
 	private static final String _SQL_COUNT_PATHOLOGIEDATA = "SELECT COUNT(pathologieData) FROM PathologieData pathologieData";
 	private static final String _SQL_COUNT_PATHOLOGIEDATA_WHERE = "SELECT COUNT(pathologieData) FROM PathologieData pathologieData WHERE ";
+	private static final String _FILTER_ENTITY_TABLE_FILTER_PK_COLUMN = "pathologieData.pathologieDataId";
+	private static final String _FILTER_SQL_SELECT_PATHOLOGIEDATA_WHERE = "SELECT DISTINCT {pathologieData.*} FROM FOO_PathologieData pathologieData WHERE ";
+	private static final String _FILTER_SQL_SELECT_PATHOLOGIEDATA_NO_INLINE_DISTINCT_WHERE_1 =
+		"SELECT {FOO_PathologieData.*} FROM (SELECT DISTINCT pathologieData.pathologieDataId FROM FOO_PathologieData pathologieData WHERE ";
+	private static final String _FILTER_SQL_SELECT_PATHOLOGIEDATA_NO_INLINE_DISTINCT_WHERE_2 =
+		") TEMP_TABLE INNER JOIN FOO_PathologieData ON TEMP_TABLE.pathologieDataId = FOO_PathologieData.pathologieDataId";
+	private static final String _FILTER_SQL_COUNT_PATHOLOGIEDATA_WHERE = "SELECT COUNT(DISTINCT pathologieData.pathologieDataId) AS COUNT_VALUE FROM FOO_PathologieData pathologieData WHERE ";
+	private static final String _FILTER_ENTITY_ALIAS = "pathologieData";
+	private static final String _FILTER_ENTITY_TABLE = "FOO_PathologieData";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "pathologieData.";
+	private static final String _ORDER_BY_ENTITY_TABLE = "FOO_PathologieData.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No PathologieData exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No PathologieData exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(PathologieDataPersistenceImpl.class);

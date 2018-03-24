@@ -16,6 +16,7 @@ package at.graz.meduni.bibbox.medicaldataset.service;
 
 import aQute.bnd.annotation.ProviderType;
 
+import at.graz.meduni.bibbox.medicaldataset.exception.NoSuchKloetzelBuchException;
 import at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch;
 
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -32,6 +33,7 @@ import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -39,6 +41,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.io.Serializable;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -72,6 +75,16 @@ public interface KloetzelBuchLocalService extends BaseLocalService,
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public KloetzelBuch addKloetzelBuch(KloetzelBuch kloetzelBuch);
+
+	public KloetzelBuch addKloetzelBuch(long medicalRecordId,
+		long histonumberStart, long histonumberEnd, int histonumberRunning,
+		long histonumber, int kloetzelBuchRunning, java.lang.String oid,
+		java.lang.String bid, java.lang.String area, java.lang.String type,
+		java.lang.String acronym, java.lang.String text, java.lang.String info,
+		int count, int numberOfPieces, int kbStatus, int sort,
+		java.lang.String color, Date kbDate, java.lang.String day,
+		java.lang.String pocessinguser, java.lang.String organizationUnit,
+		ServiceContext serviceContext) throws PortalException;
 
 	/**
 	* Creates a new kloetzel buch with the primary key. Does not add the kloetzel buch to the database.
@@ -138,6 +151,10 @@ public interface KloetzelBuchLocalService extends BaseLocalService,
 	public KloetzelBuch getKloetzelBuchByUuidAndGroupId(java.lang.String uuid,
 		long groupId) throws PortalException;
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public KloetzelBuch getKloetzelBuchForMedicalRecord(long medicalRecordId)
+		throws NoSuchKloetzelBuchException;
+
 	/**
 	* Updates the kloetzel buch in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -146,6 +163,19 @@ public interface KloetzelBuchLocalService extends BaseLocalService,
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public KloetzelBuch updateKloetzelBuch(KloetzelBuch kloetzelBuch);
+
+	public KloetzelBuch updateloetzelBuch(KloetzelBuch kloetzelBuch,
+		ServiceContext serviceContext) throws PortalException;
+
+	public KloetzelBuch updateloetzelBuch(long kloetzelBuchId,
+		long medicalRecordId, long histonumberStart, long histonumberEnd,
+		int histonumberRunning, long histonumber, int kloetzelBuchRunning,
+		java.lang.String oid, java.lang.String bid, java.lang.String area,
+		java.lang.String type, java.lang.String acronym, java.lang.String text,
+		java.lang.String info, int count, int numberOfPieces, int kbStatus,
+		int sort, java.lang.String color, Date kbDate, java.lang.String day,
+		java.lang.String pocessinguser, java.lang.String organizationUnit,
+		ServiceContext serviceContext) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
@@ -170,6 +200,9 @@ public interface KloetzelBuchLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getKloetzelBuchCount(long groupId);
 
 	/**
 	* Returns the number of kloetzel buchs.
@@ -238,6 +271,16 @@ public interface KloetzelBuchLocalService extends BaseLocalService,
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<KloetzelBuch> getKloetzelBuchs(int start, int end);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<KloetzelBuch> getKloetzelBuchs(long groupId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<KloetzelBuch> getKloetzelBuchs(long groupId, int start, int end);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<KloetzelBuch> getKloetzelBuchs(long groupId, int start,
+		int end, OrderByComparator<KloetzelBuch> ob);
 
 	/**
 	* Returns all the kloetzel buchs matching the UUID and company.

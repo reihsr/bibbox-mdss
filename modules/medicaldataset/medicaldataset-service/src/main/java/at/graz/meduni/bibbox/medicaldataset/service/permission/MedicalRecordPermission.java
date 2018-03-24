@@ -24,25 +24,30 @@ public class MedicalRecordPermission implements BaseModelPermissionChecker {
 		}
 	}
 	
+	//Error in the docu?
 	public static void check(PermissionChecker permissionChecker, long groupId, long medicalRecordId, String actionId) throws PortalException {
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-> at.graz.meduni.bibbox.medicaldataset.service.permission.MedicalRecordPermission.check????????");
 		if (!contains(permissionChecker, groupId, actionId)) {
 			throw new PrincipalException.MustHavePermission(permissionChecker, MedicalRecord.class.getName(), medicalRecordId, actionId);
 		}
 	}
 	
+	//Error in the docu?
 	public static boolean contains(PermissionChecker permissionChecker, long groupId, long medicalRecordId, String actionId) throws PortalException {
+		System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-> at.graz.meduni.bibbox.medicaldataset.service.permission.MedicalRecordPermission.contains????????");
 		MedicalRecord medicalrecord = _medicalRecordLocalService.getMedicalRecord(medicalRecordId);
 		return MedicalDataSetModelPermission.contains(permissionChecker, groupId, actionId);
 	}
 	
 	public static boolean contains(PermissionChecker permissionChecker, long medicalRecordId, String actionId) throws PortalException {
 		MedicalRecord medicalrecord = _medicalRecordLocalService.getMedicalRecord(medicalRecordId);
-		return MedicalDataSetModelPermission.contains(permissionChecker, medicalrecord, actionId);
+		return contains(permissionChecker, medicalrecord, actionId);
 	}
 	
 	public static boolean contains(PermissionChecker permissionChecker, MedicalRecord medicalrecord, String actionId) throws PortalException {
 		return permissionChecker.hasPermission(medicalrecord.getGroupId(), MedicalRecord.class.getName(), medicalrecord.getMedicalRecordId(), actionId);
 	}
+	
 
 	@Override
 	public void checkBaseModel(PermissionChecker permissionChecker, long groupId, long medicalRecordId, String actionId) throws PortalException {
