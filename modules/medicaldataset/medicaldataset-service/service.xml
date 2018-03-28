@@ -25,6 +25,9 @@
 		<column name="statusByUserName" type="String" />
 		<column name="statusDate" type="Date" />
 
+		<!-- Linking fields -->
+		<column name="importMedicalDataSetId" type="long" />
+
 		<!-- ID fields -->
 		<column name="histonumberStart" type="long" />
 		<column name="histonumberEnd" type="long" />
@@ -51,6 +54,9 @@
 		</finder>
 		<finder name="INumber" return-type="Collection">
 			<finder-column name="iNumber" />
+		</finder>
+		<finder name="ImportMedicalDataSet" return-type="Collection">
+			<finder-column name="importMedicalDataSetId" />
 		</finder>
 
 		<!-- References -->
@@ -214,6 +220,99 @@
 		</finder>
 		<finder name="MedicalRecord" return-type="KloetzelBuch">
 			<finder-column name="medicalRecordId" />
+		</finder>
+
+		<!-- References -->
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+	<entity local-service="true" name="ImportMedicalDataSet" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="importMedicalDataSetId" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" /> 
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Status fields -->
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+
+		<!-- Data fields -->
+		<column name="importName" type="String" />	
+		<column name="importType" type="String" />
+		<column name="imiJobId" type="long" />
+		<column name="description" type="String" />
+		<column name="fileName" type="String" />
+		<column name="filePath" type="String" />
+		<column name="importStatus" type="int" />
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="createDate" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+
+		<!-- References -->
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	
+	<entity local-service="true" name="ImportMedicalDataSetFieldMap" remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+		<column name="importMedicalDataSetFieldMapId" primary="true" type="long" />
+
+		<!-- Group instance -->
+		<column name="groupId" type="long" /> 
+
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		
+		<!-- Status fields -->
+		<column name="status" type="int" />
+		<column name="statusByUserId" type="long" />
+		<column name="statusByUserName" type="String" />
+		<column name="statusDate" type="Date" />
+
+		<!-- Linking fields -->
+		<column name="importMedicalDataSetId" type="long" />
+		
+		<!-- Data fields -->
+		<column name="importField" type="String" />	
+		<column name="importFieldPath" type="String" />
+		<column name="TableName" type="String" />
+		<column name="TableField" type="String" />
+
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="importMedicalDataSetFieldMapId" />
+		</order>
+
+		<!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="ImportMedicalDataSet" return-type="Collection">
+			<finder-column name="importMedicalDataSetId" />
 		</finder>
 
 		<!-- References -->

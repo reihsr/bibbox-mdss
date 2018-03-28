@@ -74,10 +74,10 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 	@Indexable(type = IndexableType.REINDEX)
 	public MedicalRecord addMedicalRecord(MedicalRecord medicalRecord);
 
-	public MedicalRecord addMedicalRecord(long histonumberStart,
-		long histonumberEnd, int histonumberRunning, long iNumber,
-		long vPatentId, long vHistonNumber, java.lang.String area,
-		long imiJobId, java.lang.String importFile,
+	public MedicalRecord addMedicalRecord(long importMedicalDataSetId,
+		long histonumberStart, long histonumberEnd, int histonumberRunning,
+		long iNumber, long vPatentId, long vHistonNumber,
+		java.lang.String area, long imiJobId, java.lang.String importFile,
 		ServiceContext serviceContext) throws PortalException;
 
 	/**
@@ -158,9 +158,10 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 		ServiceContext serviceContext) throws PortalException;
 
 	public MedicalRecord updateMedicalRecord(long medicalRecordId,
-		long histonumberStart, long histonumberEnd, int histonumberRunning,
-		long iNumber, long vPatentId, long vHistonNumber,
-		java.lang.String area, long imiJobId, java.lang.String importFile,
+		long importMedicalDataSetId, long histonumberStart,
+		long histonumberEnd, int histonumberRunning, long iNumber,
+		long vPatentId, long vHistonNumber, java.lang.String area,
+		long imiJobId, java.lang.String importFile,
 		ServiceContext serviceContext) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -197,6 +198,9 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getMedicalRecordsCount(long groupId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getMedicalRecordsCountFromImport(long importMedicalDataSetId);
 
 	/**
 	* Returns the OSGi service identifier.
@@ -294,6 +298,19 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 	public List<MedicalRecord> getMedicalRecordsByUuidAndCompanyId(
 		java.lang.String uuid, long companyId, int start, int end,
 		OrderByComparator<MedicalRecord> orderByComparator);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<MedicalRecord> getMedicalRecordsFromImport(
+		long importMedicalDataSetId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<MedicalRecord> getMedicalRecordsFromImport(
+		long importMedicalDataSetId, int start, int end);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<MedicalRecord> getMedicalRecordsFromImport(
+		long importMedicalDataSetId, int start, int end,
+		OrderByComparator<MedicalRecord> ob);
 
 	/**
 	* Returns the number of rows matching the dynamic query.

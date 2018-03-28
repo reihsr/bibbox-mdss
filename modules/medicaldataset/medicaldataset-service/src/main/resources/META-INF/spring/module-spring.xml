@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.ImportMedicalDataSetLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.ImportMedicalDataSetServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.ImportMedicalDataSetPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetPersistence" parent="basePersistence" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.ImportMedicalDataSetFieldMapLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.ImportMedicalDataSetFieldMapServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.ImportMedicalDataSetFieldMapPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetFieldMapPersistence" parent="basePersistence" />
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.KloetzelBuchLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchLocalService" />
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.KloetzelBuchServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchService" />
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.KloetzelBuchPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.KloetzelBuchPersistence" parent="basePersistence" />

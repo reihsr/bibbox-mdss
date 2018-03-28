@@ -14,7 +14,7 @@ import at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchLocalService;
 
 @Component(
 	    immediate = true,
-	    property = {"at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch"}
+	    property = {"model.class.name=at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch"}
 	)
 public class KloetzelBuchPermission implements BaseModelPermissionChecker {
 

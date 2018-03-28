@@ -66,7 +66,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(45);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -92,6 +92,8 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		sb.append(statusByUserName);
 		sb.append(", statusDate=");
 		sb.append(statusDate);
+		sb.append(", importMedicalDataSetId=");
+		sb.append(importMedicalDataSetId);
 		sb.append(", histonumberStart=");
 		sb.append(histonumberStart);
 		sb.append(", histonumberEnd=");
@@ -169,6 +171,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 			medicalRecordImpl.setStatusDate(new Date(statusDate));
 		}
 
+		medicalRecordImpl.setImportMedicalDataSetId(importMedicalDataSetId);
 		medicalRecordImpl.setHistonumberStart(histonumberStart);
 		medicalRecordImpl.setHistonumberEnd(histonumberEnd);
 		medicalRecordImpl.setHistonumberRunning(histonumberRunning);
@@ -217,6 +220,8 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		statusByUserId = objectInput.readLong();
 		statusByUserName = objectInput.readUTF();
 		statusDate = objectInput.readLong();
+
+		importMedicalDataSetId = objectInput.readLong();
 
 		histonumberStart = objectInput.readLong();
 
@@ -276,6 +281,8 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 
 		objectOutput.writeLong(statusDate);
 
+		objectOutput.writeLong(importMedicalDataSetId);
+
 		objectOutput.writeLong(histonumberStart);
 
 		objectOutput.writeLong(histonumberEnd);
@@ -317,6 +324,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 	public long statusByUserId;
 	public String statusByUserName;
 	public long statusDate;
+	public long importMedicalDataSetId;
 	public long histonumberStart;
 	public long histonumberEnd;
 	public int histonumberRunning;

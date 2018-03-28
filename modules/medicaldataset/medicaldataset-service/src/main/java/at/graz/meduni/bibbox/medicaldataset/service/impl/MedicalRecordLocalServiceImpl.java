@@ -47,7 +47,7 @@ public class MedicalRecordLocalServiceImpl
 	 * Never reference this class directly. Always use {@link at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordLocalServiceUtil} to access the medical record local service.
 	 */
 	
-	public MedicalRecord addMedicalRecord(long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatentId, long vHistonNumber, String area, long imiJobId, String importFile, ServiceContext serviceContext) throws PortalException {
+	public MedicalRecord addMedicalRecord(long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatentId, long vHistonNumber, String area, long imiJobId, String importFile, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -65,6 +65,8 @@ public class MedicalRecordLocalServiceImpl
 		medicalrecord.setUserName(user.getFullName());
 		medicalrecord.setCreateDate(serviceContext.getCreateDate(now));
 		medicalrecord.setModifiedDate(serviceContext.getCreateDate(now));
+		
+		medicalrecord.setImportMedicalDataSetId(importMedicalDataSetId);
 		
 		medicalrecord.setHistonumberStart(histonumberStart);
 		medicalrecord.setHistonumberEnd(histonumberEnd);
@@ -113,7 +115,7 @@ public class MedicalRecordLocalServiceImpl
 		return medicalrecord;
 	}*/
 	
-	public MedicalRecord updateMedicalRecord(long medicalRecordId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatentId, long vHistonNumber, String area, long imiJobId, String importFile, ServiceContext serviceContext) throws PortalException {
+	public MedicalRecord updateMedicalRecord(long medicalRecordId, long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatentId, long vHistonNumber, String area, long imiJobId, String importFile, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -125,6 +127,8 @@ public class MedicalRecordLocalServiceImpl
 		medicalrecord.setUserId(userId);
 		medicalrecord.setUserName(user.getFullName());
 		medicalrecord.setModifiedDate(serviceContext.getCreateDate(now));
+		
+		medicalrecord.setImportMedicalDataSetId(importMedicalDataSetId);
 		
 		medicalrecord.setHistonumberStart(histonumberStart);
 		medicalrecord.setHistonumberEnd(histonumberEnd);
@@ -176,4 +180,20 @@ public class MedicalRecordLocalServiceImpl
 	public int getMedicalRecordsCount(long groupId) {
 		return medicalRecordPersistence.countByGroupId(groupId);
 	}
+	
+	public List<MedicalRecord> getMedicalRecordsFromImport(long importMedicalDataSetId) {
+		return medicalRecordPersistence.findByImportMedicalDataSet(importMedicalDataSetId);
+	}
+	
+	public List<MedicalRecord> getMedicalRecordsFromImport(long importMedicalDataSetId, int start, int end) {
+		return medicalRecordPersistence.findByImportMedicalDataSet(importMedicalDataSetId, start, end);
+	}
+	
+	public List<MedicalRecord> getMedicalRecordsFromImport(long importMedicalDataSetId, int start, int end, OrderByComparator<MedicalRecord> ob) {
+		return medicalRecordPersistence.findByImportMedicalDataSet(importMedicalDataSetId, start, end, ob);
+	}
+	
+	public int getMedicalRecordsCountFromImport(long importMedicalDataSetId) {
+		return medicalRecordPersistence.countByImportMedicalDataSet(importMedicalDataSetId);
+	} 
 }

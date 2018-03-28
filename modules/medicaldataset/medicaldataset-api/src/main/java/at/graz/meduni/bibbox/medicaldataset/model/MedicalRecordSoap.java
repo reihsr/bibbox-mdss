@@ -46,6 +46,7 @@ public class MedicalRecordSoap implements Serializable {
 		soapModel.setStatusByUserId(model.getStatusByUserId());
 		soapModel.setStatusByUserName(model.getStatusByUserName());
 		soapModel.setStatusDate(model.getStatusDate());
+		soapModel.setImportMedicalDataSetId(model.getImportMedicalDataSetId());
 		soapModel.setHistonumberStart(model.getHistonumberStart());
 		soapModel.setHistonumberEnd(model.getHistonumberEnd());
 		soapModel.setHistonumberRunning(model.getHistonumberRunning());
@@ -203,6 +204,14 @@ public class MedicalRecordSoap implements Serializable {
 		_statusDate = statusDate;
 	}
 
+	public long getImportMedicalDataSetId() {
+		return _importMedicalDataSetId;
+	}
+
+	public void setImportMedicalDataSetId(long importMedicalDataSetId) {
+		_importMedicalDataSetId = importMedicalDataSetId;
+	}
+
 	public long getHistonumberStart() {
 		return _histonumberStart;
 	}
@@ -287,6 +296,7 @@ public class MedicalRecordSoap implements Serializable {
 	private long _statusByUserId;
 	private String _statusByUserName;
 	private Date _statusDate;
+	private long _importMedicalDataSetId;
 	private long _histonumberStart;
 	private long _histonumberEnd;
 	private int _histonumberRunning;

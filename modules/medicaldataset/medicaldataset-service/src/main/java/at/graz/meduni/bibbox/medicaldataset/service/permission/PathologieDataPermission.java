@@ -14,7 +14,7 @@ import at.graz.meduni.bibbox.medicaldataset.service.PathologieDataLocalService;
 
 @Component(
 	    immediate = true,
-	    property = {"at.graz.meduni.bibbox.medicaldataset.model.PathologieData"}
+	    property = {"model.class.name=at.graz.meduni.bibbox.medicaldataset.model.PathologieData"}
 	)
 public class PathologieDataPermission implements BaseModelPermissionChecker {
 

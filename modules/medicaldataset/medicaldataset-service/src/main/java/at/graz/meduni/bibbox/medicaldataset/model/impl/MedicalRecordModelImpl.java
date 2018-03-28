@@ -86,6 +86,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 			{ "statusByUserId", Types.BIGINT },
 			{ "statusByUserName", Types.VARCHAR },
 			{ "statusDate", Types.TIMESTAMP },
+			{ "importMedicalDataSetId", Types.BIGINT },
 			{ "histonumberStart", Types.BIGINT },
 			{ "histonumberEnd", Types.BIGINT },
 			{ "histonumberRunning", Types.INTEGER },
@@ -111,6 +112,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		TABLE_COLUMNS_MAP.put("statusByUserId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("statusByUserName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("statusDate", Types.TIMESTAMP);
+		TABLE_COLUMNS_MAP.put("importMedicalDataSetId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("histonumberStart", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("histonumberEnd", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("histonumberRunning", Types.INTEGER);
@@ -122,7 +124,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		TABLE_COLUMNS_MAP.put("importFile", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table FOO_MedicalRecord (uuid_ VARCHAR(75) null,medicalRecordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,histonumberStart LONG,histonumberEnd LONG,histonumberRunning INTEGER,iNumber LONG,vPatentId LONG,vHistonNumber LONG,area VARCHAR(75) null,imiJobId LONG,importFile VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table FOO_MedicalRecord (uuid_ VARCHAR(75) null,medicalRecordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,histonumberStart LONG,histonumberEnd LONG,histonumberRunning INTEGER,iNumber LONG,vPatentId LONG,vHistonNumber LONG,area VARCHAR(75) null,imiJobId LONG,importFile VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table FOO_MedicalRecord";
 	public static final String ORDER_BY_JPQL = " ORDER BY medicalRecord.medicalRecordId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY FOO_MedicalRecord.medicalRecordId ASC";
@@ -141,8 +143,9 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 	public static final long COMPANYID_COLUMN_BITMASK = 1L;
 	public static final long GROUPID_COLUMN_BITMASK = 2L;
 	public static final long INUMBER_COLUMN_BITMASK = 4L;
-	public static final long UUID_COLUMN_BITMASK = 8L;
-	public static final long MEDICALRECORDID_COLUMN_BITMASK = 16L;
+	public static final long IMPORTMEDICALDATASETID_COLUMN_BITMASK = 8L;
+	public static final long UUID_COLUMN_BITMASK = 16L;
+	public static final long MEDICALRECORDID_COLUMN_BITMASK = 32L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -169,6 +172,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		model.setStatusByUserId(soapModel.getStatusByUserId());
 		model.setStatusByUserName(soapModel.getStatusByUserName());
 		model.setStatusDate(soapModel.getStatusDate());
+		model.setImportMedicalDataSetId(soapModel.getImportMedicalDataSetId());
 		model.setHistonumberStart(soapModel.getHistonumberStart());
 		model.setHistonumberEnd(soapModel.getHistonumberEnd());
 		model.setHistonumberRunning(soapModel.getHistonumberRunning());
@@ -254,6 +258,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		attributes.put("statusByUserId", getStatusByUserId());
 		attributes.put("statusByUserName", getStatusByUserName());
 		attributes.put("statusDate", getStatusDate());
+		attributes.put("importMedicalDataSetId", getImportMedicalDataSetId());
 		attributes.put("histonumberStart", getHistonumberStart());
 		attributes.put("histonumberEnd", getHistonumberEnd());
 		attributes.put("histonumberRunning", getHistonumberRunning());
@@ -342,6 +347,13 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 		if (statusDate != null) {
 			setStatusDate(statusDate);
+		}
+
+		Long importMedicalDataSetId = (Long)attributes.get(
+				"importMedicalDataSetId");
+
+		if (importMedicalDataSetId != null) {
+			setImportMedicalDataSetId(importMedicalDataSetId);
 		}
 
 		Long histonumberStart = (Long)attributes.get("histonumberStart");
@@ -621,6 +633,29 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 	@JSON
 	@Override
+	public long getImportMedicalDataSetId() {
+		return _importMedicalDataSetId;
+	}
+
+	@Override
+	public void setImportMedicalDataSetId(long importMedicalDataSetId) {
+		_columnBitmask |= IMPORTMEDICALDATASETID_COLUMN_BITMASK;
+
+		if (!_setOriginalImportMedicalDataSetId) {
+			_setOriginalImportMedicalDataSetId = true;
+
+			_originalImportMedicalDataSetId = _importMedicalDataSetId;
+		}
+
+		_importMedicalDataSetId = importMedicalDataSetId;
+	}
+
+	public long getOriginalImportMedicalDataSetId() {
+		return _originalImportMedicalDataSetId;
+	}
+
+	@JSON
+	@Override
 	public long getHistonumberStart() {
 		return _histonumberStart;
 	}
@@ -869,6 +904,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		medicalRecordImpl.setStatusByUserId(getStatusByUserId());
 		medicalRecordImpl.setStatusByUserName(getStatusByUserName());
 		medicalRecordImpl.setStatusDate(getStatusDate());
+		medicalRecordImpl.setImportMedicalDataSetId(getImportMedicalDataSetId());
 		medicalRecordImpl.setHistonumberStart(getHistonumberStart());
 		medicalRecordImpl.setHistonumberEnd(getHistonumberEnd());
 		medicalRecordImpl.setHistonumberRunning(getHistonumberRunning());
@@ -958,6 +994,10 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 		medicalRecordModelImpl._setModifiedDate = false;
 
+		medicalRecordModelImpl._originalImportMedicalDataSetId = medicalRecordModelImpl._importMedicalDataSetId;
+
+		medicalRecordModelImpl._setOriginalImportMedicalDataSetId = false;
+
 		medicalRecordModelImpl._originalINumber = medicalRecordModelImpl._iNumber;
 
 		medicalRecordModelImpl._setOriginalINumber = false;
@@ -1032,6 +1072,8 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 			medicalRecordCacheModel.statusDate = Long.MIN_VALUE;
 		}
 
+		medicalRecordCacheModel.importMedicalDataSetId = getImportMedicalDataSetId();
+
 		medicalRecordCacheModel.histonumberStart = getHistonumberStart();
 
 		medicalRecordCacheModel.histonumberEnd = getHistonumberEnd();
@@ -1067,7 +1109,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(45);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1093,6 +1135,8 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		sb.append(getStatusByUserName());
 		sb.append(", statusDate=");
 		sb.append(getStatusDate());
+		sb.append(", importMedicalDataSetId=");
+		sb.append(getImportMedicalDataSetId());
 		sb.append(", histonumberStart=");
 		sb.append(getHistonumberStart());
 		sb.append(", histonumberEnd=");
@@ -1118,7 +1162,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(67);
+		StringBundler sb = new StringBundler(70);
 
 		sb.append("<model><model-name>");
 		sb.append("at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord");
@@ -1171,6 +1215,10 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		sb.append(
 			"<column><column-name>statusDate</column-name><column-value><![CDATA[");
 		sb.append(getStatusDate());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>importMedicalDataSetId</column-name><column-value><![CDATA[");
+		sb.append(getImportMedicalDataSetId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>histonumberStart</column-name><column-value><![CDATA[");
@@ -1236,6 +1284,9 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 	private long _statusByUserId;
 	private String _statusByUserName;
 	private Date _statusDate;
+	private long _importMedicalDataSetId;
+	private long _originalImportMedicalDataSetId;
+	private boolean _setOriginalImportMedicalDataSetId;
 	private long _histonumberStart;
 	private long _histonumberEnd;
 	private int _histonumberRunning;

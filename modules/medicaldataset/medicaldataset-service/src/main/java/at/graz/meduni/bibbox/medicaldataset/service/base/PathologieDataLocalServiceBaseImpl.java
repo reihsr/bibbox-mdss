@@ -18,6 +18,8 @@ import aQute.bnd.annotation.ProviderType;
 
 import at.graz.meduni.bibbox.medicaldataset.model.PathologieData;
 import at.graz.meduni.bibbox.medicaldataset.service.PathologieDataLocalService;
+import at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetFieldMapPersistence;
+import at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetPersistence;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.KloetzelBuchPersistence;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.MedicalRecordPersistence;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.PathologieDataPersistence;
@@ -471,6 +473,82 @@ public abstract class PathologieDataLocalServiceBaseImpl
 	}
 
 	/**
+	 * Returns the import medical data set local service.
+	 *
+	 * @return the import medical data set local service
+	 */
+	public at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalService getImportMedicalDataSetLocalService() {
+		return importMedicalDataSetLocalService;
+	}
+
+	/**
+	 * Sets the import medical data set local service.
+	 *
+	 * @param importMedicalDataSetLocalService the import medical data set local service
+	 */
+	public void setImportMedicalDataSetLocalService(
+		at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalService importMedicalDataSetLocalService) {
+		this.importMedicalDataSetLocalService = importMedicalDataSetLocalService;
+	}
+
+	/**
+	 * Returns the import medical data set persistence.
+	 *
+	 * @return the import medical data set persistence
+	 */
+	public ImportMedicalDataSetPersistence getImportMedicalDataSetPersistence() {
+		return importMedicalDataSetPersistence;
+	}
+
+	/**
+	 * Sets the import medical data set persistence.
+	 *
+	 * @param importMedicalDataSetPersistence the import medical data set persistence
+	 */
+	public void setImportMedicalDataSetPersistence(
+		ImportMedicalDataSetPersistence importMedicalDataSetPersistence) {
+		this.importMedicalDataSetPersistence = importMedicalDataSetPersistence;
+	}
+
+	/**
+	 * Returns the import medical data set field map local service.
+	 *
+	 * @return the import medical data set field map local service
+	 */
+	public at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalService getImportMedicalDataSetFieldMapLocalService() {
+		return importMedicalDataSetFieldMapLocalService;
+	}
+
+	/**
+	 * Sets the import medical data set field map local service.
+	 *
+	 * @param importMedicalDataSetFieldMapLocalService the import medical data set field map local service
+	 */
+	public void setImportMedicalDataSetFieldMapLocalService(
+		at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalService importMedicalDataSetFieldMapLocalService) {
+		this.importMedicalDataSetFieldMapLocalService = importMedicalDataSetFieldMapLocalService;
+	}
+
+	/**
+	 * Returns the import medical data set field map persistence.
+	 *
+	 * @return the import medical data set field map persistence
+	 */
+	public ImportMedicalDataSetFieldMapPersistence getImportMedicalDataSetFieldMapPersistence() {
+		return importMedicalDataSetFieldMapPersistence;
+	}
+
+	/**
+	 * Sets the import medical data set field map persistence.
+	 *
+	 * @param importMedicalDataSetFieldMapPersistence the import medical data set field map persistence
+	 */
+	public void setImportMedicalDataSetFieldMapPersistence(
+		ImportMedicalDataSetFieldMapPersistence importMedicalDataSetFieldMapPersistence) {
+		this.importMedicalDataSetFieldMapPersistence = importMedicalDataSetFieldMapPersistence;
+	}
+
+	/**
 	 * Returns the kloetzel buch local service.
 	 *
 	 * @return the kloetzel buch local service
@@ -824,6 +902,14 @@ public abstract class PathologieDataLocalServiceBaseImpl
 		}
 	}
 
+	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalService.class)
+	protected at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalService importMedicalDataSetLocalService;
+	@BeanReference(type = ImportMedicalDataSetPersistence.class)
+	protected ImportMedicalDataSetPersistence importMedicalDataSetPersistence;
+	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalService.class)
+	protected at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalService importMedicalDataSetFieldMapLocalService;
+	@BeanReference(type = ImportMedicalDataSetFieldMapPersistence.class)
+	protected ImportMedicalDataSetFieldMapPersistence importMedicalDataSetFieldMapPersistence;
 	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchLocalService.class)
 	protected at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchLocalService kloetzelBuchLocalService;
 	@BeanReference(type = KloetzelBuchPersistence.class)

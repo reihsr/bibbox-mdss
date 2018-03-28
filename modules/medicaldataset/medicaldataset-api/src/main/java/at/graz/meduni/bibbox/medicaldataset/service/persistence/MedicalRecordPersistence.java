@@ -698,6 +698,143 @@ public interface MedicalRecordPersistence extends BasePersistence<MedicalRecord>
 	public int countByINumber(long iNumber);
 
 	/**
+	* Returns all the medical records where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @return the matching medical records
+	*/
+	public java.util.List<MedicalRecord> findByImportMedicalDataSet(
+		long importMedicalDataSetId);
+
+	/**
+	* Returns a range of all the medical records where importMedicalDataSetId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link MedicalRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param start the lower bound of the range of medical records
+	* @param end the upper bound of the range of medical records (not inclusive)
+	* @return the range of matching medical records
+	*/
+	public java.util.List<MedicalRecord> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end);
+
+	/**
+	* Returns an ordered range of all the medical records where importMedicalDataSetId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link MedicalRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param start the lower bound of the range of medical records
+	* @param end the upper bound of the range of medical records (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching medical records
+	*/
+	public java.util.List<MedicalRecord> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the medical records where importMedicalDataSetId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link MedicalRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param start the lower bound of the range of medical records
+	* @param end the upper bound of the range of medical records (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching medical records
+	*/
+	public java.util.List<MedicalRecord> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first medical record in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching medical record
+	* @throws NoSuchMedicalRecordException if a matching medical record could not be found
+	*/
+	public MedicalRecord findByImportMedicalDataSet_First(
+		long importMedicalDataSetId,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator)
+		throws NoSuchMedicalRecordException;
+
+	/**
+	* Returns the first medical record in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching medical record, or <code>null</code> if a matching medical record could not be found
+	*/
+	public MedicalRecord fetchByImportMedicalDataSet_First(
+		long importMedicalDataSetId,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator);
+
+	/**
+	* Returns the last medical record in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching medical record
+	* @throws NoSuchMedicalRecordException if a matching medical record could not be found
+	*/
+	public MedicalRecord findByImportMedicalDataSet_Last(
+		long importMedicalDataSetId,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator)
+		throws NoSuchMedicalRecordException;
+
+	/**
+	* Returns the last medical record in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching medical record, or <code>null</code> if a matching medical record could not be found
+	*/
+	public MedicalRecord fetchByImportMedicalDataSet_Last(
+		long importMedicalDataSetId,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator);
+
+	/**
+	* Returns the medical records before and after the current medical record in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param medicalRecordId the primary key of the current medical record
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next medical record
+	* @throws NoSuchMedicalRecordException if a medical record with the primary key could not be found
+	*/
+	public MedicalRecord[] findByImportMedicalDataSet_PrevAndNext(
+		long medicalRecordId, long importMedicalDataSetId,
+		com.liferay.portal.kernel.util.OrderByComparator<MedicalRecord> orderByComparator)
+		throws NoSuchMedicalRecordException;
+
+	/**
+	* Removes all the medical records where importMedicalDataSetId = &#63; from the database.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	*/
+	public void removeByImportMedicalDataSet(long importMedicalDataSetId);
+
+	/**
+	* Returns the number of medical records where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @return the number of matching medical records
+	*/
+	public int countByImportMedicalDataSet(long importMedicalDataSetId);
+
+	/**
 	* Caches the medical record in the entity cache if it is enabled.
 	*
 	* @param medicalRecord the medical record

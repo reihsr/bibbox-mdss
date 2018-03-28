@@ -293,6 +293,20 @@ public interface MedicalRecordModel extends BaseModel<MedicalRecord>,
 	public void setStatusDate(Date statusDate);
 
 	/**
+	 * Returns the import medical data set ID of this medical record.
+	 *
+	 * @return the import medical data set ID of this medical record
+	 */
+	public long getImportMedicalDataSetId();
+
+	/**
+	 * Sets the import medical data set ID of this medical record.
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID of this medical record
+	 */
+	public void setImportMedicalDataSetId(long importMedicalDataSetId);
+
+	/**
 	 * Returns the histonumber start of this medical record.
 	 *
 	 * @return the histonumber start of this medical record

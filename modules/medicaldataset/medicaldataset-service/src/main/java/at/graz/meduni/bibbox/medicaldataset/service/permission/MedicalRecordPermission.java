@@ -14,7 +14,7 @@ import at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordLocalService;
 
 @Component(
 	    immediate = true,
-	    property = {"at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord"}
+	    property = {"model.class.name=at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord"}
 	)
 public class MedicalRecordPermission implements BaseModelPermissionChecker {
 	

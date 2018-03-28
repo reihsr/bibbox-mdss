@@ -1,6 +1,52 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<model name="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSet">
+		<field name="uuid" type="String" />
+		<field name="importMedicalDataSetId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="importName" type="String" />
+		<field name="importType" type="String" />
+		<field name="imiJobId" type="long" />
+		<field name="description" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="fileName" type="String" />
+		<field name="filePath" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="importStatus" type="int" />
+	</model>
+	<model name="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap">
+		<field name="uuid" type="String" />
+		<field name="importMedicalDataSetFieldMapId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="importMedicalDataSetId" type="long" />
+		<field name="importField" type="String" />
+		<field name="importFieldPath" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="TableName" type="String" />
+		<field name="TableField" type="String" />
+	</model>
 	<model name="at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch">
 		<field name="uuid" type="String" />
 		<field name="kloetzelBuchId" type="long" />
@@ -54,6 +100,7 @@
 		<field name="statusByUserId" type="long" />
 		<field name="statusByUserName" type="String" />
 		<field name="statusDate" type="Date" />
+		<field name="importMedicalDataSetId" type="long" />
 		<field name="histonumberStart" type="long" />
 		<field name="histonumberEnd" type="long" />
 		<field name="histonumberRunning" type="int" />

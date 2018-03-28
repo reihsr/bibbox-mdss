@@ -1,3 +1,45 @@
+create table FOO_ImportMedicalDataSet (
+	uuid_ VARCHAR(75) null,
+	importMedicalDataSetId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	status INTEGER,
+	statusByUserId LONG,
+	statusByUserName VARCHAR(75) null,
+	statusDate DATE null,
+	importName VARCHAR(75) null,
+	importType VARCHAR(75) null,
+	imiJobId LONG,
+	description STRING null,
+	fileName VARCHAR(75) null,
+	filePath VARCHAR(1000) null,
+	importStatus INTEGER
+);
+
+create table FOO_ImportMedicalDataSetFieldMap (
+	uuid_ VARCHAR(75) null,
+	importMedicalDataSetFieldMapId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	status INTEGER,
+	statusByUserId LONG,
+	statusByUserName VARCHAR(75) null,
+	statusDate DATE null,
+	importMedicalDataSetId LONG,
+	importField VARCHAR(75) null,
+	importFieldPath VARCHAR(1000) null,
+	TableName VARCHAR(75) null,
+	TableField VARCHAR(75) null
+);
+
 create table FOO_KloetzelBuch (
 	uuid_ VARCHAR(75) null,
 	kloetzelBuchId LONG not null primary key,
@@ -48,6 +90,7 @@ create table FOO_MedicalRecord (
 	statusByUserId LONG,
 	statusByUserName VARCHAR(75) null,
 	statusDate DATE null,
+	importMedicalDataSetId LONG,
 	histonumberStart LONG,
 	histonumberEnd LONG,
 	histonumberRunning INTEGER,

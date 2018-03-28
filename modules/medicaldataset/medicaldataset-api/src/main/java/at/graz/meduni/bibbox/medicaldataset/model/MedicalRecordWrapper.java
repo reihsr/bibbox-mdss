@@ -72,6 +72,7 @@ public class MedicalRecordWrapper implements MedicalRecord,
 		attributes.put("statusByUserId", getStatusByUserId());
 		attributes.put("statusByUserName", getStatusByUserName());
 		attributes.put("statusDate", getStatusDate());
+		attributes.put("importMedicalDataSetId", getImportMedicalDataSetId());
 		attributes.put("histonumberStart", getHistonumberStart());
 		attributes.put("histonumberEnd", getHistonumberEnd());
 		attributes.put("histonumberRunning", getHistonumberRunning());
@@ -157,6 +158,13 @@ public class MedicalRecordWrapper implements MedicalRecord,
 
 		if (statusDate != null) {
 			setStatusDate(statusDate);
+		}
+
+		Long importMedicalDataSetId = (Long)attributes.get(
+				"importMedicalDataSetId");
+
+		if (importMedicalDataSetId != null) {
+			setImportMedicalDataSetId(importMedicalDataSetId);
 		}
 
 		Long histonumberStart = (Long)attributes.get("histonumberStart");
@@ -542,6 +550,16 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	}
 
 	/**
+	* Returns the import medical data set ID of this medical record.
+	*
+	* @return the import medical data set ID of this medical record
+	*/
+	@Override
+	public long getImportMedicalDataSetId() {
+		return _medicalRecord.getImportMedicalDataSetId();
+	}
+
+	/**
 	* Returns the medical record ID of this medical record.
 	*
 	* @return the medical record ID of this medical record
@@ -725,6 +743,16 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	@Override
 	public void setImportFile(java.lang.String importFile) {
 		_medicalRecord.setImportFile(importFile);
+	}
+
+	/**
+	* Sets the import medical data set ID of this medical record.
+	*
+	* @param importMedicalDataSetId the import medical data set ID of this medical record
+	*/
+	@Override
+	public void setImportMedicalDataSetId(long importMedicalDataSetId) {
+		_medicalRecord.setImportMedicalDataSetId(importMedicalDataSetId);
 	}
 
 	/**

@@ -54,15 +54,16 @@ public class MedicalRecordLocalServiceUtil {
 	}
 
 	public static at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord addMedicalRecord(
-		long histonumberStart, long histonumberEnd, int histonumberRunning,
-		long iNumber, long vPatentId, long vHistonNumber,
-		java.lang.String area, long imiJobId, java.lang.String importFile,
+		long importMedicalDataSetId, long histonumberStart,
+		long histonumberEnd, int histonumberRunning, long iNumber,
+		long vPatentId, long vHistonNumber, java.lang.String area,
+		long imiJobId, java.lang.String importFile,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
-				   .addMedicalRecord(histonumberStart, histonumberEnd,
-			histonumberRunning, iNumber, vPatentId, vHistonNumber, area,
-			imiJobId, importFile, serviceContext);
+				   .addMedicalRecord(importMedicalDataSetId, histonumberStart,
+			histonumberEnd, histonumberRunning, iNumber, vPatentId,
+			vHistonNumber, area, imiJobId, importFile, serviceContext);
 	}
 
 	/**
@@ -163,16 +164,17 @@ public class MedicalRecordLocalServiceUtil {
 	}
 
 	public static at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord updateMedicalRecord(
-		long medicalRecordId, long histonumberStart, long histonumberEnd,
-		int histonumberRunning, long iNumber, long vPatentId,
-		long vHistonNumber, java.lang.String area, long imiJobId,
-		java.lang.String importFile,
+		long medicalRecordId, long importMedicalDataSetId,
+		long histonumberStart, long histonumberEnd, int histonumberRunning,
+		long iNumber, long vPatentId, long vHistonNumber,
+		java.lang.String area, long imiJobId, java.lang.String importFile,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
-				   .updateMedicalRecord(medicalRecordId, histonumberStart,
-			histonumberEnd, histonumberRunning, iNumber, vPatentId,
-			vHistonNumber, area, imiJobId, importFile, serviceContext);
+				   .updateMedicalRecord(medicalRecordId,
+			importMedicalDataSetId, histonumberStart, histonumberEnd,
+			histonumberRunning, iNumber, vPatentId, vHistonNumber, area,
+			imiJobId, importFile, serviceContext);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
@@ -218,6 +220,12 @@ public class MedicalRecordLocalServiceUtil {
 
 	public static int getMedicalRecordsCount(long groupId) {
 		return getService().getMedicalRecordsCount(groupId);
+	}
+
+	public static int getMedicalRecordsCountFromImport(
+		long importMedicalDataSetId) {
+		return getService()
+				   .getMedicalRecordsCountFromImport(importMedicalDataSetId);
 	}
 
 	/**
@@ -339,6 +347,26 @@ public class MedicalRecordLocalServiceUtil {
 		return getService()
 				   .getMedicalRecordsByUuidAndCompanyId(uuid, companyId, start,
 			end, orderByComparator);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord> getMedicalRecordsFromImport(
+		long importMedicalDataSetId) {
+		return getService().getMedicalRecordsFromImport(importMedicalDataSetId);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord> getMedicalRecordsFromImport(
+		long importMedicalDataSetId, int start, int end) {
+		return getService()
+				   .getMedicalRecordsFromImport(importMedicalDataSetId, start,
+			end);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord> getMedicalRecordsFromImport(
+		long importMedicalDataSetId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord> ob) {
+		return getService()
+				   .getMedicalRecordsFromImport(importMedicalDataSetId, start,
+			end, ob);
 	}
 
 	/**

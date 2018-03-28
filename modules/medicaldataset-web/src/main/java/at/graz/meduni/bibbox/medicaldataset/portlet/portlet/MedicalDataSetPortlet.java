@@ -3,6 +3,7 @@ package at.graz.meduni.bibbox.medicaldataset.portlet.portlet;
 import at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord;
 import at.graz.meduni.bibbox.medicaldataset.portlet.constants.MedicalDataSetPortletKeys;
 import at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordLocalService;
+import at.graz.meduni.bibbox.medicaldataset.portlet.constants.MedicalDataSetWebKeys;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
@@ -22,7 +23,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(
 	immediate = true,
 	property = {
-		"com.liferay.portlet.display-category=Medical Data Set",
+		"com.liferay.portlet.display-category=" + MedicalDataSetWebKeys.COM_LIFERAY_PORTLET_DISPLAY_CATEGORY,
 		"com.liferay.portlet.instanceable=false",
 		"javax.portlet.display-name=" + MedicalDataSetPortletKeys.JAVAX_PORTLET_DISPLAY_NAME_MEDICAL_DATA_SET_PORTLET,
 		"javax.portlet.init-param.template-path=/",
@@ -63,6 +64,7 @@ public class MedicalDataSetPortlet extends MVCPortlet {
         }
 		 */
 	}
+	
 	
 	@Reference(unbind = "-")
 	protected void setEntryService(MedicalRecordLocalService medicalRecordLocalService) {

@@ -2851,6 +2851,533 @@ public class MedicalRecordPersistenceImpl extends BasePersistenceImpl<MedicalRec
 	}
 
 	private static final String _FINDER_COLUMN_INUMBER_INUMBER_2 = "medicalRecord.iNumber = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_IMPORTMEDICALDATASET =
+		new FinderPath(MedicalRecordModelImpl.ENTITY_CACHE_ENABLED,
+			MedicalRecordModelImpl.FINDER_CACHE_ENABLED,
+			MedicalRecordImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findByImportMedicalDataSet",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_IMPORTMEDICALDATASET =
+		new FinderPath(MedicalRecordModelImpl.ENTITY_CACHE_ENABLED,
+			MedicalRecordModelImpl.FINDER_CACHE_ENABLED,
+			MedicalRecordImpl.class, FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"findByImportMedicalDataSet",
+			new String[] { Long.class.getName() },
+			MedicalRecordModelImpl.IMPORTMEDICALDATASETID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_IMPORTMEDICALDATASET = new FinderPath(MedicalRecordModelImpl.ENTITY_CACHE_ENABLED,
+			MedicalRecordModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByImportMedicalDataSet", new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the medical records where importMedicalDataSetId = &#63;.
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @return the matching medical records
+	 */
+	@Override
+	public List<MedicalRecord> findByImportMedicalDataSet(
+		long importMedicalDataSetId) {
+		return findByImportMedicalDataSet(importMedicalDataSetId,
+			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the medical records where importMedicalDataSetId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link MedicalRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @param start the lower bound of the range of medical records
+	 * @param end the upper bound of the range of medical records (not inclusive)
+	 * @return the range of matching medical records
+	 */
+	@Override
+	public List<MedicalRecord> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end) {
+		return findByImportMedicalDataSet(importMedicalDataSetId, start, end,
+			null);
+	}
+
+	/**
+	 * Returns an ordered range of all the medical records where importMedicalDataSetId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link MedicalRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @param start the lower bound of the range of medical records
+	 * @param end the upper bound of the range of medical records (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching medical records
+	 */
+	@Override
+	public List<MedicalRecord> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end,
+		OrderByComparator<MedicalRecord> orderByComparator) {
+		return findByImportMedicalDataSet(importMedicalDataSetId, start, end,
+			orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the medical records where importMedicalDataSetId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link MedicalRecordModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @param start the lower bound of the range of medical records
+	 * @param end the upper bound of the range of medical records (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching medical records
+	 */
+	@Override
+	public List<MedicalRecord> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end,
+		OrderByComparator<MedicalRecord> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_IMPORTMEDICALDATASET;
+			finderArgs = new Object[] { importMedicalDataSetId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_IMPORTMEDICALDATASET;
+			finderArgs = new Object[] {
+					importMedicalDataSetId,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<MedicalRecord> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<MedicalRecord>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (MedicalRecord medicalRecord : list) {
+					if ((importMedicalDataSetId != medicalRecord.getImportMedicalDataSetId())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_MEDICALRECORD_WHERE);
+
+			query.append(_FINDER_COLUMN_IMPORTMEDICALDATASET_IMPORTMEDICALDATASETID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(MedicalRecordModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(importMedicalDataSetId);
+
+				if (!pagination) {
+					list = (List<MedicalRecord>)QueryUtil.list(q, getDialect(),
+							start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<MedicalRecord>)QueryUtil.list(q, getDialect(),
+							start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first medical record in the ordered set where importMedicalDataSetId = &#63;.
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching medical record
+	 * @throws NoSuchMedicalRecordException if a matching medical record could not be found
+	 */
+	@Override
+	public MedicalRecord findByImportMedicalDataSet_First(
+		long importMedicalDataSetId,
+		OrderByComparator<MedicalRecord> orderByComparator)
+		throws NoSuchMedicalRecordException {
+		MedicalRecord medicalRecord = fetchByImportMedicalDataSet_First(importMedicalDataSetId,
+				orderByComparator);
+
+		if (medicalRecord != null) {
+			return medicalRecord;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("importMedicalDataSetId=");
+		msg.append(importMedicalDataSetId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchMedicalRecordException(msg.toString());
+	}
+
+	/**
+	 * Returns the first medical record in the ordered set where importMedicalDataSetId = &#63;.
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching medical record, or <code>null</code> if a matching medical record could not be found
+	 */
+	@Override
+	public MedicalRecord fetchByImportMedicalDataSet_First(
+		long importMedicalDataSetId,
+		OrderByComparator<MedicalRecord> orderByComparator) {
+		List<MedicalRecord> list = findByImportMedicalDataSet(importMedicalDataSetId,
+				0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last medical record in the ordered set where importMedicalDataSetId = &#63;.
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching medical record
+	 * @throws NoSuchMedicalRecordException if a matching medical record could not be found
+	 */
+	@Override
+	public MedicalRecord findByImportMedicalDataSet_Last(
+		long importMedicalDataSetId,
+		OrderByComparator<MedicalRecord> orderByComparator)
+		throws NoSuchMedicalRecordException {
+		MedicalRecord medicalRecord = fetchByImportMedicalDataSet_Last(importMedicalDataSetId,
+				orderByComparator);
+
+		if (medicalRecord != null) {
+			return medicalRecord;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("importMedicalDataSetId=");
+		msg.append(importMedicalDataSetId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchMedicalRecordException(msg.toString());
+	}
+
+	/**
+	 * Returns the last medical record in the ordered set where importMedicalDataSetId = &#63;.
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching medical record, or <code>null</code> if a matching medical record could not be found
+	 */
+	@Override
+	public MedicalRecord fetchByImportMedicalDataSet_Last(
+		long importMedicalDataSetId,
+		OrderByComparator<MedicalRecord> orderByComparator) {
+		int count = countByImportMedicalDataSet(importMedicalDataSetId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<MedicalRecord> list = findByImportMedicalDataSet(importMedicalDataSetId,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the medical records before and after the current medical record in the ordered set where importMedicalDataSetId = &#63;.
+	 *
+	 * @param medicalRecordId the primary key of the current medical record
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next medical record
+	 * @throws NoSuchMedicalRecordException if a medical record with the primary key could not be found
+	 */
+	@Override
+	public MedicalRecord[] findByImportMedicalDataSet_PrevAndNext(
+		long medicalRecordId, long importMedicalDataSetId,
+		OrderByComparator<MedicalRecord> orderByComparator)
+		throws NoSuchMedicalRecordException {
+		MedicalRecord medicalRecord = findByPrimaryKey(medicalRecordId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			MedicalRecord[] array = new MedicalRecordImpl[3];
+
+			array[0] = getByImportMedicalDataSet_PrevAndNext(session,
+					medicalRecord, importMedicalDataSetId, orderByComparator,
+					true);
+
+			array[1] = medicalRecord;
+
+			array[2] = getByImportMedicalDataSet_PrevAndNext(session,
+					medicalRecord, importMedicalDataSetId, orderByComparator,
+					false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected MedicalRecord getByImportMedicalDataSet_PrevAndNext(
+		Session session, MedicalRecord medicalRecord,
+		long importMedicalDataSetId,
+		OrderByComparator<MedicalRecord> orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(4 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_MEDICALRECORD_WHERE);
+
+		query.append(_FINDER_COLUMN_IMPORTMEDICALDATASET_IMPORTMEDICALDATASETID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(MedicalRecordModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(importMedicalDataSetId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(medicalRecord);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<MedicalRecord> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the medical records where importMedicalDataSetId = &#63; from the database.
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 */
+	@Override
+	public void removeByImportMedicalDataSet(long importMedicalDataSetId) {
+		for (MedicalRecord medicalRecord : findByImportMedicalDataSet(
+				importMedicalDataSetId, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+				null)) {
+			remove(medicalRecord);
+		}
+	}
+
+	/**
+	 * Returns the number of medical records where importMedicalDataSetId = &#63;.
+	 *
+	 * @param importMedicalDataSetId the import medical data set ID
+	 * @return the number of matching medical records
+	 */
+	@Override
+	public int countByImportMedicalDataSet(long importMedicalDataSetId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_IMPORTMEDICALDATASET;
+
+		Object[] finderArgs = new Object[] { importMedicalDataSetId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_MEDICALRECORD_WHERE);
+
+			query.append(_FINDER_COLUMN_IMPORTMEDICALDATASET_IMPORTMEDICALDATASETID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(importMedicalDataSetId);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_IMPORTMEDICALDATASET_IMPORTMEDICALDATASETID_2 =
+		"medicalRecord.importMedicalDataSetId = ?";
 
 	public MedicalRecordPersistenceImpl() {
 		setModelClass(MedicalRecord.class);
@@ -3192,6 +3719,15 @@ public class MedicalRecordPersistenceImpl extends BasePersistenceImpl<MedicalRec
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_INUMBER,
 				args);
 
+			args = new Object[] {
+					medicalRecordModelImpl.getImportMedicalDataSetId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_IMPORTMEDICALDATASET,
+				args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_IMPORTMEDICALDATASET,
+				args);
+
 			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_ALL,
 				FINDER_ARGS_EMPTY);
@@ -3269,6 +3805,27 @@ public class MedicalRecordPersistenceImpl extends BasePersistenceImpl<MedicalRec
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_INUMBER,
 					args);
 			}
+
+			if ((medicalRecordModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_IMPORTMEDICALDATASET.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						medicalRecordModelImpl.getOriginalImportMedicalDataSetId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_IMPORTMEDICALDATASET,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_IMPORTMEDICALDATASET,
+					args);
+
+				args = new Object[] {
+						medicalRecordModelImpl.getImportMedicalDataSetId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_IMPORTMEDICALDATASET,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_IMPORTMEDICALDATASET,
+					args);
+			}
 		}
 
 		entityCache.putResult(MedicalRecordModelImpl.ENTITY_CACHE_ENABLED,
@@ -3305,6 +3862,7 @@ public class MedicalRecordPersistenceImpl extends BasePersistenceImpl<MedicalRec
 		medicalRecordImpl.setStatusByUserId(medicalRecord.getStatusByUserId());
 		medicalRecordImpl.setStatusByUserName(medicalRecord.getStatusByUserName());
 		medicalRecordImpl.setStatusDate(medicalRecord.getStatusDate());
+		medicalRecordImpl.setImportMedicalDataSetId(medicalRecord.getImportMedicalDataSetId());
 		medicalRecordImpl.setHistonumberStart(medicalRecord.getHistonumberStart());
 		medicalRecordImpl.setHistonumberEnd(medicalRecord.getHistonumberEnd());
 		medicalRecordImpl.setHistonumberRunning(medicalRecord.getHistonumberRunning());
