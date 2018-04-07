@@ -17,6 +17,7 @@ create table FOO_ImportMedicalDataSet (
 	description STRING null,
 	fileName VARCHAR(75) null,
 	filePath VARCHAR(1000) null,
+	fileId LONG,
 	importStatus INTEGER
 );
 

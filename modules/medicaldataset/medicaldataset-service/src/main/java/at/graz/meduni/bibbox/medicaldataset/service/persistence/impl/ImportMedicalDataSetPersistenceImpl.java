@@ -112,7 +112,8 @@ public class ImportMedicalDataSetPersistenceImpl extends BasePersistenceImpl<Imp
 			ImportMedicalDataSetImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByUuid",
 			new String[] { String.class.getName() },
-			ImportMedicalDataSetModelImpl.UUID_COLUMN_BITMASK);
+			ImportMedicalDataSetModelImpl.UUID_COLUMN_BITMASK |
+			ImportMedicalDataSetModelImpl.CREATEDATE_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_UUID = new FinderPath(ImportMedicalDataSetModelImpl.ENTITY_CACHE_ENABLED,
 			ImportMedicalDataSetModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUuid",
@@ -919,7 +920,8 @@ public class ImportMedicalDataSetPersistenceImpl extends BasePersistenceImpl<Imp
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByUuid_C",
 			new String[] { String.class.getName(), Long.class.getName() },
 			ImportMedicalDataSetModelImpl.UUID_COLUMN_BITMASK |
-			ImportMedicalDataSetModelImpl.COMPANYID_COLUMN_BITMASK);
+			ImportMedicalDataSetModelImpl.COMPANYID_COLUMN_BITMASK |
+			ImportMedicalDataSetModelImpl.CREATEDATE_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_UUID_C = new FinderPath(ImportMedicalDataSetModelImpl.ENTITY_CACHE_ENABLED,
 			ImportMedicalDataSetModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByUuid_C",
@@ -1510,7 +1512,8 @@ public class ImportMedicalDataSetPersistenceImpl extends BasePersistenceImpl<Imp
 			ImportMedicalDataSetImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByGroupId",
 			new String[] { Long.class.getName() },
-			ImportMedicalDataSetModelImpl.GROUPID_COLUMN_BITMASK);
+			ImportMedicalDataSetModelImpl.GROUPID_COLUMN_BITMASK |
+			ImportMedicalDataSetModelImpl.CREATEDATE_COLUMN_BITMASK);
 	public static final FinderPath FINDER_PATH_COUNT_BY_GROUPID = new FinderPath(ImportMedicalDataSetModelImpl.ENTITY_CACHE_ENABLED,
 			ImportMedicalDataSetModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByGroupId",
@@ -2813,6 +2816,7 @@ public class ImportMedicalDataSetPersistenceImpl extends BasePersistenceImpl<Imp
 		importMedicalDataSetImpl.setDescription(importMedicalDataSet.getDescription());
 		importMedicalDataSetImpl.setFileName(importMedicalDataSet.getFileName());
 		importMedicalDataSetImpl.setFilePath(importMedicalDataSet.getFilePath());
+		importMedicalDataSetImpl.setFileId(importMedicalDataSet.getFileId());
 		importMedicalDataSetImpl.setImportStatus(importMedicalDataSet.getImportStatus());
 
 		return importMedicalDataSetImpl;

@@ -78,7 +78,7 @@ public interface ImportMedicalDataSetLocalService extends BaseLocalService,
 	public ImportMedicalDataSet addImportMedicalDataSet(
 		java.lang.String importName, java.lang.String importType,
 		long imiJobId, java.lang.String description, java.lang.String fileName,
-		java.lang.String filePath, int importStatus,
+		java.lang.String filePath, long fileId, int importStatus,
 		ServiceContext serviceContext) throws PortalException;
 
 	/**
@@ -167,7 +167,7 @@ public interface ImportMedicalDataSetLocalService extends BaseLocalService,
 		long importMedicalDataSetId, java.lang.String importName,
 		java.lang.String importType, long imiJobId,
 		java.lang.String description, java.lang.String fileName,
-		java.lang.String filePath, int importStatus,
+		java.lang.String filePath, long fileId, int importStatus,
 		ServiceContext serviceContext) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)

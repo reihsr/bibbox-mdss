@@ -79,6 +79,7 @@ public class ImportMedicalDataSetWrapper implements ImportMedicalDataSet,
 		attributes.put("description", getDescription());
 		attributes.put("fileName", getFileName());
 		attributes.put("filePath", getFilePath());
+		attributes.put("fileId", getFileId());
 		attributes.put("importStatus", getImportStatus());
 
 		return attributes;
@@ -193,6 +194,12 @@ public class ImportMedicalDataSetWrapper implements ImportMedicalDataSet,
 
 		if (filePath != null) {
 			setFilePath(filePath);
+		}
+
+		Long fileId = (Long)attributes.get("fileId");
+
+		if (fileId != null) {
+			setFileId(fileId);
 		}
 
 		Integer importStatus = (Integer)attributes.get("importStatus");
@@ -509,6 +516,16 @@ public class ImportMedicalDataSetWrapper implements ImportMedicalDataSet,
 	}
 
 	/**
+	* Returns the file ID of this import medical data set.
+	*
+	* @return the file ID of this import medical data set
+	*/
+	@Override
+	public long getFileId() {
+		return _importMedicalDataSet.getFileId();
+	}
+
+	/**
 	* Returns the group ID of this import medical data set.
 	*
 	* @return the group ID of this import medical data set
@@ -622,6 +639,16 @@ public class ImportMedicalDataSetWrapper implements ImportMedicalDataSet,
 	@Override
 	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
 		_importMedicalDataSet.setExpandoBridgeAttributes(serviceContext);
+	}
+
+	/**
+	* Sets the file ID of this import medical data set.
+	*
+	* @param fileId the file ID of this import medical data set
+	*/
+	@Override
+	public void setFileId(long fileId) {
+		_importMedicalDataSet.setFileId(fileId);
 	}
 
 	/**

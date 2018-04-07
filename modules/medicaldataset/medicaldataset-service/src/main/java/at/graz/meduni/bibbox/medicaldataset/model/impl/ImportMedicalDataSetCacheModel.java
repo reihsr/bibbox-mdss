@@ -66,7 +66,7 @@ public class ImportMedicalDataSetCacheModel implements CacheModel<ImportMedicalD
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(39);
+		StringBundler sb = new StringBundler(41);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -104,6 +104,8 @@ public class ImportMedicalDataSetCacheModel implements CacheModel<ImportMedicalD
 		sb.append(fileName);
 		sb.append(", filePath=");
 		sb.append(filePath);
+		sb.append(", fileId=");
+		sb.append(fileId);
 		sb.append(", importStatus=");
 		sb.append(importStatus);
 		sb.append("}");
@@ -202,6 +204,7 @@ public class ImportMedicalDataSetCacheModel implements CacheModel<ImportMedicalD
 			importMedicalDataSetImpl.setFilePath(filePath);
 		}
 
+		importMedicalDataSetImpl.setFileId(fileId);
 		importMedicalDataSetImpl.setImportStatus(importStatus);
 
 		importMedicalDataSetImpl.resetOriginalValues();
@@ -236,6 +239,8 @@ public class ImportMedicalDataSetCacheModel implements CacheModel<ImportMedicalD
 		description = objectInput.readUTF();
 		fileName = objectInput.readUTF();
 		filePath = objectInput.readUTF();
+
+		fileId = objectInput.readLong();
 
 		importStatus = objectInput.readInt();
 	}
@@ -318,6 +323,8 @@ public class ImportMedicalDataSetCacheModel implements CacheModel<ImportMedicalD
 			objectOutput.writeUTF(filePath);
 		}
 
+		objectOutput.writeLong(fileId);
+
 		objectOutput.writeInt(importStatus);
 	}
 
@@ -339,5 +346,6 @@ public class ImportMedicalDataSetCacheModel implements CacheModel<ImportMedicalD
 	public String description;
 	public String fileName;
 	public String filePath;
+	public long fileId;
 	public int importStatus;
 }

@@ -255,6 +255,7 @@
 		<column name="description" type="String" />
 		<column name="fileName" type="String" />
 		<column name="filePath" type="String" />
+		<column name="fileId" type="long" />
 		<column name="importStatus" type="int" />
 
 		<!-- Order -->

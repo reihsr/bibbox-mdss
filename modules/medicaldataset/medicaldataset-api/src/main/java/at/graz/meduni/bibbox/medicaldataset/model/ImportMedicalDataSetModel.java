@@ -382,6 +382,20 @@ public interface ImportMedicalDataSetModel extends BaseModel<ImportMedicalDataSe
 	public void setFilePath(String filePath);
 
 	/**
+	 * Returns the file ID of this import medical data set.
+	 *
+	 * @return the file ID of this import medical data set
+	 */
+	public long getFileId();
+
+	/**
+	 * Sets the file ID of this import medical data set.
+	 *
+	 * @param fileId the file ID of this import medical data set
+	 */
+	public void setFileId(long fileId);
+
+	/**
 	 * Returns the import status of this import medical data set.
 	 *
 	 * @return the import status of this import medical data set

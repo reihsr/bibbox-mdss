@@ -46,6 +46,11 @@ String currentURL = PortalUtil.getCurrentURL(request);
 					
 						<liferay-ui:search-container-column-text property="importMedicalDataSetId" />		
 						<liferay-ui:search-container-column-text property="importName" />
+						<liferay-ui:search-container-column-text>
+							<%= MedicalDataSetWebKeys.getStatusTranslation(importMedicalDataSet.getImportStatus()) %>
+						</liferay-ui:search-container-column-text>
+						
+						<liferay-ui:search-container-column-jsp align="right" path="/medicaldatasetimportportlet/medicaldatasetimport_actions.jsp" />
 					
 					</liferay-ui:search-container-row>
 				<liferay-ui:search-iterator />

@@ -53,6 +53,7 @@ public class ImportMedicalDataSetSoap implements Serializable {
 		soapModel.setDescription(model.getDescription());
 		soapModel.setFileName(model.getFileName());
 		soapModel.setFilePath(model.getFilePath());
+		soapModel.setFileId(model.getFileId());
 		soapModel.setImportStatus(model.getImportStatus());
 
 		return soapModel;
@@ -253,6 +254,14 @@ public class ImportMedicalDataSetSoap implements Serializable {
 		_filePath = filePath;
 	}
 
+	public long getFileId() {
+		return _fileId;
+	}
+
+	public void setFileId(long fileId) {
+		_fileId = fileId;
+	}
+
 	public int getImportStatus() {
 		return _importStatus;
 	}
@@ -279,5 +288,6 @@ public class ImportMedicalDataSetSoap implements Serializable {
 	private String _description;
 	private String _fileName;
 	private String _filePath;
+	private long _fileId;
 	private int _importStatus;
 }

@@ -33,6 +33,7 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.impl.BaseModelImpl;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
+import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
@@ -92,6 +93,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 			{ "description", Types.VARCHAR },
 			{ "fileName", Types.VARCHAR },
 			{ "filePath", Types.VARCHAR },
+			{ "fileId", Types.BIGINT },
 			{ "importStatus", Types.INTEGER }
 		};
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP = new HashMap<String, Integer>();
@@ -115,13 +117,14 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 		TABLE_COLUMNS_MAP.put("description", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("fileName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("filePath", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("fileId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("importStatus", Types.INTEGER);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table FOO_ImportMedicalDataSet (uuid_ VARCHAR(75) null,importMedicalDataSetId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importName VARCHAR(75) null,importType VARCHAR(75) null,imiJobId LONG,description STRING null,fileName VARCHAR(75) null,filePath VARCHAR(1000) null,importStatus INTEGER)";
+	public static final String TABLE_SQL_CREATE = "create table FOO_ImportMedicalDataSet (uuid_ VARCHAR(75) null,importMedicalDataSetId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importName VARCHAR(75) null,importType VARCHAR(75) null,imiJobId LONG,description STRING null,fileName VARCHAR(75) null,filePath VARCHAR(1000) null,fileId LONG,importStatus INTEGER)";
 	public static final String TABLE_SQL_DROP = "drop table FOO_ImportMedicalDataSet";
-	public static final String ORDER_BY_JPQL = " ORDER BY importMedicalDataSet.importMedicalDataSetId ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY FOO_ImportMedicalDataSet.importMedicalDataSetId ASC";
+	public static final String ORDER_BY_JPQL = " ORDER BY importMedicalDataSet.createDate ASC";
+	public static final String ORDER_BY_SQL = " ORDER BY FOO_ImportMedicalDataSet.createDate ASC";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
 	public static final String TX_MANAGER = "liferayTransactionManager";
@@ -137,7 +140,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 	public static final long COMPANYID_COLUMN_BITMASK = 1L;
 	public static final long GROUPID_COLUMN_BITMASK = 2L;
 	public static final long UUID_COLUMN_BITMASK = 4L;
-	public static final long IMPORTMEDICALDATASETID_COLUMN_BITMASK = 8L;
+	public static final long CREATEDATE_COLUMN_BITMASK = 8L;
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -171,6 +174,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 		model.setDescription(soapModel.getDescription());
 		model.setFileName(soapModel.getFileName());
 		model.setFilePath(soapModel.getFilePath());
+		model.setFileId(soapModel.getFileId());
 		model.setImportStatus(soapModel.getImportStatus());
 
 		return model;
@@ -255,6 +259,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 		attributes.put("description", getDescription());
 		attributes.put("fileName", getFileName());
 		attributes.put("filePath", getFilePath());
+		attributes.put("fileId", getFileId());
 		attributes.put("importStatus", getImportStatus());
 
 		attributes.put("entityCacheEnabled", isEntityCacheEnabled());
@@ -374,6 +379,12 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 			setFilePath(filePath);
 		}
 
+		Long fileId = (Long)attributes.get("fileId");
+
+		if (fileId != null) {
+			setFileId(fileId);
+		}
+
 		Integer importStatus = (Integer)attributes.get("importStatus");
 
 		if (importStatus != null) {
@@ -413,8 +424,6 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 
 	@Override
 	public void setImportMedicalDataSetId(long importMedicalDataSetId) {
-		_columnBitmask = -1L;
-
 		_importMedicalDataSetId = importMedicalDataSetId;
 	}
 
@@ -515,6 +524,8 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 
 	@Override
 	public void setCreateDate(Date createDate) {
+		_columnBitmask = -1L;
+
 		_createDate = createDate;
 	}
 
@@ -693,6 +704,17 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 
 	@JSON
 	@Override
+	public long getFileId() {
+		return _fileId;
+	}
+
+	@Override
+	public void setFileId(long fileId) {
+		_fileId = fileId;
+	}
+
+	@JSON
+	@Override
 	public int getImportStatus() {
 		return _importStatus;
 	}
@@ -837,6 +859,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 		importMedicalDataSetImpl.setDescription(getDescription());
 		importMedicalDataSetImpl.setFileName(getFileName());
 		importMedicalDataSetImpl.setFilePath(getFilePath());
+		importMedicalDataSetImpl.setFileId(getFileId());
 		importMedicalDataSetImpl.setImportStatus(getImportStatus());
 
 		importMedicalDataSetImpl.resetOriginalValues();
@@ -848,15 +871,8 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 	public int compareTo(ImportMedicalDataSet importMedicalDataSet) {
 		int value = 0;
 
-		if (getImportMedicalDataSetId() < importMedicalDataSet.getImportMedicalDataSetId()) {
-			value = -1;
-		}
-		else if (getImportMedicalDataSetId() > importMedicalDataSet.getImportMedicalDataSetId()) {
-			value = 1;
-		}
-		else {
-			value = 0;
-		}
+		value = DateUtil.compareTo(getCreateDate(),
+				importMedicalDataSet.getCreateDate());
 
 		if (value != 0) {
 			return value;
@@ -1030,6 +1046,8 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 			importMedicalDataSetCacheModel.filePath = null;
 		}
 
+		importMedicalDataSetCacheModel.fileId = getFileId();
+
 		importMedicalDataSetCacheModel.importStatus = getImportStatus();
 
 		return importMedicalDataSetCacheModel;
@@ -1037,7 +1055,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(39);
+		StringBundler sb = new StringBundler(41);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1075,6 +1093,8 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 		sb.append(getFileName());
 		sb.append(", filePath=");
 		sb.append(getFilePath());
+		sb.append(", fileId=");
+		sb.append(getFileId());
 		sb.append(", importStatus=");
 		sb.append(getImportStatus());
 		sb.append("}");
@@ -1084,7 +1104,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(61);
+		StringBundler sb = new StringBundler(64);
 
 		sb.append("<model><model-name>");
 		sb.append(
@@ -1164,6 +1184,10 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 		sb.append(getFilePath());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>fileId</column-name><column-value><![CDATA[");
+		sb.append(getFileId());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>importStatus</column-name><column-value><![CDATA[");
 		sb.append(getImportStatus());
 		sb.append("]]></column-value></column>");
@@ -1201,6 +1225,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 	private String _description;
 	private String _fileName;
 	private String _filePath;
+	private long _fileId;
 	private int _importStatus;
 	private long _columnBitmask;
 	private ImportMedicalDataSet _escapedModel;

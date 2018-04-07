@@ -2,4 +2,13 @@ package at.graz.meduni.bibbox.medicaldataset.portlet.constants;
 
 public class MedicalDataSetWebKeys {
 	public static final String COM_LIFERAY_PORTLET_DISPLAY_CATEGORY = "Medical Data Set";
+	
+	public static final String getStatusTranslation(int importStatus) {
+		switch(importStatus) {
+			case 1: return "Step 1 - File Upload";
+			case 10: return "Step 2 - Analysis";
+			case 20: return "Step 3 - Mapping";
+		}
+		return "Error";
+	}
 }

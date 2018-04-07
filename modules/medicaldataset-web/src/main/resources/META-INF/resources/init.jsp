@@ -23,6 +23,8 @@
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalServiceUtil" %>
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalServiceUtil" %>
 
+<%@ page import="at.graz.meduni.bibbox.medicaldataset.portlet.constants.MedicalDataSetWebKeys" %>
+
 <liferay-theme:defineObjects />
 
 <portlet:defineObjects />

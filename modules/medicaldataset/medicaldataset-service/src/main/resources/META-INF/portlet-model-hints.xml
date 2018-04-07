@@ -24,6 +24,7 @@
 		<field name="filePath" type="String">
 			<hint name="max-length">1000</hint>
 		</field>
+		<field name="fileId" type="long" />
 		<field name="importStatus" type="int" />
 	</model>
 	<model name="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap">

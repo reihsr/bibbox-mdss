@@ -50,11 +50,11 @@ public class ImportMedicalDataSetLocalServiceWrapper
 	public at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSet addImportMedicalDataSet(
 		java.lang.String importName, java.lang.String importType,
 		long imiJobId, java.lang.String description, java.lang.String fileName,
-		java.lang.String filePath, int importStatus,
+		java.lang.String filePath, long fileId, int importStatus,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _importMedicalDataSetLocalService.addImportMedicalDataSet(importName,
-			importType, imiJobId, description, fileName, filePath,
+			importType, imiJobId, description, fileName, filePath, fileId,
 			importStatus, serviceContext);
 	}
 
@@ -172,12 +172,12 @@ public class ImportMedicalDataSetLocalServiceWrapper
 		long importMedicalDataSetId, java.lang.String importName,
 		java.lang.String importType, long imiJobId,
 		java.lang.String description, java.lang.String fileName,
-		java.lang.String filePath, int importStatus,
+		java.lang.String filePath, long fileId, int importStatus,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _importMedicalDataSetLocalService.updateImportMedicalDataSet(importMedicalDataSetId,
 			importName, importType, imiJobId, description, fileName, filePath,
-			importStatus, serviceContext);
+			fileId, importStatus, serviceContext);
 	}
 
 	@Override

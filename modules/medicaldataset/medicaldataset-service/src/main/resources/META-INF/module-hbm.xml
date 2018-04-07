@@ -28,6 +28,7 @@
 		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="fileName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="filePath" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="fileId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="importStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 	</class>
 	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetFieldMapImpl" table="FOO_ImportMedicalDataSetFieldMap">

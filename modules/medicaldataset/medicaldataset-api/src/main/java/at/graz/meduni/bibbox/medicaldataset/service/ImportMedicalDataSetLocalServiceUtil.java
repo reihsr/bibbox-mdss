@@ -56,12 +56,13 @@ public class ImportMedicalDataSetLocalServiceUtil {
 	public static at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSet addImportMedicalDataSet(
 		java.lang.String importName, java.lang.String importType,
 		long imiJobId, java.lang.String description, java.lang.String fileName,
-		java.lang.String filePath, int importStatus,
+		java.lang.String filePath, long fileId, int importStatus,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .addImportMedicalDataSet(importName, importType, imiJobId,
-			description, fileName, filePath, importStatus, serviceContext);
+			description, fileName, filePath, fileId, importStatus,
+			serviceContext);
 	}
 
 	/**
@@ -169,13 +170,13 @@ public class ImportMedicalDataSetLocalServiceUtil {
 		long importMedicalDataSetId, java.lang.String importName,
 		java.lang.String importType, long imiJobId,
 		java.lang.String description, java.lang.String fileName,
-		java.lang.String filePath, int importStatus,
+		java.lang.String filePath, long fileId, int importStatus,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .updateImportMedicalDataSet(importMedicalDataSetId,
 			importName, importType, imiJobId, description, fileName, filePath,
-			importStatus, serviceContext);
+			fileId, importStatus, serviceContext);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
