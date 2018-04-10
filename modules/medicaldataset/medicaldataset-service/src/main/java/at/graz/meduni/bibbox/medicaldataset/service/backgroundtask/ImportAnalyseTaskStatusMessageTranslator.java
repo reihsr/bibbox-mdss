@@ -10,6 +10,7 @@ public class ImportAnalyseTaskStatusMessageTranslator implements BackgroundTaskS
 	public void translate(BackgroundTaskStatus backgroundTaskStatus, Message message) {
 		System.out.println("translate message " + message.getDestinationName());
 		backgroundTaskStatus.setAttribute("xy", doTranslate(message.getString("xy")));
+		backgroundTaskStatus.setAttribute("abc", doTranslate(message.getString("abc")));
 	}
 
 	private String doTranslate(String message) {

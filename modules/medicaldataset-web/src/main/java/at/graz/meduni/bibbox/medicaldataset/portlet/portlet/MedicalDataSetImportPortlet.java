@@ -2,6 +2,7 @@ package at.graz.meduni.bibbox.medicaldataset.portlet.portlet;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -12,6 +13,7 @@ import javax.portlet.PortletException;
 
 import org.osgi.service.component.annotations.Component;
 
+import com.liferay.document.library.kernel.exception.DuplicateFileEntryException;
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
@@ -102,28 +104,69 @@ public class MedicalDataSetImportPortlet extends MVCPortlet {
 		return folderExist;
 	}
 	
-	private FileEntry fileUpload(ThemeDisplay themeDisplay,ActionRequest actionRequest) {
+	private FileEntry fileUpload(ThemeDisplay themeDisplay, ActionRequest actionRequest) {
 		UploadPortletRequest uploadPortletRequest = PortalUtil.getUploadPortletRequest(actionRequest);
       
-		String fileName=uploadPortletRequest.getFileName("uploadedFile");		 			
+		String fileName= uploadPortletRequest.getFileName("uploadedFile");		 			
 		File file = uploadPortletRequest.getFile("uploadedFile");
-		String mimeType = uploadPortletRequest.getContentType("uploadedFile");
-        String title = fileName;
-		String description = "This file is added via programatically";
+		String mimeType = uploadPortletRequest.getContentType("uploadedFile");		
+		
+		String description = createFileDescription(actionRequest);
 		long repositoryId = themeDisplay.getScopeGroupId();
 		FileEntry fileEntry = null;
-		System.out.println("Title=>"+title);
-	    try {  
+		String fileNameExtentionNumber= "";
+		int counter = 1;
+		while(fileEntry == null) {
+			try {
+				String fileName_created = generateFilenameWithExtensionNumber(fileName, fileNameExtentionNumber);
+				fileEntry = createFile(fileEntry, themeDisplay, actionRequest, file, repositoryId, fileName_created, mimeType, fileName_created, description);
+				fileNameExtentionNumber = "_" + counter;
+				counter++;
+				if(counter > 50) {
+					break;
+				}
+			} catch (Exception e) {
+		    	System.out.println(e.getMessage());
+		    	e.printStackTrace();
+		    	break;
+		    }
+		}
+	    return fileEntry;
+	}
+	
+	private String createFileDescription(ActionRequest actionRequest) {
+		String fileDescription = "File Uploaded for Import Process ";
+		fileDescription += ParamUtil.getString(actionRequest, "ImportName") + "\n";
+		fileDescription += "Import Type: " + ParamUtil.getString(actionRequest, "ImportType") + "     \n\n";
+		fileDescription += ParamUtil.getString(actionRequest, "Description");
+		return fileDescription;
+	}
+	
+	private String generateFilenameWithExtensionNumber(String fileName, String fileNameExtentionNumber) {
+		String[] fileNameArray = fileName.split("\\.");
+		fileName = "";
+		if(fileNameArray.length == 1) {
+			return fileName + fileNameExtentionNumber;
+		}
+		for(int i = fileNameArray.length - 1; i > 0; i--) {
+			fileName = fileNameExtentionNumber + "." + fileNameArray[i] + fileName;
+			fileNameExtentionNumber = "";
+		}
+		fileName = fileNameArray[0] + fileName;
+		return fileName;
+	}
+	
+	private FileEntry createFile(FileEntry fileEntry, ThemeDisplay themeDisplay, ActionRequest actionRequest, File file, long repositoryId, String fileName, String mimeType, String title, String description) throws PortalException, FileNotFoundException {
+		try {  	
 	    	Folder folder = getFolder(themeDisplay);
 	    	ServiceContext serviceContext = ServiceContextFactory.getInstance(DLFileEntry.class.getName(), actionRequest);
 	    	InputStream is = new FileInputStream( file );
 	    	fileEntry = DLAppServiceUtil.addFileEntry(repositoryId, folder.getFolderId(), fileName, mimeType, title, description, "", is, file.getTotalSpace(), serviceContext);
-	    	
-	    } catch (Exception e) {
-	    	System.out.println(e.getMessage());
-	    	e.printStackTrace();
+	    	return fileEntry;
+	    } catch (DuplicateFileEntryException e) {
+	    	System.err.println("File With name \"" + fileName + "\" already exists.");
+	    	return null;
 	    }
-	    return fileEntry;
 	}
 	
 	private Folder getFolder(ThemeDisplay themeDisplay){
