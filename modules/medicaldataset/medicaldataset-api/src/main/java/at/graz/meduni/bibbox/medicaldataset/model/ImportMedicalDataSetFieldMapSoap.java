@@ -50,6 +50,7 @@ public class ImportMedicalDataSetFieldMapSoap implements Serializable {
 		soapModel.setImportMedicalDataSetId(model.getImportMedicalDataSetId());
 		soapModel.setImportField(model.getImportField());
 		soapModel.setImportFieldPath(model.getImportFieldPath());
+		soapModel.setSampleValue(model.getSampleValue());
 		soapModel.setTableName(model.getTableName());
 		soapModel.setTableField(model.getTableField());
 
@@ -228,6 +229,14 @@ public class ImportMedicalDataSetFieldMapSoap implements Serializable {
 		_importFieldPath = importFieldPath;
 	}
 
+	public String getSampleValue() {
+		return _sampleValue;
+	}
+
+	public void setSampleValue(String sampleValue) {
+		_sampleValue = sampleValue;
+	}
+
 	public String getTableName() {
 		return _TableName;
 	}
@@ -259,6 +268,7 @@ public class ImportMedicalDataSetFieldMapSoap implements Serializable {
 	private long _importMedicalDataSetId;
 	private String _importField;
 	private String _importFieldPath;
+	private String _sampleValue;
 	private String _TableName;
 	private String _TableField;
 }

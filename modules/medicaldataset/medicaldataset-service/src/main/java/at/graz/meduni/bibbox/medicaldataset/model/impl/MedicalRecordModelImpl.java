@@ -91,7 +91,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 			{ "histonumberEnd", Types.BIGINT },
 			{ "histonumberRunning", Types.INTEGER },
 			{ "iNumber", Types.BIGINT },
-			{ "vPatentId", Types.BIGINT },
+			{ "vPatientId", Types.BIGINT },
 			{ "vHistonNumber", Types.BIGINT },
 			{ "area", Types.VARCHAR },
 			{ "imiJobId", Types.BIGINT },
@@ -117,14 +117,14 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		TABLE_COLUMNS_MAP.put("histonumberEnd", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("histonumberRunning", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("iNumber", Types.BIGINT);
-		TABLE_COLUMNS_MAP.put("vPatentId", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("vPatientId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("vHistonNumber", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("area", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("imiJobId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("importFile", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table FOO_MedicalRecord (uuid_ VARCHAR(75) null,medicalRecordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,histonumberStart LONG,histonumberEnd LONG,histonumberRunning INTEGER,iNumber LONG,vPatentId LONG,vHistonNumber LONG,area VARCHAR(75) null,imiJobId LONG,importFile VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table FOO_MedicalRecord (uuid_ VARCHAR(75) null,medicalRecordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,histonumberStart LONG,histonumberEnd LONG,histonumberRunning INTEGER,iNumber LONG,vPatientId LONG,vHistonNumber LONG,area VARCHAR(75) null,imiJobId LONG,importFile VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table FOO_MedicalRecord";
 	public static final String ORDER_BY_JPQL = " ORDER BY medicalRecord.medicalRecordId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY FOO_MedicalRecord.medicalRecordId ASC";
@@ -177,7 +177,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		model.setHistonumberEnd(soapModel.getHistonumberEnd());
 		model.setHistonumberRunning(soapModel.getHistonumberRunning());
 		model.setINumber(soapModel.getINumber());
-		model.setVPatentId(soapModel.getVPatentId());
+		model.setVPatientId(soapModel.getVPatientId());
 		model.setVHistonNumber(soapModel.getVHistonNumber());
 		model.setArea(soapModel.getArea());
 		model.setImiJobId(soapModel.getImiJobId());
@@ -263,7 +263,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		attributes.put("histonumberEnd", getHistonumberEnd());
 		attributes.put("histonumberRunning", getHistonumberRunning());
 		attributes.put("iNumber", getINumber());
-		attributes.put("vPatentId", getVPatentId());
+		attributes.put("vPatientId", getVPatientId());
 		attributes.put("vHistonNumber", getVHistonNumber());
 		attributes.put("area", getArea());
 		attributes.put("imiJobId", getImiJobId());
@@ -381,10 +381,10 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 			setINumber(iNumber);
 		}
 
-		Long vPatentId = (Long)attributes.get("vPatentId");
+		Long vPatientId = (Long)attributes.get("vPatientId");
 
-		if (vPatentId != null) {
-			setVPatentId(vPatentId);
+		if (vPatientId != null) {
+			setVPatientId(vPatientId);
 		}
 
 		Long vHistonNumber = (Long)attributes.get("vHistonNumber");
@@ -712,13 +712,13 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 	@JSON
 	@Override
-	public long getVPatentId() {
-		return _vPatentId;
+	public long getVPatientId() {
+		return _vPatientId;
 	}
 
 	@Override
-	public void setVPatentId(long vPatentId) {
-		_vPatentId = vPatentId;
+	public void setVPatientId(long vPatientId) {
+		_vPatientId = vPatientId;
 	}
 
 	@JSON
@@ -909,7 +909,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		medicalRecordImpl.setHistonumberEnd(getHistonumberEnd());
 		medicalRecordImpl.setHistonumberRunning(getHistonumberRunning());
 		medicalRecordImpl.setINumber(getINumber());
-		medicalRecordImpl.setVPatentId(getVPatentId());
+		medicalRecordImpl.setVPatientId(getVPatientId());
 		medicalRecordImpl.setVHistonNumber(getVHistonNumber());
 		medicalRecordImpl.setArea(getArea());
 		medicalRecordImpl.setImiJobId(getImiJobId());
@@ -1082,7 +1082,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 		medicalRecordCacheModel.iNumber = getINumber();
 
-		medicalRecordCacheModel.vPatentId = getVPatentId();
+		medicalRecordCacheModel.vPatientId = getVPatientId();
 
 		medicalRecordCacheModel.vHistonNumber = getVHistonNumber();
 
@@ -1145,8 +1145,8 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		sb.append(getHistonumberRunning());
 		sb.append(", iNumber=");
 		sb.append(getINumber());
-		sb.append(", vPatentId=");
-		sb.append(getVPatentId());
+		sb.append(", vPatientId=");
+		sb.append(getVPatientId());
 		sb.append(", vHistonNumber=");
 		sb.append(getVHistonNumber());
 		sb.append(", area=");
@@ -1237,8 +1237,8 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		sb.append(getINumber());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>vPatentId</column-name><column-value><![CDATA[");
-		sb.append(getVPatentId());
+			"<column><column-name>vPatientId</column-name><column-value><![CDATA[");
+		sb.append(getVPatientId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>vHistonNumber</column-name><column-value><![CDATA[");
@@ -1293,7 +1293,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 	private long _iNumber;
 	private long _originalINumber;
 	private boolean _setOriginalINumber;
-	private long _vPatentId;
+	private long _vPatientId;
 	private long _vHistonNumber;
 	private String _area;
 	private long _imiJobId;

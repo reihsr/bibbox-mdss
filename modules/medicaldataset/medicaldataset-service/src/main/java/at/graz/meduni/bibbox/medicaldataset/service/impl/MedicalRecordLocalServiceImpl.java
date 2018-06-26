@@ -47,7 +47,7 @@ public class MedicalRecordLocalServiceImpl
 	 * Never reference this class directly. Always use {@link at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordLocalServiceUtil} to access the medical record local service.
 	 */
 	
-	public MedicalRecord addMedicalRecord(long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatentId, long vHistonNumber, String area, long imiJobId, String importFile, ServiceContext serviceContext) throws PortalException {
+	public MedicalRecord addMedicalRecord(long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatientId, long vHistonNumber, String area, long imiJobId, String importFile, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -72,7 +72,7 @@ public class MedicalRecordLocalServiceImpl
 		medicalrecord.setHistonumberEnd(histonumberEnd);
 		medicalrecord.setHistonumberRunning(histonumberRunning);
 		medicalrecord.setINumber(iNumber);
-		medicalrecord.setVPatentId(vPatentId);
+		medicalrecord.setVPatientId(vPatientId);
 		medicalrecord.setVHistonNumber(vHistonNumber);
 		
 		medicalrecord.setArea(area);
@@ -115,7 +115,7 @@ public class MedicalRecordLocalServiceImpl
 		return medicalrecord;
 	}*/
 	
-	public MedicalRecord updateMedicalRecord(long medicalRecordId, long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatentId, long vHistonNumber, String area, long imiJobId, String importFile, ServiceContext serviceContext) throws PortalException {
+	public MedicalRecord updateMedicalRecord(long medicalRecordId, long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatientId, long vHistonNumber, String area, long imiJobId, String importFile, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -134,7 +134,7 @@ public class MedicalRecordLocalServiceImpl
 		medicalrecord.setHistonumberEnd(histonumberEnd);
 		medicalrecord.setHistonumberRunning(histonumberRunning);
 		medicalrecord.setINumber(iNumber);
-		medicalrecord.setVPatentId(vPatentId);
+		medicalrecord.setVPatientId(vPatientId);
 		medicalrecord.setVHistonNumber(vHistonNumber);
 		
 		medicalrecord.setArea(area);

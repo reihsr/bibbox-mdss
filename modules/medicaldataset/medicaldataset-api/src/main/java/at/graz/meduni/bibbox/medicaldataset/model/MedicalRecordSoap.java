@@ -51,7 +51,7 @@ public class MedicalRecordSoap implements Serializable {
 		soapModel.setHistonumberEnd(model.getHistonumberEnd());
 		soapModel.setHistonumberRunning(model.getHistonumberRunning());
 		soapModel.setINumber(model.getINumber());
-		soapModel.setVPatentId(model.getVPatentId());
+		soapModel.setVPatientId(model.getVPatientId());
 		soapModel.setVHistonNumber(model.getVHistonNumber());
 		soapModel.setArea(model.getArea());
 		soapModel.setImiJobId(model.getImiJobId());
@@ -244,12 +244,12 @@ public class MedicalRecordSoap implements Serializable {
 		_iNumber = iNumber;
 	}
 
-	public long getVPatentId() {
-		return _vPatentId;
+	public long getVPatientId() {
+		return _vPatientId;
 	}
 
-	public void setVPatentId(long vPatentId) {
-		_vPatentId = vPatentId;
+	public void setVPatientId(long vPatientId) {
+		_vPatientId = vPatientId;
 	}
 
 	public long getVHistonNumber() {
@@ -301,7 +301,7 @@ public class MedicalRecordSoap implements Serializable {
 	private long _histonumberEnd;
 	private int _histonumberRunning;
 	private long _iNumber;
-	private long _vPatentId;
+	private long _vPatientId;
 	private long _vHistonNumber;
 	private String _area;
 	private long _imiJobId;

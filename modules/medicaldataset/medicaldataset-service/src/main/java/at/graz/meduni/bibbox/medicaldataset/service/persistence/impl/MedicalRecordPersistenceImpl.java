@@ -3867,7 +3867,7 @@ public class MedicalRecordPersistenceImpl extends BasePersistenceImpl<MedicalRec
 		medicalRecordImpl.setHistonumberEnd(medicalRecord.getHistonumberEnd());
 		medicalRecordImpl.setHistonumberRunning(medicalRecord.getHistonumberRunning());
 		medicalRecordImpl.setINumber(medicalRecord.getINumber());
-		medicalRecordImpl.setVPatentId(medicalRecord.getVPatentId());
+		medicalRecordImpl.setVPatientId(medicalRecord.getVPatientId());
 		medicalRecordImpl.setVHistonNumber(medicalRecord.getVHistonNumber());
 		medicalRecordImpl.setArea(medicalRecord.getArea());
 		medicalRecordImpl.setImiJobId(medicalRecord.getImiJobId());

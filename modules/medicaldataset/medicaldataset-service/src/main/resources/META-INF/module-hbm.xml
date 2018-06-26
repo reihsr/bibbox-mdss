@@ -4,6 +4,7 @@
 <hibernate-mapping auto-import="false" default-lazy="false">
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSet" />
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap" />
+	<import class="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog" />
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch" />
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord" />
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.PathologieData" />
@@ -29,6 +30,7 @@
 		<property name="fileName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="filePath" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="fileId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="importCount" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="importStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 	</class>
 	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetFieldMapImpl" table="FOO_ImportMedicalDataSetFieldMap">
@@ -49,8 +51,28 @@
 		<property name="importMedicalDataSetId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="importField" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="importFieldPath" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sampleValue" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="TableName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="TableField" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetLogImpl" table="FOO_ImportMedicalDataSetLog">
+		<id name="importMedicalDataSetLogId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="statusByUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="statusByUserName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="statusDate" type="org.hibernate.type.TimestampType" />
+		<property name="importMedicalDataSetId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="importStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="importStatusLog" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.KloetzelBuchImpl" table="FOO_KloetzelBuch">
 		<id name="kloetzelBuchId" type="long">
@@ -110,7 +132,7 @@
 		<property name="histonumberEnd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="histonumberRunning" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="iNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vPatentId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vPatientId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vHistonNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="area" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="imiJobId" type="com.liferay.portal.dao.orm.hibernate.LongType" />

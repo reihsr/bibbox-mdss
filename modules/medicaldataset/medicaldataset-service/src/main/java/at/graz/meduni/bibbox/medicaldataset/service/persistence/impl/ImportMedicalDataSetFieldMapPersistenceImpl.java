@@ -3422,6 +3422,7 @@ public class ImportMedicalDataSetFieldMapPersistenceImpl
 		importMedicalDataSetFieldMapImpl.setImportMedicalDataSetId(importMedicalDataSetFieldMap.getImportMedicalDataSetId());
 		importMedicalDataSetFieldMapImpl.setImportField(importMedicalDataSetFieldMap.getImportField());
 		importMedicalDataSetFieldMapImpl.setImportFieldPath(importMedicalDataSetFieldMap.getImportFieldPath());
+		importMedicalDataSetFieldMapImpl.setSampleValue(importMedicalDataSetFieldMap.getSampleValue());
 		importMedicalDataSetFieldMapImpl.setTableName(importMedicalDataSetFieldMap.getTableName());
 		importMedicalDataSetFieldMapImpl.setTableField(importMedicalDataSetFieldMap.getTableField());
 

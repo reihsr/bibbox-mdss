@@ -7,6 +7,9 @@
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.ImportMedicalDataSetFieldMapLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalService" />
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.ImportMedicalDataSetFieldMapServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapService" />
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.ImportMedicalDataSetFieldMapPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetFieldMapPersistence" parent="basePersistence" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.ImportMedicalDataSetLogLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogLocalService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.ImportMedicalDataSetLogServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogService" />
+	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.ImportMedicalDataSetLogPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetLogPersistence" parent="basePersistence" />
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.KloetzelBuchLocalServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchLocalService" />
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.impl.KloetzelBuchServiceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchService" />
 	<bean class="at.graz.meduni.bibbox.medicaldataset.service.persistence.impl.KloetzelBuchPersistenceImpl" id="at.graz.meduni.bibbox.medicaldataset.service.persistence.KloetzelBuchPersistence" parent="basePersistence" />

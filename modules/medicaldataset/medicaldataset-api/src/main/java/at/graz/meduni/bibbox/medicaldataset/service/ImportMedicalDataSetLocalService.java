@@ -78,8 +78,9 @@ public interface ImportMedicalDataSetLocalService extends BaseLocalService,
 	public ImportMedicalDataSet addImportMedicalDataSet(
 		java.lang.String importName, java.lang.String importType,
 		long imiJobId, java.lang.String description, java.lang.String fileName,
-		java.lang.String filePath, long fileId, int importStatus,
-		ServiceContext serviceContext) throws PortalException;
+		java.lang.String filePath, long fileId, int importCount,
+		int importStatus, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	* Creates a new import medical data set with the primary key. Does not add the import medical data set to the database.
@@ -167,8 +168,9 @@ public interface ImportMedicalDataSetLocalService extends BaseLocalService,
 		long importMedicalDataSetId, java.lang.String importName,
 		java.lang.String importType, long imiJobId,
 		java.lang.String description, java.lang.String fileName,
-		java.lang.String filePath, long fileId, int importStatus,
-		ServiceContext serviceContext) throws PortalException;
+		java.lang.String filePath, long fileId, int importCount,
+		int importStatus, ServiceContext serviceContext)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();

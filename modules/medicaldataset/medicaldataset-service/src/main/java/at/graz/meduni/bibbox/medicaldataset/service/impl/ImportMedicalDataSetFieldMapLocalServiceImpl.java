@@ -47,7 +47,7 @@ public class ImportMedicalDataSetFieldMapLocalServiceImpl
 	 * Never reference this class directly. Always use {@link at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalServiceUtil} to access the import medical data set field map local service.
 	 */
 	
-	public ImportMedicalDataSetFieldMap addImportMedicalDataSetFieldMap(long importMedicalDataSetId, String importField, String importFieldPath, String TableName, String TableField, ServiceContext serviceContext) throws PortalException {
+	public ImportMedicalDataSetFieldMap addImportMedicalDataSetFieldMap(long importMedicalDataSetId, String importField, String importFieldPath, String sampleValue, String TableName, String TableField, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -67,8 +67,9 @@ public class ImportMedicalDataSetFieldMapLocalServiceImpl
 		importMedicalDataSetFieldMap.setModifiedDate(serviceContext.getCreateDate(now));
 		
 		importMedicalDataSetFieldMap.setImportMedicalDataSetId(importMedicalDataSetId);
-		importMedicalDataSetFieldMap.setImportField(importFieldPath);
+		importMedicalDataSetFieldMap.setImportField(importField);
 		importMedicalDataSetFieldMap.setImportFieldPath(importFieldPath);
+		importMedicalDataSetFieldMap.setSampleValue(sampleValue);
 		importMedicalDataSetFieldMap.setTableName(TableName);
 		importMedicalDataSetFieldMap.setTableField(TableField);
 		
@@ -81,7 +82,7 @@ public class ImportMedicalDataSetFieldMapLocalServiceImpl
 		return importMedicalDataSetFieldMap;
 	}
 	
-	public ImportMedicalDataSetFieldMap updateImportMedicalDataSetFieldMap(long importMedicalDataSetFieldMapId, long importMedicalDataSetId, String importField, String importFieldPath, String TableName, String TableField, ServiceContext serviceContext) throws PortalException {
+	public ImportMedicalDataSetFieldMap updateImportMedicalDataSetFieldMap(long importMedicalDataSetFieldMapId, long importMedicalDataSetId, String importField, String importFieldPath, String sampleValue, String TableName, String TableField, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -99,6 +100,7 @@ public class ImportMedicalDataSetFieldMapLocalServiceImpl
 		importMedicalDataSetFieldMap.setImportMedicalDataSetId(importMedicalDataSetId);
 		importMedicalDataSetFieldMap.setImportField(importFieldPath);
 		importMedicalDataSetFieldMap.setImportFieldPath(importFieldPath);
+		importMedicalDataSetFieldMap.setSampleValue(sampleValue);
 		importMedicalDataSetFieldMap.setTableName(TableName);
 		importMedicalDataSetFieldMap.setTableField(TableField);
 		

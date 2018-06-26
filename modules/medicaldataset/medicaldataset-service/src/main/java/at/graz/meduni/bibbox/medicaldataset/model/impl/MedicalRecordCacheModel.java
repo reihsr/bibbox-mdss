@@ -102,8 +102,8 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		sb.append(histonumberRunning);
 		sb.append(", iNumber=");
 		sb.append(iNumber);
-		sb.append(", vPatentId=");
-		sb.append(vPatentId);
+		sb.append(", vPatientId=");
+		sb.append(vPatientId);
 		sb.append(", vHistonNumber=");
 		sb.append(vHistonNumber);
 		sb.append(", area=");
@@ -176,7 +176,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		medicalRecordImpl.setHistonumberEnd(histonumberEnd);
 		medicalRecordImpl.setHistonumberRunning(histonumberRunning);
 		medicalRecordImpl.setINumber(iNumber);
-		medicalRecordImpl.setVPatentId(vPatentId);
+		medicalRecordImpl.setVPatientId(vPatientId);
 		medicalRecordImpl.setVHistonNumber(vHistonNumber);
 
 		if (area == null) {
@@ -231,7 +231,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 
 		iNumber = objectInput.readLong();
 
-		vPatentId = objectInput.readLong();
+		vPatientId = objectInput.readLong();
 
 		vHistonNumber = objectInput.readLong();
 		area = objectInput.readUTF();
@@ -291,7 +291,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 
 		objectOutput.writeLong(iNumber);
 
-		objectOutput.writeLong(vPatentId);
+		objectOutput.writeLong(vPatientId);
 
 		objectOutput.writeLong(vHistonNumber);
 
@@ -329,7 +329,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 	public long histonumberEnd;
 	public int histonumberRunning;
 	public long iNumber;
-	public long vPatentId;
+	public long vPatientId;
 	public long vHistonNumber;
 	public String area;
 	public long imiJobId;

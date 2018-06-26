@@ -77,7 +77,7 @@ public class MedicalRecordWrapper implements MedicalRecord,
 		attributes.put("histonumberEnd", getHistonumberEnd());
 		attributes.put("histonumberRunning", getHistonumberRunning());
 		attributes.put("iNumber", getINumber());
-		attributes.put("vPatentId", getVPatentId());
+		attributes.put("vPatientId", getVPatientId());
 		attributes.put("vHistonNumber", getVHistonNumber());
 		attributes.put("area", getArea());
 		attributes.put("imiJobId", getImiJobId());
@@ -192,10 +192,10 @@ public class MedicalRecordWrapper implements MedicalRecord,
 			setINumber(iNumber);
 		}
 
-		Long vPatentId = (Long)attributes.get("vPatentId");
+		Long vPatientId = (Long)attributes.get("vPatientId");
 
-		if (vPatentId != null) {
-			setVPatentId(vPatentId);
+		if (vPatientId != null) {
+			setVPatientId(vPatientId);
 		}
 
 		Long vHistonNumber = (Long)attributes.get("vHistonNumber");
@@ -610,13 +610,13 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	}
 
 	/**
-	* Returns the v patent ID of this medical record.
+	* Returns the v patient ID of this medical record.
 	*
-	* @return the v patent ID of this medical record
+	* @return the v patient ID of this medical record
 	*/
 	@Override
-	public long getVPatentId() {
-		return _medicalRecord.getVPatentId();
+	public long getVPatientId() {
+		return _medicalRecord.getVPatientId();
 	}
 
 	@Override
@@ -896,13 +896,13 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	}
 
 	/**
-	* Sets the v patent ID of this medical record.
+	* Sets the v patient ID of this medical record.
 	*
-	* @param vPatentId the v patent ID of this medical record
+	* @param vPatientId the v patient ID of this medical record
 	*/
 	@Override
-	public void setVPatentId(long vPatentId) {
-		_medicalRecord.setVPatentId(vPatentId);
+	public void setVPatientId(long vPatientId) {
+		_medicalRecord.setVPatientId(vPatientId);
 	}
 
 	@Override

@@ -6,7 +6,8 @@ public class MedicalDataSetWebKeys {
 	public static final String getStatusTranslation(int importStatus) {
 		switch(importStatus) {
 			case 1: return "Step 1 - File Upload";
-			case 10: return "Step 2 - Analysis";
+			case 5: return "Step 2 - Analysing";
+			case 10: return "Step 2 - Analysed";
 			case 20: return "Step 3 - Mapping";
 		}
 		return "Error";

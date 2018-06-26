@@ -338,6 +338,21 @@ public interface ImportMedicalDataSetFieldMapModel extends BaseModel<ImportMedic
 	public void setImportFieldPath(String importFieldPath);
 
 	/**
+	 * Returns the sample value of this import medical data set field map.
+	 *
+	 * @return the sample value of this import medical data set field map
+	 */
+	@AutoEscape
+	public String getSampleValue();
+
+	/**
+	 * Sets the sample value of this import medical data set field map.
+	 *
+	 * @param sampleValue the sample value of this import medical data set field map
+	 */
+	public void setSampleValue(String sampleValue);
+
+	/**
 	 * Returns the table name of this import medical data set field map.
 	 *
 	 * @return the table name of this import medical data set field map

@@ -363,18 +363,18 @@ public interface MedicalRecordModel extends BaseModel<MedicalRecord>,
 	public void setINumber(long iNumber);
 
 	/**
-	 * Returns the v patent ID of this medical record.
+	 * Returns the v patient ID of this medical record.
 	 *
-	 * @return the v patent ID of this medical record
+	 * @return the v patient ID of this medical record
 	 */
-	public long getVPatentId();
+	public long getVPatientId();
 
 	/**
-	 * Sets the v patent ID of this medical record.
+	 * Sets the v patient ID of this medical record.
 	 *
-	 * @param vPatentId the v patent ID of this medical record
+	 * @param vPatientId the v patient ID of this medical record
 	 */
-	public void setVPatentId(long vPatentId);
+	public void setVPatientId(long vPatientId);
 
 	/**
 	 * Returns the v histon number of this medical record.

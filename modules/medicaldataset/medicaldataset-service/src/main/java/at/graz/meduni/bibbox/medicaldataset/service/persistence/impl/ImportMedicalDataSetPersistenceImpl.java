@@ -2817,6 +2817,7 @@ public class ImportMedicalDataSetPersistenceImpl extends BasePersistenceImpl<Imp
 		importMedicalDataSetImpl.setFileName(importMedicalDataSet.getFileName());
 		importMedicalDataSetImpl.setFilePath(importMedicalDataSet.getFilePath());
 		importMedicalDataSetImpl.setFileId(importMedicalDataSet.getFileId());
+		importMedicalDataSetImpl.setImportCount(importMedicalDataSet.getImportCount());
 		importMedicalDataSetImpl.setImportStatus(importMedicalDataSet.getImportStatus());
 
 		return importMedicalDataSetImpl;

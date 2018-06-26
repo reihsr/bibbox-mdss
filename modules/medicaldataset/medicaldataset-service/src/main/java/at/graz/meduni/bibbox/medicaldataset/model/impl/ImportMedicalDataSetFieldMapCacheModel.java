@@ -67,7 +67,7 @@ public class ImportMedicalDataSetFieldMapCacheModel implements CacheModel<Import
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(35);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -99,6 +99,8 @@ public class ImportMedicalDataSetFieldMapCacheModel implements CacheModel<Import
 		sb.append(importField);
 		sb.append(", importFieldPath=");
 		sb.append(importFieldPath);
+		sb.append(", sampleValue=");
+		sb.append(sampleValue);
 		sb.append(", TableName=");
 		sb.append(TableName);
 		sb.append(", TableField=");
@@ -179,6 +181,13 @@ public class ImportMedicalDataSetFieldMapCacheModel implements CacheModel<Import
 			importMedicalDataSetFieldMapImpl.setImportFieldPath(importFieldPath);
 		}
 
+		if (sampleValue == null) {
+			importMedicalDataSetFieldMapImpl.setSampleValue(StringPool.BLANK);
+		}
+		else {
+			importMedicalDataSetFieldMapImpl.setSampleValue(sampleValue);
+		}
+
 		if (TableName == null) {
 			importMedicalDataSetFieldMapImpl.setTableName(StringPool.BLANK);
 		}
@@ -222,6 +231,7 @@ public class ImportMedicalDataSetFieldMapCacheModel implements CacheModel<Import
 		importMedicalDataSetId = objectInput.readLong();
 		importField = objectInput.readUTF();
 		importFieldPath = objectInput.readUTF();
+		sampleValue = objectInput.readUTF();
 		TableName = objectInput.readUTF();
 		TableField = objectInput.readUTF();
 	}
@@ -283,6 +293,13 @@ public class ImportMedicalDataSetFieldMapCacheModel implements CacheModel<Import
 			objectOutput.writeUTF(importFieldPath);
 		}
 
+		if (sampleValue == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(sampleValue);
+		}
+
 		if (TableName == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
@@ -313,6 +330,7 @@ public class ImportMedicalDataSetFieldMapCacheModel implements CacheModel<Import
 	public long importMedicalDataSetId;
 	public String importField;
 	public String importFieldPath;
+	public String sampleValue;
 	public String TableName;
 	public String TableField;
 }

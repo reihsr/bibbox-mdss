@@ -17,6 +17,7 @@ package at.graz.meduni.bibbox.medicaldataset.service.base;
 import at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord;
 import at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordService;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetFieldMapPersistence;
+import at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetLogPersistence;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetPersistence;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.KloetzelBuchPersistence;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.MedicalRecordPersistence;
@@ -172,6 +173,63 @@ public abstract class MedicalRecordServiceBaseImpl extends BaseServiceImpl
 	public void setImportMedicalDataSetFieldMapPersistence(
 		ImportMedicalDataSetFieldMapPersistence importMedicalDataSetFieldMapPersistence) {
 		this.importMedicalDataSetFieldMapPersistence = importMedicalDataSetFieldMapPersistence;
+	}
+
+	/**
+	 * Returns the import medical data set log local service.
+	 *
+	 * @return the import medical data set log local service
+	 */
+	public at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogLocalService getImportMedicalDataSetLogLocalService() {
+		return importMedicalDataSetLogLocalService;
+	}
+
+	/**
+	 * Sets the import medical data set log local service.
+	 *
+	 * @param importMedicalDataSetLogLocalService the import medical data set log local service
+	 */
+	public void setImportMedicalDataSetLogLocalService(
+		at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogLocalService importMedicalDataSetLogLocalService) {
+		this.importMedicalDataSetLogLocalService = importMedicalDataSetLogLocalService;
+	}
+
+	/**
+	 * Returns the import medical data set log remote service.
+	 *
+	 * @return the import medical data set log remote service
+	 */
+	public at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogService getImportMedicalDataSetLogService() {
+		return importMedicalDataSetLogService;
+	}
+
+	/**
+	 * Sets the import medical data set log remote service.
+	 *
+	 * @param importMedicalDataSetLogService the import medical data set log remote service
+	 */
+	public void setImportMedicalDataSetLogService(
+		at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogService importMedicalDataSetLogService) {
+		this.importMedicalDataSetLogService = importMedicalDataSetLogService;
+	}
+
+	/**
+	 * Returns the import medical data set log persistence.
+	 *
+	 * @return the import medical data set log persistence
+	 */
+	public ImportMedicalDataSetLogPersistence getImportMedicalDataSetLogPersistence() {
+		return importMedicalDataSetLogPersistence;
+	}
+
+	/**
+	 * Sets the import medical data set log persistence.
+	 *
+	 * @param importMedicalDataSetLogPersistence the import medical data set log persistence
+	 */
+	public void setImportMedicalDataSetLogPersistence(
+		ImportMedicalDataSetLogPersistence importMedicalDataSetLogPersistence) {
+		this.importMedicalDataSetLogPersistence = importMedicalDataSetLogPersistence;
 	}
 
 	/**
@@ -669,6 +727,12 @@ public abstract class MedicalRecordServiceBaseImpl extends BaseServiceImpl
 	protected at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapService importMedicalDataSetFieldMapService;
 	@BeanReference(type = ImportMedicalDataSetFieldMapPersistence.class)
 	protected ImportMedicalDataSetFieldMapPersistence importMedicalDataSetFieldMapPersistence;
+	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogLocalService.class)
+	protected at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogLocalService importMedicalDataSetLogLocalService;
+	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogService.class)
+	protected at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogService importMedicalDataSetLogService;
+	@BeanReference(type = ImportMedicalDataSetLogPersistence.class)
+	protected ImportMedicalDataSetLogPersistence importMedicalDataSetLogPersistence;
 	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchLocalService.class)
 	protected at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchLocalService kloetzelBuchLocalService;
 	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.KloetzelBuchService.class)

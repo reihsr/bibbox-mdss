@@ -19,9 +19,11 @@
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord" %>
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSet" %>
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap" %>
+<%@ page import="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog" %>
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordLocalServiceUtil" %>
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalServiceUtil" %>
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalServiceUtil" %>
+<%@ page import="at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogLocalServiceUtil" %>
 
 <%@ page import="at.graz.meduni.bibbox.medicaldataset.portlet.constants.MedicalDataSetWebKeys" %>
 

@@ -70,6 +70,11 @@ public class MedicalDataSetImportPortlet extends MVCPortlet {
 		actionResponse.setRenderParameter("jspPage", "/medicaldatasetimportportlet/importStep2.jsp");
 	}
 	
+	public void updateFieldMapStep3(ActionRequest request, ActionResponse response) throws Exception {
+		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
+		long importMedicalDataSetId = ParamUtil.getLong(request, "importMedicalDataSetId");
+	}
+	
 	private Folder createFolder(ActionRequest actionRequest, ThemeDisplay themeDisplay) {
 		boolean folderExist = doseFolderExist(themeDisplay);
 		Folder folder = null;
@@ -189,8 +194,10 @@ public class MedicalDataSetImportPortlet extends MVCPortlet {
 			serviceContext = ServiceContextFactory.getInstance(ImportMedicalDataSet.class.getName(), actionRequest);
 			ImportMedicalDataSet importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.addImportMedicalDataSet(importName, importType, 
 					iMIJobId, description, fileEntry.getFileName(), fileEntry.getFolder().getName(), 
-					fileEntry.getFileEntryId(), 1, serviceContext);
-			BackgroundTaskHelper.createImportAnalyseTask(importMedicalDataSet.getImportMedicalDataSetId(), serviceContext);
+					fileEntry.getFileEntryId(), 0, 1, serviceContext);
+			
+			BackgroundTaskHelper.createImportAnalyseTask(importMedicalDataSet.getImportMedicalDataSetId(), importType, importName, serviceContext);
+			
 			return importMedicalDataSet.getImportMedicalDataSetId();
 		} catch (PortalException e) {
 			System.out.println("at.graz.meduni.bibbox.medicaldataset.portlet.portlet.MedicalDataSetImportPortlet::createImportTask");

@@ -7,6 +7,11 @@ create index IX_120E1948 on FOO_ImportMedicalDataSetFieldMap (importMedicalDataS
 create index IX_7CB8F981 on FOO_ImportMedicalDataSetFieldMap (uuid_[$COLUMN_LENGTH:75$], companyId);
 create unique index IX_8783EC43 on FOO_ImportMedicalDataSetFieldMap (uuid_[$COLUMN_LENGTH:75$], groupId);
 
+create index IX_5AFFE2E5 on FOO_ImportMedicalDataSetLog (groupId);
+create index IX_17B7540B on FOO_ImportMedicalDataSetLog (importMedicalDataSetId, importStatus);
+create index IX_CC8E619 on FOO_ImportMedicalDataSetLog (uuid_[$COLUMN_LENGTH:75$], companyId);
+create unique index IX_C3561EDB on FOO_ImportMedicalDataSetLog (uuid_[$COLUMN_LENGTH:75$], groupId);
+
 create index IX_F089762F on FOO_KloetzelBuch (groupId);
 create index IX_B23B3572 on FOO_KloetzelBuch (medicalRecordId);
 create index IX_6A8F660F on FOO_KloetzelBuch (uuid_[$COLUMN_LENGTH:75$], companyId);

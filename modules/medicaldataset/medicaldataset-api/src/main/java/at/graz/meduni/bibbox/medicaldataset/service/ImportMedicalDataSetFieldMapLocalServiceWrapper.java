@@ -49,12 +49,13 @@ public class ImportMedicalDataSetFieldMapLocalServiceWrapper
 	@Override
 	public at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap addImportMedicalDataSetFieldMap(
 		long importMedicalDataSetId, java.lang.String importField,
-		java.lang.String importFieldPath, java.lang.String TableName,
-		java.lang.String TableField,
+		java.lang.String importFieldPath, java.lang.String sampleValue,
+		java.lang.String TableName, java.lang.String TableField,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _importMedicalDataSetFieldMapLocalService.addImportMedicalDataSetFieldMap(importMedicalDataSetId,
-			importField, importFieldPath, TableName, TableField, serviceContext);
+			importField, importFieldPath, sampleValue, TableName, TableField,
+			serviceContext);
 	}
 
 	/**
@@ -170,12 +171,13 @@ public class ImportMedicalDataSetFieldMapLocalServiceWrapper
 	public at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap updateImportMedicalDataSetFieldMap(
 		long importMedicalDataSetFieldMapId, long importMedicalDataSetId,
 		java.lang.String importField, java.lang.String importFieldPath,
-		java.lang.String TableName, java.lang.String TableField,
+		java.lang.String sampleValue, java.lang.String TableName,
+		java.lang.String TableField,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _importMedicalDataSetFieldMapLocalService.updateImportMedicalDataSetFieldMap(importMedicalDataSetFieldMapId,
-			importMedicalDataSetId, importField, importFieldPath, TableName,
-			TableField, serviceContext);
+			importMedicalDataSetId, importField, importFieldPath, sampleValue,
+			TableName, TableField, serviceContext);
 	}
 
 	@Override

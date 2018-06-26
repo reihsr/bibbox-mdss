@@ -396,6 +396,20 @@ public interface ImportMedicalDataSetModel extends BaseModel<ImportMedicalDataSe
 	public void setFileId(long fileId);
 
 	/**
+	 * Returns the import count of this import medical data set.
+	 *
+	 * @return the import count of this import medical data set
+	 */
+	public int getImportCount();
+
+	/**
+	 * Sets the import count of this import medical data set.
+	 *
+	 * @param importCount the import count of this import medical data set
+	 */
+	public void setImportCount(int importCount);
+
+	/**
 	 * Returns the import status of this import medical data set.
 	 *
 	 * @return the import status of this import medical data set

@@ -77,9 +77,9 @@ public interface ImportMedicalDataSetFieldMapLocalService
 
 	public ImportMedicalDataSetFieldMap addImportMedicalDataSetFieldMap(
 		long importMedicalDataSetId, java.lang.String importField,
-		java.lang.String importFieldPath, java.lang.String TableName,
-		java.lang.String TableField, ServiceContext serviceContext)
-		throws PortalException;
+		java.lang.String importFieldPath, java.lang.String sampleValue,
+		java.lang.String TableName, java.lang.String TableField,
+		ServiceContext serviceContext) throws PortalException;
 
 	/**
 	* Creates a new import medical data set field map with the primary key. Does not add the import medical data set field map to the database.
@@ -166,8 +166,9 @@ public interface ImportMedicalDataSetFieldMapLocalService
 	public ImportMedicalDataSetFieldMap updateImportMedicalDataSetFieldMap(
 		long importMedicalDataSetFieldMapId, long importMedicalDataSetId,
 		java.lang.String importField, java.lang.String importFieldPath,
-		java.lang.String TableName, java.lang.String TableField,
-		ServiceContext serviceContext) throws PortalException;
+		java.lang.String sampleValue, java.lang.String TableName,
+		java.lang.String TableField, ServiceContext serviceContext)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();

@@ -80,6 +80,7 @@ public class ImportMedicalDataSetWrapper implements ImportMedicalDataSet,
 		attributes.put("fileName", getFileName());
 		attributes.put("filePath", getFilePath());
 		attributes.put("fileId", getFileId());
+		attributes.put("importCount", getImportCount());
 		attributes.put("importStatus", getImportStatus());
 
 		return attributes;
@@ -200,6 +201,12 @@ public class ImportMedicalDataSetWrapper implements ImportMedicalDataSet,
 
 		if (fileId != null) {
 			setFileId(fileId);
+		}
+
+		Integer importCount = (Integer)attributes.get("importCount");
+
+		if (importCount != null) {
+			setImportCount(importCount);
 		}
 
 		Integer importStatus = (Integer)attributes.get("importStatus");
@@ -328,6 +335,16 @@ public class ImportMedicalDataSetWrapper implements ImportMedicalDataSet,
 	public int compareTo(
 		at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSet importMedicalDataSet) {
 		return _importMedicalDataSet.compareTo(importMedicalDataSet);
+	}
+
+	/**
+	* Returns the import count of this import medical data set.
+	*
+	* @return the import count of this import medical data set
+	*/
+	@Override
+	public int getImportCount() {
+		return _importMedicalDataSet.getImportCount();
 	}
 
 	/**
@@ -689,6 +706,16 @@ public class ImportMedicalDataSetWrapper implements ImportMedicalDataSet,
 	@Override
 	public void setImiJobId(long imiJobId) {
 		_importMedicalDataSet.setImiJobId(imiJobId);
+	}
+
+	/**
+	* Sets the import count of this import medical data set.
+	*
+	* @param importCount the import count of this import medical data set
+	*/
+	@Override
+	public void setImportCount(int importCount) {
+		_importMedicalDataSet.setImportCount(importCount);
 	}
 
 	/**

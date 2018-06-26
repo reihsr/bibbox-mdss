@@ -25,6 +25,7 @@
 			<hint name="max-length">1000</hint>
 		</field>
 		<field name="fileId" type="long" />
+		<field name="importCount" type="int" />
 		<field name="importStatus" type="int" />
 	</model>
 	<model name="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap">
@@ -41,12 +42,40 @@
 		<field name="statusByUserName" type="String" />
 		<field name="statusDate" type="Date" />
 		<field name="importMedicalDataSetId" type="long" />
-		<field name="importField" type="String" />
+		<field name="importField" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
 		<field name="importFieldPath" type="String">
 			<hint name="max-length">1000</hint>
 		</field>
-		<field name="TableName" type="String" />
-		<field name="TableField" type="String" />
+		<field name="sampleValue" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="TableName" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="TableField" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+	</model>
+	<model name="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog">
+		<field name="uuid" type="String" />
+		<field name="importMedicalDataSetLogId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
+		<field name="importMedicalDataSetId" type="long" />
+		<field name="importStatus" type="int" />
+		<field name="importStatusLog" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
 	</model>
 	<model name="at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch">
 		<field name="uuid" type="String" />
@@ -106,7 +135,7 @@
 		<field name="histonumberEnd" type="long" />
 		<field name="histonumberRunning" type="int" />
 		<field name="iNumber" type="long" />
-		<field name="vPatentId" type="long" />
+		<field name="vPatientId" type="long" />
 		<field name="vHistonNumber" type="long" />
 		<field name="area" type="String" />
 		<field name="imiJobId" type="long" />

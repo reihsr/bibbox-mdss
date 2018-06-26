@@ -78,6 +78,7 @@ public class ImportMedicalDataSetFieldMapWrapper
 		attributes.put("importMedicalDataSetId", getImportMedicalDataSetId());
 		attributes.put("importField", getImportField());
 		attributes.put("importFieldPath", getImportFieldPath());
+		attributes.put("sampleValue", getSampleValue());
 		attributes.put("TableName", getTableName());
 		attributes.put("TableField", getTableField());
 
@@ -176,6 +177,12 @@ public class ImportMedicalDataSetFieldMapWrapper
 
 		if (importFieldPath != null) {
 			setImportFieldPath(importFieldPath);
+		}
+
+		String sampleValue = (String)attributes.get("sampleValue");
+
+		if (sampleValue != null) {
+			setSampleValue(sampleValue);
 		}
 
 		String TableName = (String)attributes.get("TableName");
@@ -355,6 +362,16 @@ public class ImportMedicalDataSetFieldMapWrapper
 	@Override
 	public java.lang.String getImportFieldPath() {
 		return _importMedicalDataSetFieldMap.getImportFieldPath();
+	}
+
+	/**
+	* Returns the sample value of this import medical data set field map.
+	*
+	* @return the sample value of this import medical data set field map
+	*/
+	@Override
+	public java.lang.String getSampleValue() {
+		return _importMedicalDataSetFieldMap.getSampleValue();
 	}
 
 	/**
@@ -662,6 +679,16 @@ public class ImportMedicalDataSetFieldMapWrapper
 	@Override
 	public void setPrimaryKeyObj(Serializable primaryKeyObj) {
 		_importMedicalDataSetFieldMap.setPrimaryKeyObj(primaryKeyObj);
+	}
+
+	/**
+	* Sets the sample value of this import medical data set field map.
+	*
+	* @param sampleValue the sample value of this import medical data set field map
+	*/
+	@Override
+	public void setSampleValue(java.lang.String sampleValue) {
+		_importMedicalDataSetFieldMap.setSampleValue(sampleValue);
 	}
 
 	/**

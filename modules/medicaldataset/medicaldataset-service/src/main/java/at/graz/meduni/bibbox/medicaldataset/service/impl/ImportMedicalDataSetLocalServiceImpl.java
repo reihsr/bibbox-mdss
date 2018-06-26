@@ -47,7 +47,7 @@ public class ImportMedicalDataSetLocalServiceImpl
 	 * Never reference this class directly. Always use {@link at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalServiceUtil} to access the import medical data set local service.
 	 */
 	
-	public ImportMedicalDataSet addImportMedicalDataSet(String importName, String importType, long imiJobId, String description, String fileName, String filePath, long fileId, int importStatus, ServiceContext serviceContext) throws PortalException {
+	public ImportMedicalDataSet addImportMedicalDataSet(String importName, String importType, long imiJobId, String description, String fileName, String filePath, long fileId, int importCount, int importStatus, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -73,6 +73,7 @@ public class ImportMedicalDataSetLocalServiceImpl
 		importMedicalDataSet.setFileName(fileName);
 		importMedicalDataSet.setFilePath(filePath);
 		importMedicalDataSet.setFileId(fileId);
+		importMedicalDataSet.setImportCount(importCount);
 		importMedicalDataSet.setImportStatus(importStatus);
 		
 		importMedicalDataSet.setExpandoBridgeAttributes(serviceContext);
@@ -84,7 +85,7 @@ public class ImportMedicalDataSetLocalServiceImpl
 		return importMedicalDataSet;
 	}
 	
-	public ImportMedicalDataSet updateImportMedicalDataSet(long importMedicalDataSetId, String importName, String importType, long imiJobId, String description, String fileName, String filePath, long fileId, int importStatus, ServiceContext serviceContext) throws PortalException {
+	public ImportMedicalDataSet updateImportMedicalDataSet(long importMedicalDataSetId, String importName, String importType, long imiJobId, String description, String fileName, String filePath, long fileId, int importCount, int importStatus, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -106,6 +107,7 @@ public class ImportMedicalDataSetLocalServiceImpl
 		importMedicalDataSet.setFileName(fileName);
 		importMedicalDataSet.setFilePath(filePath);
 		importMedicalDataSet.setFileId(fileId);
+		importMedicalDataSet.setImportCount(importCount);
 		importMedicalDataSet.setImportStatus(importStatus);
 		
 		importMedicalDataSetPersistence.update(importMedicalDataSet);

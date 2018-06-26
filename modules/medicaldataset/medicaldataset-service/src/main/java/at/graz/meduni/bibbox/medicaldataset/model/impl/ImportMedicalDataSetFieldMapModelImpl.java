@@ -89,6 +89,7 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 			{ "importMedicalDataSetId", Types.BIGINT },
 			{ "importField", Types.VARCHAR },
 			{ "importFieldPath", Types.VARCHAR },
+			{ "sampleValue", Types.VARCHAR },
 			{ "TableName", Types.VARCHAR },
 			{ "TableField", Types.VARCHAR }
 		};
@@ -110,11 +111,12 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 		TABLE_COLUMNS_MAP.put("importMedicalDataSetId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("importField", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("importFieldPath", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("sampleValue", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("TableName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("TableField", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table FOO_ImportMedicalDataSetFieldMap (uuid_ VARCHAR(75) null,importMedicalDataSetFieldMapId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,importField VARCHAR(75) null,importFieldPath VARCHAR(1000) null,TableName VARCHAR(75) null,TableField VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table FOO_ImportMedicalDataSetFieldMap (uuid_ VARCHAR(75) null,importMedicalDataSetFieldMapId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,importField VARCHAR(1000) null,importFieldPath VARCHAR(1000) null,sampleValue VARCHAR(1000) null,TableName VARCHAR(1000) null,TableField VARCHAR(1000) null)";
 	public static final String TABLE_SQL_DROP = "drop table FOO_ImportMedicalDataSetFieldMap";
 	public static final String ORDER_BY_JPQL = " ORDER BY importMedicalDataSetFieldMap.importMedicalDataSetFieldMapId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY FOO_ImportMedicalDataSetFieldMap.importMedicalDataSetFieldMapId ASC";
@@ -165,6 +167,7 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 		model.setImportMedicalDataSetId(soapModel.getImportMedicalDataSetId());
 		model.setImportField(soapModel.getImportField());
 		model.setImportFieldPath(soapModel.getImportFieldPath());
+		model.setSampleValue(soapModel.getSampleValue());
 		model.setTableName(soapModel.getTableName());
 		model.setTableField(soapModel.getTableField());
 
@@ -248,6 +251,7 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 		attributes.put("importMedicalDataSetId", getImportMedicalDataSetId());
 		attributes.put("importField", getImportField());
 		attributes.put("importFieldPath", getImportFieldPath());
+		attributes.put("sampleValue", getSampleValue());
 		attributes.put("TableName", getTableName());
 		attributes.put("TableField", getTableField());
 
@@ -349,6 +353,12 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 
 		if (importFieldPath != null) {
 			setImportFieldPath(importFieldPath);
+		}
+
+		String sampleValue = (String)attributes.get("sampleValue");
+
+		if (sampleValue != null) {
+			setSampleValue(sampleValue);
 		}
 
 		String TableName = (String)attributes.get("TableName");
@@ -641,6 +651,22 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 
 	@JSON
 	@Override
+	public String getSampleValue() {
+		if (_sampleValue == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _sampleValue;
+		}
+	}
+
+	@Override
+	public void setSampleValue(String sampleValue) {
+		_sampleValue = sampleValue;
+	}
+
+	@JSON
+	@Override
 	public String getTableName() {
 		if (_TableName == null) {
 			return StringPool.BLANK;
@@ -803,6 +829,7 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 		importMedicalDataSetFieldMapImpl.setImportMedicalDataSetId(getImportMedicalDataSetId());
 		importMedicalDataSetFieldMapImpl.setImportField(getImportField());
 		importMedicalDataSetFieldMapImpl.setImportFieldPath(getImportFieldPath());
+		importMedicalDataSetFieldMapImpl.setSampleValue(getSampleValue());
 		importMedicalDataSetFieldMapImpl.setTableName(getTableName());
 		importMedicalDataSetFieldMapImpl.setTableField(getTableField());
 
@@ -980,6 +1007,14 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 			importMedicalDataSetFieldMapCacheModel.importFieldPath = null;
 		}
 
+		importMedicalDataSetFieldMapCacheModel.sampleValue = getSampleValue();
+
+		String sampleValue = importMedicalDataSetFieldMapCacheModel.sampleValue;
+
+		if ((sampleValue != null) && (sampleValue.length() == 0)) {
+			importMedicalDataSetFieldMapCacheModel.sampleValue = null;
+		}
+
 		importMedicalDataSetFieldMapCacheModel.TableName = getTableName();
 
 		String TableName = importMedicalDataSetFieldMapCacheModel.TableName;
@@ -1001,7 +1036,7 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(35);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1033,6 +1068,8 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 		sb.append(getImportField());
 		sb.append(", importFieldPath=");
 		sb.append(getImportFieldPath());
+		sb.append(", sampleValue=");
+		sb.append(getSampleValue());
 		sb.append(", TableName=");
 		sb.append(getTableName());
 		sb.append(", TableField=");
@@ -1044,7 +1081,7 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(55);
+		StringBundler sb = new StringBundler(58);
 
 		sb.append("<model><model-name>");
 		sb.append(
@@ -1112,6 +1149,10 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 		sb.append(getImportFieldPath());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>sampleValue</column-name><column-value><![CDATA[");
+		sb.append(getSampleValue());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>TableName</column-name><column-value><![CDATA[");
 		sb.append(getTableName());
 		sb.append("]]></column-value></column>");
@@ -1152,6 +1193,7 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 	private boolean _setOriginalImportMedicalDataSetId;
 	private String _importField;
 	private String _importFieldPath;
+	private String _sampleValue;
 	private String _TableName;
 	private String _TableField;
 	private long _columnBitmask;
