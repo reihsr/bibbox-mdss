@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -32,8 +33,10 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSet;
+import at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap;
 import at.graz.meduni.bibbox.medicaldataset.portlet.constants.MedicalDataSetImportPortletKeys;
 import at.graz.meduni.bibbox.medicaldataset.portlet.constants.MedicalDataSetWebKeys;
+import at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalServiceUtil;
 import at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalServiceUtil;
 import at.graz.meduni.bibbox.medicaldataset.service.backgroundtask.BackgroundTaskHelper;
 
@@ -73,6 +76,20 @@ public class MedicalDataSetImportPortlet extends MVCPortlet {
 	public void updateFieldMapStep3(ActionRequest request, ActionResponse response) throws Exception {
 		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 		long importMedicalDataSetId = ParamUtil.getLong(request, "importMedicalDataSetId");
+		List<ImportMedicalDataSetFieldMap> importMedicalDataSetFieldMaps = ImportMedicalDataSetFieldMapLocalServiceUtil.getImportMedicalDataSetFieldMapsFromImportMedicalDataSet(importMedicalDataSetId);
+		for(ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap : importMedicalDataSetFieldMaps) {
+			String tableName = ParamUtil.getString(request, importMedicalDataSetFieldMap.getImportMedicalDataSetFieldMapId() + "_Table");
+			if(!tableName.equals("NotSelected")) {
+				importMedicalDataSetFieldMap.setTableName(tableName);
+				System.out.println("Selected Data: - Table: " + tableName);
+				String tableField = ParamUtil.getString(request, importMedicalDataSetFieldMap.getImportMedicalDataSetFieldMapId() + "_" + tableName);
+				if(!tableField.equals("NotSelected")) {
+					importMedicalDataSetFieldMap.setTableField(tableField);
+					System.out.println("Selected Data: - Field: " + tableField);
+				}
+			}
+			ImportMedicalDataSetFieldMapLocalServiceUtil.updateImportMedicalDataSetFieldMap(importMedicalDataSetFieldMap);
+		}
 	}
 	
 	private Folder createFolder(ActionRequest actionRequest, ThemeDisplay themeDisplay) {
