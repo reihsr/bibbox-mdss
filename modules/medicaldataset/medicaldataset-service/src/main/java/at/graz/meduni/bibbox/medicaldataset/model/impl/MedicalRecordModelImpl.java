@@ -93,9 +93,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 			{ "iNumber", Types.BIGINT },
 			{ "vPatientId", Types.BIGINT },
 			{ "vHistonNumber", Types.BIGINT },
-			{ "area", Types.VARCHAR },
-			{ "imiJobId", Types.BIGINT },
-			{ "importFile", Types.VARCHAR }
+			{ "area", Types.VARCHAR }
 		};
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP = new HashMap<String, Integer>();
 
@@ -120,11 +118,9 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		TABLE_COLUMNS_MAP.put("vPatientId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("vHistonNumber", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("area", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("imiJobId", Types.BIGINT);
-		TABLE_COLUMNS_MAP.put("importFile", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table FOO_MedicalRecord (uuid_ VARCHAR(75) null,medicalRecordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,histonumberStart LONG,histonumberEnd LONG,histonumberRunning INTEGER,iNumber LONG,vPatientId LONG,vHistonNumber LONG,area VARCHAR(75) null,imiJobId LONG,importFile VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table FOO_MedicalRecord (uuid_ VARCHAR(75) null,medicalRecordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,histonumberStart LONG,histonumberEnd LONG,histonumberRunning INTEGER,iNumber LONG,vPatientId LONG,vHistonNumber LONG,area VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table FOO_MedicalRecord";
 	public static final String ORDER_BY_JPQL = " ORDER BY medicalRecord.medicalRecordId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY FOO_MedicalRecord.medicalRecordId ASC";
@@ -180,8 +176,6 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		model.setVPatientId(soapModel.getVPatientId());
 		model.setVHistonNumber(soapModel.getVHistonNumber());
 		model.setArea(soapModel.getArea());
-		model.setImiJobId(soapModel.getImiJobId());
-		model.setImportFile(soapModel.getImportFile());
 
 		return model;
 	}
@@ -266,8 +260,6 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		attributes.put("vPatientId", getVPatientId());
 		attributes.put("vHistonNumber", getVHistonNumber());
 		attributes.put("area", getArea());
-		attributes.put("imiJobId", getImiJobId());
-		attributes.put("importFile", getImportFile());
 
 		attributes.put("entityCacheEnabled", isEntityCacheEnabled());
 		attributes.put("finderCacheEnabled", isFinderCacheEnabled());
@@ -397,18 +389,6 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 		if (area != null) {
 			setArea(area);
-		}
-
-		Long imiJobId = (Long)attributes.get("imiJobId");
-
-		if (imiJobId != null) {
-			setImiJobId(imiJobId);
-		}
-
-		String importFile = (String)attributes.get("importFile");
-
-		if (importFile != null) {
-			setImportFile(importFile);
 		}
 	}
 
@@ -748,33 +728,6 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		_area = area;
 	}
 
-	@JSON
-	@Override
-	public long getImiJobId() {
-		return _imiJobId;
-	}
-
-	@Override
-	public void setImiJobId(long imiJobId) {
-		_imiJobId = imiJobId;
-	}
-
-	@JSON
-	@Override
-	public String getImportFile() {
-		if (_importFile == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _importFile;
-		}
-	}
-
-	@Override
-	public void setImportFile(String importFile) {
-		_importFile = importFile;
-	}
-
 	@Override
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(PortalUtil.getClassNameId(
@@ -912,8 +865,6 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		medicalRecordImpl.setVPatientId(getVPatientId());
 		medicalRecordImpl.setVHistonNumber(getVHistonNumber());
 		medicalRecordImpl.setArea(getArea());
-		medicalRecordImpl.setImiJobId(getImiJobId());
-		medicalRecordImpl.setImportFile(getImportFile());
 
 		medicalRecordImpl.resetOriginalValues();
 
@@ -1094,22 +1045,12 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 			medicalRecordCacheModel.area = null;
 		}
 
-		medicalRecordCacheModel.imiJobId = getImiJobId();
-
-		medicalRecordCacheModel.importFile = getImportFile();
-
-		String importFile = medicalRecordCacheModel.importFile;
-
-		if ((importFile != null) && (importFile.length() == 0)) {
-			medicalRecordCacheModel.importFile = null;
-		}
-
 		return medicalRecordCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(45);
+		StringBundler sb = new StringBundler(41);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1151,10 +1092,6 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		sb.append(getVHistonNumber());
 		sb.append(", area=");
 		sb.append(getArea());
-		sb.append(", imiJobId=");
-		sb.append(getImiJobId());
-		sb.append(", importFile=");
-		sb.append(getImportFile());
 		sb.append("}");
 
 		return sb.toString();
@@ -1162,7 +1099,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(70);
+		StringBundler sb = new StringBundler(64);
 
 		sb.append("<model><model-name>");
 		sb.append("at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord");
@@ -1248,14 +1185,6 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 			"<column><column-name>area</column-name><column-value><![CDATA[");
 		sb.append(getArea());
 		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>imiJobId</column-name><column-value><![CDATA[");
-		sb.append(getImiJobId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>importFile</column-name><column-value><![CDATA[");
-		sb.append(getImportFile());
-		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -1296,8 +1225,6 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 	private long _vPatientId;
 	private long _vHistonNumber;
 	private String _area;
-	private long _imiJobId;
-	private String _importFile;
 	private long _columnBitmask;
 	private MedicalRecord _escapedModel;
 }

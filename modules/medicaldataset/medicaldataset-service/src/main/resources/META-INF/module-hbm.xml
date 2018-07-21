@@ -7,7 +7,7 @@
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog" />
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch" />
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord" />
-	<import class="at.graz.meduni.bibbox.medicaldataset.model.PathologieData" />
+	<import class="at.graz.meduni.bibbox.medicaldataset.model.PathologyData" />
 	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetImpl" table="FOO_ImportMedicalDataSet">
 		<id name="importMedicalDataSetId" type="long">
 			<generator class="assigned" />
@@ -135,11 +135,9 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vPatientId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vHistonNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="area" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="imiJobId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="importFile" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
-	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.PathologieDataImpl" table="FOO_PathologieData">
-		<id name="pathologieDataId" type="long">
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.PathologyDataImpl" table="FOO_PathologyData">
+		<id name="pathologyDataId" type="long">
 			<generator class="assigned" />
 		</id>
 		<property column="uuid_" name="uuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />

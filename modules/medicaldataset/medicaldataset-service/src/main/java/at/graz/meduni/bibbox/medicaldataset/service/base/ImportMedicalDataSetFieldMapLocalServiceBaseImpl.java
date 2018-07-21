@@ -23,7 +23,7 @@ import at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDat
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.ImportMedicalDataSetPersistence;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.KloetzelBuchPersistence;
 import at.graz.meduni.bibbox.medicaldataset.service.persistence.MedicalRecordPersistence;
-import at.graz.meduni.bibbox.medicaldataset.service.persistence.PathologieDataPersistence;
+import at.graz.meduni.bibbox.medicaldataset.service.persistence.PathologyDataPersistence;
 
 import com.liferay.asset.kernel.service.persistence.AssetEntryPersistence;
 import com.liferay.asset.kernel.service.persistence.AssetTagPersistence;
@@ -678,41 +678,41 @@ public abstract class ImportMedicalDataSetFieldMapLocalServiceBaseImpl
 	}
 
 	/**
-	 * Returns the pathologie data local service.
+	 * Returns the pathology data local service.
 	 *
-	 * @return the pathologie data local service
+	 * @return the pathology data local service
 	 */
-	public at.graz.meduni.bibbox.medicaldataset.service.PathologieDataLocalService getPathologieDataLocalService() {
-		return pathologieDataLocalService;
+	public at.graz.meduni.bibbox.medicaldataset.service.PathologyDataLocalService getPathologyDataLocalService() {
+		return pathologyDataLocalService;
 	}
 
 	/**
-	 * Sets the pathologie data local service.
+	 * Sets the pathology data local service.
 	 *
-	 * @param pathologieDataLocalService the pathologie data local service
+	 * @param pathologyDataLocalService the pathology data local service
 	 */
-	public void setPathologieDataLocalService(
-		at.graz.meduni.bibbox.medicaldataset.service.PathologieDataLocalService pathologieDataLocalService) {
-		this.pathologieDataLocalService = pathologieDataLocalService;
+	public void setPathologyDataLocalService(
+		at.graz.meduni.bibbox.medicaldataset.service.PathologyDataLocalService pathologyDataLocalService) {
+		this.pathologyDataLocalService = pathologyDataLocalService;
 	}
 
 	/**
-	 * Returns the pathologie data persistence.
+	 * Returns the pathology data persistence.
 	 *
-	 * @return the pathologie data persistence
+	 * @return the pathology data persistence
 	 */
-	public PathologieDataPersistence getPathologieDataPersistence() {
-		return pathologieDataPersistence;
+	public PathologyDataPersistence getPathologyDataPersistence() {
+		return pathologyDataPersistence;
 	}
 
 	/**
-	 * Sets the pathologie data persistence.
+	 * Sets the pathology data persistence.
 	 *
-	 * @param pathologieDataPersistence the pathologie data persistence
+	 * @param pathologyDataPersistence the pathology data persistence
 	 */
-	public void setPathologieDataPersistence(
-		PathologieDataPersistence pathologieDataPersistence) {
-		this.pathologieDataPersistence = pathologieDataPersistence;
+	public void setPathologyDataPersistence(
+		PathologyDataPersistence pathologyDataPersistence) {
+		this.pathologyDataPersistence = pathologyDataPersistence;
 	}
 
 	/**
@@ -975,10 +975,10 @@ public abstract class ImportMedicalDataSetFieldMapLocalServiceBaseImpl
 	protected at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordLocalService medicalRecordLocalService;
 	@BeanReference(type = MedicalRecordPersistence.class)
 	protected MedicalRecordPersistence medicalRecordPersistence;
-	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.PathologieDataLocalService.class)
-	protected at.graz.meduni.bibbox.medicaldataset.service.PathologieDataLocalService pathologieDataLocalService;
-	@BeanReference(type = PathologieDataPersistence.class)
-	protected PathologieDataPersistence pathologieDataPersistence;
+	@BeanReference(type = at.graz.meduni.bibbox.medicaldataset.service.PathologyDataLocalService.class)
+	protected at.graz.meduni.bibbox.medicaldataset.service.PathologyDataLocalService pathologyDataLocalService;
+	@BeanReference(type = PathologyDataPersistence.class)
+	protected PathologyDataPersistence pathologyDataPersistence;
 	@ServiceReference(type = com.liferay.counter.kernel.service.CounterLocalService.class)
 	protected com.liferay.counter.kernel.service.CounterLocalService counterLocalService;
 	@ServiceReference(type = com.liferay.portal.kernel.service.ClassNameLocalService.class)

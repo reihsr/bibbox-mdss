@@ -80,8 +80,6 @@ public class MedicalRecordWrapper implements MedicalRecord,
 		attributes.put("vPatientId", getVPatientId());
 		attributes.put("vHistonNumber", getVHistonNumber());
 		attributes.put("area", getArea());
-		attributes.put("imiJobId", getImiJobId());
-		attributes.put("importFile", getImportFile());
 
 		return attributes;
 	}
@@ -208,18 +206,6 @@ public class MedicalRecordWrapper implements MedicalRecord,
 
 		if (area != null) {
 			setArea(area);
-		}
-
-		Long imiJobId = (Long)attributes.get("imiJobId");
-
-		if (imiJobId != null) {
-			setImiJobId(imiJobId);
-		}
-
-		String importFile = (String)attributes.get("importFile");
-
-		if (importFile != null) {
-			setImportFile(importFile);
 		}
 	}
 
@@ -390,16 +376,6 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	}
 
 	/**
-	* Returns the import file of this medical record.
-	*
-	* @return the import file of this medical record
-	*/
-	@Override
-	public java.lang.String getImportFile() {
-		return _medicalRecord.getImportFile();
-	}
-
-	/**
 	* Returns the status by user name of this medical record.
 	*
 	* @return the status by user name of this medical record
@@ -537,16 +513,6 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	@Override
 	public long getINumber() {
 		return _medicalRecord.getINumber();
-	}
-
-	/**
-	* Returns the imi job ID of this medical record.
-	*
-	* @return the imi job ID of this medical record
-	*/
-	@Override
-	public long getImiJobId() {
-		return _medicalRecord.getImiJobId();
 	}
 
 	/**
@@ -723,26 +689,6 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	@Override
 	public void setINumber(long iNumber) {
 		_medicalRecord.setINumber(iNumber);
-	}
-
-	/**
-	* Sets the imi job ID of this medical record.
-	*
-	* @param imiJobId the imi job ID of this medical record
-	*/
-	@Override
-	public void setImiJobId(long imiJobId) {
-		_medicalRecord.setImiJobId(imiJobId);
-	}
-
-	/**
-	* Sets the import file of this medical record.
-	*
-	* @param importFile the import file of this medical record
-	*/
-	@Override
-	public void setImportFile(java.lang.String importFile) {
-		_medicalRecord.setImportFile(importFile);
 	}
 
 	/**

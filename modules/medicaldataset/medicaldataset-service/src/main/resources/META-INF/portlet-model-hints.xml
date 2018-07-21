@@ -138,12 +138,10 @@
 		<field name="vPatientId" type="long" />
 		<field name="vHistonNumber" type="long" />
 		<field name="area" type="String" />
-		<field name="imiJobId" type="long" />
-		<field name="importFile" type="String" />
 	</model>
-	<model name="at.graz.meduni.bibbox.medicaldataset.model.PathologieData">
+	<model name="at.graz.meduni.bibbox.medicaldataset.model.PathologyData">
 		<field name="uuid" type="String" />
-		<field name="pathologieDataId" type="long" />
+		<field name="pathologyDataId" type="long" />
 		<field name="groupId" type="long" />
 		<field name="companyId" type="long" />
 		<field name="userId" type="long" />
@@ -172,42 +170,18 @@
 		<field name="causeOfDeath" type="String" />
 		<field name="material" type="String" />
 		<field name="materialExtended" type="String" />
-		<field name="macroscopicDescription" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="microscopicDescription" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="histologicDescription" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="molecularPathologicDescription" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="zytologieDescription" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="pathologicDiagnosis" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="frozenSectionDiagnosis" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="molecularPathologicDiagnosis" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="zytologieDiagnosis" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="neuroPathologicDiagnosis" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="comment" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
-		<field name="zytologiecomment" type="String">
-			<hint name="max-length">4000</hint>
-		</field>
+		<field name="macroscopicDescription" type="String" />
+		<field name="microscopicDescription" type="String" />
+		<field name="histologicDescription" type="String" />
+		<field name="molecularPathologicDescription" type="String" />
+		<field name="zytologieDescription" type="String" />
+		<field name="pathologicDiagnosis" type="String" />
+		<field name="frozenSectionDiagnosis" type="String" />
+		<field name="molecularPathologicDiagnosis" type="String" />
+		<field name="zytologieDiagnosis" type="String" />
+		<field name="neuroPathologicDiagnosis" type="String" />
+		<field name="comment" type="String" />
+		<field name="zytologiecomment" type="String" />
 		<field name="grad" type="String" />
 		<field name="tnmp" type="String" />
 		<field name="tnmt" type="String" />

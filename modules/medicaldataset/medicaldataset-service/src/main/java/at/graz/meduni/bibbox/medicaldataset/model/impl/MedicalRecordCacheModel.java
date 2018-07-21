@@ -66,7 +66,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(45);
+		StringBundler sb = new StringBundler(41);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -108,10 +108,6 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		sb.append(vHistonNumber);
 		sb.append(", area=");
 		sb.append(area);
-		sb.append(", imiJobId=");
-		sb.append(imiJobId);
-		sb.append(", importFile=");
-		sb.append(importFile);
 		sb.append("}");
 
 		return sb.toString();
@@ -186,15 +182,6 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 			medicalRecordImpl.setArea(area);
 		}
 
-		medicalRecordImpl.setImiJobId(imiJobId);
-
-		if (importFile == null) {
-			medicalRecordImpl.setImportFile(StringPool.BLANK);
-		}
-		else {
-			medicalRecordImpl.setImportFile(importFile);
-		}
-
 		medicalRecordImpl.resetOriginalValues();
 
 		return medicalRecordImpl;
@@ -235,9 +222,6 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 
 		vHistonNumber = objectInput.readLong();
 		area = objectInput.readUTF();
-
-		imiJobId = objectInput.readLong();
-		importFile = objectInput.readUTF();
 	}
 
 	@Override
@@ -301,15 +285,6 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		else {
 			objectOutput.writeUTF(area);
 		}
-
-		objectOutput.writeLong(imiJobId);
-
-		if (importFile == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(importFile);
-		}
 	}
 
 	public String uuid;
@@ -332,6 +307,4 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 	public long vPatientId;
 	public long vHistonNumber;
 	public String area;
-	public long imiJobId;
-	public String importFile;
 }

@@ -54,8 +54,6 @@ public class MedicalRecordSoap implements Serializable {
 		soapModel.setVPatientId(model.getVPatientId());
 		soapModel.setVHistonNumber(model.getVHistonNumber());
 		soapModel.setArea(model.getArea());
-		soapModel.setImiJobId(model.getImiJobId());
-		soapModel.setImportFile(model.getImportFile());
 
 		return soapModel;
 	}
@@ -268,22 +266,6 @@ public class MedicalRecordSoap implements Serializable {
 		_area = area;
 	}
 
-	public long getImiJobId() {
-		return _imiJobId;
-	}
-
-	public void setImiJobId(long imiJobId) {
-		_imiJobId = imiJobId;
-	}
-
-	public String getImportFile() {
-		return _importFile;
-	}
-
-	public void setImportFile(String importFile) {
-		_importFile = importFile;
-	}
-
 	private String _uuid;
 	private long _medicalRecordId;
 	private long _groupId;
@@ -304,6 +286,4 @@ public class MedicalRecordSoap implements Serializable {
 	private long _vPatientId;
 	private long _vHistonNumber;
 	private String _area;
-	private long _imiJobId;
-	private String _importFile;
 }

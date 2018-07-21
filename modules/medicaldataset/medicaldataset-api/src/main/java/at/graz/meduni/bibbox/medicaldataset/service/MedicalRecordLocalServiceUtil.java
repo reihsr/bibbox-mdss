@@ -56,14 +56,13 @@ public class MedicalRecordLocalServiceUtil {
 	public static at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord addMedicalRecord(
 		long importMedicalDataSetId, long histonumberStart,
 		long histonumberEnd, int histonumberRunning, long iNumber,
-		long vPatentId, long vHistonNumber, java.lang.String area,
-		long imiJobId, java.lang.String importFile,
+		long vPatientId, long vHistonNumber, java.lang.String area,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .addMedicalRecord(importMedicalDataSetId, histonumberStart,
-			histonumberEnd, histonumberRunning, iNumber, vPatentId,
-			vHistonNumber, area, imiJobId, importFile, serviceContext);
+			histonumberEnd, histonumberRunning, iNumber, vPatientId,
+			vHistonNumber, area, serviceContext);
 	}
 
 	/**
@@ -166,15 +165,15 @@ public class MedicalRecordLocalServiceUtil {
 	public static at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord updateMedicalRecord(
 		long medicalRecordId, long importMedicalDataSetId,
 		long histonumberStart, long histonumberEnd, int histonumberRunning,
-		long iNumber, long vPatentId, long vHistonNumber,
-		java.lang.String area, long imiJobId, java.lang.String importFile,
+		long iNumber, long vPatientId, long vHistonNumber,
+		java.lang.String area,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .updateMedicalRecord(medicalRecordId,
 			importMedicalDataSetId, histonumberStart, histonumberEnd,
-			histonumberRunning, iNumber, vPatentId, vHistonNumber, area,
-			imiJobId, importFile, serviceContext);
+			histonumberRunning, iNumber, vPatientId, vHistonNumber, area,
+			serviceContext);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {

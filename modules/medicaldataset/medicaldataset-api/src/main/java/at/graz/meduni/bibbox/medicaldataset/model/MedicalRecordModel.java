@@ -406,35 +406,6 @@ public interface MedicalRecordModel extends BaseModel<MedicalRecord>,
 	public void setArea(String area);
 
 	/**
-	 * Returns the imi job ID of this medical record.
-	 *
-	 * @return the imi job ID of this medical record
-	 */
-	public long getImiJobId();
-
-	/**
-	 * Sets the imi job ID of this medical record.
-	 *
-	 * @param imiJobId the imi job ID of this medical record
-	 */
-	public void setImiJobId(long imiJobId);
-
-	/**
-	 * Returns the import file of this medical record.
-	 *
-	 * @return the import file of this medical record
-	 */
-	@AutoEscape
-	public String getImportFile();
-
-	/**
-	 * Sets the import file of this medical record.
-	 *
-	 * @param importFile the import file of this medical record
-	 */
-	public void setImportFile(String importFile);
-
-	/**
 	 * Returns <code>true</code> if this medical record is approved.
 	 *
 	 * @return <code>true</code> if this medical record is approved; <code>false</code> otherwise

@@ -38,10 +38,6 @@
 		
 		<!-- Area Data fields -->
 		<column name="area" type="String" />
-		
-		<!-- Job fields -->
-		<column name="imiJobId" type="long" />
-		<column name="importFile" type="String" />
 
 		<!-- Order -->
 		<order by="asc">
@@ -64,10 +60,10 @@
 		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
 	</entity>
 	
-	<entity local-service="true" name="PathologieData" remote-service="true" uuid="true">
+	<entity local-service="true" name="PathologyData" remote-service="true" uuid="true">
 
 		<!-- PK fields -->
-		<column name="pathologieDataId" primary="true" type="long" />
+		<column name="pathologyDataId" primary="true" type="long" />
 
 		<!-- Group instance -->
 		<column name="groupId" type="long" /> 
@@ -140,7 +136,7 @@
 
 		<!-- Order -->
 		<order by="asc">
-			<order-column name="pathologieDataId" />
+			<order-column name="pathologyDataId" />
 		</order>
 
 		<!-- Finder methods -->

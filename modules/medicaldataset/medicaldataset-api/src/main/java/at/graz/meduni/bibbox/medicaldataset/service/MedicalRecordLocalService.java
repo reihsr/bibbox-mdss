@@ -76,9 +76,9 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 
 	public MedicalRecord addMedicalRecord(long importMedicalDataSetId,
 		long histonumberStart, long histonumberEnd, int histonumberRunning,
-		long iNumber, long vPatentId, long vHistonNumber,
-		java.lang.String area, long imiJobId, java.lang.String importFile,
-		ServiceContext serviceContext) throws PortalException;
+		long iNumber, long vPatientId, long vHistonNumber,
+		java.lang.String area, ServiceContext serviceContext)
+		throws PortalException;
 
 	/**
 	* Creates a new medical record with the primary key. Does not add the medical record to the database.
@@ -160,8 +160,7 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 	public MedicalRecord updateMedicalRecord(long medicalRecordId,
 		long importMedicalDataSetId, long histonumberStart,
 		long histonumberEnd, int histonumberRunning, long iNumber,
-		long vPatentId, long vHistonNumber, java.lang.String area,
-		long imiJobId, java.lang.String importFile,
+		long vPatientId, long vHistonNumber, java.lang.String area,
 		ServiceContext serviceContext) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
