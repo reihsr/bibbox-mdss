@@ -3240,16 +3240,16 @@ public class ImportMedicalDataSetPersistenceImpl extends BasePersistenceImpl<Imp
 	private static final String _SQL_COUNT_IMPORTMEDICALDATASET = "SELECT COUNT(importMedicalDataSet) FROM ImportMedicalDataSet importMedicalDataSet";
 	private static final String _SQL_COUNT_IMPORTMEDICALDATASET_WHERE = "SELECT COUNT(importMedicalDataSet) FROM ImportMedicalDataSet importMedicalDataSet WHERE ";
 	private static final String _FILTER_ENTITY_TABLE_FILTER_PK_COLUMN = "importMedicalDataSet.importMedicalDataSetId";
-	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASET_WHERE = "SELECT DISTINCT {importMedicalDataSet.*} FROM FOO_ImportMedicalDataSet importMedicalDataSet WHERE ";
+	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASET_WHERE = "SELECT DISTINCT {importMedicalDataSet.*} FROM medicaldataset_ImportMedicalDataSet importMedicalDataSet WHERE ";
 	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASET_NO_INLINE_DISTINCT_WHERE_1 =
-		"SELECT {FOO_ImportMedicalDataSet.*} FROM (SELECT DISTINCT importMedicalDataSet.importMedicalDataSetId FROM FOO_ImportMedicalDataSet importMedicalDataSet WHERE ";
+		"SELECT {medicaldataset_ImportMedicalDataSet.*} FROM (SELECT DISTINCT importMedicalDataSet.importMedicalDataSetId FROM medicaldataset_ImportMedicalDataSet importMedicalDataSet WHERE ";
 	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASET_NO_INLINE_DISTINCT_WHERE_2 =
-		") TEMP_TABLE INNER JOIN FOO_ImportMedicalDataSet ON TEMP_TABLE.importMedicalDataSetId = FOO_ImportMedicalDataSet.importMedicalDataSetId";
-	private static final String _FILTER_SQL_COUNT_IMPORTMEDICALDATASET_WHERE = "SELECT COUNT(DISTINCT importMedicalDataSet.importMedicalDataSetId) AS COUNT_VALUE FROM FOO_ImportMedicalDataSet importMedicalDataSet WHERE ";
+		") TEMP_TABLE INNER JOIN medicaldataset_ImportMedicalDataSet ON TEMP_TABLE.importMedicalDataSetId = medicaldataset_ImportMedicalDataSet.importMedicalDataSetId";
+	private static final String _FILTER_SQL_COUNT_IMPORTMEDICALDATASET_WHERE = "SELECT COUNT(DISTINCT importMedicalDataSet.importMedicalDataSetId) AS COUNT_VALUE FROM medicaldataset_ImportMedicalDataSet importMedicalDataSet WHERE ";
 	private static final String _FILTER_ENTITY_ALIAS = "importMedicalDataSet";
-	private static final String _FILTER_ENTITY_TABLE = "FOO_ImportMedicalDataSet";
+	private static final String _FILTER_ENTITY_TABLE = "medicaldataset_ImportMedicalDataSet";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "importMedicalDataSet.";
-	private static final String _ORDER_BY_ENTITY_TABLE = "FOO_ImportMedicalDataSet.";
+	private static final String _ORDER_BY_ENTITY_TABLE = "medicaldataset_ImportMedicalDataSet.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No ImportMedicalDataSet exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No ImportMedicalDataSet exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(ImportMedicalDataSetPersistenceImpl.class);

@@ -103,6 +103,36 @@ public class KloetzelBuchLocalServiceImpl
 		return kloetzelBuch;
 	}
 	
+	public KloetzelBuch addKloetzelBuch(long medicalRecordId, ServiceContext serviceContext) throws PortalException {
+		long groupId = serviceContext.getScopeGroupId();
+		long userId = serviceContext.getUserId();
+		User user = userLocalService.getUserById(userId);
+		Date now = new Date();
+		//Validate if something is needed
+		
+		long kloetzelBuchId = counterLocalService.increment();
+		KloetzelBuch kloetzelBuch = kloetzelBuchPersistence.create(kloetzelBuchId);
+		
+		kloetzelBuch.setUuid(serviceContext.getUuid());
+		
+		kloetzelBuch.setGroupId(groupId);
+		kloetzelBuch.setCompanyId(user.getCompanyId());
+		kloetzelBuch.setUserId(userId);
+		kloetzelBuch.setUserName(user.getFullName());
+		kloetzelBuch.setCreateDate(serviceContext.getCreateDate(now));
+		kloetzelBuch.setModifiedDate(serviceContext.getCreateDate(now));
+		
+		kloetzelBuch.setMedicalRecordId(medicalRecordId);
+		
+		kloetzelBuch.setExpandoBridgeAttributes(serviceContext);
+		
+		kloetzelBuchPersistence.update(kloetzelBuch);
+		
+		resourceLocalService.addResources(user.getCompanyId(), groupId, userId, KloetzelBuch.class.getName(), kloetzelBuchId, false, true, true);
+		
+		return kloetzelBuch;
+	}
+	
 	public KloetzelBuch updateloetzelBuch(long kloetzelBuchId, long medicalRecordId, long histonumberStart, long histonumberEnd, int histonumberRunning, long histonumber, int kloetzelBuchRunning, String oid, String bid,
 			String area, String type, String acronym, String text, String info, int count, int numberOfPieces, int kbStatus, int sort, String color, Date kbDate, String day, String pocessinguser, String organizationUnit,
 			ServiceContext serviceContext) throws PortalException {

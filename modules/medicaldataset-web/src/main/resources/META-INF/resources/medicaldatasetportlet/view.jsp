@@ -18,7 +18,8 @@
 		<liferay-ui:search-container-row className="at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord" modelVar="medicalRecord">
 		
 			<liferay-ui:search-container-column-text property="medicalRecordId" />		
-			<liferay-ui:search-container-column-text property="iNumber" />
+			
+			<liferay-ui:search-container-column-text property="histonumberRunning" />
 		
 		</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator />

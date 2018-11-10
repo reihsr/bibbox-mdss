@@ -54,6 +54,13 @@ public class KloetzelBuchLocalServiceUtil {
 	}
 
 	public static at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch addKloetzelBuch(
+		long medicalRecordId,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService().addKloetzelBuch(medicalRecordId, serviceContext);
+	}
+
+	public static at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch addKloetzelBuch(
 		long medicalRecordId, long histonumberStart, long histonumberEnd,
 		int histonumberRunning, long histonumber, int kloetzelBuchRunning,
 		java.lang.String oid, java.lang.String bid, java.lang.String area,

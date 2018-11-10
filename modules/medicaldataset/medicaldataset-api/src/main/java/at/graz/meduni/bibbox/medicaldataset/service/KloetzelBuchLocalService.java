@@ -77,6 +77,9 @@ public interface KloetzelBuchLocalService extends BaseLocalService,
 	public KloetzelBuch addKloetzelBuch(KloetzelBuch kloetzelBuch);
 
 	public KloetzelBuch addKloetzelBuch(long medicalRecordId,
+		ServiceContext serviceContext) throws PortalException;
+
+	public KloetzelBuch addKloetzelBuch(long medicalRecordId,
 		long histonumberStart, long histonumberEnd, int histonumberRunning,
 		long histonumber, int kloetzelBuchRunning, java.lang.String oid,
 		java.lang.String bid, java.lang.String area, java.lang.String type,

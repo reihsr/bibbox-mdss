@@ -35,4 +35,11 @@ public class ImportMedicalDataSetFieldMapImpl
 	 */
 	public ImportMedicalDataSetFieldMapImpl() {
 	}
+	
+	public boolean isNotSelected() {
+		if(this.getTableName().equals("") || this.getTableName().equals("NotSelected") || this.getTableField().equals("") || this.getTableField().equals("NotSelected")) {
+			return true;
+		}
+		return false;
+	}
 }

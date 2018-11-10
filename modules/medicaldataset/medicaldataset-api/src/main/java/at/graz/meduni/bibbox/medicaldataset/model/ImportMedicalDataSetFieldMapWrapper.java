@@ -283,6 +283,11 @@ public class ImportMedicalDataSetFieldMapWrapper
 		return _importMedicalDataSetFieldMap.isNew();
 	}
 
+	@Override
+	public boolean isNotSelected() {
+		return _importMedicalDataSetFieldMap.isNotSelected();
+	}
+
 	/**
 	* Returns <code>true</code> if this import medical data set field map is pending.
 	*

@@ -21,7 +21,7 @@ import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.util.Accessor;
 
 /**
- * The extended model interface for the ImportMedicalDataSetLog service. Represents a row in the &quot;FOO_ImportMedicalDataSetLog&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the ImportMedicalDataSetLog service. Represents a row in the &quot;medicaldataset_ImportMedicalDataSetLog&quot; database table, with each column mapped to a property of this class.
  *
  * @author Brian Wing Shun Chan
  * @see ImportMedicalDataSetLogModel

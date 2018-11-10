@@ -188,6 +188,8 @@ public class ImportAnalyseTaskExecutor extends BaseBackgroundTaskExecutor {
 								Node detailsSectionFieldValueNode = nodeListDetailsSectionFieldValue.item(detailsSectionFieldValueListCounter);
 								updateFieldMap(fieldName, "CrystalReport>Details>Section>Field>" + detailsSectionFieldValueNode.getNodeName(), detailsSectionFieldValueNode.getNodeName(), detailsSectionFieldValueNode.getTextContent());
 								//System.out.println("-- " + fieldName + ": " + detailsSectionFieldValueNode.getNodeName() + " - " + detailsSectionFieldValueNode.getTextContent());
+								//TODO: filedPath not correct, Missing the field names somthing like: 
+								// Path: CrystalReport>Details>Section>Field::Attribute|Name:EINGANGSDATUM1>FormattedValue
 							}
 						}
 					}
@@ -206,7 +208,14 @@ public class ImportAnalyseTaskExecutor extends BaseBackgroundTaskExecutor {
 				importMedicalDataSetFieldMap = ImportMedicalDataSetFieldMapLocalServiceUtil.addImportMedicalDataSetFieldMap(importMedicalDataSetId_, fieldName, "[]", "[]", "", "", serviceContext_);
 			}
 			importMedicalDataSetFieldMap.setSampleValue(updateJASONArrayWithString(importMedicalDataSetFieldMap.getSampleValue(), fieldPath, sampleValue));
-			importMedicalDataSetFieldMap.setImportFieldPath(updateJASONArrayWithString(importMedicalDataSetFieldMap.getImportFieldPath(), fieldPath, "false"));
+			JSONObject jasonObject = JSONFactoryUtil.createJSONObject();
+			jasonObject.put("path", fieldPath);
+			if(fieldPath.endsWith("FormattedValue")) {
+				jasonObject.put("selected", "true");
+			} else {
+				jasonObject.put("selected", "false");
+			}
+			importMedicalDataSetFieldMap.setImportFieldPath(updateJASONArrayWithString(importMedicalDataSetFieldMap.getImportFieldPath(), jasonObject));
 			
 			fieldMap_.remove(fieldName);
 			fieldMap_.put(fieldName, importMedicalDataSetFieldMap);
@@ -226,6 +235,18 @@ public class ImportAnalyseTaskExecutor extends BaseBackgroundTaskExecutor {
 				jasonObject.put(keyString, valueString);
 				sampleValueArray.put(jasonObject);
 			}
+			return sampleValueArray.toJSONString();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return existingJsonString;
+	}
+	
+	private String updateJASONArrayWithString(String existingJsonString, JSONObject jasonObject) {
+		try {
+			JSONArray sampleValueArray = JSONFactoryUtil.createJSONArray(existingJsonString);
+			sampleValueArray.put(jasonObject);
 			return sampleValueArray.toJSONString();
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

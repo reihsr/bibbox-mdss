@@ -3862,16 +3862,16 @@ public class ImportMedicalDataSetLogPersistenceImpl extends BasePersistenceImpl<
 	private static final String _SQL_COUNT_IMPORTMEDICALDATASETLOG_WHERE = "SELECT COUNT(importMedicalDataSetLog) FROM ImportMedicalDataSetLog importMedicalDataSetLog WHERE ";
 	private static final String _FILTER_ENTITY_TABLE_FILTER_PK_COLUMN = "importMedicalDataSetLog.importMedicalDataSetLogId";
 	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASETLOG_WHERE =
-		"SELECT DISTINCT {importMedicalDataSetLog.*} FROM FOO_ImportMedicalDataSetLog importMedicalDataSetLog WHERE ";
+		"SELECT DISTINCT {importMedicalDataSetLog.*} FROM medicaldataset_ImportMedicalDataSetLog importMedicalDataSetLog WHERE ";
 	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASETLOG_NO_INLINE_DISTINCT_WHERE_1 =
-		"SELECT {FOO_ImportMedicalDataSetLog.*} FROM (SELECT DISTINCT importMedicalDataSetLog.importMedicalDataSetLogId FROM FOO_ImportMedicalDataSetLog importMedicalDataSetLog WHERE ";
+		"SELECT {medicaldataset_ImportMedicalDataSetLog.*} FROM (SELECT DISTINCT importMedicalDataSetLog.importMedicalDataSetLogId FROM medicaldataset_ImportMedicalDataSetLog importMedicalDataSetLog WHERE ";
 	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASETLOG_NO_INLINE_DISTINCT_WHERE_2 =
-		") TEMP_TABLE INNER JOIN FOO_ImportMedicalDataSetLog ON TEMP_TABLE.importMedicalDataSetLogId = FOO_ImportMedicalDataSetLog.importMedicalDataSetLogId";
-	private static final String _FILTER_SQL_COUNT_IMPORTMEDICALDATASETLOG_WHERE = "SELECT COUNT(DISTINCT importMedicalDataSetLog.importMedicalDataSetLogId) AS COUNT_VALUE FROM FOO_ImportMedicalDataSetLog importMedicalDataSetLog WHERE ";
+		") TEMP_TABLE INNER JOIN medicaldataset_ImportMedicalDataSetLog ON TEMP_TABLE.importMedicalDataSetLogId = medicaldataset_ImportMedicalDataSetLog.importMedicalDataSetLogId";
+	private static final String _FILTER_SQL_COUNT_IMPORTMEDICALDATASETLOG_WHERE = "SELECT COUNT(DISTINCT importMedicalDataSetLog.importMedicalDataSetLogId) AS COUNT_VALUE FROM medicaldataset_ImportMedicalDataSetLog importMedicalDataSetLog WHERE ";
 	private static final String _FILTER_ENTITY_ALIAS = "importMedicalDataSetLog";
-	private static final String _FILTER_ENTITY_TABLE = "FOO_ImportMedicalDataSetLog";
+	private static final String _FILTER_ENTITY_TABLE = "medicaldataset_ImportMedicalDataSetLog";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "importMedicalDataSetLog.";
-	private static final String _ORDER_BY_ENTITY_TABLE = "FOO_ImportMedicalDataSetLog.";
+	private static final String _ORDER_BY_ENTITY_TABLE = "medicaldataset_ImportMedicalDataSetLog.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No ImportMedicalDataSetLog exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No ImportMedicalDataSetLog exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(ImportMedicalDataSetLogPersistenceImpl.class);

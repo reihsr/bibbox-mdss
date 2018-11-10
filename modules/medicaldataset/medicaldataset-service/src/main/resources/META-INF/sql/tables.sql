@@ -1,4 +1,4 @@
-create table FOO_ImportMedicalDataSet (
+create table medicaldataset_ImportMedicalDataSet (
 	uuid_ VARCHAR(75) null,
 	importMedicalDataSetId LONG not null primary key,
 	groupId LONG,
@@ -22,7 +22,7 @@ create table FOO_ImportMedicalDataSet (
 	importStatus INTEGER
 );
 
-create table FOO_ImportMedicalDataSetFieldMap (
+create table medicaldataset_ImportMedicalDataSetFieldMap (
 	uuid_ VARCHAR(75) null,
 	importMedicalDataSetFieldMapId LONG not null primary key,
 	groupId LONG,
@@ -43,7 +43,7 @@ create table FOO_ImportMedicalDataSetFieldMap (
 	TableField VARCHAR(1000) null
 );
 
-create table FOO_ImportMedicalDataSetLog (
+create table medicaldataset_ImportMedicalDataSetLog (
 	uuid_ VARCHAR(75) null,
 	importMedicalDataSetLogId LONG not null primary key,
 	groupId LONG,
@@ -61,7 +61,7 @@ create table FOO_ImportMedicalDataSetLog (
 	importStatusLog STRING null
 );
 
-create table FOO_KloetzelBuch (
+create table medicaldataset_KloetzelBuch (
 	uuid_ VARCHAR(75) null,
 	kloetzelBuchId LONG not null primary key,
 	groupId LONG,
@@ -98,7 +98,7 @@ create table FOO_KloetzelBuch (
 	organizationUnit VARCHAR(75) null
 );
 
-create table FOO_MedicalRecord (
+create table medicaldataset_MedicalRecord (
 	uuid_ VARCHAR(75) null,
 	medicalRecordId LONG not null primary key,
 	groupId LONG,
@@ -121,65 +121,7 @@ create table FOO_MedicalRecord (
 	area VARCHAR(75) null
 );
 
-create table FOO_PathologieData (
-	uuid_ VARCHAR(75) null,
-	pathologieDataId LONG not null primary key,
-	groupId LONG,
-	companyId LONG,
-	userId LONG,
-	userName VARCHAR(75) null,
-	createDate DATE null,
-	modifiedDate DATE null,
-	status INTEGER,
-	statusByUserId LONG,
-	statusByUserName VARCHAR(75) null,
-	statusDate DATE null,
-	medicalRecordId LONG,
-	receivedDate DATE null,
-	validationDate DATE null,
-	patientAge INTEGER,
-	sender VARCHAR(75) null,
-	extractionMethode VARCHAR(75) null,
-	reportingPhysician1 VARCHAR(75) null,
-	reportingPhysician2 VARCHAR(75) null,
-	gynPhysician VARCHAR(75) null,
-	validationPhysician1 VARCHAR(75) null,
-	validationPhysician2 VARCHAR(75) null,
-	reportStatus VARCHAR(75) null,
-	numberOfBlockes INTEGER,
-	numberOfSlides INTEGER,
-	basicDisease VARCHAR(75) null,
-	causeOfDeath VARCHAR(75) null,
-	material VARCHAR(75) null,
-	materialExtended VARCHAR(75) null,
-	macroscopicDescription STRING null,
-	microscopicDescription STRING null,
-	histologicDescription STRING null,
-	molecularPathologicDescription STRING null,
-	zytologieDescription STRING null,
-	pathologicDiagnosis STRING null,
-	frozenSectionDiagnosis STRING null,
-	molecularPathologicDiagnosis STRING null,
-	zytologieDiagnosis STRING null,
-	neuroPathologicDiagnosis STRING null,
-	comment_ STRING null,
-	zytologiecomment STRING null,
-	grad VARCHAR(75) null,
-	tnmp VARCHAR(75) null,
-	tnmt VARCHAR(75) null,
-	tnmn VARCHAR(75) null,
-	tnmm VARCHAR(75) null,
-	tnmr VARCHAR(75) null,
-	tnml VARCHAR(75) null,
-	tnmv VARCHAR(75) null,
-	tnmpn VARCHAR(75) null,
-	dgcode1 VARCHAR(75) null,
-	dgcode2 VARCHAR(75) null,
-	pap VARCHAR(75) null,
-	smearQuality VARCHAR(75) null
-);
-
-create table FOO_PathologyData (
+create table medicaldataset_PathologyData (
 	uuid_ VARCHAR(75) null,
 	pathologyDataId LONG not null primary key,
 	groupId LONG,
@@ -210,18 +152,18 @@ create table FOO_PathologyData (
 	causeOfDeath VARCHAR(75) null,
 	material VARCHAR(75) null,
 	materialExtended VARCHAR(75) null,
-	macroscopicDescription VARCHAR(75) null,
-	microscopicDescription VARCHAR(75) null,
-	histologicDescription VARCHAR(75) null,
-	molecularPathologicDescription VARCHAR(75) null,
-	zytologieDescription VARCHAR(75) null,
-	pathologicDiagnosis VARCHAR(75) null,
-	frozenSectionDiagnosis VARCHAR(75) null,
-	molecularPathologicDiagnosis VARCHAR(75) null,
-	zytologieDiagnosis VARCHAR(75) null,
-	neuroPathologicDiagnosis VARCHAR(75) null,
-	comment_ VARCHAR(75) null,
-	zytologiecomment VARCHAR(75) null,
+	macroscopicDescription TEXT null,
+	microscopicDescription TEXT null,
+	histologicDescription TEXT null,
+	molecularPathologicDescription TEXT null,
+	zytologieDescription TEXT null,
+	pathologicDiagnosis TEXT null,
+	frozenSectionDiagnosis TEXT null,
+	molecularPathologicDiagnosis TEXT null,
+	zytologieDiagnosis TEXT null,
+	neuroPathologicDiagnosis TEXT null,
+	comment_ TEXT null,
+	zytologiecomment TEXT null,
 	grad VARCHAR(75) null,
 	tnmp VARCHAR(75) null,
 	tnmt VARCHAR(75) null,

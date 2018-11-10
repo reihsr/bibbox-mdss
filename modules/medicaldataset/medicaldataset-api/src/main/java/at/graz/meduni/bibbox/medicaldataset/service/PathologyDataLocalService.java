@@ -77,6 +77,9 @@ public interface PathologyDataLocalService extends BaseLocalService,
 	public PathologyData addPathologyData(PathologyData pathologyData);
 
 	public PathologyData addPathologyData(long medicalRecordId,
+		ServiceContext serviceContext) throws PortalException;
+
+	public PathologyData addPathologyData(long medicalRecordId,
 		Date receivedDate, Date validationDate, int patientAge,
 		java.lang.String sender, java.lang.String extractionMethode,
 		java.lang.String reportingPhysician1,

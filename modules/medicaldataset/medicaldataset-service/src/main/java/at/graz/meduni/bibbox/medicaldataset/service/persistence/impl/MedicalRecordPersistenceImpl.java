@@ -4290,16 +4290,16 @@ public class MedicalRecordPersistenceImpl extends BasePersistenceImpl<MedicalRec
 	private static final String _SQL_COUNT_MEDICALRECORD = "SELECT COUNT(medicalRecord) FROM MedicalRecord medicalRecord";
 	private static final String _SQL_COUNT_MEDICALRECORD_WHERE = "SELECT COUNT(medicalRecord) FROM MedicalRecord medicalRecord WHERE ";
 	private static final String _FILTER_ENTITY_TABLE_FILTER_PK_COLUMN = "medicalRecord.medicalRecordId";
-	private static final String _FILTER_SQL_SELECT_MEDICALRECORD_WHERE = "SELECT DISTINCT {medicalRecord.*} FROM FOO_MedicalRecord medicalRecord WHERE ";
+	private static final String _FILTER_SQL_SELECT_MEDICALRECORD_WHERE = "SELECT DISTINCT {medicalRecord.*} FROM medicaldataset_MedicalRecord medicalRecord WHERE ";
 	private static final String _FILTER_SQL_SELECT_MEDICALRECORD_NO_INLINE_DISTINCT_WHERE_1 =
-		"SELECT {FOO_MedicalRecord.*} FROM (SELECT DISTINCT medicalRecord.medicalRecordId FROM FOO_MedicalRecord medicalRecord WHERE ";
+		"SELECT {medicaldataset_MedicalRecord.*} FROM (SELECT DISTINCT medicalRecord.medicalRecordId FROM medicaldataset_MedicalRecord medicalRecord WHERE ";
 	private static final String _FILTER_SQL_SELECT_MEDICALRECORD_NO_INLINE_DISTINCT_WHERE_2 =
-		") TEMP_TABLE INNER JOIN FOO_MedicalRecord ON TEMP_TABLE.medicalRecordId = FOO_MedicalRecord.medicalRecordId";
-	private static final String _FILTER_SQL_COUNT_MEDICALRECORD_WHERE = "SELECT COUNT(DISTINCT medicalRecord.medicalRecordId) AS COUNT_VALUE FROM FOO_MedicalRecord medicalRecord WHERE ";
+		") TEMP_TABLE INNER JOIN medicaldataset_MedicalRecord ON TEMP_TABLE.medicalRecordId = medicaldataset_MedicalRecord.medicalRecordId";
+	private static final String _FILTER_SQL_COUNT_MEDICALRECORD_WHERE = "SELECT COUNT(DISTINCT medicalRecord.medicalRecordId) AS COUNT_VALUE FROM medicaldataset_MedicalRecord medicalRecord WHERE ";
 	private static final String _FILTER_ENTITY_ALIAS = "medicalRecord";
-	private static final String _FILTER_ENTITY_TABLE = "FOO_MedicalRecord";
+	private static final String _FILTER_ENTITY_TABLE = "medicaldataset_MedicalRecord";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "medicalRecord.";
-	private static final String _ORDER_BY_ENTITY_TABLE = "FOO_MedicalRecord.";
+	private static final String _ORDER_BY_ENTITY_TABLE = "medicaldataset_MedicalRecord.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No MedicalRecord exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No MedicalRecord exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(MedicalRecordPersistenceImpl.class);

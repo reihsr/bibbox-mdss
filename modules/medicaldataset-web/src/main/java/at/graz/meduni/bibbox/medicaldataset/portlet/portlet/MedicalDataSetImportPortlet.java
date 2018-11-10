@@ -74,21 +74,71 @@ public class MedicalDataSetImportPortlet extends MVCPortlet {
 	}
 	
 	public void updateFieldMapStep3(ActionRequest request, ActionResponse response) throws Exception {
-		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 		long importMedicalDataSetId = ParamUtil.getLong(request, "importMedicalDataSetId");
+		updateFieldMapDynamicFields(request, importMedicalDataSetId);
+		updateFieldMapStaticFields(request, importMedicalDataSetId);
+		ImportMedicalDataSet importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.getImportMedicalDataSet(importMedicalDataSetId);
+		importMedicalDataSet.setImportStatus(20);
+		importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.updateImportMedicalDataSet(importMedicalDataSet);
+		ServiceContext serviceContext = ServiceContextFactory.getInstance(ImportMedicalDataSet.class.getName(), request);
+		BackgroundTaskHelper.createImportImporterTask(importMedicalDataSet.getImportMedicalDataSetId(), importMedicalDataSet.getImportName(), serviceContext);
+	}
+	
+	public void importStep5Reimport(ActionRequest request, ActionResponse response) throws Exception {
+		long importMedicalDataSetId = ParamUtil.getLong(request, "importMedicalDataSetId");
+		ImportMedicalDataSet importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.getImportMedicalDataSet(importMedicalDataSetId);
+		importMedicalDataSet.setImportStatus(20);
+		importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.updateImportMedicalDataSet(importMedicalDataSet);
+		ServiceContext serviceContext = ServiceContextFactory.getInstance(ImportMedicalDataSet.class.getName(), request);
+		BackgroundTaskHelper.createImportImporterTask(importMedicalDataSet.getImportMedicalDataSetId(), importMedicalDataSet.getImportName(), serviceContext);
+	}
+	
+	private void updateFieldMapDynamicFields(ActionRequest request, long importMedicalDataSetId) {
+		
 		List<ImportMedicalDataSetFieldMap> importMedicalDataSetFieldMaps = ImportMedicalDataSetFieldMapLocalServiceUtil.getImportMedicalDataSetFieldMapsFromImportMedicalDataSet(importMedicalDataSetId);
 		for(ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap : importMedicalDataSetFieldMaps) {
 			String tableName = ParamUtil.getString(request, importMedicalDataSetFieldMap.getImportMedicalDataSetFieldMapId() + "_Table");
 			if(!tableName.equals("NotSelected")) {
 				importMedicalDataSetFieldMap.setTableName(tableName);
-				System.out.println("Selected Data: - Table: " + tableName);
+				//System.out.println("Selected Data: - Table: " + tableName);
 				String tableField = ParamUtil.getString(request, importMedicalDataSetFieldMap.getImportMedicalDataSetFieldMapId() + "_" + tableName);
 				if(!tableField.equals("NotSelected")) {
 					importMedicalDataSetFieldMap.setTableField(tableField);
-					System.out.println("Selected Data: - Field: " + tableField);
+					//System.out.println("Selected Data: - Field: " + tableField);
 				}
 			}
+			//System.out.println("updateImportMedicalDataSetFieldMap: " + importMedicalDataSetFieldMap.getTableName());
 			ImportMedicalDataSetFieldMapLocalServiceUtil.updateImportMedicalDataSetFieldMap(importMedicalDataSetFieldMap);
+		}
+	}
+	
+	private void updateFieldMapStaticFields(ActionRequest request, long importMedicalDataSetId) {
+		ServiceContext serviceContext = new ServiceContext();
+		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
+		serviceContext.setScopeGroupId(themeDisplay.getScopeGroupId());
+		serviceContext.setUserId(themeDisplay.getUserId());
+		
+		String globalFieldsSet = ParamUtil.getString(request, "importMedicalDataSetGlobalFieldsSet");
+		String[] globalFieldIds = globalFieldsSet.split(";");
+		for(String globalFieldId : globalFieldIds) {
+			if(globalFieldId.length() == 0) {
+				continue;
+			}
+			String tableName = ParamUtil.getString(request, globalFieldId + "_Table");
+			if(!tableName.equals("NotSelected")) {
+				//System.out.println("Selected Data: - Table: " + tableName);
+				String tableField = ParamUtil.getString(request, globalFieldId + "_" + tableName);
+				if(!tableField.equals("NotSelected")) {
+					String globalValue = ParamUtil.getString(request, globalFieldId + "_GlobalValue");
+					try {
+						ImportMedicalDataSetFieldMapLocalServiceUtil.addImportMedicalDataSetFieldMap(importMedicalDataSetId, "__importMedicalDataSetGlobalValue", globalValue, "", tableName, tableField, serviceContext);
+					} catch (PortalException e) {
+						System.err.println("Error adding ImportMedicalDataSetFieldMap: importMedicalDataSetId: " + importMedicalDataSetId + " - tableName: " + tableName + " - tableField: " + tableField + " - Value: " + globalValue);
+						e.printStackTrace();
+					}
+					//System.out.println("Selected Data: - Field: " + tableField + " -> " + globalValue);
+				}
+			}
 		}
 	}
 	

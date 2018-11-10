@@ -8,7 +8,7 @@
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch" />
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord" />
 	<import class="at.graz.meduni.bibbox.medicaldataset.model.PathologyData" />
-	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetImpl" table="FOO_ImportMedicalDataSet">
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetImpl" table="medicaldataset_ImportMedicalDataSet">
 		<id name="importMedicalDataSetId" type="long">
 			<generator class="assigned" />
 		</id>
@@ -33,7 +33,7 @@
 		<property name="importCount" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="importStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 	</class>
-	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetFieldMapImpl" table="FOO_ImportMedicalDataSetFieldMap">
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetFieldMapImpl" table="medicaldataset_ImportMedicalDataSetFieldMap">
 		<id name="importMedicalDataSetFieldMapId" type="long">
 			<generator class="assigned" />
 		</id>
@@ -55,7 +55,7 @@
 		<property name="TableName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="TableField" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
-	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetLogImpl" table="FOO_ImportMedicalDataSetLog">
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.ImportMedicalDataSetLogImpl" table="medicaldataset_ImportMedicalDataSetLog">
 		<id name="importMedicalDataSetLogId" type="long">
 			<generator class="assigned" />
 		</id>
@@ -74,7 +74,7 @@
 		<property name="importStatus" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
 		<property name="importStatusLog" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
-	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.KloetzelBuchImpl" table="FOO_KloetzelBuch">
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.KloetzelBuchImpl" table="medicaldataset_KloetzelBuch">
 		<id name="kloetzelBuchId" type="long">
 			<generator class="assigned" />
 		</id>
@@ -112,7 +112,7 @@
 		<property name="pocessinguser" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="organizationUnit" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
-	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.MedicalRecordImpl" table="FOO_MedicalRecord">
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.MedicalRecordImpl" table="medicaldataset_MedicalRecord">
 		<id name="medicalRecordId" type="long">
 			<generator class="assigned" />
 		</id>
@@ -136,7 +136,7 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vHistonNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="area" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
-	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.PathologyDataImpl" table="FOO_PathologyData">
+	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.PathologyDataImpl" table="medicaldataset_PathologyData">
 		<id name="pathologyDataId" type="long">
 			<generator class="assigned" />
 		</id>

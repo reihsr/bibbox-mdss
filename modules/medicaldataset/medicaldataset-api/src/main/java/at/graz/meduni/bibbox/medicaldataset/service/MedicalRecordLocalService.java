@@ -75,6 +75,9 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 	public MedicalRecord addMedicalRecord(MedicalRecord medicalRecord);
 
 	public MedicalRecord addMedicalRecord(long importMedicalDataSetId,
+		ServiceContext serviceContext) throws PortalException;
+
+	public MedicalRecord addMedicalRecord(long importMedicalDataSetId,
 		long histonumberStart, long histonumberEnd, int histonumberRunning,
 		long iNumber, long vPatientId, long vHistonNumber,
 		java.lang.String area, ServiceContext serviceContext)

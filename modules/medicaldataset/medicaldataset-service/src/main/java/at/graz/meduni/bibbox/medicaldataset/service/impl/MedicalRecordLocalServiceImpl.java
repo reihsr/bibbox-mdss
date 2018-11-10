@@ -86,6 +86,36 @@ public class MedicalRecordLocalServiceImpl
 		return medicalrecord;
 	}
 	
+	public MedicalRecord addMedicalRecord(long importMedicalDataSetId, ServiceContext serviceContext) throws PortalException {
+		long groupId = serviceContext.getScopeGroupId();
+		long userId = serviceContext.getUserId();
+		User user = userLocalService.getUserById(userId);
+		Date now = new Date();
+		//Validate if something is needed
+		
+		long medicalRecordId = counterLocalService.increment();
+		MedicalRecord medicalrecord = medicalRecordPersistence.create(medicalRecordId);
+		
+		medicalrecord.setUuid(serviceContext.getUuid());
+		
+		medicalrecord.setGroupId(groupId);
+		medicalrecord.setCompanyId(user.getCompanyId());
+		medicalrecord.setUserId(userId);
+		medicalrecord.setUserName(user.getFullName());
+		medicalrecord.setCreateDate(serviceContext.getCreateDate(now));
+		medicalrecord.setModifiedDate(serviceContext.getCreateDate(now));
+		
+		medicalrecord.setImportMedicalDataSetId(importMedicalDataSetId);
+		
+		medicalrecord.setExpandoBridgeAttributes(serviceContext);
+		
+		medicalRecordPersistence.update(medicalrecord);
+		
+		resourceLocalService.addResources(user.getCompanyId(), groupId, userId, MedicalRecord.class.getName(), medicalRecordId, false, true, true);
+		
+		return medicalrecord;
+	}
+	
 	/*
 	public MedicalRecord addMedicalRecord(MedicalRecord medicalrecord, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();

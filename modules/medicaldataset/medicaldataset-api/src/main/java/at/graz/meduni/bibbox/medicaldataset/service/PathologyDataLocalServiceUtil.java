@@ -54,6 +54,13 @@ public class PathologyDataLocalServiceUtil {
 	}
 
 	public static at.graz.meduni.bibbox.medicaldataset.model.PathologyData addPathologyData(
+		long medicalRecordId,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService().addPathologyData(medicalRecordId, serviceContext);
+	}
+
+	public static at.graz.meduni.bibbox.medicaldataset.model.PathologyData addPathologyData(
 		long medicalRecordId, java.util.Date receivedDate,
 		java.util.Date validationDate, int patientAge, java.lang.String sender,
 		java.lang.String extractionMethode,

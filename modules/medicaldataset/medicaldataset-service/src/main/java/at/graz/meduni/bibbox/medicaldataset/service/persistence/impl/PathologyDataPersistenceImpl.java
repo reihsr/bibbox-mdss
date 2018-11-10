@@ -28,9 +28,11 @@ import com.liferay.portal.kernel.dao.orm.FinderPath;
 import com.liferay.portal.kernel.dao.orm.Query;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.dao.orm.SQLQuery;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.permission.InlineSQLHelperUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.portal.kernel.service.persistence.CompanyProvider;
@@ -1922,6 +1924,318 @@ public class PathologyDataPersistenceImpl extends BasePersistenceImpl<PathologyD
 	}
 
 	/**
+	 * Returns all the pathology datas that the user has permission to view where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the matching pathology datas that the user has permission to view
+	 */
+	@Override
+	public List<PathologyData> filterFindByGroupId(long groupId) {
+		return filterFindByGroupId(groupId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the pathology datas that the user has permission to view where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologyDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of pathology datas
+	 * @param end the upper bound of the range of pathology datas (not inclusive)
+	 * @return the range of matching pathology datas that the user has permission to view
+	 */
+	@Override
+	public List<PathologyData> filterFindByGroupId(long groupId, int start,
+		int end) {
+		return filterFindByGroupId(groupId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the pathology datas that the user has permissions to view where groupId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PathologyDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param groupId the group ID
+	 * @param start the lower bound of the range of pathology datas
+	 * @param end the upper bound of the range of pathology datas (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching pathology datas that the user has permission to view
+	 */
+	@Override
+	public List<PathologyData> filterFindByGroupId(long groupId, int start,
+		int end, OrderByComparator<PathologyData> orderByComparator) {
+		if (!InlineSQLHelperUtil.isEnabled(groupId)) {
+			return findByGroupId(groupId, start, end, orderByComparator);
+		}
+
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(3 +
+					(orderByComparator.getOrderByFields().length * 2));
+		}
+		else {
+			query = new StringBundler(4);
+		}
+
+		if (getDB().isSupportsInlineDistinct()) {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGYDATA_WHERE);
+		}
+		else {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGYDATA_NO_INLINE_DISTINCT_WHERE_1);
+		}
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+		if (!getDB().isSupportsInlineDistinct()) {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGYDATA_NO_INLINE_DISTINCT_WHERE_2);
+		}
+
+		if (orderByComparator != null) {
+			if (getDB().isSupportsInlineDistinct()) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator, true);
+			}
+			else {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_TABLE,
+					orderByComparator, true);
+			}
+		}
+		else {
+			if (getDB().isSupportsInlineDistinct()) {
+				query.append(PathologyDataModelImpl.ORDER_BY_JPQL);
+			}
+			else {
+				query.append(PathologyDataModelImpl.ORDER_BY_SQL);
+			}
+		}
+
+		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
+				PathologyData.class.getName(),
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+			if (getDB().isSupportsInlineDistinct()) {
+				q.addEntity(_FILTER_ENTITY_ALIAS, PathologyDataImpl.class);
+			}
+			else {
+				q.addEntity(_FILTER_ENTITY_TABLE, PathologyDataImpl.class);
+			}
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			qPos.add(groupId);
+
+			return (List<PathologyData>)QueryUtil.list(q, getDialect(), start,
+				end);
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	/**
+	 * Returns the pathology datas before and after the current pathology data in the ordered set of pathology datas that the user has permission to view where groupId = &#63;.
+	 *
+	 * @param pathologyDataId the primary key of the current pathology data
+	 * @param groupId the group ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next pathology data
+	 * @throws NoSuchPathologyDataException if a pathology data with the primary key could not be found
+	 */
+	@Override
+	public PathologyData[] filterFindByGroupId_PrevAndNext(
+		long pathologyDataId, long groupId,
+		OrderByComparator<PathologyData> orderByComparator)
+		throws NoSuchPathologyDataException {
+		if (!InlineSQLHelperUtil.isEnabled(groupId)) {
+			return findByGroupId_PrevAndNext(pathologyDataId, groupId,
+				orderByComparator);
+		}
+
+		PathologyData pathologyData = findByPrimaryKey(pathologyDataId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			PathologyData[] array = new PathologyDataImpl[3];
+
+			array[0] = filterGetByGroupId_PrevAndNext(session, pathologyData,
+					groupId, orderByComparator, true);
+
+			array[1] = pathologyData;
+
+			array[2] = filterGetByGroupId_PrevAndNext(session, pathologyData,
+					groupId, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected PathologyData filterGetByGroupId_PrevAndNext(Session session,
+		PathologyData pathologyData, long groupId,
+		OrderByComparator<PathologyData> orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(5 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(4);
+		}
+
+		if (getDB().isSupportsInlineDistinct()) {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGYDATA_WHERE);
+		}
+		else {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGYDATA_NO_INLINE_DISTINCT_WHERE_1);
+		}
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+		if (!getDB().isSupportsInlineDistinct()) {
+			query.append(_FILTER_SQL_SELECT_PATHOLOGYDATA_NO_INLINE_DISTINCT_WHERE_2);
+		}
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				if (getDB().isSupportsInlineDistinct()) {
+					query.append(_ORDER_BY_ENTITY_ALIAS);
+				}
+				else {
+					query.append(_ORDER_BY_ENTITY_TABLE);
+				}
+
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				if (getDB().isSupportsInlineDistinct()) {
+					query.append(_ORDER_BY_ENTITY_ALIAS);
+				}
+				else {
+					query.append(_ORDER_BY_ENTITY_TABLE);
+				}
+
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			if (getDB().isSupportsInlineDistinct()) {
+				query.append(PathologyDataModelImpl.ORDER_BY_JPQL);
+			}
+			else {
+				query.append(PathologyDataModelImpl.ORDER_BY_SQL);
+			}
+		}
+
+		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
+				PathologyData.class.getName(),
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+
+		SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		if (getDB().isSupportsInlineDistinct()) {
+			q.addEntity(_FILTER_ENTITY_ALIAS, PathologyDataImpl.class);
+		}
+		else {
+			q.addEntity(_FILTER_ENTITY_TABLE, PathologyDataImpl.class);
+		}
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(groupId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(pathologyData);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<PathologyData> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
 	 * Removes all the pathology datas where groupId = &#63; from the database.
 	 *
 	 * @param groupId the group ID
@@ -1983,6 +2297,54 @@ public class PathologyDataPersistenceImpl extends BasePersistenceImpl<PathologyD
 		}
 
 		return count.intValue();
+	}
+
+	/**
+	 * Returns the number of pathology datas that the user has permission to view where groupId = &#63;.
+	 *
+	 * @param groupId the group ID
+	 * @return the number of matching pathology datas that the user has permission to view
+	 */
+	@Override
+	public int filterCountByGroupId(long groupId) {
+		if (!InlineSQLHelperUtil.isEnabled(groupId)) {
+			return countByGroupId(groupId);
+		}
+
+		StringBundler query = new StringBundler(2);
+
+		query.append(_FILTER_SQL_COUNT_PATHOLOGYDATA_WHERE);
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
+				PathologyData.class.getName(),
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+			q.addScalar(COUNT_COLUMN_NAME,
+				com.liferay.portal.kernel.dao.orm.Type.LONG);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			qPos.add(groupId);
+
+			Long count = (Long)q.uniqueResult();
+
+			return count.intValue();
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
 	}
 
 	private static final String _FINDER_COLUMN_GROUPID_GROUPID_2 = "pathologyData.groupId = ?";
@@ -3697,7 +4059,17 @@ public class PathologyDataPersistenceImpl extends BasePersistenceImpl<PathologyD
 	private static final String _SQL_SELECT_PATHOLOGYDATA_WHERE = "SELECT pathologyData FROM PathologyData pathologyData WHERE ";
 	private static final String _SQL_COUNT_PATHOLOGYDATA = "SELECT COUNT(pathologyData) FROM PathologyData pathologyData";
 	private static final String _SQL_COUNT_PATHOLOGYDATA_WHERE = "SELECT COUNT(pathologyData) FROM PathologyData pathologyData WHERE ";
+	private static final String _FILTER_ENTITY_TABLE_FILTER_PK_COLUMN = "pathologyData.pathologyDataId";
+	private static final String _FILTER_SQL_SELECT_PATHOLOGYDATA_WHERE = "SELECT DISTINCT {pathologyData.*} FROM medicaldataset_PathologyData pathologyData WHERE ";
+	private static final String _FILTER_SQL_SELECT_PATHOLOGYDATA_NO_INLINE_DISTINCT_WHERE_1 =
+		"SELECT {medicaldataset_PathologyData.*} FROM (SELECT DISTINCT pathologyData.pathologyDataId FROM medicaldataset_PathologyData pathologyData WHERE ";
+	private static final String _FILTER_SQL_SELECT_PATHOLOGYDATA_NO_INLINE_DISTINCT_WHERE_2 =
+		") TEMP_TABLE INNER JOIN medicaldataset_PathologyData ON TEMP_TABLE.pathologyDataId = medicaldataset_PathologyData.pathologyDataId";
+	private static final String _FILTER_SQL_COUNT_PATHOLOGYDATA_WHERE = "SELECT COUNT(DISTINCT pathologyData.pathologyDataId) AS COUNT_VALUE FROM medicaldataset_PathologyData pathologyData WHERE ";
+	private static final String _FILTER_ENTITY_ALIAS = "pathologyData";
+	private static final String _FILTER_ENTITY_TABLE = "medicaldataset_PathologyData";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "pathologyData.";
+	private static final String _ORDER_BY_ENTITY_TABLE = "medicaldataset_PathologyData.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No PathologyData exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No PathologyData exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(PathologyDataPersistenceImpl.class);

@@ -3457,16 +3457,16 @@ public class KloetzelBuchPersistenceImpl extends BasePersistenceImpl<KloetzelBuc
 	private static final String _SQL_COUNT_KLOETZELBUCH = "SELECT COUNT(kloetzelBuch) FROM KloetzelBuch kloetzelBuch";
 	private static final String _SQL_COUNT_KLOETZELBUCH_WHERE = "SELECT COUNT(kloetzelBuch) FROM KloetzelBuch kloetzelBuch WHERE ";
 	private static final String _FILTER_ENTITY_TABLE_FILTER_PK_COLUMN = "kloetzelBuch.kloetzelBuchId";
-	private static final String _FILTER_SQL_SELECT_KLOETZELBUCH_WHERE = "SELECT DISTINCT {kloetzelBuch.*} FROM FOO_KloetzelBuch kloetzelBuch WHERE ";
+	private static final String _FILTER_SQL_SELECT_KLOETZELBUCH_WHERE = "SELECT DISTINCT {kloetzelBuch.*} FROM medicaldataset_KloetzelBuch kloetzelBuch WHERE ";
 	private static final String _FILTER_SQL_SELECT_KLOETZELBUCH_NO_INLINE_DISTINCT_WHERE_1 =
-		"SELECT {FOO_KloetzelBuch.*} FROM (SELECT DISTINCT kloetzelBuch.kloetzelBuchId FROM FOO_KloetzelBuch kloetzelBuch WHERE ";
+		"SELECT {medicaldataset_KloetzelBuch.*} FROM (SELECT DISTINCT kloetzelBuch.kloetzelBuchId FROM medicaldataset_KloetzelBuch kloetzelBuch WHERE ";
 	private static final String _FILTER_SQL_SELECT_KLOETZELBUCH_NO_INLINE_DISTINCT_WHERE_2 =
-		") TEMP_TABLE INNER JOIN FOO_KloetzelBuch ON TEMP_TABLE.kloetzelBuchId = FOO_KloetzelBuch.kloetzelBuchId";
-	private static final String _FILTER_SQL_COUNT_KLOETZELBUCH_WHERE = "SELECT COUNT(DISTINCT kloetzelBuch.kloetzelBuchId) AS COUNT_VALUE FROM FOO_KloetzelBuch kloetzelBuch WHERE ";
+		") TEMP_TABLE INNER JOIN medicaldataset_KloetzelBuch ON TEMP_TABLE.kloetzelBuchId = medicaldataset_KloetzelBuch.kloetzelBuchId";
+	private static final String _FILTER_SQL_COUNT_KLOETZELBUCH_WHERE = "SELECT COUNT(DISTINCT kloetzelBuch.kloetzelBuchId) AS COUNT_VALUE FROM medicaldataset_KloetzelBuch kloetzelBuch WHERE ";
 	private static final String _FILTER_ENTITY_ALIAS = "kloetzelBuch";
-	private static final String _FILTER_ENTITY_TABLE = "FOO_KloetzelBuch";
+	private static final String _FILTER_ENTITY_TABLE = "medicaldataset_KloetzelBuch";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "kloetzelBuch.";
-	private static final String _ORDER_BY_ENTITY_TABLE = "FOO_KloetzelBuch.";
+	private static final String _ORDER_BY_ENTITY_TABLE = "medicaldataset_KloetzelBuch.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No KloetzelBuch exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No KloetzelBuch exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(KloetzelBuchPersistenceImpl.class);

@@ -128,6 +128,36 @@ public class PathologyDataLocalServiceImpl
 		return pathologyData;
 	}
 	
+	public PathologyData addPathologyData(long medicalRecordId, ServiceContext serviceContext) throws PortalException {
+		long groupId = serviceContext.getScopeGroupId();
+		long userId = serviceContext.getUserId();
+		User user = userLocalService.getUserById(userId);
+		Date now = new Date();
+		//Validate if something is needed
+		
+		long pathologyDataId = counterLocalService.increment();
+		PathologyData pathologyData = pathologyDataPersistence.create(pathologyDataId);
+		
+		pathologyData.setUuid(serviceContext.getUuid());
+		
+		pathologyData.setGroupId(groupId);
+		pathologyData.setCompanyId(user.getCompanyId());
+		pathologyData.setUserId(userId);
+		pathologyData.setUserName(user.getFullName());
+		pathologyData.setCreateDate(serviceContext.getCreateDate(now));
+		pathologyData.setModifiedDate(serviceContext.getCreateDate(now));
+		
+		pathologyData.setMedicalRecordId(medicalRecordId);
+		
+		pathologyData.setExpandoBridgeAttributes(serviceContext);
+		
+		pathologyDataPersistence.update(pathologyData);
+		
+		resourceLocalService.addResources(user.getCompanyId(), groupId, userId, PathologyData.class.getName(), pathologyDataId, false, true, true);
+		
+		return pathologyData;
+	}
+	
 	public PathologyData updatePathologyData(long pathologyDataId, long medicalRecordId, Date receivedDate, Date validationDate, int patientAge, String sender, String extractionMethode, String reportingPhysician1, String reportingPhysician2,
 			String gynPhysician, String validationPhysician1, String validationPhysician2, String reportStatus, int numberOfBlockes, int numberOfSlides,
 			String basicDisease, String causeOfDeath, String material, String materialExtended, String macroscopicDescription, String microscopicDescription,

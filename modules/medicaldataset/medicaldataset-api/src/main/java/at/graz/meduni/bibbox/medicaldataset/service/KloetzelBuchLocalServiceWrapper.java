@@ -47,6 +47,15 @@ public class KloetzelBuchLocalServiceWrapper implements KloetzelBuchLocalService
 
 	@Override
 	public at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch addKloetzelBuch(
+		long medicalRecordId,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _kloetzelBuchLocalService.addKloetzelBuch(medicalRecordId,
+			serviceContext);
+	}
+
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch addKloetzelBuch(
 		long medicalRecordId, long histonumberStart, long histonumberEnd,
 		int histonumberRunning, long histonumber, int kloetzelBuchRunning,
 		java.lang.String oid, java.lang.String bid, java.lang.String area,

@@ -48,6 +48,15 @@ public class PathologyDataLocalServiceWrapper
 
 	@Override
 	public at.graz.meduni.bibbox.medicaldataset.model.PathologyData addPathologyData(
+		long medicalRecordId,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _pathologyDataLocalService.addPathologyData(medicalRecordId,
+			serviceContext);
+	}
+
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.PathologyData addPathologyData(
 		long medicalRecordId, java.util.Date receivedDate,
 		java.util.Date validationDate, int patientAge, java.lang.String sender,
 		java.lang.String extractionMethode,

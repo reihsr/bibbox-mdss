@@ -54,6 +54,14 @@ public class MedicalRecordLocalServiceUtil {
 	}
 
 	public static at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord addMedicalRecord(
+		long importMedicalDataSetId,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService()
+				   .addMedicalRecord(importMedicalDataSetId, serviceContext);
+	}
+
+	public static at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord addMedicalRecord(
 		long importMedicalDataSetId, long histonumberStart,
 		long histonumberEnd, int histonumberRunning, long iNumber,
 		long vPatientId, long vHistonNumber, java.lang.String area,

@@ -27,5 +27,11 @@
         <portlet:param name="mvcPath" value="/medicaldatasetimportportlet/importStep3.jsp" />
     </portlet:renderURL>
     <liferay-ui:icon image="edit" message="Import Step 3 - Mapping" url="<%=importStep3MappingURL.toString() %>" />
+    
+    <portlet:actionURL var="importStep5ReimportURL" name="importStep5Reimport">
+        <portlet:param name="importMedicalDataSetId" value="<%=String.valueOf(importMedicalDataSet.getImportMedicalDataSetId()) %>" />
+        <portlet:param name="mvcPath" value="/medicaldatasetimportportlet/importStep4.jsp" />
+    </portlet:actionURL>
+    <liferay-ui:icon image="edit" message="Import Step 4 - Reimport" url="<%=importStep5ReimportURL.toString() %>" />
 
 </liferay-ui:icon-menu>

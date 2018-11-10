@@ -3855,17 +3855,17 @@ public class ImportMedicalDataSetFieldMapPersistenceImpl
 	private static final String _SQL_COUNT_IMPORTMEDICALDATASETFIELDMAP_WHERE = "SELECT COUNT(importMedicalDataSetFieldMap) FROM ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap WHERE ";
 	private static final String _FILTER_ENTITY_TABLE_FILTER_PK_COLUMN = "importMedicalDataSetFieldMap.importMedicalDataSetFieldMapId";
 	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASETFIELDMAP_WHERE =
-		"SELECT DISTINCT {importMedicalDataSetFieldMap.*} FROM FOO_ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap WHERE ";
+		"SELECT DISTINCT {importMedicalDataSetFieldMap.*} FROM medicaldataset_ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap WHERE ";
 	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASETFIELDMAP_NO_INLINE_DISTINCT_WHERE_1 =
-		"SELECT {FOO_ImportMedicalDataSetFieldMap.*} FROM (SELECT DISTINCT importMedicalDataSetFieldMap.importMedicalDataSetFieldMapId FROM FOO_ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap WHERE ";
+		"SELECT {medicaldataset_ImportMedicalDataSetFieldMap.*} FROM (SELECT DISTINCT importMedicalDataSetFieldMap.importMedicalDataSetFieldMapId FROM medicaldataset_ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap WHERE ";
 	private static final String _FILTER_SQL_SELECT_IMPORTMEDICALDATASETFIELDMAP_NO_INLINE_DISTINCT_WHERE_2 =
-		") TEMP_TABLE INNER JOIN FOO_ImportMedicalDataSetFieldMap ON TEMP_TABLE.importMedicalDataSetFieldMapId = FOO_ImportMedicalDataSetFieldMap.importMedicalDataSetFieldMapId";
+		") TEMP_TABLE INNER JOIN medicaldataset_ImportMedicalDataSetFieldMap ON TEMP_TABLE.importMedicalDataSetFieldMapId = medicaldataset_ImportMedicalDataSetFieldMap.importMedicalDataSetFieldMapId";
 	private static final String _FILTER_SQL_COUNT_IMPORTMEDICALDATASETFIELDMAP_WHERE =
-		"SELECT COUNT(DISTINCT importMedicalDataSetFieldMap.importMedicalDataSetFieldMapId) AS COUNT_VALUE FROM FOO_ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap WHERE ";
+		"SELECT COUNT(DISTINCT importMedicalDataSetFieldMap.importMedicalDataSetFieldMapId) AS COUNT_VALUE FROM medicaldataset_ImportMedicalDataSetFieldMap importMedicalDataSetFieldMap WHERE ";
 	private static final String _FILTER_ENTITY_ALIAS = "importMedicalDataSetFieldMap";
-	private static final String _FILTER_ENTITY_TABLE = "FOO_ImportMedicalDataSetFieldMap";
+	private static final String _FILTER_ENTITY_TABLE = "medicaldataset_ImportMedicalDataSetFieldMap";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "importMedicalDataSetFieldMap.";
-	private static final String _ORDER_BY_ENTITY_TABLE = "FOO_ImportMedicalDataSetFieldMap.";
+	private static final String _ORDER_BY_ENTITY_TABLE = "medicaldataset_ImportMedicalDataSetFieldMap.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No ImportMedicalDataSetFieldMap exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No ImportMedicalDataSetFieldMap exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(ImportMedicalDataSetFieldMapPersistenceImpl.class);
