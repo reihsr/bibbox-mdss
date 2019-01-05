@@ -12,6 +12,7 @@ public class MedicalDataSetWebKeys {
 			case 25: return "Step 4 - Importing Data";
 			case 30: return "Step 4 - Importing Data done";
 			case 100: return "Finished";
+			case 200: return "Deleting";
 		}
 		return "Error";
 	}

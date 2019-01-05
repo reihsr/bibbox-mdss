@@ -12,7 +12,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.osgi.service.component.annotations.Component;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -22,17 +21,12 @@ import com.liferay.portal.kernel.backgroundtask.BackgroundTask;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskExecutor;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskResult;
-import com.liferay.portal.kernel.backgroundtask.BackgroundTaskThreadLocal;
 import com.liferay.portal.kernel.backgroundtask.BaseBackgroundTaskExecutor;
 import com.liferay.portal.kernel.backgroundtask.display.BackgroundTaskDisplay;
 import com.liferay.portal.kernel.backgroundtask.display.BackgroundTaskDisplayFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.messaging.DestinationNames;
-import com.liferay.portal.kernel.messaging.Message;
-import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.ServiceContext;
-import com.liferay.portal.kernel.service.ServiceContextFactory;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -43,6 +37,8 @@ import at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap;
 import at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalServiceUtil;
 import at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalServiceUtil;
 import at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogLocalServiceUtil;
+import at.graz.meduni.bibbox.medicaldataset.service.backgroundtask.helper.XMLParserFactory;
+import at.graz.meduni.bibbox.medicaldataset.service.backgroundtask.helper.XMLParserInterface;
 
 @Component(
 	immediate = true, 
@@ -63,32 +59,40 @@ public class ImportAnalyseTaskExecutor extends BaseBackgroundTaskExecutor {
 
 	@Override
 	public BackgroundTaskResult execute(BackgroundTask backgroundTask) throws Exception {
+		long timeStart = System.currentTimeMillis();
 		System.out.println("ImportAnalyseTaskExecutor START");
-		Map taskContextMap = backgroundTask.getTaskContextMap();
-		String importType = taskContextMap.get("importType").toString();
-		
-		serviceContext_ = new ServiceContext();
-		long scopeGroupId = Long.parseLong(taskContextMap.get("scopeGroupId").toString());
-		long userId = Long.parseLong(taskContextMap.get("userId").toString());
-		serviceContext_.setScopeGroupId(scopeGroupId);
-		serviceContext_.setUserId(userId);
-		
-		importMedicalDataSetId_ = Long.parseLong(taskContextMap.get("importMedicalDataSetId").toString());
-		ImportMedicalDataSet importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.getImportMedicalDataSet(importMedicalDataSetId_);
-		importMedicalDataSet.setImportStatus(importStatus_);
-		importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.updateImportMedicalDataSet(importMedicalDataSet);
-		
-		ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, "Stating Analysis Task " + new Date().toString(), serviceContext_);
-		
-		System.out.println("ImportAnalyseTaskExecutor: with Type: " + importType);
-		int numberOfFields = 0;
-		if(importType.equals("PathologyDataSet") || importType.equals("Kloezelbuch")) {
-			numberOfFields = analyseXMLFile(importMedicalDataSet);
+		try {
+			Map taskContextMap = backgroundTask.getTaskContextMap();
+			String importType = taskContextMap.get("importType").toString();
+			
+			serviceContext_ = new ServiceContext();
+			long scopeGroupId = Long.parseLong(taskContextMap.get("scopeGroupId").toString());
+			long userId = Long.parseLong(taskContextMap.get("userId").toString());
+			serviceContext_.setScopeGroupId(scopeGroupId);
+			serviceContext_.setUserId(userId);
+			
+			importMedicalDataSetId_ = Long.parseLong(taskContextMap.get("importMedicalDataSetId").toString());
+			ImportMedicalDataSet importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.getImportMedicalDataSet(importMedicalDataSetId_);
+			importMedicalDataSet.setImportStatus(importStatus_);
+			importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.updateImportMedicalDataSet(importMedicalDataSet);
+			ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, "Stating Analysis Task " + new Date().toString(), serviceContext_);
+			
+			System.out.println("ImportAnalyseTaskExecutor: with Type: " + importType);
+			int numberOfFields = 0;
+			if(importType.equals("PathologyDataSet") || importType.equals("Kloezelbuch")) {
+				numberOfFields = analyseXMLFile(importMedicalDataSet);
+			}
+			
+			importMedicalDataSet.setImportStatus(10);
+			importMedicalDataSet.setImportCount(numberOfFields);
+			importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.updateImportMedicalDataSet(importMedicalDataSet);
+		} catch(Exception ex) {
+			System.err.println("Error in ImportAnalyseTaskExecutor: " + ex.getMessage());
+			ex.printStackTrace();
 		}
 		
-		importMedicalDataSet.setImportStatus(10);
-		importMedicalDataSet.setImportCount(numberOfFields);
-		importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.updateImportMedicalDataSet(importMedicalDataSet);
+		long timeNeeded = System.currentTimeMillis() - timeStart;
+		System.out.println("ImportAnalyseTaskExecutor ENDED (needed " + timeNeeded + "ms)");
 		return BackgroundTaskResult.SUCCESS;
 	}
 	
@@ -98,73 +102,46 @@ public class ImportAnalyseTaskExecutor extends BaseBackgroundTaskExecutor {
 		try {
 			FileEntry fileEntry = DLAppServiceUtil.getFileEntry(importMedicalDataSet.getFileId());
 			ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, "File: " + fileEntry.getFileName(), serviceContext_);
+			System.out.println("Loading File: " + fileEntry.getFileName());
 			
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fileEntry.getContentStream());
 			doc.getDocumentElement().normalize();
 			ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, "Root element: " + doc.getDocumentElement().getNodeName(), serviceContext_);
+			System.out.println("Root element: " + doc.getDocumentElement().getNodeName());
 			
-			NodeList nodeListReportFooter = doc.getElementsByTagName("ReportFooter");
-			numberOfFields = extractDataFromNodeListReportFooter(nodeListReportFooter);
-			NodeList nodeListDetails = doc.getElementsByTagName("Details");
-			extractDataFromNodeListDetails(nodeListDetails);
+			XMLParserFactory xmlParserFactory = new XMLParserFactory();
+			XMLParserInterface xmlParserInterface = xmlParserFactory.getXMLParser(doc.getDocumentElement().getNodeName());
+			xmlParserInterface.setDocument(doc);
+			xmlParserInterface.setServiceContext(serviceContext_);
+			
+			// Analyse Footer
+			HashMap<String, String> footerData = xmlParserInterface.getXMLFooter();
+			numberOfFields = Integer.parseInt(footerData.get("AnzENUM"));
+			System.out.println(footerData.get("lblAnzENUM") + " " + numberOfFields);
+			ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, footerData.get("lblAnzENUM") + " " + numberOfFields, serviceContext_);
+			
+			// Analyse Data Fields
+			HashMap<String, String> structureData = xmlParserInterface.generateXMLDataStructureForMapping();
+			System.out.println("Analysed Entries: " + structureData.get("Analysed Entries") + " | Analysed Fields: " + structureData.get("Analysed Fields"));
+			ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, "Analysed Entries: " + structureData.get("Analysed Entries") + " | Analysed Fields: " + structureData.get("Analysed Fields"), serviceContext_);
+			
+			// TODO: Remove old version
+			//NodeList nodeListDetails = doc.getElementsByTagName("Details");
+			//extractDataFromNodeListDetails(nodeListDetails);
 			
 		} catch (PortalException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error in ImportAnalyseTaskExecutor.analyseXMLFile: " + e.getMessage());
 			e.printStackTrace();
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error in ImportAnalyseTaskExecutor.analyseXMLFile: " + e.getMessage());
 			e.printStackTrace();
 		} catch (SAXException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error in ImportAnalyseTaskExecutor.analyseXMLFile: " + e.getMessage());
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return numberOfFields;
-	}
-	
-	private int extractDataFromNodeListReportFooter(NodeList nodeListReportFooter) {
-		String elementLabel = "";
-		int numberOfFields = 0;
-		for (int reportFooterListCounter = 0; reportFooterListCounter < nodeListReportFooter.getLength(); reportFooterListCounter++) {
-			Node reportFooterNode = nodeListReportFooter.item(reportFooterListCounter);
-			NodeList nodeListReportFooterSection = reportFooterNode.getChildNodes();
-			for (int reportFooterSectionListCounter = 0; reportFooterSectionListCounter < nodeListReportFooterSection.getLength(); reportFooterSectionListCounter++) {
-				Node reportFooterSectionNode = nodeListReportFooterSection.item(reportFooterSectionListCounter);
-				if(reportFooterSectionNode.getNodeName().equals("Section")) {
-					NodeList nodeListReportFooterSectionFields = reportFooterSectionNode.getChildNodes();
-					for (int reportFooterSectionFieldsListCounter = 0; reportFooterSectionFieldsListCounter < nodeListReportFooterSectionFields.getLength(); reportFooterSectionFieldsListCounter++) {
-						Node reportFooterSectionFieldsNode = nodeListReportFooterSectionFields.item(reportFooterSectionFieldsListCounter);
-						if(reportFooterSectionFieldsNode.getNodeName().equals("Text")) {
-							NodeList nodeListReportFooterSectionFieldsValues = reportFooterSectionFieldsNode.getChildNodes();
-							for (int reportFooterSectionFieldsValuesCounter = 0; reportFooterSectionFieldsValuesCounter < nodeListReportFooterSectionFieldsValues.getLength(); reportFooterSectionFieldsValuesCounter++) {
-								Node reportFooterSectionFieldsValuesNode = nodeListReportFooterSectionFieldsValues.item(reportFooterSectionFieldsValuesCounter);
-								if(reportFooterSectionFieldsValuesNode.getNodeName().equals("TextValue")) {
-									elementLabel = reportFooterSectionFieldsValuesNode.getTextContent();
-								}
-							}
-						}
-						if(reportFooterSectionFieldsNode.getNodeName().equals("Field")) {
-							NodeList nodeListReportFooterSectionFieldsValues = reportFooterSectionFieldsNode.getChildNodes();
-							for (int reportFooterSectionFieldsValuesCounter = 0; reportFooterSectionFieldsValuesCounter < nodeListReportFooterSectionFieldsValues.getLength(); reportFooterSectionFieldsValuesCounter++) {
-								Node reportFooterSectionFieldsValuesNode = nodeListReportFooterSectionFieldsValues.item(reportFooterSectionFieldsValuesCounter);
-								if(reportFooterSectionFieldsValuesNode.getNodeName().equals("Value")) {
-									numberOfFields = Integer.parseInt(reportFooterSectionFieldsValuesNode.getTextContent());
-								}
-							}
-						}
-					}
-					
-				}
-			}
-		}
-		try {
-			ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, elementLabel + " " + numberOfFields, serviceContext_);
-		} catch (PortalException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error in ImportAnalyseTaskExecutor.analyseXMLFile: " + e.getMessage());
 			e.printStackTrace();
 		}
 		return numberOfFields;
@@ -220,7 +197,7 @@ public class ImportAnalyseTaskExecutor extends BaseBackgroundTaskExecutor {
 			fieldMap_.remove(fieldName);
 			fieldMap_.put(fieldName, importMedicalDataSetFieldMap);
 		} catch (PortalException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error in ImportAnalyseTaskExecutor.updateFieldMap: " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
@@ -237,7 +214,7 @@ public class ImportAnalyseTaskExecutor extends BaseBackgroundTaskExecutor {
 			}
 			return sampleValueArray.toJSONString();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error in ImportAnalyseTaskExecutor.updateJASONArrayWithString: " + e.getMessage());
 			e.printStackTrace();
 		}
 		return existingJsonString;
@@ -249,7 +226,7 @@ public class ImportAnalyseTaskExecutor extends BaseBackgroundTaskExecutor {
 			sampleValueArray.put(jasonObject);
 			return sampleValueArray.toJSONString();
 		} catch (JSONException e) {
-			// TODO Auto-generated catch block
+			System.err.println("Error in ImportAnalyseTaskExecutor.updateJASONArrayWithString: " + e.getMessage());
 			e.printStackTrace();
 		}
 		return existingJsonString;

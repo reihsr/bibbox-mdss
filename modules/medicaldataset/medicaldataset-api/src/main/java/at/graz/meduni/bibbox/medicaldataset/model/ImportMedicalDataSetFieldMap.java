@@ -58,4 +58,7 @@ public interface ImportMedicalDataSetFieldMap
 		};
 
 	public boolean isNotSelected();
+
+	public void setFieldsData(java.lang.String fieldPath,
+		java.lang.String fieldSampleValue);
 }

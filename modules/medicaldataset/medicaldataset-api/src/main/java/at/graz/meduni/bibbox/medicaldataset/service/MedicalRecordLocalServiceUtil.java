@@ -65,12 +65,13 @@ public class MedicalRecordLocalServiceUtil {
 		long importMedicalDataSetId, long histonumberStart,
 		long histonumberEnd, int histonumberRunning, long iNumber,
 		long vPatientId, long vHistonNumber, java.lang.String area,
+		long bbPseudonym,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .addMedicalRecord(importMedicalDataSetId, histonumberStart,
 			histonumberEnd, histonumberRunning, iNumber, vPatientId,
-			vHistonNumber, area, serviceContext);
+			vHistonNumber, area, bbPseudonym, serviceContext);
 	}
 
 	/**
@@ -174,14 +175,14 @@ public class MedicalRecordLocalServiceUtil {
 		long medicalRecordId, long importMedicalDataSetId,
 		long histonumberStart, long histonumberEnd, int histonumberRunning,
 		long iNumber, long vPatientId, long vHistonNumber,
-		java.lang.String area,
+		java.lang.String area, long bbPseudonym,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .updateMedicalRecord(medicalRecordId,
 			importMedicalDataSetId, histonumberStart, histonumberEnd,
 			histonumberRunning, iNumber, vPatientId, vHistonNumber, area,
-			serviceContext);
+			bbPseudonym, serviceContext);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {

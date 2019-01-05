@@ -111,7 +111,7 @@ public class ImportMedicalDataSetLogModelImpl extends BaseModelImpl<ImportMedica
 		TABLE_COLUMNS_MAP.put("importStatusLog", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table medicaldataset_ImportMedicalDataSetLog (uuid_ VARCHAR(75) null,importMedicalDataSetLogId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,importStatus INTEGER,importStatusLog STRING null)";
+	public static final String TABLE_SQL_CREATE = "create table medicaldataset_ImportMedicalDataSetLog (uuid_ VARCHAR(75) null,importMedicalDataSetLogId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,importStatus INTEGER,importStatusLog TEXT null)";
 	public static final String TABLE_SQL_DROP = "drop table medicaldataset_ImportMedicalDataSetLog";
 	public static final String ORDER_BY_JPQL = " ORDER BY importMedicalDataSetLog.createDate ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY medicaldataset_ImportMedicalDataSetLog.createDate ASC";

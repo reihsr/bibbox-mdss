@@ -47,7 +47,7 @@ public class MedicalRecordLocalServiceImpl
 	 * Never reference this class directly. Always use {@link at.graz.meduni.bibbox.medicaldataset.service.MedicalRecordLocalServiceUtil} to access the medical record local service.
 	 */
 	
-	public MedicalRecord addMedicalRecord(long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatientId, long vHistonNumber, String area, ServiceContext serviceContext) throws PortalException {
+	public MedicalRecord addMedicalRecord(long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatientId, long vHistonNumber, String area, long bbPseudonym, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -74,6 +74,7 @@ public class MedicalRecordLocalServiceImpl
 		medicalrecord.setINumber(iNumber);
 		medicalrecord.setVPatientId(vPatientId);
 		medicalrecord.setVHistonNumber(vHistonNumber);
+		medicalrecord.setBbPseudonym(bbPseudonym);
 		
 		medicalrecord.setArea(area);
 		
@@ -142,7 +143,7 @@ public class MedicalRecordLocalServiceImpl
 		return medicalrecord;
 	}*/
 	
-	public MedicalRecord updateMedicalRecord(long medicalRecordId, long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatientId, long vHistonNumber, String area, ServiceContext serviceContext) throws PortalException {
+	public MedicalRecord updateMedicalRecord(long medicalRecordId, long importMedicalDataSetId, long histonumberStart, long histonumberEnd, int histonumberRunning, long iNumber, long vPatientId, long vHistonNumber, String area, long bbPseudonym, ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
 		long userId = serviceContext.getUserId();
 		User user = userLocalService.getUserById(userId);
@@ -163,6 +164,7 @@ public class MedicalRecordLocalServiceImpl
 		medicalrecord.setINumber(iNumber);
 		medicalrecord.setVPatientId(vPatientId);
 		medicalrecord.setVHistonNumber(vHistonNumber);
+		medicalrecord.setBbPseudonym(bbPseudonym);
 		
 		medicalrecord.setArea(area);
 		

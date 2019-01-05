@@ -22,7 +22,7 @@
 		</field>
 		<field name="fileName" type="String" />
 		<field name="filePath" type="String">
-			<hint name="max-length">1000</hint>
+			<hint name="max-length">10000</hint>
 		</field>
 		<field name="fileId" type="long" />
 		<field name="importCount" type="int" />
@@ -43,19 +43,19 @@
 		<field name="statusDate" type="Date" />
 		<field name="importMedicalDataSetId" type="long" />
 		<field name="importField" type="String">
-			<hint name="max-length">1000</hint>
+			<hint name="max-length">100000</hint>
 		</field>
 		<field name="importFieldPath" type="String">
-			<hint name="max-length">1000</hint>
+			<hint name="max-length">100000</hint>
 		</field>
 		<field name="sampleValue" type="String">
-			<hint name="max-length">1000</hint>
+			<hint name="max-length">100000</hint>
 		</field>
 		<field name="TableName" type="String">
-			<hint name="max-length">1000</hint>
+			<hint name="max-length">10000</hint>
 		</field>
 		<field name="TableField" type="String">
-			<hint name="max-length">1000</hint>
+			<hint name="max-length">100000</hint>
 		</field>
 	</model>
 	<model name="at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog">
@@ -74,7 +74,7 @@
 		<field name="importMedicalDataSetId" type="long" />
 		<field name="importStatus" type="int" />
 		<field name="importStatusLog" type="String">
-			<hint name="max-length">4000</hint>
+			<hint name="max-length">40000</hint>
 		</field>
 	</model>
 	<model name="at.graz.meduni.bibbox.medicaldataset.model.KloetzelBuch">
@@ -102,10 +102,10 @@
 		<field name="type" type="String" />
 		<field name="acronym" type="String" />
 		<field name="text" type="String">
-			<hint name="max-length">4000</hint>
+			<hint name="max-length">40000</hint>
 		</field>
 		<field name="info" type="String">
-			<hint name="max-length">4000</hint>
+			<hint name="max-length">40000</hint>
 		</field>
 		<field name="count" type="int" />
 		<field name="numberOfPieces" type="int" />
@@ -137,6 +137,7 @@
 		<field name="iNumber" type="long" />
 		<field name="vPatientId" type="long" />
 		<field name="vHistonNumber" type="long" />
+		<field name="bbPseudonym" type="long" />
 		<field name="area" type="String" />
 	</model>
 	<model name="at.graz.meduni.bibbox.medicaldataset.model.PathologyData">
@@ -156,54 +157,77 @@
 		<field name="receivedDate" type="Date" />
 		<field name="validationDate" type="Date" />
 		<field name="patientAge" type="int" />
-		<field name="sender" type="String" />
-		<field name="extractionMethode" type="String" />
-		<field name="reportingPhysician1" type="String" />
-		<field name="reportingPhysician2" type="String" />
+		<field name="sender" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="extractionMethode" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="reportingPhysician1" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="reportingPhysician2" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
 		<field name="gynPhysician" type="String" />
-		<field name="validationPhysician1" type="String" />
-		<field name="validationPhysician2" type="String" />
+		<field name="validationPhysician1" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="validationPhysician2" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
 		<field name="reportStatus" type="String" />
 		<field name="numberOfBlockes" type="int" />
 		<field name="numberOfSlides" type="int" />
-		<field name="basicDisease" type="String" />
-		<field name="causeOfDeath" type="String" />
-		<field name="material" type="String" />
-		<field name="materialExtended" type="String" />
+		<field name="basicDisease" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="causeOfDeath" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="material" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="materialExtended" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
 		<field name="macroscopicDescription" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="microscopicDescription" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="histologicDescription" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="molecularPathologicDescription" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="zytologieDescription" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="pathologicDiagnosis" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="frozenSectionDiagnosis" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="molecularPathologicDiagnosis" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="zytologieDiagnosis" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="neuroPathologicDiagnosis" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="comment" type="String">
-			<hint name="max-length">100000</hint>
+			<hint name="max-length">1000000</hint>
 		</field>
 		<field name="zytologiecomment" type="String">
+			<hint name="max-length">1000000</hint>
+		</field>
+		<field name="obduktionsart" type="String">
 			<hint name="max-length">100000</hint>
 		</field>
 		<field name="grad" type="String" />

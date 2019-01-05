@@ -51,7 +51,7 @@ public class PathologyDataLocalServiceImpl
 			String gynPhysician, String validationPhysician1, String validationPhysician2, String reportStatus, int numberOfBlockes, int numberOfSlides,
 			String basicDisease, String causeOfDeath, String material, String materialExtended, String macroscopicDescription, String microscopicDescription,
 			String histologicDescription, String molecularPathologicDescription, String zytologieDescription, String pathologicDiagnosis, String frozenSectionDiagnosis,
-			String molecularPathologicDiagnosis, String zytologieDiagnosis, String neuroPathologicDiagnosis, String comment, String zytologiecomment,
+			String molecularPathologicDiagnosis, String zytologieDiagnosis, String neuroPathologicDiagnosis, String comment, String zytologiecomment, String obduktionsart,
 			String grad, String tnmp, String tnmt, String tnmn, String tnmm, String tnmr, String tnml, String tnmv, String tnmpn, String dgcode1, String dgcode2, String pap, String smearQuality,
 			ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
@@ -104,6 +104,7 @@ public class PathologyDataLocalServiceImpl
 		pathologyData.setNeuroPathologicDiagnosis(neuroPathologicDiagnosis);
 		pathologyData.setComment(zytologiecomment);
 		pathologyData.setZytologieDiagnosis(zytologieDiagnosis);
+		pathologyData.setObduktionsart(obduktionsart);
 		
 		pathologyData.setGrad(grad);
 		pathologyData.setTnmp(tnmpn);
@@ -162,7 +163,7 @@ public class PathologyDataLocalServiceImpl
 			String gynPhysician, String validationPhysician1, String validationPhysician2, String reportStatus, int numberOfBlockes, int numberOfSlides,
 			String basicDisease, String causeOfDeath, String material, String materialExtended, String macroscopicDescription, String microscopicDescription,
 			String histologicDescription, String molecularPathologicDescription, String zytologieDescription, String pathologicDiagnosis, String frozenSectionDiagnosis,
-			String molecularPathologicDiagnosis, String zytologieDiagnosis, String neuroPathologicDiagnosis, String comment, String zytologiecomment,
+			String molecularPathologicDiagnosis, String zytologieDiagnosis, String neuroPathologicDiagnosis, String comment, String zytologiecomment, String obduktionsart,
 			String grad, String tnmp, String tnmt, String tnmn, String tnmm, String tnmr, String tnml, String tnmv, String tnmpn, String dgcode1, String dgcode2, String pap, String smearQuality,
 			ServiceContext serviceContext) throws PortalException {
 		long groupId = serviceContext.getScopeGroupId();
@@ -209,6 +210,7 @@ public class PathologyDataLocalServiceImpl
 		pathologyData.setNeuroPathologicDiagnosis(neuroPathologicDiagnosis);
 		pathologyData.setComment(zytologiecomment);
 		pathologyData.setZytologieDiagnosis(zytologieDiagnosis);
+		pathologyData.setObduktionsart(obduktionsart);
 		
 		pathologyData.setGrad(grad);
 		pathologyData.setTnmp(tnmpn);

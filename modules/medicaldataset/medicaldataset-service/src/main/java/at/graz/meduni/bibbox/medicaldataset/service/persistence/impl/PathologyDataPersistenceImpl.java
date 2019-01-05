@@ -3627,6 +3627,7 @@ public class PathologyDataPersistenceImpl extends BasePersistenceImpl<PathologyD
 		pathologyDataImpl.setNeuroPathologicDiagnosis(pathologyData.getNeuroPathologicDiagnosis());
 		pathologyDataImpl.setComment(pathologyData.getComment());
 		pathologyDataImpl.setZytologiecomment(pathologyData.getZytologiecomment());
+		pathologyDataImpl.setObduktionsart(pathologyData.getObduktionsart());
 		pathologyDataImpl.setGrad(pathologyData.getGrad());
 		pathologyDataImpl.setTnmp(pathologyData.getTnmp());
 		pathologyDataImpl.setTnmt(pathologyData.getTnmt());

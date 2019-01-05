@@ -236,6 +236,12 @@ public class ImportMedicalDataSetLogLocalServiceWrapper
 			importStatus);
 	}
 
+	@Override
+	public int getImportMedicalDataSetLogsFromImportsCount(
+		long importMedicalDataSetId) {
+		return _importMedicalDataSetLogLocalService.getImportMedicalDataSetLogsFromImportsCount(importMedicalDataSetId);
+	}
+
 	/**
 	* Returns the OSGi service identifier.
 	*
@@ -301,10 +307,9 @@ public class ImportMedicalDataSetLogLocalServiceWrapper
 	}
 
 	@Override
-	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetFromImportsAtStatusLogs(
-		long importMedicalDataSetId, int importStatus) {
-		return _importMedicalDataSetLogLocalService.getImportMedicalDataSetFromImportsAtStatusLogs(importMedicalDataSetId,
-			importStatus);
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetFromImports(
+		long importMedicalDataSetId) {
+		return _importMedicalDataSetLogLocalService.getImportMedicalDataSetFromImports(importMedicalDataSetId);
 	}
 
 	/**
@@ -376,6 +381,28 @@ public class ImportMedicalDataSetLogLocalServiceWrapper
 		com.liferay.portal.kernel.util.OrderByComparator<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> orderByComparator) {
 		return _importMedicalDataSetLogLocalService.getImportMedicalDataSetLogsByUuidAndCompanyId(uuid,
 			companyId, start, end, orderByComparator);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImports(
+		long importMedicalDataSetId, int start, int end) {
+		return _importMedicalDataSetLogLocalService.getImportMedicalDataSetLogsFromImports(importMedicalDataSetId,
+			start, end);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImports(
+		long importMedicalDataSetId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> ob) {
+		return _importMedicalDataSetLogLocalService.getImportMedicalDataSetLogsFromImports(importMedicalDataSetId,
+			start, end, ob);
+	}
+
+	@Override
+	public java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImportsAtStatus(
+		long importMedicalDataSetId, int importStatus) {
+		return _importMedicalDataSetLogLocalService.getImportMedicalDataSetLogsFromImportsAtStatus(importMedicalDataSetId,
+			importStatus);
 	}
 
 	@Override

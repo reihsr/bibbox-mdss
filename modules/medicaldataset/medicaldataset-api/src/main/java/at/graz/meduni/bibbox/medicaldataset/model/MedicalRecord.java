@@ -54,4 +54,6 @@ public interface MedicalRecord extends MedicalRecordModel, PersistedModel {
 				return MedicalRecord.class;
 			}
 		};
+
+	public at.graz.meduni.bibbox.medicaldataset.model.PathologyData getPathologyData();
 }

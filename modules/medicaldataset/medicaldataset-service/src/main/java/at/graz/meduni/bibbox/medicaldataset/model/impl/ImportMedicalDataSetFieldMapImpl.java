@@ -14,6 +14,11 @@
 
 package at.graz.meduni.bibbox.medicaldataset.model.impl;
 
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONException;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+
 import aQute.bnd.annotation.ProviderType;
 
 /**
@@ -42,4 +47,38 @@ public class ImportMedicalDataSetFieldMapImpl
 		}
 		return false;
 	}
+	
+	public void setFieldsData(String fieldPath, String fieldSampleValue) {
+		try {
+			JSONArray sampleValue = JSONFactoryUtil.createJSONArray(this.getSampleValue());
+			JSONArray fieldPaths = JSONFactoryUtil.createJSONArray(this.getImportFieldPath());
+			
+			// Path Setup
+			JSONObject newPath = JSONFactoryUtil.createJSONObject();
+			newPath.put("path", fieldPath);
+			if(fieldPath.endsWith(">FormattedValue")) {
+				newPath.put("selected", true);
+			} else {
+				newPath.put("selected", false);
+			}
+			fieldPaths.put(newPath);
+			
+			// Sample Setup
+			JSONObject newSample = JSONFactoryUtil.createJSONObject();
+			newSample.put(fieldPath, fieldSampleValue);
+			sampleValue.put(newSample);
+			
+			this.setImportFieldPath(fieldPaths.toJSONString());
+			this.setSampleValue(sampleValue.toJSONString());
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	/*
+	 * importfieldpath: [{"path":"CrystalReport>Details>Section>Field>FormattedValue","selected":"true"},{"path":"CrystalReport>Details>Section>Field>Value","selected":"false"}]
+	 * samplevalue: [{"CrystalReport>Details>Section>Field>FormattedValue":""},{"CrystalReport>Details>Section>Field>Value":""}]
+	 */
 }

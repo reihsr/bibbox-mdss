@@ -58,4 +58,27 @@ public class BackgroundTaskHelper {
 		}
 		return 0;
 	}
+	
+	public static long createDeleteImportTask(long importMedicalDataSetId, String importName, boolean deleteData, ServiceContext serviceContext) {
+		System.out.println("BackgroundTaskHelper.deleteImportTask");
+		long groupId = serviceContext.getScopeGroupId();
+		long userId = serviceContext.getUserId();
+		Map<String, Serializable> taskContextMap = new HashMap<>();
+		taskContextMap.put("importMedicalDataSetId", importMedicalDataSetId);
+		taskContextMap.put("scopeGroupId", groupId);
+		taskContextMap.put("userId", userId);
+		taskContextMap.put("deleteData", deleteData);
+		try {
+			BackgroundTask task = BackgroundTaskManagerUtil.addBackgroundTask(userId, groupId, importName, ImportDeleteTaskExecutor.class.getName(), taskContextMap, serviceContext);
+			
+			long backgroundTaskId = task.getBackgroundTaskId();
+			System.out.println("BackgroundTaskHelper.ImportDeleteTaskExecutor " + backgroundTaskId);
+
+			return backgroundTaskId;
+		} catch (PortalException e) {
+			System.err.println("-------> ERROR: at.graz.meduni.bibbox.medicaldataset.service.backgroundtask.BackgroundTaskHelper::deleteImportTask");
+			e.printStackTrace();
+		}
+		return 0;
+	}
 }

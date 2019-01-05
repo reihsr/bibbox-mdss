@@ -53,6 +53,7 @@ public class MedicalRecordSoap implements Serializable {
 		soapModel.setINumber(model.getINumber());
 		soapModel.setVPatientId(model.getVPatientId());
 		soapModel.setVHistonNumber(model.getVHistonNumber());
+		soapModel.setBbPseudonym(model.getBbPseudonym());
 		soapModel.setArea(model.getArea());
 
 		return soapModel;
@@ -258,6 +259,14 @@ public class MedicalRecordSoap implements Serializable {
 		_vHistonNumber = vHistonNumber;
 	}
 
+	public long getBbPseudonym() {
+		return _bbPseudonym;
+	}
+
+	public void setBbPseudonym(long bbPseudonym) {
+		_bbPseudonym = bbPseudonym;
+	}
+
 	public String getArea() {
 		return _area;
 	}
@@ -285,5 +294,6 @@ public class MedicalRecordSoap implements Serializable {
 	private long _iNumber;
 	private long _vPatientId;
 	private long _vHistonNumber;
+	private long _bbPseudonym;
 	private String _area;
 }

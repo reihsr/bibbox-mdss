@@ -24,7 +24,7 @@ create index IX_C27647E4 on medicaldataset_MedicalRecord (uuid_[$COLUMN_LENGTH:7
 create unique index IX_1BF77766 on medicaldataset_MedicalRecord (uuid_[$COLUMN_LENGTH:75$], groupId);
 
 create index IX_7177E6B3 on medicaldataset_PathologyData (groupId);
-create index IX_5CE0A172 on medicaldataset_PathologyData (material[$COLUMN_LENGTH:75$]);
+create index IX_5CE0A172 on medicaldataset_PathologyData (material[$COLUMN_LENGTH:1000$]);
 create index IX_C902E1F6 on medicaldataset_PathologyData (medicalRecordId);
 create index IX_2CBD4A0B on medicaldataset_PathologyData (uuid_[$COLUMN_LENGTH:75$], companyId);
 create unique index IX_3096D74D on medicaldataset_PathologyData (uuid_[$COLUMN_LENGTH:75$], groupId);

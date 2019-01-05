@@ -66,7 +66,7 @@ public class PathologyDataCacheModel implements CacheModel<PathologyData>,
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(111);
+		StringBundler sb = new StringBundler(113);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -152,6 +152,8 @@ public class PathologyDataCacheModel implements CacheModel<PathologyData>,
 		sb.append(comment);
 		sb.append(", zytologiecomment=");
 		sb.append(zytologiecomment);
+		sb.append(", obduktionsart=");
+		sb.append(obduktionsart);
 		sb.append(", grad=");
 		sb.append(grad);
 		sb.append(", tnmp=");
@@ -426,6 +428,13 @@ public class PathologyDataCacheModel implements CacheModel<PathologyData>,
 			pathologyDataImpl.setZytologiecomment(zytologiecomment);
 		}
 
+		if (obduktionsart == null) {
+			pathologyDataImpl.setObduktionsart(StringPool.BLANK);
+		}
+		else {
+			pathologyDataImpl.setObduktionsart(obduktionsart);
+		}
+
 		if (grad == null) {
 			pathologyDataImpl.setGrad(StringPool.BLANK);
 		}
@@ -576,6 +585,7 @@ public class PathologyDataCacheModel implements CacheModel<PathologyData>,
 		neuroPathologicDiagnosis = objectInput.readUTF();
 		comment = objectInput.readUTF();
 		zytologiecomment = objectInput.readUTF();
+		obduktionsart = objectInput.readUTF();
 		grad = objectInput.readUTF();
 		tnmp = objectInput.readUTF();
 		tnmt = objectInput.readUTF();
@@ -810,6 +820,13 @@ public class PathologyDataCacheModel implements CacheModel<PathologyData>,
 			objectOutput.writeUTF(zytologiecomment);
 		}
 
+		if (obduktionsart == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(obduktionsart);
+		}
+
 		if (grad == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
@@ -944,6 +961,7 @@ public class PathologyDataCacheModel implements CacheModel<PathologyData>,
 	public String neuroPathologicDiagnosis;
 	public String comment;
 	public String zytologiecomment;
+	public String obduktionsart;
 	public String grad;
 	public String tnmp;
 	public String tnmt;

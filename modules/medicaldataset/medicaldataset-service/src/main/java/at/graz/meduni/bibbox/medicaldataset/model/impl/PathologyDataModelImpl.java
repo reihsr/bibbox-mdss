@@ -116,6 +116,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 			{ "neuroPathologicDiagnosis", Types.VARCHAR },
 			{ "comment_", Types.VARCHAR },
 			{ "zytologiecomment", Types.VARCHAR },
+			{ "obduktionsart", Types.VARCHAR },
 			{ "grad", Types.VARCHAR },
 			{ "tnmp", Types.VARCHAR },
 			{ "tnmt", Types.VARCHAR },
@@ -175,6 +176,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 		TABLE_COLUMNS_MAP.put("neuroPathologicDiagnosis", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("comment_", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("zytologiecomment", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("obduktionsart", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("grad", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("tnmp", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("tnmt", Types.VARCHAR);
@@ -190,7 +192,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 		TABLE_COLUMNS_MAP.put("smearQuality", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table medicaldataset_PathologyData (uuid_ VARCHAR(75) null,pathologyDataId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,medicalRecordId LONG,receivedDate DATE null,validationDate DATE null,patientAge INTEGER,sender VARCHAR(75) null,extractionMethode VARCHAR(75) null,reportingPhysician1 VARCHAR(75) null,reportingPhysician2 VARCHAR(75) null,gynPhysician VARCHAR(75) null,validationPhysician1 VARCHAR(75) null,validationPhysician2 VARCHAR(75) null,reportStatus VARCHAR(75) null,numberOfBlockes INTEGER,numberOfSlides INTEGER,basicDisease VARCHAR(75) null,causeOfDeath VARCHAR(75) null,material VARCHAR(75) null,materialExtended VARCHAR(75) null,macroscopicDescription TEXT null,microscopicDescription TEXT null,histologicDescription TEXT null,molecularPathologicDescription TEXT null,zytologieDescription TEXT null,pathologicDiagnosis TEXT null,frozenSectionDiagnosis TEXT null,molecularPathologicDiagnosis TEXT null,zytologieDiagnosis TEXT null,neuroPathologicDiagnosis TEXT null,comment_ TEXT null,zytologiecomment TEXT null,grad VARCHAR(75) null,tnmp VARCHAR(75) null,tnmt VARCHAR(75) null,tnmn VARCHAR(75) null,tnmm VARCHAR(75) null,tnmr VARCHAR(75) null,tnml VARCHAR(75) null,tnmv VARCHAR(75) null,tnmpn VARCHAR(75) null,dgcode1 VARCHAR(75) null,dgcode2 VARCHAR(75) null,pap VARCHAR(75) null,smearQuality VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table medicaldataset_PathologyData (uuid_ VARCHAR(75) null,pathologyDataId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,medicalRecordId LONG,receivedDate DATE null,validationDate DATE null,patientAge INTEGER,sender VARCHAR(1000) null,extractionMethode VARCHAR(1000) null,reportingPhysician1 VARCHAR(1000) null,reportingPhysician2 VARCHAR(1000) null,gynPhysician VARCHAR(75) null,validationPhysician1 VARCHAR(1000) null,validationPhysician2 VARCHAR(1000) null,reportStatus VARCHAR(75) null,numberOfBlockes INTEGER,numberOfSlides INTEGER,basicDisease VARCHAR(1000) null,causeOfDeath VARCHAR(1000) null,material VARCHAR(1000) null,materialExtended VARCHAR(1000) null,macroscopicDescription TEXT null,microscopicDescription TEXT null,histologicDescription TEXT null,molecularPathologicDescription TEXT null,zytologieDescription TEXT null,pathologicDiagnosis TEXT null,frozenSectionDiagnosis TEXT null,molecularPathologicDiagnosis TEXT null,zytologieDiagnosis TEXT null,neuroPathologicDiagnosis TEXT null,comment_ TEXT null,zytologiecomment TEXT null,obduktionsart TEXT null,grad VARCHAR(75) null,tnmp VARCHAR(75) null,tnmt VARCHAR(75) null,tnmn VARCHAR(75) null,tnmm VARCHAR(75) null,tnmr VARCHAR(75) null,tnml VARCHAR(75) null,tnmv VARCHAR(75) null,tnmpn VARCHAR(75) null,dgcode1 VARCHAR(75) null,dgcode2 VARCHAR(75) null,pap VARCHAR(75) null,smearQuality VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table medicaldataset_PathologyData";
 	public static final String ORDER_BY_JPQL = " ORDER BY pathologyData.pathologyDataId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY medicaldataset_PathologyData.pathologyDataId ASC";
@@ -268,6 +270,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 		model.setNeuroPathologicDiagnosis(soapModel.getNeuroPathologicDiagnosis());
 		model.setComment(soapModel.getComment());
 		model.setZytologiecomment(soapModel.getZytologiecomment());
+		model.setObduktionsart(soapModel.getObduktionsart());
 		model.setGrad(soapModel.getGrad());
 		model.setTnmp(soapModel.getTnmp());
 		model.setTnmt(soapModel.getTnmt());
@@ -389,6 +392,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 		attributes.put("neuroPathologicDiagnosis", getNeuroPathologicDiagnosis());
 		attributes.put("comment", getComment());
 		attributes.put("zytologiecomment", getZytologiecomment());
+		attributes.put("obduktionsart", getObduktionsart());
 		attributes.put("grad", getGrad());
 		attributes.put("tnmp", getTnmp());
 		attributes.put("tnmt", getTnmt());
@@ -674,6 +678,12 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 
 		if (zytologiecomment != null) {
 			setZytologiecomment(zytologiecomment);
+		}
+
+		String obduktionsart = (String)attributes.get("obduktionsart");
+
+		if (obduktionsart != null) {
+			setObduktionsart(obduktionsart);
 		}
 
 		String grad = (String)attributes.get("grad");
@@ -1450,6 +1460,22 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 
 	@JSON
 	@Override
+	public String getObduktionsart() {
+		if (_obduktionsart == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _obduktionsart;
+		}
+	}
+
+	@Override
+	public void setObduktionsart(String obduktionsart) {
+		_obduktionsart = obduktionsart;
+	}
+
+	@JSON
+	@Override
 	public String getGrad() {
 		if (_grad == null) {
 			return StringPool.BLANK;
@@ -1815,6 +1841,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 		pathologyDataImpl.setNeuroPathologicDiagnosis(getNeuroPathologicDiagnosis());
 		pathologyDataImpl.setComment(getComment());
 		pathologyDataImpl.setZytologiecomment(getZytologiecomment());
+		pathologyDataImpl.setObduktionsart(getObduktionsart());
 		pathologyDataImpl.setGrad(getGrad());
 		pathologyDataImpl.setTnmp(getTnmp());
 		pathologyDataImpl.setTnmt(getTnmt());
@@ -2215,6 +2242,14 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 			pathologyDataCacheModel.zytologiecomment = null;
 		}
 
+		pathologyDataCacheModel.obduktionsart = getObduktionsart();
+
+		String obduktionsart = pathologyDataCacheModel.obduktionsart;
+
+		if ((obduktionsart != null) && (obduktionsart.length() == 0)) {
+			pathologyDataCacheModel.obduktionsart = null;
+		}
+
 		pathologyDataCacheModel.grad = getGrad();
 
 		String grad = pathologyDataCacheModel.grad;
@@ -2324,7 +2359,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(111);
+		StringBundler sb = new StringBundler(113);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -2410,6 +2445,8 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 		sb.append(getComment());
 		sb.append(", zytologiecomment=");
 		sb.append(getZytologiecomment());
+		sb.append(", obduktionsart=");
+		sb.append(getObduktionsart());
 		sb.append(", grad=");
 		sb.append(getGrad());
 		sb.append(", tnmp=");
@@ -2443,7 +2480,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(169);
+		StringBundler sb = new StringBundler(172);
 
 		sb.append("<model><model-name>");
 		sb.append("at.graz.meduni.bibbox.medicaldataset.model.PathologyData");
@@ -2618,6 +2655,10 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 		sb.append(getZytologiecomment());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>obduktionsart</column-name><column-value><![CDATA[");
+		sb.append(getObduktionsart());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>grad</column-name><column-value><![CDATA[");
 		sb.append(getGrad());
 		sb.append("]]></column-value></column>");
@@ -2730,6 +2771,7 @@ public class PathologyDataModelImpl extends BaseModelImpl<PathologyData>
 	private String _neuroPathologicDiagnosis;
 	private String _comment;
 	private String _zytologiecomment;
+	private String _obduktionsart;
 	private String _grad;
 	private String _tnmp;
 	private String _tnmt;

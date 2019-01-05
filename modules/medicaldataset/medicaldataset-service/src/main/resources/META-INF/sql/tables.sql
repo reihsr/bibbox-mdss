@@ -16,7 +16,7 @@ create table medicaldataset_ImportMedicalDataSet (
 	imiJobId LONG,
 	description STRING null,
 	fileName VARCHAR(75) null,
-	filePath VARCHAR(1000) null,
+	filePath TEXT null,
 	fileId LONG,
 	importCount INTEGER,
 	importStatus INTEGER
@@ -36,11 +36,11 @@ create table medicaldataset_ImportMedicalDataSetFieldMap (
 	statusByUserName VARCHAR(75) null,
 	statusDate DATE null,
 	importMedicalDataSetId LONG,
-	importField VARCHAR(1000) null,
-	importFieldPath VARCHAR(1000) null,
-	sampleValue VARCHAR(1000) null,
-	TableName VARCHAR(1000) null,
-	TableField VARCHAR(1000) null
+	importField TEXT null,
+	importFieldPath TEXT null,
+	sampleValue TEXT null,
+	TableName TEXT null,
+	TableField TEXT null
 );
 
 create table medicaldataset_ImportMedicalDataSetLog (
@@ -58,7 +58,7 @@ create table medicaldataset_ImportMedicalDataSetLog (
 	statusDate DATE null,
 	importMedicalDataSetId LONG,
 	importStatus INTEGER,
-	importStatusLog STRING null
+	importStatusLog TEXT null
 );
 
 create table medicaldataset_KloetzelBuch (
@@ -85,8 +85,8 @@ create table medicaldataset_KloetzelBuch (
 	area VARCHAR(75) null,
 	type_ VARCHAR(75) null,
 	acronym VARCHAR(75) null,
-	text_ STRING null,
-	info STRING null,
+	text_ TEXT null,
+	info TEXT null,
 	count INTEGER,
 	numberOfPieces INTEGER,
 	kbStatus INTEGER,
@@ -118,6 +118,7 @@ create table medicaldataset_MedicalRecord (
 	iNumber LONG,
 	vPatientId LONG,
 	vHistonNumber LONG,
+	bbPseudonym LONG,
 	area VARCHAR(75) null
 );
 
@@ -138,20 +139,20 @@ create table medicaldataset_PathologyData (
 	receivedDate DATE null,
 	validationDate DATE null,
 	patientAge INTEGER,
-	sender VARCHAR(75) null,
-	extractionMethode VARCHAR(75) null,
-	reportingPhysician1 VARCHAR(75) null,
-	reportingPhysician2 VARCHAR(75) null,
+	sender VARCHAR(1000) null,
+	extractionMethode VARCHAR(1000) null,
+	reportingPhysician1 VARCHAR(1000) null,
+	reportingPhysician2 VARCHAR(1000) null,
 	gynPhysician VARCHAR(75) null,
-	validationPhysician1 VARCHAR(75) null,
-	validationPhysician2 VARCHAR(75) null,
+	validationPhysician1 VARCHAR(1000) null,
+	validationPhysician2 VARCHAR(1000) null,
 	reportStatus VARCHAR(75) null,
 	numberOfBlockes INTEGER,
 	numberOfSlides INTEGER,
-	basicDisease VARCHAR(75) null,
-	causeOfDeath VARCHAR(75) null,
-	material VARCHAR(75) null,
-	materialExtended VARCHAR(75) null,
+	basicDisease VARCHAR(1000) null,
+	causeOfDeath VARCHAR(1000) null,
+	material VARCHAR(1000) null,
+	materialExtended VARCHAR(1000) null,
 	macroscopicDescription TEXT null,
 	microscopicDescription TEXT null,
 	histologicDescription TEXT null,
@@ -164,6 +165,7 @@ create table medicaldataset_PathologyData (
 	neuroPathologicDiagnosis TEXT null,
 	comment_ TEXT null,
 	zytologiecomment TEXT null,
+	obduktionsart TEXT null,
 	grad VARCHAR(75) null,
 	tnmp VARCHAR(75) null,
 	tnmt VARCHAR(75) null,

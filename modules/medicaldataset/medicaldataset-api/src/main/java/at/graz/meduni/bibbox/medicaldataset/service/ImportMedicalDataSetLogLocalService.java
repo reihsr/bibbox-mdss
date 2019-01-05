@@ -206,6 +206,10 @@ public interface ImportMedicalDataSetLogLocalService extends BaseLocalService,
 	public int getImportMedicalDataSetLogsFromImportsAtStatusCount(
 		long importMedicalDataSetId, int importStatus);
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getImportMedicalDataSetLogsFromImportsCount(
+		long importMedicalDataSetId);
+
 	/**
 	* Returns the OSGi service identifier.
 	*
@@ -253,8 +257,8 @@ public interface ImportMedicalDataSetLogLocalService extends BaseLocalService,
 		int end, OrderByComparator<T> orderByComparator);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<ImportMedicalDataSetLog> getImportMedicalDataSetFromImportsAtStatusLogs(
-		long importMedicalDataSetId, int importStatus);
+	public List<ImportMedicalDataSetLog> getImportMedicalDataSetFromImports(
+		long importMedicalDataSetId);
 
 	/**
 	* Returns a range of all the import medical data set logs.
@@ -309,6 +313,19 @@ public interface ImportMedicalDataSetLogLocalService extends BaseLocalService,
 	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsByUuidAndCompanyId(
 		java.lang.String uuid, long companyId, int start, int end,
 		OrderByComparator<ImportMedicalDataSetLog> orderByComparator);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImports(
+		long importMedicalDataSetId, int start, int end);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImports(
+		long importMedicalDataSetId, int start, int end,
+		OrderByComparator<ImportMedicalDataSetLog> ob);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImportsAtStatus(
+		long importMedicalDataSetId, int importStatus);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImportsAtStatus(

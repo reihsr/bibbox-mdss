@@ -93,6 +93,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 			{ "iNumber", Types.BIGINT },
 			{ "vPatientId", Types.BIGINT },
 			{ "vHistonNumber", Types.BIGINT },
+			{ "bbPseudonym", Types.BIGINT },
 			{ "area", Types.VARCHAR }
 		};
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP = new HashMap<String, Integer>();
@@ -117,10 +118,11 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		TABLE_COLUMNS_MAP.put("iNumber", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("vPatientId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("vHistonNumber", Types.BIGINT);
+		TABLE_COLUMNS_MAP.put("bbPseudonym", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("area", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table medicaldataset_MedicalRecord (uuid_ VARCHAR(75) null,medicalRecordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,histonumberStart LONG,histonumberEnd LONG,histonumberRunning INTEGER,iNumber LONG,vPatientId LONG,vHistonNumber LONG,area VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table medicaldataset_MedicalRecord (uuid_ VARCHAR(75) null,medicalRecordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,histonumberStart LONG,histonumberEnd LONG,histonumberRunning INTEGER,iNumber LONG,vPatientId LONG,vHistonNumber LONG,bbPseudonym LONG,area VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table medicaldataset_MedicalRecord";
 	public static final String ORDER_BY_JPQL = " ORDER BY medicalRecord.medicalRecordId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY medicaldataset_MedicalRecord.medicalRecordId ASC";
@@ -175,6 +177,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		model.setINumber(soapModel.getINumber());
 		model.setVPatientId(soapModel.getVPatientId());
 		model.setVHistonNumber(soapModel.getVHistonNumber());
+		model.setBbPseudonym(soapModel.getBbPseudonym());
 		model.setArea(soapModel.getArea());
 
 		return model;
@@ -259,6 +262,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		attributes.put("iNumber", getINumber());
 		attributes.put("vPatientId", getVPatientId());
 		attributes.put("vHistonNumber", getVHistonNumber());
+		attributes.put("bbPseudonym", getBbPseudonym());
 		attributes.put("area", getArea());
 
 		attributes.put("entityCacheEnabled", isEntityCacheEnabled());
@@ -383,6 +387,12 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 		if (vHistonNumber != null) {
 			setVHistonNumber(vHistonNumber);
+		}
+
+		Long bbPseudonym = (Long)attributes.get("bbPseudonym");
+
+		if (bbPseudonym != null) {
+			setBbPseudonym(bbPseudonym);
 		}
 
 		String area = (String)attributes.get("area");
@@ -714,6 +724,17 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 	@JSON
 	@Override
+	public long getBbPseudonym() {
+		return _bbPseudonym;
+	}
+
+	@Override
+	public void setBbPseudonym(long bbPseudonym) {
+		_bbPseudonym = bbPseudonym;
+	}
+
+	@JSON
+	@Override
 	public String getArea() {
 		if (_area == null) {
 			return StringPool.BLANK;
@@ -864,6 +885,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		medicalRecordImpl.setINumber(getINumber());
 		medicalRecordImpl.setVPatientId(getVPatientId());
 		medicalRecordImpl.setVHistonNumber(getVHistonNumber());
+		medicalRecordImpl.setBbPseudonym(getBbPseudonym());
 		medicalRecordImpl.setArea(getArea());
 
 		medicalRecordImpl.resetOriginalValues();
@@ -1037,6 +1059,8 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 		medicalRecordCacheModel.vHistonNumber = getVHistonNumber();
 
+		medicalRecordCacheModel.bbPseudonym = getBbPseudonym();
+
 		medicalRecordCacheModel.area = getArea();
 
 		String area = medicalRecordCacheModel.area;
@@ -1050,7 +1074,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(41);
+		StringBundler sb = new StringBundler(43);
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1090,6 +1114,8 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		sb.append(getVPatientId());
 		sb.append(", vHistonNumber=");
 		sb.append(getVHistonNumber());
+		sb.append(", bbPseudonym=");
+		sb.append(getBbPseudonym());
 		sb.append(", area=");
 		sb.append(getArea());
 		sb.append("}");
@@ -1099,7 +1125,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(64);
+		StringBundler sb = new StringBundler(67);
 
 		sb.append("<model><model-name>");
 		sb.append("at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord");
@@ -1182,6 +1208,10 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 		sb.append(getVHistonNumber());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>bbPseudonym</column-name><column-value><![CDATA[");
+		sb.append(getBbPseudonym());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>area</column-name><column-value><![CDATA[");
 		sb.append(getArea());
 		sb.append("]]></column-value></column>");
@@ -1224,6 +1254,7 @@ public class MedicalRecordModelImpl extends BaseModelImpl<MedicalRecord>
 	private boolean _setOriginalINumber;
 	private long _vPatientId;
 	private long _vHistonNumber;
+	private long _bbPseudonym;
 	private String _area;
 	private long _columnBitmask;
 	private MedicalRecord _escapedModel;

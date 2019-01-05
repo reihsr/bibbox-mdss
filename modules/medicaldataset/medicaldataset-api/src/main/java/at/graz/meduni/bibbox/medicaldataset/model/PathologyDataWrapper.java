@@ -104,6 +104,7 @@ public class PathologyDataWrapper implements PathologyData,
 		attributes.put("neuroPathologicDiagnosis", getNeuroPathologicDiagnosis());
 		attributes.put("comment", getComment());
 		attributes.put("zytologiecomment", getZytologiecomment());
+		attributes.put("obduktionsart", getObduktionsart());
 		attributes.put("grad", getGrad());
 		attributes.put("tnmp", getTnmp());
 		attributes.put("tnmt", getTnmt());
@@ -386,6 +387,12 @@ public class PathologyDataWrapper implements PathologyData,
 
 		if (zytologiecomment != null) {
 			setZytologiecomment(zytologiecomment);
+		}
+
+		String obduktionsart = (String)attributes.get("obduktionsart");
+
+		if (obduktionsart != null) {
+			setObduktionsart(obduktionsart);
 		}
 
 		String grad = (String)attributes.get("grad");
@@ -811,6 +818,16 @@ public class PathologyDataWrapper implements PathologyData,
 	@Override
 	public java.lang.String getNeuroPathologicDiagnosis() {
 		return _pathologyData.getNeuroPathologicDiagnosis();
+	}
+
+	/**
+	* Returns the obduktionsart of this pathology data.
+	*
+	* @return the obduktionsart of this pathology data
+	*/
+	@Override
+	public java.lang.String getObduktionsart() {
+		return _pathologyData.getObduktionsart();
 	}
 
 	/**
@@ -1468,6 +1485,16 @@ public class PathologyDataWrapper implements PathologyData,
 	@Override
 	public void setNumberOfSlides(int numberOfSlides) {
 		_pathologyData.setNumberOfSlides(numberOfSlides);
+	}
+
+	/**
+	* Sets the obduktionsart of this pathology data.
+	*
+	* @param obduktionsart the obduktionsart of this pathology data
+	*/
+	@Override
+	public void setObduktionsart(java.lang.String obduktionsart) {
+		_pathologyData.setObduktionsart(obduktionsart);
 	}
 
 	/**

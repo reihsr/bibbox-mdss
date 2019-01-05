@@ -3869,6 +3869,7 @@ public class MedicalRecordPersistenceImpl extends BasePersistenceImpl<MedicalRec
 		medicalRecordImpl.setINumber(medicalRecord.getINumber());
 		medicalRecordImpl.setVPatientId(medicalRecord.getVPatientId());
 		medicalRecordImpl.setVHistonNumber(medicalRecord.getVHistonNumber());
+		medicalRecordImpl.setBbPseudonym(medicalRecord.getBbPseudonym());
 		medicalRecordImpl.setArea(medicalRecord.getArea());
 
 		return medicalRecordImpl;

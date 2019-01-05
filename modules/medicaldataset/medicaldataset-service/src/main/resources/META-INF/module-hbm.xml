@@ -134,6 +134,7 @@
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="iNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vPatientId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vHistonNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="bbPseudonym" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="area" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 	<class name="at.graz.meduni.bibbox.medicaldataset.model.impl.PathologyDataImpl" table="medicaldataset_PathologyData">
@@ -181,6 +182,7 @@
 		<property name="neuroPathologicDiagnosis" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property column="comment_" name="comment" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="zytologiecomment" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="obduktionsart" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="grad" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="tnmp" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="tnmt" type="com.liferay.portal.dao.orm.hibernate.StringType" />

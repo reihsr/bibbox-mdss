@@ -33,5 +33,11 @@
         <portlet:param name="mvcPath" value="/medicaldatasetimportportlet/importStep4.jsp" />
     </portlet:actionURL>
     <liferay-ui:icon image="edit" message="Import Step 4 - Reimport" url="<%=importStep5ReimportURL.toString() %>" />
+    
+	<portlet:renderURL var="deleteImportTaskURL">
+        <portlet:param name="importMedicalDataSetId" value="<%=String.valueOf(importMedicalDataSet.getImportMedicalDataSetId()) %>" />
+        <portlet:param name="mvcPath" value="/medicaldatasetimportportlet/deleteImportTask.jsp" />
+    </portlet:renderURL>
+    <liferay-ui:icon image="edit" message="Delete Import Task" url="<%=deleteImportTaskURL.toString() %>" />
 
 </liferay-ui:icon-menu>

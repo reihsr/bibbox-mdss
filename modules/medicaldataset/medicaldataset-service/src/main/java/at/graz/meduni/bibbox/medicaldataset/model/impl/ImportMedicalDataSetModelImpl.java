@@ -123,7 +123,7 @@ public class ImportMedicalDataSetModelImpl extends BaseModelImpl<ImportMedicalDa
 		TABLE_COLUMNS_MAP.put("importStatus", Types.INTEGER);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table medicaldataset_ImportMedicalDataSet (uuid_ VARCHAR(75) null,importMedicalDataSetId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importName VARCHAR(75) null,importType VARCHAR(75) null,imiJobId LONG,description STRING null,fileName VARCHAR(75) null,filePath VARCHAR(1000) null,fileId LONG,importCount INTEGER,importStatus INTEGER)";
+	public static final String TABLE_SQL_CREATE = "create table medicaldataset_ImportMedicalDataSet (uuid_ VARCHAR(75) null,importMedicalDataSetId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importName VARCHAR(75) null,importType VARCHAR(75) null,imiJobId LONG,description STRING null,fileName VARCHAR(75) null,filePath TEXT null,fileId LONG,importCount INTEGER,importStatus INTEGER)";
 	public static final String TABLE_SQL_DROP = "drop table medicaldataset_ImportMedicalDataSet";
 	public static final String ORDER_BY_JPQL = " ORDER BY importMedicalDataSet.createDate ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY medicaldataset_ImportMedicalDataSet.createDate ASC";

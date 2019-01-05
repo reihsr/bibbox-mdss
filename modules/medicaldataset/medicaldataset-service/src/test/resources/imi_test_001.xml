@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CrystalReport xmlns="urn:crystal-reports:schemas:report-detail"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:crystal-reports:schemas:report-detail http://www.businessobjects.com/products/xml/CR2008Schema.xsd">
+	<Details Level="1">
+		<Section SectionNumber="0">
+			<Field Name="BEREICH1" FieldName="{PATHODATEN.BEREICH}">
+				<FormattedValue>C</FormattedValue>
+				<Value>C</Value>
+			</Field>
+			<Field Name="ENUMMERVON1" FieldName="{PATHODATEN.ENUMMER_VON}"><FormattedValue>2013460001</FormattedValue><Value>2013460001</Value></Field>
+			<Field Name="ENUMMERBIS1" FieldName="{PATHODATEN.ENUMMER_BIS}"><FormattedValue>2013460001</FormattedValue><Value>2013460001</Value></Field>
+			<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+			<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>07.11.2013  00:00:00</FormattedValue><Value>2013-11-07T00:00:00</Value></Field>
+			<Field Name="INUMMER1" FieldName="{PATHODATEN.INUMMER}"><FormattedValue>458743</FormattedValue><Value>458743</Value></Field>
+			<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>49</FormattedValue><Value>49</Value></Field>
+			<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>HNO</FormattedValue><Value>HNO</Value></Field>
+			<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PY</FormattedValue><Value>PY</Value></Field>
+			<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>Nicht näher spezif. Material</FormattedValue><Value>Nicht näher spezif. Material</Value></Field>
+			<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue>HNO Gewebe</FormattedValue><Value>HNO Gewebe</Value></Field>
+			<Field Name="OBDUKTIONSART1" FieldName="{PATHODATEN.OBDUKTIONSART}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue>07.11.2013  Arzt: OA Dr. L. Lungu (Tel: 671-5746)  Sekr.: KO
+			 
+			Eingelangt 4 vorgefertigte, wechselnd zellreiche Ausstriche.</FormattedValue><Value>07.11.2013  Arzt: OA Dr. L. Lungu (Tel: 671-5746)  Sekr.: KO
+			 
+			Eingelangt 4 vorgefertigte, wechselnd zellreiche Ausstriche.</Value></Field>
+			<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="ZYTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.ZYTOLOGISCHE_BESCHREIBUNG}"><FormattedValue>07.11.2013  Arzt: OA Dr. L. Lungu (Tel: 671-5746)  Sekr.: KO
+			 
+			Die Ausstriche zeigen einen Hintergrund aus Blut, zum Teil lytisch und aus Bakterienwolken. Weiters findet sich eine gemischte Leukozytenopopulation, erkennbar sind Granulozyten, Lymphozyten und monozytäre Zellelemente. Weiters ein zartes Fibrinnetzwerk im Hintergrund sichtbar und immer wieder Bakterienwolken.</FormattedValue><Value>03.01.2015  Arzt: OA Dr. E. Karpf (Tel: 380-4456)  Sekr.: KO
+			 
+			Die Ausstriche zeigen einen Hintergrund aus Blut, zum Teil lytisch und aus Bakterienwolken. Weiters findet sich eine gemischte Leukozytenopopulation, erkennbar sind Granulozyten, Lymphozyten und monozytäre Zellelemente. Weiters ein zartes Fibrinnetzwerk im Hintergrund sichtbar und immer wieder Bakterienwolken.</Value></Field>
+			<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>Blut, zum Teil lytisch verändert. Gemischte Leukozytenpopulation mit lympho-monozytärer Betonung. Bakterienbesiedelung.
+
+			Keine epithelialen Zellelemente. Keine malignen Tumorzellen.</FormattedValue><Value>Blut, zum Teil lytisch verändert. Gemischte Leukozytenpopulation mit lympho-monozytärer Betonung. Bakterienbesiedelung.
+
+			Keine epithelialen Zellelemente. Keine malignen Tumorzellen.</Value></Field>
+			<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="GRUNDLEIDEN1" FieldName="{PATHODATEN.GRUNDLEIDEN}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="TODESURSACHE1" FieldName="{PATHODATEN.TODESURSACHE}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="NEUROPATHOLOGISCHERBEFUND1" FieldName="{PATHODATEN.NEUROPATHOLOGISCHER_BEFUND}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="PAP1" FieldName="{PATHODATEN.PAP}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="ANMERKUNG1" FieldName="{PATHODATEN.ANMERKUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="ABSTRICHQUALITÄT1" FieldName="{PATHODATEN.ABSTRICHQUALITÄT}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>KAR</FormattedValue><Value>KAR</Value></Field>
+			<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="GYNUEBERBEFUNDER1" FieldName="{PATHODATEN.GYN_UEBERBEFUNDER}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue>KAR</FormattedValue><Value>KAR</Value></Field>
+			<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+			<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue>90</FormattedValue><Value>90</Value></Field>
+			<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue>07.11.2013  00:00:00</FormattedValue><Value>2013-11-07T00:00:00</Value></Field>
+		</Section>
+	</Details>
+	<ReportFooter>
+		<Section SectionNumber="0">
+			<Text Name="lblAnzENUM">
+				<TextValue>Anzahl Befunde:</TextValue>
+			</Text>
+			<Field Name="AnzENUM1" FieldName="{#AnzENUM}">
+				<FormattedValue>20.733</FormattedValue>
+				<Value>20733</Value>
+			</Field>
+		</Section>
+	</ReportFooter>
+</CrystalReport>

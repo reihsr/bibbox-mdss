@@ -739,6 +739,21 @@ public interface PathologyDataModel extends BaseModel<PathologyData>,
 	public void setZytologiecomment(String zytologiecomment);
 
 	/**
+	 * Returns the obduktionsart of this pathology data.
+	 *
+	 * @return the obduktionsart of this pathology data
+	 */
+	@AutoEscape
+	public String getObduktionsart();
+
+	/**
+	 * Sets the obduktionsart of this pathology data.
+	 *
+	 * @param obduktionsart the obduktionsart of this pathology data
+	 */
+	public void setObduktionsart(String obduktionsart);
+
+	/**
 	 * Returns the grad of this pathology data.
 	 *
 	 * @return the grad of this pathology data

@@ -20,6 +20,16 @@
 			<liferay-ui:search-container-column-text property="medicalRecordId" />		
 			
 			<liferay-ui:search-container-column-text property="histonumberRunning" />
+			
+			<%
+			int diagnosisDisplayLength = 120;
+			if(medicalRecord.getPathologyData().getPathologicDiagnosis().length() < 120) {
+				diagnosisDisplayLength  = medicalRecord.getPathologyData().getPathologicDiagnosis().length();
+			}
+			%>
+			<liferay-ui:search-container-column-text name="pathologyDiagnosis" value="<%= medicalRecord.getPathologyData().getPathologicDiagnosis().substring(0, diagnosisDisplayLength) %>"/>
+		
+			<liferay-ui:search-container-column-jsp align="right" path="/medicaldatasetportlet/medicaldatasetportlet_action.jsp" />
 		
 		</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator />

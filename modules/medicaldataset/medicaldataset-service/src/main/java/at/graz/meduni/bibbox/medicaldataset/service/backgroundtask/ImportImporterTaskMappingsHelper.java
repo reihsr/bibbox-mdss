@@ -144,6 +144,8 @@ public class ImportImporterTaskMappingsHelper {
 			medicalRecord_.setVHistonNumber(Long.parseLong(value));
 		} else if(field.equals("area") && value != null && !value.equals("")) {
 			medicalRecord_.setArea(value);
+		} else if(field.equals("bbPseudonym") && value != null && !value.equals("")) {
+			medicalRecord_.setBbPseudonym(Long.parseLong(value));
 		}
 	}
 	
@@ -209,7 +211,9 @@ public class ImportImporterTaskMappingsHelper {
 				pathologyData_.setComment(value);
 			} else if(field.equals("zytologiecomment")) {
 				pathologyData_.setZytologiecomment(value);
-			} else if(field.equals("grad")) {
+			} else if(field.equals("obduktionsart")) {
+				pathologyData_.setObduktionsart(value);
+			}  else if(field.equals("grad")) {
 				pathologyData_.setGrad(value);
 			} else if(field.equals("tnmp")) {
 				pathologyData_.setTnmp(value);

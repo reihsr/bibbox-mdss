@@ -605,6 +605,12 @@ public class ImportMedicalDataSetFieldMapWrapper
 		_importMedicalDataSetFieldMap.setExpandoBridgeAttributes(serviceContext);
 	}
 
+	@Override
+	public void setFieldsData(java.lang.String fieldPath,
+		java.lang.String fieldSampleValue) {
+		_importMedicalDataSetFieldMap.setFieldsData(fieldPath, fieldSampleValue);
+	}
+
 	/**
 	* Sets the group ID of this import medical data set field map.
 	*

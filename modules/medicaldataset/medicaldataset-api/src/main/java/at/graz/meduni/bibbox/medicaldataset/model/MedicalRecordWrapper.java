@@ -79,6 +79,7 @@ public class MedicalRecordWrapper implements MedicalRecord,
 		attributes.put("iNumber", getINumber());
 		attributes.put("vPatientId", getVPatientId());
 		attributes.put("vHistonNumber", getVHistonNumber());
+		attributes.put("bbPseudonym", getBbPseudonym());
 		attributes.put("area", getArea());
 
 		return attributes;
@@ -202,6 +203,12 @@ public class MedicalRecordWrapper implements MedicalRecord,
 			setVHistonNumber(vHistonNumber);
 		}
 
+		Long bbPseudonym = (Long)attributes.get("bbPseudonym");
+
+		if (bbPseudonym != null) {
+			setBbPseudonym(bbPseudonym);
+		}
+
 		String area = (String)attributes.get("area");
 
 		if (area != null) {
@@ -217,6 +224,11 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	@Override
 	public at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord toUnescapedModel() {
 		return new MedicalRecordWrapper(_medicalRecord.toUnescapedModel());
+	}
+
+	@Override
+	public at.graz.meduni.bibbox.medicaldataset.model.PathologyData getPathologyData() {
+		return _medicalRecord.getPathologyData();
 	}
 
 	/**
@@ -466,6 +478,16 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	}
 
 	/**
+	* Returns the bb pseudonym of this medical record.
+	*
+	* @return the bb pseudonym of this medical record
+	*/
+	@Override
+	public long getBbPseudonym() {
+		return _medicalRecord.getBbPseudonym();
+	}
+
+	/**
 	* Returns the company ID of this medical record.
 	*
 	* @return the company ID of this medical record
@@ -598,6 +620,16 @@ public class MedicalRecordWrapper implements MedicalRecord,
 	@Override
 	public void setArea(java.lang.String area) {
 		_medicalRecord.setArea(area);
+	}
+
+	/**
+	* Sets the bb pseudonym of this medical record.
+	*
+	* @param bbPseudonym the bb pseudonym of this medical record
+	*/
+	@Override
+	public void setBbPseudonym(long bbPseudonym) {
+		_medicalRecord.setBbPseudonym(bbPseudonym);
 	}
 
 	@Override

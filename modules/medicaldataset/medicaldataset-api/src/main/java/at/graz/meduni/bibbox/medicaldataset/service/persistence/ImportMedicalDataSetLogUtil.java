@@ -950,6 +950,183 @@ public class ImportMedicalDataSetLogUtil {
 	}
 
 	/**
+	* Returns all the import medical data set logs where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @return the matching import medical data set logs
+	*/
+	public static List<ImportMedicalDataSetLog> findByImportMedicalDataSet(
+		long importMedicalDataSetId) {
+		return getPersistence()
+				   .findByImportMedicalDataSet(importMedicalDataSetId);
+	}
+
+	/**
+	* Returns a range of all the import medical data set logs where importMedicalDataSetId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link ImportMedicalDataSetLogModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param start the lower bound of the range of import medical data set logs
+	* @param end the upper bound of the range of import medical data set logs (not inclusive)
+	* @return the range of matching import medical data set logs
+	*/
+	public static List<ImportMedicalDataSetLog> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end) {
+		return getPersistence()
+				   .findByImportMedicalDataSet(importMedicalDataSetId, start,
+			end);
+	}
+
+	/**
+	* Returns an ordered range of all the import medical data set logs where importMedicalDataSetId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link ImportMedicalDataSetLogModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param start the lower bound of the range of import medical data set logs
+	* @param end the upper bound of the range of import medical data set logs (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching import medical data set logs
+	*/
+	public static List<ImportMedicalDataSetLog> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end,
+		OrderByComparator<ImportMedicalDataSetLog> orderByComparator) {
+		return getPersistence()
+				   .findByImportMedicalDataSet(importMedicalDataSetId, start,
+			end, orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the import medical data set logs where importMedicalDataSetId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link ImportMedicalDataSetLogModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param start the lower bound of the range of import medical data set logs
+	* @param end the upper bound of the range of import medical data set logs (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching import medical data set logs
+	*/
+	public static List<ImportMedicalDataSetLog> findByImportMedicalDataSet(
+		long importMedicalDataSetId, int start, int end,
+		OrderByComparator<ImportMedicalDataSetLog> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByImportMedicalDataSet(importMedicalDataSetId, start,
+			end, orderByComparator, retrieveFromCache);
+	}
+
+	/**
+	* Returns the first import medical data set log in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching import medical data set log
+	* @throws NoSuchImportMedicalDataSetLogException if a matching import medical data set log could not be found
+	*/
+	public static ImportMedicalDataSetLog findByImportMedicalDataSet_First(
+		long importMedicalDataSetId,
+		OrderByComparator<ImportMedicalDataSetLog> orderByComparator)
+		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchImportMedicalDataSetLogException {
+		return getPersistence()
+				   .findByImportMedicalDataSet_First(importMedicalDataSetId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the first import medical data set log in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching import medical data set log, or <code>null</code> if a matching import medical data set log could not be found
+	*/
+	public static ImportMedicalDataSetLog fetchByImportMedicalDataSet_First(
+		long importMedicalDataSetId,
+		OrderByComparator<ImportMedicalDataSetLog> orderByComparator) {
+		return getPersistence()
+				   .fetchByImportMedicalDataSet_First(importMedicalDataSetId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last import medical data set log in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching import medical data set log
+	* @throws NoSuchImportMedicalDataSetLogException if a matching import medical data set log could not be found
+	*/
+	public static ImportMedicalDataSetLog findByImportMedicalDataSet_Last(
+		long importMedicalDataSetId,
+		OrderByComparator<ImportMedicalDataSetLog> orderByComparator)
+		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchImportMedicalDataSetLogException {
+		return getPersistence()
+				   .findByImportMedicalDataSet_Last(importMedicalDataSetId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last import medical data set log in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching import medical data set log, or <code>null</code> if a matching import medical data set log could not be found
+	*/
+	public static ImportMedicalDataSetLog fetchByImportMedicalDataSet_Last(
+		long importMedicalDataSetId,
+		OrderByComparator<ImportMedicalDataSetLog> orderByComparator) {
+		return getPersistence()
+				   .fetchByImportMedicalDataSet_Last(importMedicalDataSetId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the import medical data set logs before and after the current import medical data set log in the ordered set where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetLogId the primary key of the current import medical data set log
+	* @param importMedicalDataSetId the import medical data set ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next import medical data set log
+	* @throws NoSuchImportMedicalDataSetLogException if a import medical data set log with the primary key could not be found
+	*/
+	public static ImportMedicalDataSetLog[] findByImportMedicalDataSet_PrevAndNext(
+		long importMedicalDataSetLogId, long importMedicalDataSetId,
+		OrderByComparator<ImportMedicalDataSetLog> orderByComparator)
+		throws at.graz.meduni.bibbox.medicaldataset.exception.NoSuchImportMedicalDataSetLogException {
+		return getPersistence()
+				   .findByImportMedicalDataSet_PrevAndNext(importMedicalDataSetLogId,
+			importMedicalDataSetId, orderByComparator);
+	}
+
+	/**
+	* Removes all the import medical data set logs where importMedicalDataSetId = &#63; from the database.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	*/
+	public static void removeByImportMedicalDataSet(long importMedicalDataSetId) {
+		getPersistence().removeByImportMedicalDataSet(importMedicalDataSetId);
+	}
+
+	/**
+	* Returns the number of import medical data set logs where importMedicalDataSetId = &#63;.
+	*
+	* @param importMedicalDataSetId the import medical data set ID
+	* @return the number of matching import medical data set logs
+	*/
+	public static int countByImportMedicalDataSet(long importMedicalDataSetId) {
+		return getPersistence()
+				   .countByImportMedicalDataSet(importMedicalDataSetId);
+	}
+
+	/**
 	* Caches the import medical data set log in the entity cache if it is enabled.
 	*
 	* @param importMedicalDataSetLog the import medical data set log

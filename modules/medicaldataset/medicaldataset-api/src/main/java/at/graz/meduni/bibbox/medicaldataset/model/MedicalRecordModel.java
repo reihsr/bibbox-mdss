@@ -391,6 +391,20 @@ public interface MedicalRecordModel extends BaseModel<MedicalRecord>,
 	public void setVHistonNumber(long vHistonNumber);
 
 	/**
+	 * Returns the bb pseudonym of this medical record.
+	 *
+	 * @return the bb pseudonym of this medical record
+	 */
+	public long getBbPseudonym();
+
+	/**
+	 * Sets the bb pseudonym of this medical record.
+	 *
+	 * @param bbPseudonym the bb pseudonym of this medical record
+	 */
+	public void setBbPseudonym(long bbPseudonym);
+
+	/**
 	 * Returns the area of this medical record.
 	 *
 	 * @return the area of this medical record

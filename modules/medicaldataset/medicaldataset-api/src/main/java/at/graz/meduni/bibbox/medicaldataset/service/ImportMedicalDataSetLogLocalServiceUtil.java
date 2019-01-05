@@ -232,6 +232,12 @@ public class ImportMedicalDataSetLogLocalServiceUtil {
 			importStatus);
 	}
 
+	public static int getImportMedicalDataSetLogsFromImportsCount(
+		long importMedicalDataSetId) {
+		return getService()
+				   .getImportMedicalDataSetLogsFromImportsCount(importMedicalDataSetId);
+	}
+
 	/**
 	* Returns the OSGi service identifier.
 	*
@@ -291,11 +297,10 @@ public class ImportMedicalDataSetLogLocalServiceUtil {
 				   .dynamicQuery(dynamicQuery, start, end, orderByComparator);
 	}
 
-	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetFromImportsAtStatusLogs(
-		long importMedicalDataSetId, int importStatus) {
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetFromImports(
+		long importMedicalDataSetId) {
 		return getService()
-				   .getImportMedicalDataSetFromImportsAtStatusLogs(importMedicalDataSetId,
-			importStatus);
+				   .getImportMedicalDataSetFromImports(importMedicalDataSetId);
 	}
 
 	/**
@@ -360,6 +365,28 @@ public class ImportMedicalDataSetLogLocalServiceUtil {
 		return getService()
 				   .getImportMedicalDataSetLogsByUuidAndCompanyId(uuid,
 			companyId, start, end, orderByComparator);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImports(
+		long importMedicalDataSetId, int start, int end) {
+		return getService()
+				   .getImportMedicalDataSetLogsFromImports(importMedicalDataSetId,
+			start, end);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImports(
+		long importMedicalDataSetId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> ob) {
+		return getService()
+				   .getImportMedicalDataSetLogsFromImports(importMedicalDataSetId,
+			start, end, ob);
+	}
+
+	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImportsAtStatus(
+		long importMedicalDataSetId, int importStatus) {
+		return getService()
+				   .getImportMedicalDataSetLogsFromImportsAtStatus(importMedicalDataSetId,
+			importStatus);
 	}
 
 	public static java.util.List<at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImportsAtStatus(

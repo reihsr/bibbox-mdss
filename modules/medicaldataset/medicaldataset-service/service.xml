@@ -35,6 +35,7 @@
 		<column name="iNumber" type="long" />
 		<column name="vPatientId" type="long" />
 		<column name="vHistonNumber" type="long" />
+		<column name="bbPseudonym" type="long" />
 		
 		<!-- Area Data fields -->
 		<column name="area" type="String" />
@@ -118,6 +119,7 @@
 		<column name="neuroPathologicDiagnosis" type="String" />
 		<column name="comment" type="String" />
 		<column name="zytologiecomment" type="String" />
+		<column name="obduktionsart" type="String" />
 		
 		<!-- Structured fields -->
 		<column name="grad" type="String" />
@@ -359,6 +361,9 @@
 		<finder name="ImportMedicalDataSetAndImportStatus" return-type="Collection">
 			<finder-column name="importMedicalDataSetId" />
 			<finder-column name="importStatus" />
+		</finder>
+		<finder name="ImportMedicalDataSet" return-type="Collection">
+			<finder-column name="importMedicalDataSetId" />
 		</finder>
 
 		<!-- References -->

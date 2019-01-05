@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CrystalReport xmlns="urn:crystal-reports:schemas:report-detail"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:crystal-reports:schemas:report-detail http://www.businessobjects.com/products/xml/CR2008Schema.xsd">
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>02.01.1989</FormattedValue><Value>1989-01-02T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>67</FormattedValue><Value>67</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>BHBST</FormattedValue><Value>BHBST</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PO</FormattedValue><Value>PO</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>MAGEN, LEBERKAPSEL, LK</FormattedValue><Value>MAGEN, LEBERKAPSEL, LK</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: 127) FIBROSIERTES BINDEGEWEBE MIT ABERANTEN GALLENGAENGEN. 
+ DIAGNOSE: 128) PARTIELLE LYMPHKNOTENINFILTRATION DURCH EIN ZENTROBLASTI- 
+SCHES LYMPHOMN (MONOMORPHER SUBTYP, TEILWEISE MULTILOBULIERT, NON-HODGKIN- 
+LYMPHOM HOHEN MALIGNITAETSGRADES). 
+ DIAGNOSE: 129) ZENTROBLASTISCHES LYMPHOM, (MONOMORPHER SUBTYP), NON-HODG-
+KIN-LYMPHOM HOHEN MALIGNITAETSGRADES), MIT EXULCERATION UND AUSGEDEHNTER 
+LYMPHKNOTENINFILTRATION. HOCHGR.AUSGEPRAEGTE AKTIVE CHRONISCHE GASTRITIS,
+(CORPUSTYP), MIT MITTELGR. ATROPHIE DER TIEFEN DRUESEN, UND INKOMPLETTER 
+INTESTINALER METAPLASIE, SOWIE INKOMPLETTEN EROSIONEN. GERINGGR.BIS MITTEL 
+GRADIGE CHRONISCHE GASTRITIS (ANTRUMTYP), MIT FOVEOLAERER HYPERPLASIE UND
+GERINGER ATROPHIE DER TIEFEN DRUESEN.
+ DIAGNOSE: 134) TUMORFREIES NERVENGEWEBE. 
+ DIAGNOSE: 136) TUMORFREIE DUENNDARMWANDANTEILE.
+ DIAGNOSE: 138) TUMORFREIE OESOPHAGUSWANDANTEILE.</FormattedValue><Value>DIAGNOSE: 127) FIBROSIERTES BINDEGEWEBE MIT ABERANTEN GALLENGAENGEN. 
+ DIAGNOSE: 128) PARTIELLE LYMPHKNOTENINFILTRATION DURCH EIN ZENTROBLASTI- 
+SCHES LYMPHOMN (MONOMORPHER SUBTYP, TEILWEISE MULTILOBULIERT, NON-HODGKIN- 
+LYMPHOM HOHEN MALIGNITAETSGRADES). 
+ DIAGNOSE: 129) ZENTROBLASTISCHES LYMPHOM, (MONOMORPHER SUBTYP), NON-HODG-
+KIN-LYMPHOM HOHEN MALIGNITAETSGRADES), MIT EXULCERATION UND AUSGEDEHNTER 
+LYMPHKNOTENINFILTRATION. HOCHGR.AUSGEPRAEGTE AKTIVE CHRONISCHE GASTRITIS,
+(CORPUSTYP), MIT MITTELGR. ATROPHIE DER TIEFEN DRUESEN, UND INKOMPLETTER 
+INTESTINALER METAPLASIE, SOWIE INKOMPLETTEN EROSIONEN. GERINGGR.BIS MITTEL 
+GRADIGE CHRONISCHE GASTRITIS (ANTRUMTYP), MIT FOVEOLAERER HYPERPLASIE UND
+GERINGER ATROPHIE DER TIEFEN DRUESEN.
+ DIAGNOSE: 134) TUMORFREIES NERVENGEWEBE. 
+ DIAGNOSE: 136) TUMORFREIE DUENNDARMWANDANTEILE.
+ DIAGNOSE: 138) TUMORFREIE OESOPHAGUSWANDANTEILE.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>29064</FormattedValue><Value>29064.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397650</FormattedValue><Value>1397650.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>03.03.1989</FormattedValue><Value>1989-03-03T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>54</FormattedValue><Value>54</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>1MED</FormattedValue><Value>1MED</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PE</FormattedValue><Value>PE</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: ES LIEGT EIN HEPATITISCHES ZUSTANDSBILD VOR,DAS ALLERDINGS 
+AETIOLOGISCH NICHT SICHER ZUGEORDNET WERDEN KANN. DAS KLASSISCHE BILD EINER
+AKUTEN VIRUSHEPATITIS BESTEHT NICHT, ES KOENNTE SICH ABER UM EIN HEPATI- 
+TISCHES ZUSTANDSBILD ANDERER VIRUSINFEKTIONEN (Z.B. AUS DER ZYTOMEGALIE- 
+MONONUCLEOSEGRUPPE) HANDELN. FUER MITTEILUNG WEITERER UNTERSUCHUNGSER- 
+GEBNISSE UND VOR ALLEM DER HEPATITISSEROLOGIE WAERE ICH IHNEN SEHR DANKBAR.</FormattedValue><Value>DIAGNOSE: ES LIEGT EIN HEPATITISCHES ZUSTANDSBILD VOR,DAS ALLERDINGS 
+AETIOLOGISCH NICHT SICHER ZUGEORDNET WERDEN KANN. DAS KLASSISCHE BILD EINER
+AKUTEN VIRUSHEPATITIS BESTEHT NICHT, ES KOENNTE SICH ABER UM EIN HEPATI- 
+TISCHES ZUSTANDSBILD ANDERER VIRUSINFEKTIONEN (Z.B. AUS DER ZYTOMEGALIE- 
+MONONUCLEOSEGRUPPE) HANDELN. FUER MITTEILUNG WEITERER UNTERSUCHUNGSER- 
+GEBNISSE UND VOR ALLEM DER HEPATITISSEROLOGIE WAERE ICH IHNEN SEHR DANKBAR.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>27206</FormattedValue><Value>27206.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397828</FormattedValue><Value>1397828.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>08.03.1989</FormattedValue><Value>1989-03-08T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>63</FormattedValue><Value>63</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>LKHFELD</FormattedValue><Value>LKHFELD</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PE</FormattedValue><Value>PE</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: MITTELGR. STEATOSE DER LEBER.</FormattedValue><Value>DIAGNOSE: MITTELGR. STEATOSE DER LEBER.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>25964</FormattedValue><Value>25964.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397837</FormattedValue><Value>1397837.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>08.03.1989</FormattedValue><Value>1989-03-08T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>77</FormattedValue><Value>77</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>BHBST</FormattedValue><Value>BHBST</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PO</FormattedValue><Value>PO</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>GALLENBLASE, PE LEBER</FormattedValue><Value>GALLENBLASE, PE LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE 095 -096: HOCH-,MITTEL- BIS STELLENWEISE NIEDRIGDIFFERENZIERTES 
+UND PARTIELL AUCH SIEGELRINGZELLEN AUSGEBILDENDES ADENOKARZINOM DER GALLEN-
+BLASE. AUSGEPRAEGTE LANGDAUERNDE MECHANISCHE CHOLESTASE MIT MITTELGR.
+AUSGEPRAEGTER STEATOSE DER LEBER (PG-1 BIS 3,PT-4).</FormattedValue><Value>DIAGNOSE 095 -096: HOCH-,MITTEL- BIS STELLENWEISE NIEDRIGDIFFERENZIERTES 
+UND PARTIELL AUCH SIEGELRINGZELLEN AUSGEBILDENDES ADENOKARZINOM DER GALLEN-
+BLASE. AUSGEPRAEGTE LANGDAUERNDE MECHANISCHE CHOLESTASE MIT MITTELGR.
+AUSGEPRAEGTER STEATOSE DER LEBER (PG-1 BIS 3,PT-4).</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>28844</FormattedValue><Value>28844.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397838</FormattedValue><Value>1397838.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>10.03.1989</FormattedValue><Value>1989-03-10T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>56</FormattedValue><Value>56</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>LKHFUER</FormattedValue><Value>LKHFUER</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: MITTELGRADIG AUSGEPRAEGTE STEATOSE UND GERINGGRADIGE MESEN-
+CHYMAKTIVIERUNG DER LEBER. 
+HINWEISE FUER EINEN EINDEUTIGEN MEDIKAMENTOES BEDINGTEN TOXISCHEN
+LEBERSCHADEN FINDEN SICH NICHT.</FormattedValue><Value>DIAGNOSE: MITTELGRADIG AUSGEPRAEGTE STEATOSE UND GERINGGRADIGE MESEN-
+CHYMAKTIVIERUNG DER LEBER. 
+HINWEISE FUER EINEN EINDEUTIGEN MEDIKAMENTOES BEDINGTEN TOXISCHEN
+LEBERSCHADEN FINDEN SICH NICHT.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>36567</FormattedValue><Value>36567.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397845</FormattedValue><Value>1397845.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>10.03.1989</FormattedValue><Value>1989-03-10T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>38</FormattedValue><Value>38</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>BHBMA</FormattedValue><Value>BHBMA</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: QUER GESTREIFTE MUSKULATUR, BINDEGEWEBE.</FormattedValue><Value>DIAGNOSE: QUER GESTREIFTE MUSKULATUR, BINDEGEWEBE.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>44895</FormattedValue><Value>44895.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397849</FormattedValue><Value>1397849.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>13.03.1989</FormattedValue><Value>1989-03-13T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>40</FormattedValue><Value>40</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>2MED</FormattedValue><Value>2MED</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>RE. LEBERLAPPEN</FormattedValue><Value>RE. LEBERLAPPEN</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: GERINGGR .STEATOSE DER LEBER.</FormattedValue><Value>DIAGNOSE: GERINGGR .STEATOSE DER LEBER.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>30864</FormattedValue><Value>30864.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397841</FormattedValue><Value>1397841.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>13.03.1989</FormattedValue><Value>1989-03-13T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>39</FormattedValue><Value>39</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>LKHVOIT</FormattedValue><Value>LKHVOIT</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PO</FormattedValue><Value>PO</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>GALLENBLASE, PE LEBER</FormattedValue><Value>GALLENBLASE, PE LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE 877: GERING- BIS MITTELGR. AUSGEPRAEGTE RESIDUEN NACH CHOLECYSTITIS 
+UND NARBIGE WANDVERBREITERUNG. 
+ DIAGNOSE 878: GERINGGR. UNSPEZIFISCHE MESENCHYMAKTIVIERUNG UND MINIMALE
+STEATOSE.</FormattedValue><Value>DIAGNOSE 877: GERING- BIS MITTELGR. AUSGEPRAEGTE RESIDUEN NACH CHOLECYSTITIS 
+UND NARBIGE WANDVERBREITERUNG. 
+ DIAGNOSE 878: GERINGGR. UNSPEZIFISCHE MESENCHYMAKTIVIERUNG UND MINIMALE
+STEATOSE.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Radner</FormattedValue><Value>Radner</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>30434</FormattedValue><Value>30434.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397850</FormattedValue><Value>1397850.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>13.03.1989</FormattedValue><Value>1989-03-13T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>60</FormattedValue><Value>60</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>LKHFELD</FormattedValue><Value>LKHFELD</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PO</FormattedValue><Value>PO</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>GALLENBLASE, PE LEBER</FormattedValue><Value>GALLENBLASE, PE LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: 13: GERINGGRADIG AUSGEPRAEGTE RESIDUEN NACH CHOLECYSTITIS UND
+AUSGEPRAEGTE CHOLESTEATOSE.
+ 14: MINIMALE STEATOSE DER LEBER.</FormattedValue><Value>DIAGNOSE: 13: GERINGGRADIG AUSGEPRAEGTE RESIDUEN NACH CHOLECYSTITIS UND
+AUSGEPRAEGTE CHOLESTEATOSE.
+ 14: MINIMALE STEATOSE DER LEBER.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Radner</FormattedValue><Value>Radner</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>48076</FormattedValue><Value>48076.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397851</FormattedValue><Value>1397851.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>14.03.1989</FormattedValue><Value>1989-03-14T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>43</FormattedValue><Value>43</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>2MED</FormattedValue><Value>2MED</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: GERINGGRADIG AUSGEPRAEGTE STEATOSE DER LEBER.
+EINE KOMPLETTE ODER INZIPIENTE CIRRHOSE LIEGT IM VORLIEGENDEN MATERIAL 
+NICHT VOR.</FormattedValue><Value>DIAGNOSE: GERINGGRADIG AUSGEPRAEGTE STEATOSE DER LEBER.
+EINE KOMPLETTE ODER INZIPIENTE CIRRHOSE LIEGT IM VORLIEGENDEN MATERIAL 
+NICHT VOR.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>47287</FormattedValue><Value>47287.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397858</FormattedValue><Value>1397858.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>14.03.1989</FormattedValue><Value>1989-03-14T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>62</FormattedValue><Value>62</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>1MED</FormattedValue><Value>1MED</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: HOCHGRADIGE CHOLESTASE UND GERINGGRADIGE MESENCHYMAKTIVIERUNG
+DERLEBER, LOCHKERNBILDUNG.</FormattedValue><Value>DIAGNOSE: HOCHGRADIGE CHOLESTASE UND GERINGGRADIGE MESENCHYMAKTIVIERUNG
+DERLEBER, LOCHKERNBILDUNG.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>47975</FormattedValue><Value>47975.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397854</FormattedValue><Value>1397854.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>14.03.1989</FormattedValue><Value>1989-03-14T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>68</FormattedValue><Value>68</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>LKHROTT</FormattedValue><Value>LKHROTT</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: GERINGGRADIG AUSGEPRAEGTE STEATOSE UND MESENCHYMAKTIVIERUNG DER
+LEBER, GERINGGRADIG AUSGEPRAEGTE CHOLESTASE, ZEICHEN EINER BLUTSTAUUNG 
+(CARDIALE STAUUNG).
+EINE CIRRHOSE ODER FREMDGEWEBSINFILTRATION LIEGT NICHT VOR. HEPATITIS
+RESIDUEN SIND NICHT ERKENNBAR. EINE SICHERE AUSSAGE UEBER DIE ETIOLOGIE
+DER CHOLESTASE IST WEGEN DER GERINGEN AUSPRAEGUNG NICHT MOEGLICH (BEFUND 
+AN DEN GALLENWEGEN?). FUER DIE MITTEILUNG WEITERER UNTERSUCHUNGSERGEBNISSE 
+WAEREN WIR DANKBAR.</FormattedValue><Value>DIAGNOSE: GERINGGRADIG AUSGEPRAEGTE STEATOSE UND MESENCHYMAKTIVIERUNG DER
+LEBER, GERINGGRADIG AUSGEPRAEGTE CHOLESTASE, ZEICHEN EINER BLUTSTAUUNG 
+(CARDIALE STAUUNG).
+EINE CIRRHOSE ODER FREMDGEWEBSINFILTRATION LIEGT NICHT VOR. HEPATITIS
+RESIDUEN SIND NICHT ERKENNBAR. EINE SICHERE AUSSAGE UEBER DIE ETIOLOGIE
+DER CHOLESTASE IST WEGEN DER GERINGEN AUSPRAEGUNG NICHT MOEGLICH (BEFUND 
+AN DEN GALLENWEGEN?). FUER DIE MITTEILUNG WEITERER UNTERSUCHUNGSERGEBNISSE 
+WAEREN WIR DANKBAR.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>39571</FormattedValue><Value>39571.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397855</FormattedValue><Value>1397855.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>14.03.1989</FormattedValue><Value>1989-03-14T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>46</FormattedValue><Value>46</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>LKHBRUC</FormattedValue><Value>LKHBRUC</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: GERINGGRADIGE KUPFFERZELLAKTIVIERUNG DER LEBER.
+KEIN NENNENSWERTER PATHOL. BEFUND; KEINE CIRRHOSE IM VORLIEGENDEN MATERIAL.</FormattedValue><Value>DIAGNOSE: GERINGGRADIGE KUPFFERZELLAKTIVIERUNG DER LEBER.
+KEIN NENNENSWERTER PATHOL. BEFUND; KEINE CIRRHOSE IM VORLIEGENDEN MATERIAL.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>28326</FormattedValue><Value>28326.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397856</FormattedValue><Value>1397856.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>15.03.1989</FormattedValue><Value>1989-03-15T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>LKHJUDE</FormattedValue><Value>LKHJUDE</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: MITTELGRADIG AUSGEPRAEGTE STEATOSE DER LEBER.
+IM VORLIEGENDEN MATERIAL KEINE POSTHEPATITISCHEN RESIDUEN.</FormattedValue><Value>DIAGNOSE: MITTELGRADIG AUSGEPRAEGTE STEATOSE DER LEBER.
+IM VORLIEGENDEN MATERIAL KEINE POSTHEPATITISCHEN RESIDUEN.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>45578</FormattedValue><Value>45578.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397860</FormattedValue><Value>1397860.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<Details Level="1">
+<Section SectionNumber="0">
+<Field Name="EINGANGSDATUM1" FieldName="{PATHODATEN.EINGANGSDATUM}"><FormattedValue>16.03.1989</FormattedValue><Value>1989-03-16T00:00:00</Value></Field>
+<Field Name="ALTERPAT1" FieldName="{PATHODATEN.ALTERPAT}"><FormattedValue>33</FormattedValue><Value>33</Value></Field>
+<Field Name="EINSENDER1" FieldName="{PATHODATEN.EINSENDER}"><FormattedValue>2MED</FormattedValue><Value>2MED</Value></Field>
+<Field Name="GEWINNUNGSART1" FieldName="{PATHODATEN.GEWINNUNGSART}"><FormattedValue>PN</FormattedValue><Value>PN</Value></Field>
+<Field Name="MATERIAL1" FieldName="{PATHODATEN.MATERIAL}"><FormattedValue>LEBER</FormattedValue><Value>LEBER</Value></Field>
+<Field Name="MATERIALZUSATZ1" FieldName="{PATHODATEN.MATERIALZUSATZ}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MAKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MAKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="HISTOLOGISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.HISTOLOGISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MIKROSKOPISCHEBESCHREIBUNG1" FieldName="{PATHODATEN.MIKROSKOPISCHE_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPBESCHREIBUNG1" FieldName="{PATHODATEN.MP_BESCHREIBUNG}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="SCHNELLSCHNITTDIAGNOSE1" FieldName="{PATHODATEN.SCHNELLSCHNITTDIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="MPDIAGNOSE1" FieldName="{PATHODATEN.MP_DIAGNOSE}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DIAGNOSE1" FieldName="{PATHODATEN.DIAGNOSE}"><FormattedValue>DIAGNOSE: LEBERGEWEBE OHNE PATH. BEFUND. 
+ IM VORLIEGENDEN MATERIAL EINE LEBERBETEILIGUNG BEI MORBUS BANG NICHT NACH- 
+WEISBAR.</FormattedValue><Value>DIAGNOSE: LEBERGEWEBE OHNE PATH. BEFUND. 
+ IM VORLIEGENDEN MATERIAL EINE LEBERBETEILIGUNG BEI MORBUS BANG NICHT NACH- 
+WEISBAR.</Value></Field>
+<Field Name="GRAD1" FieldName="{PATHODATEN.GRAD}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMP1" FieldName="{PATHODATEN.TNMP}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMT1" FieldName="{PATHODATEN.TNMT}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMM1" FieldName="{PATHODATEN.TNMM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMN1" FieldName="{PATHODATEN.TNMN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMR1" FieldName="{PATHODATEN.TNMR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNML1" FieldName="{PATHODATEN.TNML}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMV1" FieldName="{PATHODATEN.TNMV}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="TNMPN1" FieldName="{PATHODATEN.TNMPN}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE11" FieldName="{PATHODATEN.DGCODE1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="DGCODE21" FieldName="{PATHODATEN.DGCODE2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="KOMMENTAR1" FieldName="{PATHODATEN.KOMMENTAR}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDER11" FieldName="{PATHODATEN.BEFUNDER1}"><FormattedValue>DENK</FormattedValue><Value>DENK</Value></Field>
+<Field Name="BEFUNDER21" FieldName="{PATHODATEN.BEFUNDER2}"><FormattedValue>Fellbaum</FormattedValue><Value>Fellbaum</Value></Field>
+<Field Name="VIDIT11" FieldName="{PATHODATEN.VIDIT1}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VIDIT21" FieldName="{PATHODATEN.VIDIT2}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="BEFUNDSTATUS1" FieldName="{PATHODATEN.BEFUNDSTATUS}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ABSCHLUSSDATUM1" FieldName="{PATHODATEN.ABSCHLUSSDATUM}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="VPATID1" FieldName="{PATHODATEN.VPATID}"><FormattedValue>21512</FormattedValue><Value>21512.00</Value></Field>
+<Field Name="VHISTID1" FieldName="{PATHODATEN.VHISTID}"><FormattedValue>1397866</FormattedValue><Value>1397866.00</Value></Field>
+<Field Name="BEFUNDLFDNR1" FieldName="{PATHODATEN.BEFUND_LFDNR}"><FormattedValue>1</FormattedValue><Value>1</Value></Field>
+<Field Name="ANZBL1" FieldName="{PATHODATEN.ANZBL}"><FormattedValue></FormattedValue><Value></Value></Field>
+<Field Name="ANZOT1" FieldName="{PATHODATEN.ANZOT}"><FormattedValue></FormattedValue><Value></Value></Field>
+</Section>
+</Details>
+<ReportFooter>
+<Section SectionNumber="0">
+<Text Name="lblAnzENUM"><TextValue>Anzahl Befunde:</TextValue>
+</Text>
+<Field Name="AnzENUM1" FieldName="{#AnzENUM}"><FormattedValue>15</FormattedValue><Value>15</Value></Field>
+</Section>
+</ReportFooter>
+</CrystalReport>

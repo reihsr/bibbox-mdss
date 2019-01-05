@@ -116,7 +116,7 @@ public class ImportMedicalDataSetFieldMapModelImpl extends BaseModelImpl<ImportM
 		TABLE_COLUMNS_MAP.put("TableField", Types.VARCHAR);
 	}
 
-	public static final String TABLE_SQL_CREATE = "create table medicaldataset_ImportMedicalDataSetFieldMap (uuid_ VARCHAR(75) null,importMedicalDataSetFieldMapId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,importField VARCHAR(1000) null,importFieldPath VARCHAR(1000) null,sampleValue VARCHAR(1000) null,TableName VARCHAR(1000) null,TableField VARCHAR(1000) null)";
+	public static final String TABLE_SQL_CREATE = "create table medicaldataset_ImportMedicalDataSetFieldMap (uuid_ VARCHAR(75) null,importMedicalDataSetFieldMapId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null,importMedicalDataSetId LONG,importField TEXT null,importFieldPath TEXT null,sampleValue TEXT null,TableName TEXT null,TableField TEXT null)";
 	public static final String TABLE_SQL_DROP = "drop table medicaldataset_ImportMedicalDataSetFieldMap";
 	public static final String ORDER_BY_JPQL = " ORDER BY importMedicalDataSetFieldMap.importMedicalDataSetFieldMapId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY medicaldataset_ImportMedicalDataSetFieldMap.importMedicalDataSetFieldMapId ASC";

@@ -36,6 +36,8 @@ import at.graz.meduni.bibbox.medicaldataset.model.ImportMedicalDataSetFieldMap;
 import at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetFieldMapLocalServiceUtil;
 import at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLocalServiceUtil;
 import at.graz.meduni.bibbox.medicaldataset.service.ImportMedicalDataSetLogLocalServiceUtil;
+import at.graz.meduni.bibbox.medicaldataset.service.backgroundtask.helper.XMLParserFactory;
+import at.graz.meduni.bibbox.medicaldataset.service.backgroundtask.helper.XMLParserInterface;
 
 @Component(immediate = true, property = {
 		"background.task.executor.class.name=at.graz.meduni.bibbox.medicaldataset.service.backgroundtask.ImportImporterTaskExecutor" }, service = BackgroundTaskExecutor.class)
@@ -73,6 +75,7 @@ public class ImportImporterTaskExecutor extends BaseBackgroundTaskExecutor {
 		ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, "Finished Importing Task " + new Date().toString(), serviceContext_);
 		importMedicalDataSet.setImportStatus(100);
 		importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.updateImportMedicalDataSet(importMedicalDataSet);
+		System.out.println("ImportImporterTaskExecutor ENDED");
 		return BackgroundTaskResult.SUCCESS;
 	}
 	
@@ -87,6 +90,10 @@ public class ImportImporterTaskExecutor extends BaseBackgroundTaskExecutor {
 			Document doc = dBuilder.parse(fileEntry.getContentStream());
 			doc.getDocumentElement().normalize();
 			ImportMedicalDataSetLogLocalServiceUtil.addImportMedicalDataSetLog(importMedicalDataSetId_, importStatus_, "Root element: " + doc.getDocumentElement().getNodeName(), serviceContext_);
+			
+			XMLParserFactory xmlParserFactory = new XMLParserFactory();
+			XMLParserInterface xmlParserInterface = xmlParserFactory.getXMLParser(doc.getDocumentElement().getNodeName());
+			xmlParserInterface.setDocument(doc);
 			
 			NodeList nodeListDetails = doc.getElementsByTagName("Details");
 			extractDataFromNodeListDetails(nodeListDetails);

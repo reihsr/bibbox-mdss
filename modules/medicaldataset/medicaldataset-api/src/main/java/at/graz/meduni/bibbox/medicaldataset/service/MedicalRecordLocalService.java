@@ -80,7 +80,7 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 	public MedicalRecord addMedicalRecord(long importMedicalDataSetId,
 		long histonumberStart, long histonumberEnd, int histonumberRunning,
 		long iNumber, long vPatientId, long vHistonNumber,
-		java.lang.String area, ServiceContext serviceContext)
+		java.lang.String area, long bbPseudonym, ServiceContext serviceContext)
 		throws PortalException;
 
 	/**
@@ -164,7 +164,8 @@ public interface MedicalRecordLocalService extends BaseLocalService,
 		long importMedicalDataSetId, long histonumberStart,
 		long histonumberEnd, int histonumberRunning, long iNumber,
 		long vPatientId, long vHistonNumber, java.lang.String area,
-		ServiceContext serviceContext) throws PortalException;
+		long bbPseudonym, ServiceContext serviceContext)
+		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();

@@ -60,6 +60,7 @@ List<ImportMedicalDataSetFieldMap> importMedicalDataSetFieldMaps = ImportMedical
 						        <aui:option label="iNumber" value="iNumber"></aui:option>
 						        <aui:option label="vPatentId" value="vPatentId"></aui:option>
 						        <aui:option label="vHistonNumber" value="vHistonNumber"></aui:option>
+						        <aui:option label="bbPseudonym" value="bbPseudonym"></aui:option>
 						        <aui:option label="area" value="area"></aui:option>
 						    </aui:select>
 						    <aui:select wrapperCssClass="displayClassNone" name='<%= importMedicalDataSetFieldMap.getImportMedicalDataSetFieldMapId() + "_PathologieData" %>' label="Select Colum" inlineLabel="true" cssClass="displayClassNone">
@@ -92,6 +93,7 @@ List<ImportMedicalDataSetFieldMap> importMedicalDataSetFieldMaps = ImportMedical
 						        <aui:option label="neuroPathologicDiagnosis" value="neuroPathologicDiagnosis"></aui:option>
 						        <aui:option label="comment" value="comment"></aui:option>
 						        <aui:option label="zytologiecomment" value="zytologiecomment"></aui:option>
+						        <aui:option label="obduktionsart" value="obduktionsart"></aui:option>
 						        <aui:option label="grad" value="grad"></aui:option>
 						        <aui:option label="tnmp" value="tnmp"></aui:option>
 						        <aui:option label="tnmt" value="tnmt"></aui:option>

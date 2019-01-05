@@ -66,7 +66,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(41);
+		StringBundler sb = new StringBundler(43);
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -106,6 +106,8 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		sb.append(vPatientId);
 		sb.append(", vHistonNumber=");
 		sb.append(vHistonNumber);
+		sb.append(", bbPseudonym=");
+		sb.append(bbPseudonym);
 		sb.append(", area=");
 		sb.append(area);
 		sb.append("}");
@@ -174,6 +176,7 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		medicalRecordImpl.setINumber(iNumber);
 		medicalRecordImpl.setVPatientId(vPatientId);
 		medicalRecordImpl.setVHistonNumber(vHistonNumber);
+		medicalRecordImpl.setBbPseudonym(bbPseudonym);
 
 		if (area == null) {
 			medicalRecordImpl.setArea(StringPool.BLANK);
@@ -221,6 +224,8 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 		vPatientId = objectInput.readLong();
 
 		vHistonNumber = objectInput.readLong();
+
+		bbPseudonym = objectInput.readLong();
 		area = objectInput.readUTF();
 	}
 
@@ -279,6 +284,8 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 
 		objectOutput.writeLong(vHistonNumber);
 
+		objectOutput.writeLong(bbPseudonym);
+
 		if (area == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
@@ -306,5 +313,6 @@ public class MedicalRecordCacheModel implements CacheModel<MedicalRecord>,
 	public long iNumber;
 	public long vPatientId;
 	public long vHistonNumber;
+	public long bbPseudonym;
 	public String area;
 }

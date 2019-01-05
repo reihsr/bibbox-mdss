@@ -76,6 +76,7 @@ public class PathologyDataSoap implements Serializable {
 		soapModel.setNeuroPathologicDiagnosis(model.getNeuroPathologicDiagnosis());
 		soapModel.setComment(model.getComment());
 		soapModel.setZytologiecomment(model.getZytologiecomment());
+		soapModel.setObduktionsart(model.getObduktionsart());
 		soapModel.setGrad(model.getGrad());
 		soapModel.setTnmp(model.getTnmp());
 		soapModel.setTnmt(model.getTnmt());
@@ -479,6 +480,14 @@ public class PathologyDataSoap implements Serializable {
 		_zytologiecomment = zytologiecomment;
 	}
 
+	public String getObduktionsart() {
+		return _obduktionsart;
+	}
+
+	public void setObduktionsart(String obduktionsart) {
+		_obduktionsart = obduktionsart;
+	}
+
 	public String getGrad() {
 		return _grad;
 	}
@@ -625,6 +634,7 @@ public class PathologyDataSoap implements Serializable {
 	private String _neuroPathologicDiagnosis;
 	private String _comment;
 	private String _zytologiecomment;
+	private String _obduktionsart;
 	private String _grad;
 	private String _tnmp;
 	private String _tnmt;

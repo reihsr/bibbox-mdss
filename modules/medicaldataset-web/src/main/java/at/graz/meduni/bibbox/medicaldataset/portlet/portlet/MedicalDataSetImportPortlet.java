@@ -93,6 +93,20 @@ public class MedicalDataSetImportPortlet extends MVCPortlet {
 		BackgroundTaskHelper.createImportImporterTask(importMedicalDataSet.getImportMedicalDataSetId(), importMedicalDataSet.getImportName(), serviceContext);
 	}
 	
+	public void deleteDataset(ActionRequest request, ActionResponse response) throws Exception {
+		long importMedicalDataSetId = ParamUtil.getLong(request, "importMedicalDataSetId");
+		boolean deleteImportDataset = ParamUtil.getBoolean(request, "deleteImportDataset");
+		boolean deleteAllConnectedData = ParamUtil.getBoolean(request, "deleteAllConnectedData");
+		
+		if(deleteImportDataset) {
+			ImportMedicalDataSet importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.getImportMedicalDataSet(importMedicalDataSetId);
+			importMedicalDataSet.setImportStatus(200);
+			importMedicalDataSet = ImportMedicalDataSetLocalServiceUtil.updateImportMedicalDataSet(importMedicalDataSet);
+			ServiceContext serviceContext = ServiceContextFactory.getInstance(ImportMedicalDataSet.class.getName(), request);
+			BackgroundTaskHelper.createDeleteImportTask(importMedicalDataSet.getImportMedicalDataSetId(), importMedicalDataSet.getImportName(), deleteAllConnectedData, serviceContext);
+		}
+	}
+	
 	private void updateFieldMapDynamicFields(ActionRequest request, long importMedicalDataSetId) {
 		
 		List<ImportMedicalDataSetFieldMap> importMedicalDataSetFieldMaps = ImportMedicalDataSetFieldMapLocalServiceUtil.getImportMedicalDataSetFieldMapsFromImportMedicalDataSet(importMedicalDataSetId);

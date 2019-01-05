@@ -60,11 +60,12 @@ public class MedicalRecordLocalServiceWrapper
 		long importMedicalDataSetId, long histonumberStart,
 		long histonumberEnd, int histonumberRunning, long iNumber,
 		long vPatientId, long vHistonNumber, java.lang.String area,
+		long bbPseudonym,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _medicalRecordLocalService.addMedicalRecord(importMedicalDataSetId,
 			histonumberStart, histonumberEnd, histonumberRunning, iNumber,
-			vPatientId, vHistonNumber, area, serviceContext);
+			vPatientId, vHistonNumber, area, bbPseudonym, serviceContext);
 	}
 
 	/**
@@ -181,13 +182,13 @@ public class MedicalRecordLocalServiceWrapper
 		long medicalRecordId, long importMedicalDataSetId,
 		long histonumberStart, long histonumberEnd, int histonumberRunning,
 		long iNumber, long vPatientId, long vHistonNumber,
-		java.lang.String area,
+		java.lang.String area, long bbPseudonym,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _medicalRecordLocalService.updateMedicalRecord(medicalRecordId,
 			importMedicalDataSetId, histonumberStart, histonumberEnd,
 			histonumberRunning, iNumber, vPatientId, vHistonNumber, area,
-			serviceContext);
+			bbPseudonym, serviceContext);
 	}
 
 	@Override

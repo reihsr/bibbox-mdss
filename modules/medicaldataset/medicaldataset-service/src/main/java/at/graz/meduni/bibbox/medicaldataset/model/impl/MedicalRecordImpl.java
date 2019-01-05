@@ -15,6 +15,9 @@
 package at.graz.meduni.bibbox.medicaldataset.model.impl;
 
 import aQute.bnd.annotation.ProviderType;
+import at.graz.meduni.bibbox.medicaldataset.exception.NoSuchPathologyDataException;
+import at.graz.meduni.bibbox.medicaldataset.model.PathologyData;
+import at.graz.meduni.bibbox.medicaldataset.service.PathologyDataLocalServiceUtil;
 
 /**
  * The extended model implementation for the MedicalRecord service. Represents a row in the &quot;FOO_MedicalRecord&quot; database table, with each column mapped to a property of this class.
@@ -33,5 +36,19 @@ public class MedicalRecordImpl extends MedicalRecordBaseImpl {
 	 * Never reference this class directly. All methods that expect a medical record model instance should use the {@link at.graz.meduni.bibbox.medicaldataset.model.MedicalRecord} interface instead.
 	 */
 	public MedicalRecordImpl() {
+	}
+	
+	private PathologyData pathologyData_ = null;
+	
+	public PathologyData getPathologyData() {
+		if(pathologyData_ == null) {
+			try {
+				pathologyData_ = PathologyDataLocalServiceUtil.getPathologyDataForMedicalRecord(this.getMedicalRecordId());
+			} catch (NoSuchPathologyDataException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return pathologyData_;
 	}
 }

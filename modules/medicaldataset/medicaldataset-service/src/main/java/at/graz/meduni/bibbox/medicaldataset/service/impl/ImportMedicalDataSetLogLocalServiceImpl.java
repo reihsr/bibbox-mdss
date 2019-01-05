@@ -14,6 +14,7 @@
 
 package at.graz.meduni.bibbox.medicaldataset.service.impl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -135,8 +136,12 @@ public class ImportMedicalDataSetLogLocalServiceImpl
 		return importMedicalDataSetLogPersistence.countByGroupId(groupId);
 	}
 	
-	public List<ImportMedicalDataSetLog> getImportMedicalDataSetFromImportsAtStatusLogs(long importMedicalDataSetId, int importStatus) {
-		return importMedicalDataSetLogPersistence.findByImportMedicalDataSetAndImportStatus(importMedicalDataSetId, importStatus);
+	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImportsAtStatus(long importMedicalDataSetId, int importStatus) {
+		List<ImportMedicalDataSetLog> returnvalue = null;//importMedicalDataSetLogPersistence.findByImportMedicalDataSetAndImportStatus(importMedicalDataSetId, importStatus);
+		if(returnvalue == null) {
+			returnvalue = new ArrayList<ImportMedicalDataSetLog>();
+		}
+		return returnvalue;
 	}
 	
 	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImportsAtStatus(long importMedicalDataSetId, int importStatus, int start, int end) {
@@ -149,5 +154,21 @@ public class ImportMedicalDataSetLogLocalServiceImpl
 	
 	public int getImportMedicalDataSetLogsFromImportsAtStatusCount(long importMedicalDataSetId, int importStatus) {
 		return importMedicalDataSetLogPersistence.countByImportMedicalDataSetAndImportStatus(importMedicalDataSetId, importStatus);
+	}
+	
+	public List<ImportMedicalDataSetLog> getImportMedicalDataSetFromImports(long importMedicalDataSetId) {
+		return importMedicalDataSetLogPersistence.findByImportMedicalDataSet(importMedicalDataSetId);
+	}
+	
+	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImports(long importMedicalDataSetId, int start, int end) {
+		return importMedicalDataSetLogPersistence.findByImportMedicalDataSet(importMedicalDataSetId, start, end);
+	}
+	
+	public List<ImportMedicalDataSetLog> getImportMedicalDataSetLogsFromImports(long importMedicalDataSetId, int start, int end, OrderByComparator<ImportMedicalDataSetLog> ob) {
+		return importMedicalDataSetLogPersistence.findByImportMedicalDataSet(importMedicalDataSetId, start, end, ob);
+	}
+	
+	public int getImportMedicalDataSetLogsFromImportsCount(long importMedicalDataSetId) {
+		return importMedicalDataSetLogPersistence.countByImportMedicalDataSet(importMedicalDataSetId);
 	}
 }

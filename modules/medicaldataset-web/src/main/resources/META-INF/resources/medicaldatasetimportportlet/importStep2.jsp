@@ -16,11 +16,10 @@ long importMedicalDataSetId = Long.parseLong(renderRequest.getParameter("importM
 	<portlet:param name="mvcPath" value="/medicaldatasetimportportlet/importStep3.jsp" />
 </portlet:renderURL>
 
-
 <div class="panel panel-default">
 		<div class="panel-body">
-		<%
-		List<ImportMedicalDataSetLog> importMedicalDataSetLogs = ImportMedicalDataSetLogLocalServiceUtil.getImportMedicalDataSetFromImportsAtStatusLogs(importMedicalDataSetId, 5);
+		<%																						 
+		List<ImportMedicalDataSetLog> importMedicalDataSetLogs = ImportMedicalDataSetLogLocalServiceUtil.getImportMedicalDataSetLogsFromImportsAtStatus(importMedicalDataSetId, 5);
 		for(ImportMedicalDataSetLog importMedicalDataSetLog : importMedicalDataSetLogs) {
 			%>
 			<%= importMedicalDataSetLog.getImportStatusLog() %><br>
@@ -29,6 +28,7 @@ long importMedicalDataSetId = Long.parseLong(renderRequest.getParameter("importM
 		%>
 	</div>
 </div>
+
 
 <aui:button value="Reload" type="submit" onClick="<%= importStep2RunBackgroundServiceURL.toString() %>"></aui:button>
 <aui:button value="Next" type="next" onClick="<%= importStep3MappingURL.toString() %>"></aui:button>

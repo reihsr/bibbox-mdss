@@ -77,10 +77,10 @@ public class PathologyDataLocalServiceWrapper
 		java.lang.String molecularPathologicDiagnosis,
 		java.lang.String zytologieDiagnosis,
 		java.lang.String neuroPathologicDiagnosis, java.lang.String comment,
-		java.lang.String zytologiecomment, java.lang.String grad,
-		java.lang.String tnmp, java.lang.String tnmt, java.lang.String tnmn,
-		java.lang.String tnmm, java.lang.String tnmr, java.lang.String tnml,
-		java.lang.String tnmv, java.lang.String tnmpn,
+		java.lang.String zytologiecomment, java.lang.String obduktionsart,
+		java.lang.String grad, java.lang.String tnmp, java.lang.String tnmt,
+		java.lang.String tnmn, java.lang.String tnmm, java.lang.String tnmr,
+		java.lang.String tnml, java.lang.String tnmv, java.lang.String tnmpn,
 		java.lang.String dgcode1, java.lang.String dgcode2,
 		java.lang.String pap, java.lang.String smearQuality,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
@@ -95,9 +95,9 @@ public class PathologyDataLocalServiceWrapper
 			molecularPathologicDescription, zytologieDescription,
 			pathologicDiagnosis, frozenSectionDiagnosis,
 			molecularPathologicDiagnosis, zytologieDiagnosis,
-			neuroPathologicDiagnosis, comment, zytologiecomment, grad, tnmp,
-			tnmt, tnmn, tnmm, tnmr, tnml, tnmv, tnmpn, dgcode1, dgcode2, pap,
-			smearQuality, serviceContext);
+			neuroPathologicDiagnosis, comment, zytologiecomment, obduktionsart,
+			grad, tnmp, tnmt, tnmn, tnmm, tnmr, tnml, tnmv, tnmpn, dgcode1,
+			dgcode2, pap, smearQuality, serviceContext);
 	}
 
 	/**
@@ -239,10 +239,10 @@ public class PathologyDataLocalServiceWrapper
 		java.lang.String molecularPathologicDiagnosis,
 		java.lang.String zytologieDiagnosis,
 		java.lang.String neuroPathologicDiagnosis, java.lang.String comment,
-		java.lang.String zytologiecomment, java.lang.String grad,
-		java.lang.String tnmp, java.lang.String tnmt, java.lang.String tnmn,
-		java.lang.String tnmm, java.lang.String tnmr, java.lang.String tnml,
-		java.lang.String tnmv, java.lang.String tnmpn,
+		java.lang.String zytologiecomment, java.lang.String obduktionsart,
+		java.lang.String grad, java.lang.String tnmp, java.lang.String tnmt,
+		java.lang.String tnmn, java.lang.String tnmm, java.lang.String tnmr,
+		java.lang.String tnml, java.lang.String tnmv, java.lang.String tnmpn,
 		java.lang.String dgcode1, java.lang.String dgcode2,
 		java.lang.String pap, java.lang.String smearQuality,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
@@ -257,9 +257,9 @@ public class PathologyDataLocalServiceWrapper
 			molecularPathologicDescription, zytologieDescription,
 			pathologicDiagnosis, frozenSectionDiagnosis,
 			molecularPathologicDiagnosis, zytologieDiagnosis,
-			neuroPathologicDiagnosis, comment, zytologiecomment, grad, tnmp,
-			tnmt, tnmn, tnmm, tnmr, tnml, tnmv, tnmpn, dgcode1, dgcode2, pap,
-			smearQuality, serviceContext);
+			neuroPathologicDiagnosis, comment, zytologiecomment, obduktionsart,
+			grad, tnmp, tnmt, tnmn, tnmm, tnmr, tnml, tnmv, tnmpn, dgcode1,
+			dgcode2, pap, smearQuality, serviceContext);
 	}
 
 	@Override
